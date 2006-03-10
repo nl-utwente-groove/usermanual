@@ -1,9 +1,9 @@
-# Layout information for C:\Eclipse\groove\samples\circular-buffer.gps\put.gpr
+# Layout information for H:\groove\usermanual\fig\put-input.gxl
 # Each line contains layout information about a node or edge
 # Node Format: n <node id> <bounds>
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
-n n77 229 138 28 18 
-n n75 36 125 18 18 
-n n76 140 73 30 18 
-n n73 229 202 34 18 
-n n74 139 176 18 18 
+n n155 229 138 18 18 
+n n151 139 176 18 18 
+n n154 229 202 18 18 
+n n152 139 67 18 18 
+n n153 36 125 18 18 
