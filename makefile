@@ -105,7 +105,7 @@ pdfgraphics = \
 %.pdf : $(MASTER).pdf
 	cp $(MASTER).pdf $@
 
-$(MASTER) : $(MASTER).ps
+$(MASTER) : $(MASTER).pdf
 
 $(MASTER).ps : $(MASTER).dvi
 	dvips -o $(MASTER).ps $(MASTER)
@@ -118,11 +118,14 @@ $(MASTER).dvi : $(texfiles) $(styfiles) $(javafiles) $(bibfiles) $(psgraphics)
 		latex $(MASTER) ; \
 	done
 
-$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(javafiles) $(bibfiles)
-	pdflatex $(MASTER)
-	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
-		pdflatex $(MASTER) ; \
-	done
+#$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(javafiles) $(bibfiles)
+#	pdflatex $(MASTER)
+#	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
+#		pdflatex $(MASTER) ; \
+#	done
+
+$(MASTER).pdf : $(MASTER).ps
+	ps2pdf $(MASTER).ps
 
 $(MASTER).bbl : $(bibfiles) $(texfiles)
 	latex $(MASTER)
