@@ -117,13 +117,13 @@ $(MASTER).ps : $(MASTER).dvi
 
 REPEAT_TEXT = 'Rerun to get cross-references right'
 
-$(MASTER).dvi : $(texfiles) $(styfiles) $(javafiles) $(bibfiles) $(psgraphics)
+$(MASTER).dvi : $(texfiles) $(styfiles) $(psgraphics) $(MASTER).dvi.bbl
 	latex $(MASTER)
 	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
 		latex $(MASTER) ; \
 	done
 
-#$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(javafiles) $(bibfiles)
+#$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).pdf.bbl
 #	pdflatex $(MASTER)
 #	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
 #		pdflatex $(MASTER) ; \
@@ -134,8 +134,12 @@ $(MASTER).pdf : $(MASTER).ps
 	@echo CONVERT PS --> PDF
 	ps2pdf $(MASTER).ps
 
-$(MASTER).bbl : $(bibfiles) $(texfiles)
+$(MASTER).dvi.bbl : $(bibfiles) $(texfiles)
 	latex $(MASTER)
+	bibtex $(MASTER)
+
+$(MASTER).pdf.bbl : $(bibfiles) $(texfiles)
+	pdflatex $(MASTER)
 	bibtex $(MASTER)
 
 # converts all the groove files in the $(FIG_DIR) into png

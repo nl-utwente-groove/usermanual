@@ -1,16 +1,31 @@
 \documentclass[11pt]{article}
+
+\usepackage{multirow}
 \usepackage{rensink}
 \input{notation}
+
 \begin{document}
+
 \title{User Manual for the GROOVE Tool Set}
-\author{Arend Rensink, Harmen Kastenberg, Tom Staijen\\ Department of Computer Science, University of Twente
-  \\ P.O.Box 217, 7500 AE Enschede, The Netherlands \\ \tt{\{rensink,h.kastenberg,staijen\}@cs.utwente.nl}}
+\author{Arend Rensink, Harmen Kastenberg, and Tom Staijen \\
+%
+\vspace{0.2in} \\
+%
+Department of Computer Science, University of Twente \\
+P.O.Box 217, 7500 AE Enschede, The Netherlands \\
+\tt{\{rensink,h.kastenberg,staijen\}@cs.utwente.nl}
+}
 \maketitle
 
-\input{introduction}
-\input{download}
-\input{install}
-\input{usage}
+\tableofcontents
+
+\include{introduction}
+
+\include{download}
+
+\include{install}
+
+\include{usage}
 
 \bibliographystyle{abbrv}
 \bibliography{local}
