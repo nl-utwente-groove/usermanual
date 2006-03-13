@@ -21,7 +21,7 @@ represented as outgoing edges from a central node that stands for the storage
 heap; the values are represented as nodes. In the target graph of the
 transformation, \xx{} has been reassigned to 2.
 %
-\texfig{assign-instance}{Assignment ``$\yy=\xx$'' as a transformation instance}
+\texfig{assign-instance}{Assignment ``$\yy=\xx$'' as a transformation instance.}
 
 Typically, however, one does not look at single transformation instances, but
 rather at \emph{patterns} of transformation that are applicable to many
@@ -39,7 +39,7 @@ pattern is very similar to the instance, except that the values at the nodes
 that \xx{} and \yy{} are pointing to are not included, and the variable
 \zz, which does not play a role in this pattern, is omitted altogether.
 %
-\texfig{assign-pattern}{Assignment ``$\yy=\xx$'' as a transformation pattern}
+\texfig{assign-pattern}{Assignment ``$\yy=\xx$'' as a transformation pattern.}
 
 In the theory of graph transformation (equivalently called \emph{graph
 grammars} or \emph{graph rewriting}), such patterns are given by
@@ -62,16 +62,18 @@ principles can be recognized:
 \item The process of deletion and creation results in a new graph, which is the
   target graph of the transformation.
 \end{enumerate}
+
 This note describes one particular choice of graphs and production rules, as
-implemented in the GROOVE tool set (see \cite{Rens03d}). For those interested,
+implemented in the GROOVE tool set (see \cite{Rensink2003a}). For those interested,
 we give the proper mathematical terminology here.
+
 \begin{itemize}
 \item We use directed, edge-labelled (but not node-labelled) graphs, where
   edges are without identity | that is, the source, label and target of any
   edge together completely identify the edge.
 \item We follow the \emph{single-pushout approach} for graph transformation
-  (see \cite{Loew93,Ehri+97}) where the rules are enhanced with (certain kinds
-  of) \emph{negative application conditions} (see \cite{HabHecTae96}).
+  (see \cite{Loewe1993,Ehrig+1997}) where the rules are enhanced with (certain kinds
+  of) \emph{negative application conditions} (see \cite{HabelHecTae1996}).
 \end{itemize}
 The remainder of the note does not call upon any formal concepts, but explains
 in intuitive terms the visual format for production rules that is used in
@@ -122,7 +124,7 @@ It is clear that depicting self-edges as node labels simplifies the figure a
 great deal.
 %
 \texfig{self-edges}{The same graph, displayed with multiple node labels and
- with explicit self-edges}
+ with explicit self-edges.}
 
 One reason for excluding proper node labels is that this makes it more
 straightforward to encode patterns in which the label is irrelevant.
@@ -158,7 +160,7 @@ Thus, both the node and the edge in the right hand side graph of
 \fref{abbreviations} have two labels, \quo{a\sepChar{}b} and \quo{c}.
 
 %
-\texfig{abbreviations}{Multiple and quoted labels}
+\texfig{abbreviations}{Multiple and quoted labels.}
 %
 
 \paragraph{Hiding and emphasis.}
@@ -190,7 +192,7 @@ the right hand side, the \Buffer-labelled node has been hidden (automatically
 hiding its outgoing \First- and \Last-edges as well) and the \Val- and
 \Next-labelled edges have been emphasized.
 
-\texfig{emphasis}{Hiding and emphasis in graphs}
+\texfig{emphasis}{Hiding and emphasis in graphs.}
 
 \subsubsection{Production rules}
 \stlabel{rule-display}
@@ -204,7 +206,7 @@ list; the list is linked through \Next{} edges, and each list element points to
 the value contained in it through a \Val{} edge.)
 %
 \texfig{append-rule}{Production rule with reader, eraser, embargo and creator
-elements}
+elements.}
 %
 \begin{itemize}
 \item \emph{Reader} nodes and edges, depicted by ordinary, solid thin black arrows
@@ -237,7 +239,7 @@ elements}
 \item \emph{Embargo} nodes and edges, depicted by closely dashed fat red arrows
   and fat red double-bourdered nodes. Embargoes (called \emph{negative
   application conditions} in the literature on graph transformation, see, e.g.,
-  \cite{HabHecTae96}) limit the applicability of a rule by requiring the
+  \cite{HabelHecTae1996}) limit the applicability of a rule by requiring the
   \emph{absence} of the corresponding structure in the graph to be transformed.
   In general, each connected embargo subgraph expresses a single negative
   condition; if there are several negative conditions, each should be satisfied
@@ -279,14 +281,14 @@ elements}
 \fref{append-rule}, as well as two graphs in which the rule is not applicable.
 %
 \texfig{append-step}{
-    Example (non-)applications of the rule in \fref{append-rule}
+    Example (non-)applications of the rule in \fref{append-rule}.
 }%
 %
 As another example, \fref{assign-rule} shows the production rule of
 \fref{assign-pattern} in this format.
 %
 \texfig{assign-rule}{
-    The production rule of \fref{assign-pattern} in the GROOVE format
+    The production rule of \fref{assign-pattern} in the GROOVE format.
 }
 
 \paragraph{Overlap.}
@@ -298,7 +300,7 @@ eraser node or edge of the rule coincide in the graph. In that case the eraser
 ``wins out'': application of the rule results in removal of that element from
 the graph.\footnote{This is a consequence of the fact that GROOVE follows the
   so-called ``single pushout approach'' to graph transformations, see
-  \cite{Loew93}; in other aproaches, the rule would be non-applicable in case
+  \cite{Loewe1993}; in other aproaches, the rule would be non-applicable in case
   of such an overlap.}
 
 \paragraph{Example.}
@@ -314,13 +316,13 @@ rule is not already there. \Get, on the other hand, deletes just such an
 \Object-labelled node together with its incoming \Val-edge, besides deleting and
 creating a \First-labelled edge.
 %
-\texfig{circular-display}{Production rules \Put{} and \Get{} in display format}
+\texfig{circular-display}{Production rules \Put{} and \Get{} in display format.}
 
 The effect of these rules is demonstrated in \fref{circular-states}, which
 shows some applications to the circular buffer of \fref{emphasis}.
 %
 \texfig{circular-states}{Graph transformations governed by the rules \Put{} and 
-  \Get{} in \fref{circular-display}}
+  \Get{} in \fref{circular-display}.}
 
 \subsubsection{Transition systems}
 
@@ -332,7 +334,7 @@ for states and the edges for transitions, which correspond to production rule
 applications.
 
 This is not the place to discuss transition systems in detail. See, for
-instance, \cite{Rens03a} for a discussion of the theoretical background of the
+instance, \cite{Rensink2003a} for a discussion of the theoretical background of the
 functionality of GROOVE. Here it should suffice to understand that to every
 state (i.e., node of the transition system) there is an associated graph, and
 to every transition (i.e., edge of the transition system) there is an
@@ -403,7 +405,7 @@ transition of that state. These are indicated visually by a special line
 colour (namely, blue).
 
 \texfig{ltss}{An incomplete and a completely explored LTS for the circular
-buffer of \fref{emphasis}, using the rules of \fref{circular-display}}
+buffer of \fref{emphasis}, using the rules of \fref{circular-display}.}
 
 For instance, \fref{ltss} shows two labelled transition systems, obtained by
 applying the rules of \fref{circular-display} to the state on the left hand
@@ -469,7 +471,7 @@ $(\pathL)$ & matches the same as $\pathL$ \\
 \hline\hline
 \end{tabular}
 \end{center}
-\caption{Special labels}
+\caption{Special labels.}
 \tlabel{regexp}
 \end{table}
 
@@ -489,16 +491,132 @@ distinct from its use in regular expressions, since as stated above, general
 regular expressions are forbidden on creator edges. An $=$ label on a creator
 edge stands for a \emph{node merger}: the application of such a rule to a given
 graph will merge two distinct nodes into one, which will receive all incoming
-and outgoing edges of the original nodes.
+and outgoing edges of the original nodes. Edges that originally
+occurred between the merge nodes will become self-edge of the
+resulting node.
+
+\subsection{Attributed graphs}
+
+In this section we will discuss how to enrich graphs with nodes
+representing data values (so called \emph{attributed graphs}) and how
+to specify production rules in that case. We will explain the use of
+these data types by using a simple example.
+
+\paragraph{Build-in data types.}
+
+Currently, we have implemented three basic data types:
+\emph{integer}, \emph{boolean}, and \emph{string}. For the integer
+data type we have implemented the following operations: $+$ (addition),
+$-$ (substraction), $*$ (multiplication), $/$ (division), $\%$
+(modulo), $<$ (less than), $>$ (greater) than, and $=$ (equal); for
+strings we only support $+$ (concatenation) and $=$ (equals); for
+booleans we have implemented $\wedge$ (conjunction), $\vee$
+(disjunction), and $\neg$ (negation).
+
+\paragraph{Example graph.}
+
+As an example attributed graph, \fref{algebra-buffer-state} shows a graph
+representation of an empty buffer where the slots are identified by
+indices. The indices are constant data values from the integer data
+type. The buffer also has a \current-attribute referring to the index
+of the current slot. It also has a \capacity-attribute which points to
+the constant data value indicating the number of slots of this
+buffer.
+
+\texfig{algebra-buffer-state}{Empty buffer with capacity 4.}
+
+\paragraph{Example production rule.}
+
+\fref{algebra-buffer-transformation-output} shows a production rule which can
+be applied on the buffer from \fref{algebra-buffer-state}. This rule
+is only applicable if the \bufferIndex{} of the \current{} cell is less than
+the \capacity{} of the buffer, i.e. $\intLT(\current,\capacity) =
+\true$. If this rule is applied, the cell with \bufferIndex{}
+$\current + 1$ will be attached a fresh created \Object{} and will
+become the \current{} cell.
+
+\texfig{algebra-buffer-transformation-output}{Production rule for the buffer
+  with indices.}
+
+\paragraph{General principles.} In the production rule we can
+distinguish two different ways of using attribute values: (1) as
+\emph{input} or as (2) \emph{output} of a specific operation. An
+example of the first case is shown in \fref{update}: the current value
+serves as input for calculating the new value. In the second case
+(see e.g. \fref{condition}), the result of applying the specified
+operation on the current values of the attributes should equal the
+specified output (or result): the data value determines the
+applicability of the rule.
+
+\begin{figure}[htbp]
+\begin{center}
+\subfigure[Input]{
+\includegraphics{\figdir/update}
+\flabel{update}
+}
+\subfigure[Output]{
+\includegraphics{\figdir/condition}
+\flabel{condition}
+}
+\caption{Using attribute values.}
+\flabel{attribute-usage}
+\end{center}
+\end{figure}
 
 \subsection{Editor format}
 \stlabel{input}
 
-The visual formatting of production rules, described in the previous section,
-is the \emph{display format}. In the editor of the GROOVE tool and for the
-purpose of serialising and exchanging production rules, we need a textual
-representation of this format. This is true both for rules and for labelled
-transition systems.
+The visual formatting of attributed graphs, production rules, and
+labelled transition systems, described in the previous section, is the
+\emph{display format}. In the editor of the GROOVE tool and for the
+purpose of serialising and exchanging production rules, we need a
+textual representation of this format. This is true for all of them.
+
+\subsubsection{Attributed graphs}
+
+\fref{algebra-buffer-state} shows the display format of the attributed
+graph as well as the editor format. From that figure we want to
+address how to include constant data values from different data
+types. The general rule is to encode data values as labels of
+self-edges of the node representing the data value. These labels are
+then of the form: \prefix:\constantSymbol, where \prefix{} must be
+replaced by one of the prefixes listed in \tref{data-types} and
+\constantSymbol{} by a textual representation of the actual data
+value.\footnote{In the GXL format the self-edge of nodes representing
+  data values is stored as a simple edge with the entire label. In the
+  near future we plan to use GXL-specific encodings for this in order
+  to make the graph exported by GROOVE easier to process by other
+  tools.} Some examples are given in \tref{algebra-values}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|c|}
+  \hline\hline
+  {\bf Data Type} & {\bf Prefix} \\
+  \hline
+  Integer & \texttt{int} \\
+  String & \texttt{string} \\
+  Boolean & \texttt{bool} \\
+  \hline\hline
+  \end{tabular}
+  \caption{Data types with their corresponding prefixes.}
+  \tlabel{data-types}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|c|}
+  \hline\hline
+  {\bf Data Value} & {\bf Editor Format} \\
+  \hline
+  integer 1 & \texttt{int:1} \\
+  string ``hello'' & \texttt{string:hello} \\
+  boolean \true & \texttt{bool:true} \\
+  \hline\hline
+  \end{tabular}
+  \caption{Data values with their corresponding editor format.}
+  \tlabel{algebra-values}
+\end{table}
 
 \subsubsection{Production rules}
 
@@ -506,7 +624,7 @@ In particular, we need a way to categorise rule
 nodes and edges as reader, eraser, embargo or creator. This is done by
 introducing special \emph{role prefixes}, listed in \tref{prefixes}.
 %
-\begin{table}
+\begin{table}[htbp]
 \begin{center}
 \begin{tabular}{|c|l|}
 \hline\hline
@@ -525,7 +643,7 @@ introducing special \emph{role prefixes}, listed in \tref{prefixes}.
 \end{tabular}
 \end{center}
 \caption{Role prefixes in the editor format for production rules and labelled
-transition systems}
+transition systems.}
 \tlabel{prefixes}
 \end{table}
 %
@@ -538,7 +656,7 @@ implicit.
 %
 \texfig{rule-input}{
     The rules of Figures~\ref{f:append-rule} and \ref{f:assign-rule} in editor
-    format
+    format.
 }%
 %
 As an example, \fref{rule-input} shows the production rules of
@@ -546,7 +664,50 @@ Figures~\ref{f:append-rule} and \ref{f:assign-rule} in editor format.
 \fref{circular-input} shows the editor format of the rules in
 \fref{circular-display}.
 %
-\texfig{circular-input}{The production rules \Put{} and \Get{} of \fref{circular-display} in editor format}
+\texfig{circular-input}{The production rules \Put{} and \Get{} of
+  \fref{circular-display} in editor format.}
+
+When specifying production rules over attributed graphs, we need to
+introduce a way to refer to algebraic operations to be applied on
+particular data values. Since we cannot assume that every operation
+(no matter from which data type) has a distinct symbol, we need an
+editor format comparable to the one used for data values:
+\prefix:\operationSymbol, where \operationSymbol{} must be replaced by
+the textual representations of the specific algebraic operation, as
+listed in \tref{algebra-operations}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|c|c|}
+  \hline\hline
+  {\bf Data Type} & {\bf Operation Symbol} & {\bf Editor Format} \\
+  \hline
+  \multirow{8}*{Integer} & $+$  & \texttt{add} \\
+                         & $-$  & \texttt{sub} \\
+                         & $*$  & \texttt{mul} \\
+                         & $/$  & \texttt{div} \\
+                         & $\%$ & \texttt{mod} \\
+                         & $=$  & \texttt{eq} \\
+                         & $<$  & \texttt{lt} \\
+                         & $>$  & \texttt{gt} \\
+  \hline
+  \multirow{2}*{String}  & $+$  & \texttt{concat} \\
+                         & $=$  & \texttt{eq} \\
+  \hline
+  \multirow{2}*{Boolean} & $\wedge$ & \texttt{and} \\
+                         & $\vee$   & \texttt{or} \\
+                         & $\neg$   & \texttt{not} \\
+  \hline\hline
+  \end{tabular}
+  \caption{Algebraic operations with their corresponding editor format.}
+  \tlabel{algebra-operations}
+\end{table}
+
+\fref{algebra-buffer-transformation-input} shows the editor format of
+the production rule from \fref{algebra-buffer-transformation-output}.
+
+\texfig{algebra-buffer-transformation-input}{Editor format of the
+  production rule from \fref{algebra-buffer-transformation-output}.}
 
 \subsubsection{Labelled transition systems}
 
@@ -554,9 +715,9 @@ Although labelled transition systems are not created in the editor but during
 simulation of a production system, they can be saved as graphs and subsequently
 edited or otherwise processed. In this case, some of the visual elements in the
 display of labelled transition systems, discussed above, are also encoded
-through special labels. This happens for for the initial, final and open
-states; however, information about the active state or transition is lost, as
-are the state identifiers.
+through special labels. This happens for the initial, final and open
+states; however, information about the active state or transition is
+lost, as are the state identifiers.
 
 The spedial labels used for this purpose are also listed in
 \tref{prefixes}. \fref{lts-graphs} shows the editor format of the two
