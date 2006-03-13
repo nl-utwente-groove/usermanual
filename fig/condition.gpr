@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="graph" role="graph" edgeids="false" edgemode="directed">
+        <node id="n292"/>
+        <node id="n295"/>
+        <node id="n291"/>
+        <node id="n293"/>
+        <node id="n294"/>
+        <edge from="n293" to="n294">
+            <attr name="label">
+                <string>current</string>
+            </attr>
+        </edge>
+        <edge from="n293" to="n295">
+            <attr name="label">
+                <string>capacity</string>
+            </attr>
+        </edge>
+        <edge from="n293" to="n293">
+            <attr name="label">
+                <string>Buffer</string>
+            </attr>
+        </edge>
+        <edge from="n291" to="n291">
+            <attr name="label">
+                <string>bool:TRUE</string>
+            </attr>
+        </edge>
+        <edge from="n292" to="n292">
+            <attr name="label">
+                <string>prod:</string>
+            </attr>
+        </edge>
+        <edge from="n294" to="n294">
+            <attr name="label">
+                <string>attr:</string>
+            </attr>
+        </edge>
+        <edge from="n292" to="n295">
+            <attr name="label">
+                <string>arg0</string>
+            </attr>
+        </edge>
+        <edge from="n295" to="n295">
+            <attr name="label">
+                <string>attr:</string>
+            </attr>
+        </edge>
+        <edge from="n292" to="n294">
+            <attr name="label">
+                <string>arg1</string>
+            </attr>
+        </edge>
+        <edge from="n292" to="n291">
+            <attr name="label">
+                <string>int:lt</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
