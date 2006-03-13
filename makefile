@@ -105,7 +105,12 @@ pdfgraphics = \
 %.pdf : $(MASTER).pdf
 	cp $(MASTER).pdf $@
 
-$(MASTER) : $(MASTER).pdf
+dvi ps pdf:
+	@echo ---------------------------
+	$(MAKE) $(MASTER).$@
+	@echo ---------------------------
+	@echo FINISHED
+	@echo ---------------------------
 
 $(MASTER).ps : $(MASTER).dvi
 	dvips -o $(MASTER).ps $(MASTER)
@@ -125,6 +130,8 @@ $(MASTER).dvi : $(texfiles) $(styfiles) $(javafiles) $(bibfiles) $(psgraphics)
 #	done
 
 $(MASTER).pdf : $(MASTER).ps
+	@echo --------------------
+	@echo CONVERT PS --> PDF
 	ps2pdf $(MASTER).ps
 
 $(MASTER).bbl : $(bibfiles) $(texfiles)
