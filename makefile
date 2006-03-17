@@ -112,6 +112,11 @@ dvi ps pdf:
 	@echo FINISHED
 	@echo ---------------------------
 
+$(MASTER).pdf : $(MASTER).ps
+	@echo --------------------
+	@echo CONVERT PS --> PDF
+	ps2pdf $(MASTER).ps
+
 $(MASTER).ps : $(MASTER).dvi
 	dvips -o $(MASTER).ps $(MASTER)
 
@@ -129,10 +134,6 @@ $(MASTER).dvi : $(texfiles) $(styfiles) $(psgraphics) $(MASTER).dvi.bbl
 #		pdflatex $(MASTER) ; \
 #	done
 
-$(MASTER).pdf : $(MASTER).ps
-	@echo --------------------
-	@echo CONVERT PS --> PDF
-	ps2pdf $(MASTER).ps
 
 $(MASTER).dvi.bbl : $(bibfiles) $(texfiles)
 	latex $(MASTER)
