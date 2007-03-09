@@ -4,7 +4,7 @@
 
 To use the GROOVE tool set under windows, download the bin+lib package from the download site explained above and unzip it to any location on your computer. We will refer to the destination folder as GROOVE\_PATH. Under GROOVE\_PATH, you will find a directory \emph{bin} which contains some batchfiles, that refer to the tools contained by the GROOVE tool set (Editor.bat, Simulator.bat, Generator.bat and Imager.bat). Inside the batchfiles, a variable GROOVE\_BIN\_DIR is set. Make sure the value it is set to is your local GROOVE\_PATH.
 
-Then make sure you have a JRE (Java Runtime Environment) installed and that you have it in your PATH. You can download a JRE from \url{http://java.sun.com}.
+Then make sure you have a JRE (Java Runtime Environment) version 5.0 (or higher) installed and that you have it in your PATH. You can download a JRE from \url{http://java.sun.com}.
 
 Now double-click on a batch-file to run the desired tool.
 
@@ -12,7 +12,7 @@ Now double-click on a batch-file to run the desired tool.
 
 To use the GROOVE tool set under windows, download the bin+lib package from the download site explained above and unzip it to any location on your computer. We will refer to the destination folder as GROOVE\_PATH. Under GROOVE\_PATH, you will find a directory \emph{bin} which contains some executable shell-scripts, that refer to the tools contained by the GROOVE tool set (Editor, Simulator, Generator and Imager). Inside the shell-scripts, a variable GROOVE\_BIN\_DIR is set. Make sure the value it is set to is your local GROOVE\_PATH.
 
-Then make sure you have a JRE (Java Runtime Environment) installed and that you have it in your PATH. You can download a JRE from \url{http://java.sun.com}.
+Then make sure you have a JRE (Java Runtime Environment) version 5.0 (or higher) installed and that you have it in your PATH. You can download a JRE from \url{http://java.sun.com}.
 
 Now execute a shell-script to run the desired tool.
 
@@ -79,3 +79,13 @@ Imager <input-file> <output-file>
 \end{verbatim}
 
 The Imager can take two arguments, namely the input-file and the output-file. The input-file can be a groove state graph (.gst), a groove production rule (.gpr) or a gxl file, which is created when a transition system is saved. The output-file can be either a .png or a .jpg file.
+
+\subsection{Model Checker}
+
+The model checker can verify properties over graph transition systems generated from graph production systems.
+
+\begin{verbatim}
+ModelChecker <grammar-location> [<property>]
+\end{verbatim}
+
+The Model Checker needs the location of the graph production system which will be verified. The optional property to be checked must be a CTL-formula. If a property is provided, the Model Checker will only verify the graph transition system against this property; if the property is omitted, the Model Checker will ask for properties to be checked in an interactive way. This is usefull when one wants to verify multiple properties: the graph transition system only needs to be generated once.
