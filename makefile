@@ -118,6 +118,8 @@ $(MASTER).pdf : $(MASTER).ps
 	ps2pdf $(MASTER).ps
 
 $(MASTER).ps : $(MASTER).dvi
+	@echo --------------------
+	@echo CONVERT DVI --> PS
 	dvips -o $(MASTER).ps $(MASTER)
 
 REPEAT_TEXT = 'Rerun to get cross-references right'
