@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\usepackage{multirow}
+\usepackage{rensink}
+\usepackage{listings}
+
+\input{notation}
+
+\newcommand{\by}[1]{ \tt (#1)}
+%\newcommand{\by}[1]{}
+
+
+\graphicspath{{./pics/}}
+
+\begin{document}
+
+\title{User Manual for the GROOVE Tool Set}
+\author{Arend Rensink, Iovka Boneva, Harmen Kastenberg and Tom Staijen \\
+%
+\vspace{0.2in} \\
+%
+Department of Computer Science, University of Twente \\
+P.O.Box 217, 7500 AE Enschede, The Netherlands \\
+\tt{\{rensink,bonevai,h.kastenberg,staijen\}@cs.utwente.nl}
+}
+\maketitle
+
+\tableofcontents
+
+\include{introduction}
+
+\include{formalism}
+
+\include{concepts_basics}
+
+\include{tool_usage_basics}
+
+\include{concepts_advanced}
+
+\include{tool_usage_advanced}
+
+\include{io}
+
+\include{licence}
+
+\bibliographystyle{abbrv}
+\bibliography{local}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
