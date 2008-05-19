@@ -1,5 +1,66 @@
-\section{Introductionb\by{COPY}}
+\section{Introduction\by{COPY}}
+
+GROOVE is a project centered around the use of simple graphs for
+modelling the design-time, compile-time, and run-time structure of
+object-oriented systems, and graph transformations as a basis for
+model transformation and operational semantics. This entails a formal
+foundation for  model transformation and dynamic semantics, and the
+ability to verify model transformation and dynamic semantics through
+an (automatic) analysis of the resulting graph transformation systems,
+for instance using model checking.
+
+This manual constsis of some download and installation instructions and a
+manual for using the tools included in the GROOVE tool set. The latter also
+explains the format used for graphs and graph transformations. Together
+with some examples, this should allow you to get started with GROOVE.
 
 \subsection{Toolkit Components}
 
+The GROOVE tool set includes an editor for creating graph production
+rules, a simulator for visually computing the graph transformations
+induced by a set of graph production rules, a generator for
+automatically exploring state spaces, and an imaging tool for
+converting graphs to images.
+
+
 \subsection{Installation}
+
+\subsubsection{Download}
+
+The GROOVE tool is distributed under the Apache License, Version 2.0. A copy of this license is available on 
+\url{http://www.apache.org/licenses/LICENSE-2.0}.
+
+\bigskip
+
+The latest GROOVE build can be downloaded from the GROOVE sourceforge page\\
+\\
+\url{http://sourceforge.net/projects/groove}.\\
+\\
+There are some different distributions of the GROOVE tool set available on the sourceforge site. The \emph{groove-bin+lib} package includes all the libraries below. The \emph{groove-bin} package is identical but without the libraries. The \emph{groove-src} package only includes the sources of the groove project. There are also some examples available in the \emph{groove-samples} package. The \emph{groove-doc} package consists of some publications about GROOVE and the theory behind it. 
+\\\\
+The GROOVE library depends on some other libraties, namely:
+
+\begin{itemize}
+\item Castor - \url{http://www.castor.org/} (Version included: 0.9.5.2)
+\item JGraph - \url{http://www.jgraph.com/} (Version included: 5.9.2)
+\item JGraphAddons (Version included: 1.0.4)
+\item EPS Graphics Library - \url{http://sourceforge.net/projects/epsgraphics/} (Version included: 1.0.0)
+\item Xerces - \url{http://xerces.apache.org/xerces2-j/} (Version included 2.6.0 (Impl))
+\end{itemize}
+
+
+\subsubsection{Installation on Windows systems}
+
+To use the GROOVE tool set under windows, download the bin+lib package from the download site explained above and unzip it to any location on your computer. We will refer to the destination folder as GROOVE\_PATH. Under GROOVE\_PATH, you will find a directory \emph{bin} which contains some batchfiles, that refer to the tools contained by the GROOVE tool set (Editor.bat, Simulator.bat, Generator.bat and Imager.bat). Inside the batchfiles, a variable GROOVE\_BIN\_DIR is set. Make sure the value it is set to is your local GROOVE\_PATH.
+
+Then make sure you have a JRE (Java Runtime Environment) version 5.0 (or higher) installed and that you have it in your PATH. You can download a JRE from \url{http://java.sun.com}.
+
+Now double-click on a batch-file to run the desired tool.
+
+\subsubsection{Installation on UNIX based systems}
+
+To use the GROOVE tool set under windows, download the bin+lib package from the download site explained above and unzip it to any location on your computer. We will refer to the destination folder as GROOVE\_PATH. Under GROOVE\_PATH, you will find a directory \emph{bin} which contains some executable shell-scripts, that refer to the tools contained by the GROOVE tool set (Editor, Simulator, Generator and Imager). Inside the shell-scripts, a variable GROOVE\_BIN\_DIR is set. Make sure the value it is set to is your local GROOVE\_PATH.
+
+Then make sure you have a JRE (Java Runtime Environment) version 5.0 (or higher) installed and that you have it in your PATH. You can download a JRE from \url{http://java.sun.com}.
+
+Now execute a shell-script to run the desired tool.
