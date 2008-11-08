@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="graph" role="rule" edgeids="false" edgemode="directed">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n820"/>
+        <node id="n821"/>
+        <node id="n822"/>
+        <node id="n823"/>
+        <node id="n824"/>
+        <edge from="n824" to="n824">
+            <attr name="label">
+                <string>not:</string>
+            </attr>
+        </edge>
+        <edge from="n823" to="n823">
+            <attr name="label">
+                <string>Roll</string>
+            </attr>
+        </edge>
+        <edge from="n821" to="n822">
+            <attr name="label">
+                <string>new:in</string>
+            </attr>
+        </edge>
+        <edge from="n824" to="n823">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n824" to="n824">
+            <attr name="label">
+                <string>Roll</string>
+            </attr>
+        </edge>
+        <edge from="n820" to="n821">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n823" to="n821">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n823" to="n820">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n824" to="n820">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n822" to="n822">
+            <attr name="label">
+                <string>Oven</string>
+            </attr>
+        </edge>
+        <edge from="n824" to="n821">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n821" to="n821">
+            <attr name="label">
+                <string>Plate</string>
+            </attr>
+        </edge>
+        <edge from="n820" to="n820">
+            <attr name="label">
+                <string>Roll</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
