@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="double-negation" role="rule" edgeids="false" edgemode="directed">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n641"/>
+        <node id="n642"/>
+        <edge from="n641" to="n641">
+            <attr name="label">
+                <string>not:</string>
+            </attr>
+        </edge>
+        <edge from="n641" to="n641">
+            <attr name="label">
+                <string>Pupil</string>
+            </attr>
+        </edge>
+        <edge from="n642" to="n642">
+            <attr name="label">
+                <string>Bus</string>
+            </attr>
+        </edge>
+        <edge from="n642" to="n642">
+            <attr name="label">
+                <string>!start</string>
+            </attr>
+        </edge>
+        <edge from="n641" to="n642">
+            <attr name="label">
+                <string>!in</string>
+            </attr>
+        </edge>
+        <edge from="n642" to="n642">
+            <attr name="label">
+                <string>new:start</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
