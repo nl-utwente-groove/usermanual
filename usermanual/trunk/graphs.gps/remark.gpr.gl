@@ -1,0 +1,15 @@
+# Layout information for F:\Eclipse\workspace\usermanual\graphs.gps\remark.gpr
+# Each line contains layout information about a node or edge
+# Version info: v <version number>; 1 = pre-jgraph 5.9, 2 = jgraph 5.9
+#     v 1: label position = (x-permillage, y-permillage)
+#     v 2: label position = (vector permillage, perpendicular distance)
+# Node Format: n <node id> <bounds>
+# Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
+v 2
+n n1244 263 24 18 15 
+n n1242 82 66 27 15 
+n n1240 260 137 18 15 
+n n1243 196 69 23 30 
+n n1245 84 141 29 15 
+n n1241 80 175 275 30 
+e n1244 n1240 "rem:distinct" 500 0 283 45 311 92 281 137 12

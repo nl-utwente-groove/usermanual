@@ -12,27 +12,37 @@
 \contentsline {subsection}{\numberline {3.4}Mergers and Injectivities}{8}{subsection.3.4}
 \contentsline {paragraph}{Mergers.}{8}{section*.2}
 \contentsline {paragraph}{Injectivities.}{8}{section*.3}
-\contentsline {paragraph}{Counting.}{8}{section*.4}
-\contentsline {subsection}{\numberline {3.5}Priorities \tt (IB)}{8}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Rule Comments \tt (AR)}{8}{subsection.3.6}
-\contentsline {section}{\numberline {4}Tool Usage}{10}{section.4}
-\contentsline {subsection}{\numberline {4.1}Overview of the Simulator \tt (TS)}{10}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar \tt (TS)}{10}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Exploring an LTS \tt (IB)}{10}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Command Line Generation \tt (IB)}{10}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Inspecting Results \tt (AR)}{10}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing \tt (AR)}{10}{subsection.4.6}
-\contentsline {section}{\numberline {5}Advanced Concepts}{11}{section.5}
-\contentsline {subsection}{\numberline {5.1}Wildcards \& Variables \tt (AR)}{11}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Regular Expressions \tt (AR)}{11}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Attributed Graphs \& Rules \tt (IB)}{11}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Rule Parameters \tt (TS)}{11}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Control \tt (TS)}{11}{subsection.5.5}
-\contentsline {subsection}{\numberline {5.6}Nested Rules \tt (AR)}{11}{subsection.5.6}
-\contentsline {subsection}{\numberline {5.7}Rule Applicability Options \tt (AR)}{11}{subsection.5.7}
-\contentsline {section}{\numberline {6}Advanced Tool Usage}{12}{section.6}
-\contentsline {subsection}{\numberline {6.1}Control \tt (TS)}{12}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Model Checking \tt (HK)}{12}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}System Properties \tt (TS)}{12}{subsection.6.3}
-\contentsline {section}{\numberline {7}I$/\penalty \exhyphenpenalty $O}{13}{section.7}
-\contentsline {section}{\numberline {8}Licence}{14}{section.8}
+\contentsline {paragraph}{Counting.}{9}{section*.4}
+\contentsline {subsection}{\numberline {3.5}Rule Comments}{9}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Rule properties}{9}{subsection.3.6}
+\contentsline {paragraph}{Priorities.}{10}{section*.5}
+\contentsline {paragraph}{Enabledness.}{10}{section*.6}
+\contentsline {paragraph}{Comment.}{10}{section*.7}
+\contentsline {section}{\numberline {4}Tool Usage}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview of the Simulator \tt (TS)}{11}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar \tt (TS)}{11}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Exploring an LTS \tt (IB)}{11}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Command Line Generation \tt (IB)}{11}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Inspecting Results \tt (AR)}{11}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing \tt (AR)}{11}{subsection.4.6}
+\contentsline {section}{\numberline {5}Advanced Concepts}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}Wildcards \& Variables \tt (AR)}{12}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Regular Expressions \tt (AR)}{12}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Attributed Graphs \& Rules \tt (IB)}{12}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Rule Parameters \tt (TS)}{12}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Control \tt (TS)}{12}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Nested Rules \tt (AR)}{12}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}System Properties}{12}{subsection.5.7}
+\contentsline {paragraph}{Attribute support.}{12}{section*.8}
+\contentsline {paragraph}{Match injectivity.}{12}{section*.9}
+\contentsline {paragraph}{Dangling edge check.}{12}{section*.10}
+\contentsline {paragraph}{Creator edge check.}{12}{section*.11}
+\contentsline {paragraph}{Treating the RHSs as NACs.}{12}{section*.12}
+\contentsline {paragraph}{Isomorphism check.}{12}{section*.13}
+\contentsline {paragraph}{Control labels and common labels.}{12}{section*.14}
+\contentsline {section}{\numberline {6}Advanced Tool Usage}{13}{section.6}
+\contentsline {subsection}{\numberline {6.1}Control \tt (TS)}{13}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Model Checking \tt (HK)}{13}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}System Properties \tt (TS)}{13}{subsection.6.3}
+\contentsline {section}{\numberline {7}I$/\penalty \exhyphenpenalty $O}{14}{section.7}
+\contentsline {section}{\numberline {8}Licence}{15}{section.8}

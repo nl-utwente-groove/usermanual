@@ -1,0 +1,14 @@
+# Layout information for F:\Eclipse\workspace\usermanual\graphs.gps\injectivity.gpr
+# Each line contains layout information about a node or edge
+# Version info: v <version number>; 1 = pre-jgraph 5.9, 2 = jgraph 5.9
+#     v 1: label position = (x-permillage, y-permillage)
+#     v 2: label position = (vector permillage, perpendicular distance)
+# Node Format: n <node id> <bounds>
+# Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
+v 2
+n n1064 217 58 37 15 
+n n1067 89 63 37 15 
+n n1063 37 140 27 15 
+n n1066 167 140 36 15 
+n n1065 164 24 37 15 
+n n1068 33 26 37 15 
