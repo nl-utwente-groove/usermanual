@@ -1,18 +1,155 @@
 \section{Basic Concepts}
 
-\emph{Editor/Display view together}
+When working in \Groove{}, in particular when creating or modifying rule
+systems, you should reaslise that there are two different display modes for
+graphs and rules: the one that you usually see in the Simulator, and the one of
+the Editor. We call these the Display and Edit views, respectively.
+Historically, the Edit view only exists because we never took the time to
+create a better graph editor; instead, we ripped off a prototype editor
+provided for free with the \JGraph{} library.
 
-\subsection{Graphs\by{IB}}
+\subsection{Graphs}
 
-No attributes, no aspects.
+\Groove{} uses edge-labelled, directed graphs. Graph nodes are depicted as
+boxes, and edges as arrows between them. Self-edges (often also called loops,
+i.e., edges whose source and target nodes coincide) are often not displayed as
+arrows; instead, node labels are used to represent labels of self-edges. It is
+important to realise that these are formally \emph{exactly the same}. For
+instance, the left and right hand side of \fref{self-edges} depict exactly the
+same graph.
 
-\subsection{Rules\by{IB}}
+\begin{figure}[h]
+\begin{center}
+\graphfig{self-edges-left}
+\qquad
+\graphfig{self-edges-right}
+\end{center}
+\caption{Node labels represent self-edges, hence these two views depict the
+same graph.}
+\flabel{self-edges}
+\end{figure}
 
-Basics, only "rule aspect", i.e. del: use: new: and rem:.
+In the \Groove{} views, both nodes and edges can have multiple labels. Multiple
+node labels are given through a vertical list; multiple edge labels are given
+in the form of a comma-separated list. In both cases, these lists actually
+represent multiple edges; for instance, the left and right hand sides of
+\fref{multiple-edges} depict the same graph.
 
-\subsection{Mergers \& Negations\by{IB}}
+\begin{figure}[h]
+\begin{center}
+\graphfig{multiple-edges-left}
+\qquad
+\graphfig{multiple-edges-right}
+\end{center}
+\caption{Multiple labels represent multiple edges, hence these two views depict
+the same graph.}
+\flabel{multiple-edges}
+\end{figure}
 
-=, !=, !a, new:=, not:=
+\subsection{Rules}
+
+Formally, rules consist of left hand sides, right hand sides and negative
+application conditions (NACs), all of which are different graphs, connected by
+morphisms. In \Groove{} these graphs are combined into one single graphs, and
+colour coding is used to distinguish the original components. Thus, a \Groove{}
+view of a rule has the following kinds of elements:
+
+\begin{description}
+\item[Readers.] These are nodes and edges that are in both the LHS and the RHS.
+  In both the editor and the display view, they are depicted just like ordinary
+  graph elements; hence, the outlines are thin and black and the font colour is
+  black.
+
+\item[Erasers.] These are nodes and edges that occur in the LHS but not the
+  RHS, meaning that they must be matched in order for the rule to apply, but by
+  applying the rule they will be deleted. In the Display view, such elements
+  are depicted by a thin, dashed blue outline and blue text. In the Edit view,
+  erasers are distinguished by a special prefix ``\textsf{del:}''. For eraser
+  nodes, this prefix should appear \emph{on its own} as a node label; for
+  eraser edges, the prefix is followed by the edge label.
+
+\item[Creators.] These are nodes and edges that occur in the RHS but not the
+  LHS, meaning that they will be created when the rule is applied. In the
+  Display view, such elements are depicted by a slightly wider, solid green
+  outline (light grey in a black-and-white representation) and green text. In
+  the Edit view, creators are distinguished by a special prefix
+  ``\textsf{new:}''. For creator nodes, this prefix should appear \emph{on its
+  own} as a node label; for creator edges, the prefix is followed by the edge
+  label.
+
+\item[Embargoes.] These are nodes and edges that are in a NAC, but not in the
+  LHS. This means that they \emph{forbidden}: their presence in the host graph
+  will prevent the rule from being applied. In the Display view, such elements
+  are depicted by a wide, dashed red outline (darker grey in a black-and-white
+  representation) and red text. In the Edit view, creators are distinguished by
+  a special prefix ``\textsf{not:}''. For embargo nodes, this prefix should
+  appear \emph{on its own} as a node label; for embargo edges, the prefix is
+  followed by the edge label.
+\end{description}
+%
+Another thing to note is that if a node plays any of the roles of eraser,
+creator and embargo, its incident edges implicitly also have this role. Thus,
+in that case the corresponding prefix can be omitted in the Edit view.
+
+For example, \fref{simple-rule} shows the Edit and Display views of a rule
+which contains all of these types of elements.
+
+\begin{figure}[h]
+\begin{center}
+\graphfig{simple-rule-edit-view}
+\qquad
+\graphfig{simple-rule}
+\end{center}
+\caption{Display and Edit views of a simple rule.}
+\flabel{simple-rule}
+\end{figure}
+
+\subsection{Negations}
+
+Another way to forbid an edge is by inserting an exclamation mark in front of
+its label. This therefore has the same effect as the ``\textsf{not:}'' prefix,
+but it can only be used for edges. Moreover, negations can also be used
+\emph{within} embargoes, achieving a double negation. For instance,
+\fref{double-negation} expresses that the rule may only be applied if the
+\textsf{Bus} has not already started (\textsf{!start}-self-edge), and there is
+\emph{no} \textsf{Pupil} that is \emph{not} in the bus (\textsf{!in}-embargo
+edge) --- in other words, if all the pupils are in the bus.
+
+\viewsfig{double-negation}{
+    Display and Edit views of a rule with duble negation.
+}
+
+Negation may only be osed on reader and embargo edges; in fact, they would be
+meaningless when used on eraser or creator edges.
+
+\subsection{Mergers and Injectivities}
+
+\Groove{} has a special label ``\textsf{=}'' (the equals sign). When used
+between nodes in a rule, this expresses that the nodes are really the same,
+despite being depicted as different. Such equality labels may also be used on
+creator edges (which are then called \emph{mergers}) and embargo edges (which
+are then called \emph{injectitivies}). Moreover, they may be combined with
+negation.
+
+\paragraph{Mergers.}
+
+\paragraph{Injectivities.}
+
+In general, rules are not matched injectively --- meaning that distinct LHS
+nodes may be matche dby the same host graph node. (See, however,
+\stref{system-properties} where we discuss how to set a global injectivity
+constraint through the system properties.)
+
+\paragraph{Counting.}
+
+As with ordinary labels, the effect of negation is in principle the same as
+that of the embargo prefix --- but again, negations can be used \emph{within}
+embargoes. This has an important use in enabling \emph{counting} in rules. For
+instance, \fref{counting} specifies that a \textsf{Plate} may only be put in
+the \textsf{Oven} if it contains \emph{exactly} three \textsf{Roll}s --- no
+more and no less.
+
+\viewsfig{counting}{Display and Edit view of a rule with a counting constraint}
 
 \subsection{Priorities\by{IB}}
 
