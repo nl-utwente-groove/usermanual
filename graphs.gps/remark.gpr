@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="counting" role="rule" edgeids="false" edgemode="directed">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n1244"/>
+        <node id="n1242"/>
+        <node id="n1240"/>
+        <node id="n1243"/>
+        <node id="n1245"/>
+        <node id="n1241"/>
+        <edge from="n1241" to="n1241">
+            <attr name="label">
+                <string>There is no third roll (distinct from the other two)</string>
+            </attr>
+        </edge>
+        <edge from="n1243" to="n1244">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n1243" to="n1242">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n1243" to="n1243">
+            <attr name="label">
+                <string>Roll</string>
+            </attr>
+        </edge>
+        <edge from="n1244" to="n1240">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n1242" to="n1242">
+            <attr name="label">
+                <string>Plate</string>
+            </attr>
+        </edge>
+        <edge from="n1240" to="n1242">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n1243" to="n1240">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n1241" to="n1241">
+            <attr name="label">
+                <string>rem:</string>
+            </attr>
+        </edge>
+        <edge from="n1243" to="n1243">
+            <attr name="label">
+                <string>not:</string>
+            </attr>
+        </edge>
+        <edge from="n1244" to="n1244">
+            <attr name="label">
+                <string>Roll</string>
+            </attr>
+        </edge>
+        <edge from="n1241" to="n1243">
+            <attr name="label">
+                <string>absent</string>
+            </attr>
+        </edge>
+        <edge from="n1242" to="n1245">
+            <attr name="label">
+                <string>new:in</string>
+            </attr>
+        </edge>
+        <edge from="n1244" to="n1242">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n1240" to="n1240">
+            <attr name="label">
+                <string>Roll</string>
+            </attr>
+        </edge>
+        <edge from="n1245" to="n1245">
+            <attr name="label">
+                <string>Oven</string>
+            </attr>
+        </edge>
+        <edge from="n1244" to="n1240">
+            <attr name="label">
+                <string>rem:distinct</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
