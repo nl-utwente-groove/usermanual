@@ -3,6 +3,8 @@ MASTER = usermanual
 # Subdirectories where figure and code files are stored
 FIG_DIR = fig
 CODE_DIR = java
+GRAPHS_DIR = graphs
+GRAPHS_GPS = graphs.gps
 
 # Lists of local LaTeX-related files
 texfiles = $(wildcard *.tex)
@@ -20,12 +22,14 @@ EPSFIG_FILES = $(wildcard $(FIG_DIR)/*.$(EPSFIG_EXT))
 EPSFIG_NAMES = $(EPSFIG_FILES:%.$(TEXFIG_EXT)=%)
 giffiles = $(wildcard $(FIG_DIR)/*.gif) 
 GIF_NAMES = $(GIF_FILES:%.gif=%)
-gxlfiles = $(wildcard $(FIG_DIR)/*.gxl)
-gstfiles = $(wildcard $(FIG_DIR)/*.gst)
-gprfiles = $(wildcard $(FIG_DIR)/*.gpr)
+GXL_FILES = $(wildcard $(GRAPHS_GPS)/*.gxl)
+GST_FILES = $(wildcard $(GRAPHS_GPS)/*.gst)
+GPR_FILES = $(wildcard $(GRAPHS_GPS)/*.gpr)
 
 # All groove files, without extension
-GROOVE_NAMES = $(gxlfiles:%.gxl=%) $(gstfiles:%.gst=%) $(gprfiles:%.gpr=%)
+GROOVE_NAMES = $(GXL_FILES:$(GRAPHS_GPS)/%.gxl=$(FIG_DIR)/%) \
+	$(GST_FILES:$(GRAPHS_GPS)/%.gst=$(FIG_DIR)/%) \
+	$(GPR_FILES:$(GRAPHS_GPS)/%.gpr=$(FIG_DIR)/%)
 
 # List of local source code files
 javafiles = $(wildcard $(CODE_DIR)/*.java)
@@ -38,7 +42,8 @@ psgraphics = \
 	$(EPSFIG_NAMES:%=%.eps)
 pdfgraphics = \
 	$(TEXFIG_NAMES:%=%.tex) $(TEXFIG_NAMES:%=%.pdf) \
-	$(GIF_NAMES:%=%.pdf) $(EPSFIG_NAMES:%=%.pdf)
+	$(GIF_NAMES:%=%.pdf) $(EPSFIG_NAMES:%=%.pdf) \
+	$(GROOVE_NAMES:%=%.png)
 
 %.incl : %.java
 	./javaextract -incl $*.java
@@ -83,6 +88,15 @@ pdfgraphics = \
 %.eps : %.gif
 	convert -crop 0x0 $*.gif $@
 
+$(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gst
+	groove-imager $(GRAPHS_GPS)/$*.gst $@
+
+$(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gpr
+	groove-imager $(GRAPHS_GPS)/$*.gpr $@
+
+$(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gxl
+	groove-imager $(GRAPHS_GPS)/$*.gxl $@
+
 #
 #%.tex : %.fig
 #	fig2dev -L pstex_t -p $* $*.fig $@
@@ -105,36 +119,13 @@ pdfgraphics = \
 %.pdf : $(MASTER).pdf
 	cp $(MASTER).pdf $@
 
-dvi ps pdf:
-	@echo ---------------------------
-	$(MAKE) $(MASTER).$@
-	@echo ---------------------------
-	@echo FINISHED
-	@echo ---------------------------
-
-$(MASTER).pdf : $(MASTER).ps
-	@echo --------------------
-	@echo CONVERT PS --> PDF
-	ps2pdf $(MASTER).ps
-
-$(MASTER).ps : $(MASTER).dvi
-	@echo --------------------
-	@echo CONVERT DVI --> PS
-	dvips -o $(MASTER).ps $(MASTER)
-
 REPEAT_TEXT = 'Rerun to get cross-references right'
 
-$(MASTER).dvi : $(texfiles) $(styfiles) $(psgraphics) $(MASTER).dvi.bbl
-	latex $(MASTER)
+$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).pdf.bbl
+	pdflatex $(MASTER)
 	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
-		latex $(MASTER) ; \
+		pdflatex $(MASTER) ; \
 	done
-
-#$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).pdf.bbl
-#	pdflatex $(MASTER)
-#	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
-#		pdflatex $(MASTER) ; \
-#	done
 
 
 $(MASTER).dvi.bbl : $(bibfiles) $(texfiles)
