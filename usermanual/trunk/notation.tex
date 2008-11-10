@@ -65,19 +65,33 @@
 \newcommand{\JGraph}{\textsc{JGraph}}
 
 \newcommand{\scale}{.7}
-\newcommand{\graphfig}[1]{%
+\newcommand{\graphbox}[1]{%
     \framebox{\includegraphics[scale=\scale]{\figdir/#1}}%
+}
+
+\newcommand{\graphfig}[2]{%
+  \begin{figure}[h]
+    \begin{center}
+      \graphbox{#1}
+    \end{center}
+    \vspace*{-\medskipamount}
+    \caption{#2}
+    \flabel{#1}
+    \vspace*{-\medskipamount}
+  \end{figure} 
 }
 
 \newcommand{\viewsfig}[2]{%
   \begin{figure}[h]
     \begin{center}
-      \graphfig{#1-edit-view}
+      \graphbox{#1-edit-view}
       \qquad
-      \graphfig{#1}
+      \graphbox{#1}
     \end{center}
+    \vspace*{-\medskipamount}
     \caption{#2}
     \flabel{#1}
+    \vspace*{-\medskipamount}
   \end{figure} 
 }
 

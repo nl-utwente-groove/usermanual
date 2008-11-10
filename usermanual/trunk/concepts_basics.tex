@@ -2,14 +2,15 @@
 \stlabel{basic}
 
 When working in \Groove{}, in particular when creating or modifying rule
-systems, you should reaslise that there are two different display modes for
-graphs and rules: the one that you usually see in the Simulator, and the one of
-the Editor. We call these the Display and Edit views, respectively.
+systems, it is important to reaslise that there are two different display modes
+for graphs and rules: the one that you usually see in the Simulator, and the
+one of the Editor. We call these the Display and Edit views, respectively.
 Historically, the Edit view only exists because we never took the time to
 create a better graph editor; instead, we ripped off a prototype editor
 provided for free with the \JGraph{} library.
 
 \subsection{Graphs}
+\stlabel{Graphs}
 
 \Groove{} uses edge-labelled, directed graphs. Graph nodes are depicted as
 boxes, and edges as arrows between them. Self-edges (often also called loops,
@@ -21,9 +22,9 @@ same graph.
 
 \begin{figure}[h]
 \begin{center}
-\graphfig{self-edges-left}
+\graphbox{self-edges-left}
 \qquad
-\graphfig{self-edges-right}
+\graphbox{self-edges-right}
 \end{center}
 \caption{Node labels represent self-edges, hence these two views depict the
 same graph.}
@@ -38,22 +39,39 @@ represent multiple edges; for instance, the left and right hand sides of
 
 \begin{figure}[h]
 \begin{center}
-\graphfig{multiple-edges-left}
+\graphbox{multiple-edges-left}
 \qquad
-\graphfig{multiple-edges-right}
+\graphbox{multiple-edges-right}
 \end{center}
 \caption{Multiple labels represent multiple edges, hence these two views depict
 the same graph.}
 \flabel{multiple-edges}
 \end{figure}
 
+\paragraph{Labels in graphs.}
+
+There are two restrictions on the character sequences that can be used as
+labels in graphs:
+\begin{itemize}\noitemsep
+\item Colons (``\textsf{:}'') may not be used arbitrarily. This is because
+  colons are used to separate \emph{label prefixes} (see below) from the
+  remainder of the label. This restriction can be circumvented by
+  \emph{starting} the label with a colon: this initial colon is then not
+  counted to be part of the label proper, and the remainder is not parsed for
+  colons. (Thus, an initial colon serves as an ``escape'' character precisely
+  as an initial single quote serves as an escape in Excel.)
+\item Whitespace other than simple spaces, such as tabs and newlines, cannot be
+  included in labels.
+\end{itemize}
+
 \subsection{Rules}
+\stlabel{rules}
 
 Formally, rules consist of left hand sides, right hand sides and negative
 application conditions (NACs), all of which are different graphs, connected by
-morphisms. In \Groove{} these graphs are combined into one single graphs, and
-colour coding is used to distinguish the original components. Thus, a \Groove{}
-view of a rule has the following kinds of elements:
+morphisms. In \Groove{} these graphs are combined into one single graph, and
+colour coding is used to distinguish the original components. As a consequence,
+a \Groove{} view of a rule has the following kinds of elements:
 
 \begin{description}
 \item[Readers.] These are nodes and edges that are in both the LHS and the RHS.
@@ -95,17 +113,42 @@ in that case the corresponding prefix can be omitted in the Edit view.
 For example, \fref{simple-rule} shows the Edit and Display views of a rule
 which contains all of these types of elements.
 
-\begin{figure}[h]
-\begin{center}
-\graphfig{simple-rule-edit-view}
-\qquad
-\graphfig{simple-rule}
-\end{center}
-\caption{Display and Edit views of a simple rule.}
-\flabel{simple-rule}
-\end{figure}
+\viewsfig{simple-rule}{%
+     Edit and Display views of a simple rule.
+}
+
+\paragraph{Labels in rules.}
+
+Label parsing in rules is more complicated than in graphs, because there are
+many more special labels (see below for a discussion). The following points
+should be noted.
+%
+\begin{itemize}\noitemsep
+\item The rule for the use of colons is the same as for graphs: when an
+  (unquoted) colon is used as part of a label, there should be a single initial
+  colon preceding the entire label; this initial colon is not considered to be
+  part of the label itself.
+
+\item In addition to the above, whenever the spacial characters \textsf{'}
+  (single quote), \textsf{\textbackslash} (backslash), \textsf{?} (question
+  mark), \textsf{!}  (exclamation mark), \textsf{=} (equality sign), or
+  \textsf{\{} and \textsf{\}} (opening and closing curly braces) are used
+  literally within labels, i.e., not in their role as special characters, the
+  whole label must be single-quoted. The surrounding single quotes are
+  themselves not considered to be part of the label.
+
+\item The backslash (``\textsf{\textbackslash}'') serves as an escape character
+  within a single-quoted label: any next character (including the backslash
+  itself) is interpreted literally rather than as a special character. This is
+  especially needed to use single quotes within single-quoted labels.
+\end{itemize}
+%
+For instance, the label \textsf{'\textbackslash\textbackslash?\textbackslash''}
+(ending on two single quotes) in a rule matches the label
+\textsf{\textbackslash?'} in a graph.
 
 \subsection{Negations}
+\stlabel{negation}
 
 Another way to forbid an edge is by inserting an exclamation mark in front of
 its label. This therefore has the same effect as the ``\textsf{not:}'' prefix,
@@ -117,13 +160,14 @@ but it can only be used for edges. Moreover, negations can also be used
 edge) --- in other words, if all the pupils are in the bus.
 
 \viewsfig{double-negation}{
-    Display and Edit views of a rule with duble negation.
+     Edit and Display views of a rule with double negation.
 }
 
 Negations may only be used on reader and embargo edges; in fact, they would be
 meaningless when used on eraser or creator edges.
 
-\subsection{Mergers and Injectivities}
+\subsection{Equalities, Mergers and Injectivities}
+\stlabel{equality}
 
 \Groove{} has a special label ``\textsf{=}'' (the equals sign). When used
 between nodes in a rule, this expresses that the nodes are really the same,
@@ -143,7 +187,7 @@ and final state of an automaton should be merged, while all incoming and
 outgoing transitions are preserved.
 
 \viewsfig{merger}{%
-    Display and Edit view of a rule with a merger.
+     Edit and Display views of a rule with a merger.
 }
 
 \paragraph{Injectivities.}
@@ -158,7 +202,7 @@ edge is irrelevant. For instance, the rule in \fref{injectivity} specifies that
 a couple may only marry if they do not share parents.
 
 \viewsfig{injectivity}{%
-    Display and Edit view of a rule with an injectivity constraint.
+    Edit and Display views of a rule with an injectivity constraint.
 }
 
 \paragraph{Counting.}
@@ -172,7 +216,7 @@ more and no less. The injectivity between the reader \textsf{Roll}s ensures
 that there are no less than two of them, whereas the embargo \textsf{Roll} with
 its injectivities ensures that there are no more than two.
 
-\viewsfig{counting}{Display and Edit view of a rule with a counting constraint}
+\viewsfig{counting}{Edit and Display views of a rule with a counting constraint}
 
 \subsection{Rule Comments}
 \stlabel{remark}
@@ -185,7 +229,7 @@ so far. In the Display view, remark nodes and edges are orange, with a yellow
 background. For instance, \fref{remark} is the same rule as \fref{counting},
 augmented with remarks.
 
-\viewsfig{remark}{Display and Edit view of a rule with remark elements}
+\viewsfig{remark}{Edit and Display views of a rule with remark elements}
 
 \subsection{Rule properties}
 \stlabel{rule-properties}
