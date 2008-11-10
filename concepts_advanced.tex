@@ -1,37 +1,444 @@
 \section{Advanced Concepts}
+\stlabel{advanced}
 
-\subsection{Wildcards \& Variables\by{AR}}
-\stlabel{wildcards}
 
-\subsection{Regular Expressions\by{AR}}
+\subsection{Wildcards and Variables}
+\stlabel{wildcard}
+
+Wildcards are special edge labels that can be used in rules to stand for
+\emph{arbitrary} labels. The basic wildcard is just a question mark
+``\textsf{?}'': it is matched by any edge of which the source and target node
+also match. Wildcards can only be used in the LHS or NAC; in other words, a
+wildcard cannot be used on a creator edge --- unless it is a \emph{named}
+wildcard, see below.
+
+\paragraph{Guarded wildcards.}
+
+Wildcards can be \emph{guarded} either by a list of allowed values or by a list
+of forbidden values:
+\begin{itemize}\noitemsep
+\item \textsf{?[a,b,c]} stands for a wildcard that can only be matched by
+  labels \textsf{a}, \textsf{b} or \textsf{c} (this is therefore the same as
+  the regular expression ``\textsf{a$|$b$|$c}''; however, in contrast to
+  regular expressions, wildcards (when used on their own) may occur on eraser
+  edges, and (when named) also on creator edges.
+
+\item \textsf{?[\^{}a,b,c]} stands for a wildcard that can be matched by any
+  label \emph{except} \textsf{a}, \textsf{b} or \textsf{c}.
+\end{itemize}
+
+\paragraph{Named wildcards.}
+
+Finally, wildcards can have a \emph{name}, in which case they act as
+\emph{label variables}. The name directly follows the question mark, hence
+``\textsf{?x}'' is a wildcard with name \textsf{x}. When such a wildcard is
+matched by a certain edge label, that label is considered to be the
+\emph{value} of the variable for the duration of the rule application. The same
+label variable can occur multiple times within a single rule; the effect is
+that each of these occurrences must be matched by the same label.
+
+Variable names can be freely chosen (except that they must adhere to the syntax
+rules of an identifier, i.e., start with a letter and consist only of letters,
+digits and underscores); they may in fact coincide with actual labels, though
+this must be considered bad practice. Variable names can also be combined with
+guards; for instance, ``\textsf{?x[\^{}a,b,c]}'' is matched by any label except
+\textsf{a}, \textsf{b} or \textsf{c}; the matching label is then bound to
+\textsf{x}.
+
+In contrast to ordinary wildcards, named wildcards can be used on creator
+edges, providing that a binding instance occurs in the LHS. This enables the
+\emph{copying} of edge labels.
+
+For instance, \fref{wildcard} shows a rule which specifies that if the same
+label occurs as a self-edge on two different \textsf{Person}s, then this label should
+be added as a self-edge on a collector node labelled \textsf{Duplicates},
+provided it is not already there. The
+label \textsf{Person} itself, however, is exempted from this treatment.
+
+\viewsfig{wildcard}{Edit and Display view of a rule with a named wildcard.}
+
+\subsection{Regular Expressions}
 \stlabel{regular}
 
-\subsection{Attributed Graphs \& Rules\by{IB}}
+Rule edges can specify regular expressions over graph labels. Such a regular
+expression is matched by any chain of edges in the host graph of which the
+labels form a word recognised by the regular expression. Regular expressions
+may only be used on reader and embargo edges, never on erasers or creators.
+
+Regular expressions are distinguished by surrounding curly braces. Thus,
+``\textsf{\{a.b\}}'' specifies a regular expression (matched by two consecutive
+graph edges labelled ``\textsf{a}'' and ``\textsf{b}'') whereas
+``\textsf{a.b}'' specifies a single edge with exactly that label. Regular
+expressions are built up from the following operators (for an overview see \tref{regular}):
+%
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline\hline
+\bf Expression & \bf Meaning \\
+\hline
+\textsf{\itshape label} & Simple label; matched literally \\
+\textsf{=} & Empty path/equality of nodes (see \stref{equality}) \\
+\textsf{?} & Wildcard, possibly named and/or guarded (see
+\stref{wildcard}) \\
+\textsf{$R_1$.$R_2$} & Sequential composition of $R_1$ and $R_2$ \\
+\textsf{$R_1|R_2$} & Choice between $R_1$ and $R_2$ \\
+\textsf{$R$*} & Zero or more repetitions of $R$ \\
+\textsf{$R$+} & One or more repetitions of $R$ \\
+\textsf{-$R$} & Inversion of $R$ (matches $R$ when followed backwards) \\
+\textsf{!$R$} & Negation of $R$ (absence of a match for $R$) \\
+\hline\hline
+\end{tabular}
+\end{center}
+\vspace*{-\medskipamount}
+\caption{Regular expressions}
+\vspace*{-\medskipamount}
+\tlabel{regular}
+\end{table}
+%
+\begin{description}
+\item[Atoms] These are simple labels, to be matched precisely. Note that the
+  syntax rules discussed in \stref{rules} must be followed whenever the label
+  to be matched contains special characters.
+
+\item[Sequencing] This is a binary infix operator, denoted ``\textsf{.}'',
+  specifying that its left hand operator should match, followed by its right
+  hand operator. Thus, a label sequence matches the regular expression
+  \textsf{$R_1$.$R_2$} if it can be split into two sequences, the first of
+  which matches $R_1$ and the second $R_2$.
+
+\item[Choice] This is a binary infix operator, denoted ``\textsf{$|$}'',
+  specifying that one of its operands should match. Thus, a label sequence
+  matches the regular expression \textsf{$R_1|R_2$} if it matches either
+  $R_1$ or $R_2$.
+
+\item[Star] The star (or \emph{Kleene} star) (``\textsf{*}'') is a postfix
+  operator that specifies that the preceding regular expression occurs zero or
+  more times. Thus, a label sequence matches \textsf{$R$*} if it can be split
+  into zero or more subsequences, each of which matches $R$.
+
+\item[Plus] The plus (``\textsf{+}'') is a postfix operator that specifies that
+  the preceding regular expression occurs one or more times. Thus, a label
+  sequence matches \textsf{$R$+} if it can be split into one or more
+  subsequences, each of which matches $R$.
+
+\item[Inversion] This is a prefix operator, denoted by the minus sign
+  (``\textsf{-}''), specifying that its operand should be interpreted in
+  reverse, \emph{including the direction of the edges}. Thus, a sequence of
+  edges matches \textsf{-$R$} if it matches $R$ when followed backwards.
+
+\item[Equality] An equality sign (``\textsf{=}'') may be used as an atomic
+  entity in a regular expression, in which case it stands for the empty word,
+  or in other words, it is matched by an emtpy sequence of edges in the host
+  graph. For instance, the regular expression ``\textsf{a$|$=}'' specifies that
+  between two nodes there is an \textsf{a}-edge or the nodes coincide. Also,
+  \textsf{$R$*} has the same meaning as \textsf{$R$+$|$=} (for any regular
+  expressions $R$).
+
+\item[Wildcard] This is exactly as discussed in \stref{wildcard} above.  Note
+  that a named wildcard within a regular expression may in some circumstances
+  fail to bind to any value: namely, when it is not necessarily matched, such
+  as in a choice or star expression. If a variable is not bound, it may not be
+  used on a creator edge.
+
+\item[Negation] This is the same as discussed in \stref{negation}. Negations
+  are specified by a single exclamation mark (``\textsf{!}'') preceding the
+  entire regular expression. Thus, they cannot be used \emph{inside} a
+  regular expression. In fact, a negation is not properly part of the regular
+  expression itself, since it is in itself not matched by anything; rather, it
+  expresses the absence of a match for the actual regular expression.
+\end{description}
+
+For instance, \fref{regular} shows a rule that specifies that a new son should
+always get the name from one of his forefathers.
+
+\graphfig{regular}{Rule with a regular expression.}
+
+\subsection{Data Attributes}
 \stlabel{attributes}
 
-\subsection{Rule Parameters\by{TS}}
+So far we have not discussed how to specify and manipulate data values, such as
+integers, booleans and strings. In \Groove, as in other graph transformation
+tools, data is included in the form of \emph{attributes}, which are essentially
+edges to special data nodes. The data nodes represent the actual data values.
+
+Typically, graph nodes are abstractions of objects from the model space which
+somehow have an identity. That is, a graph can have multiple nodes that are
+indistinguishable when only their connecting edges are taken into account. This
+is not directly suitable for data nodes, however: for instance, every natural
+number exists only \emph{once}, and it makes no sense to include multiple nodes
+all of which represent this single value. Thus, it is necessary to make a
+strict distinction between data nodes and ordinary graph nodes. In \Groove,
+this is done in either of the following ways:
+
+\begin{itemize}
+\item If the concrete data value is known, then it is specified using a node
+  label of the form ``\textsf{{\itshape type}:{\itshape const}}'', where
+  \textsf{\itshape type} is the data type and \textsf{\itshape const} a
+  denotation of its value. The available data types are \textsf{int},
+  \textsf{bool}, \textsf{string} and \textsf{real}. The denotation of the
+  constants is the usual one; e.g., \textsf{-1}, \textsf{0}, \textsf{1} etc.\
+  for \textsf{int}, \textsf{true} and \textsf{false} of \textsf{bool} and
+  \textsf{``text''} for \textsf{string}.
+
+\item If the value is not known, for instance because the node occurs in the
+  LHS and the value will only be established when matching the rule, then it
+  should be labelled ``\textsf{attr:}''.
+\end{itemize}
+%
+Data nodes can never be created or deleted and are always present (at least
+virtually); hence, they can only occur as readers.
+
+\medskip\noindent
+In addition to specifying data values, we also need to manipulate them; that
+is, carry out calculations. This, too, is specified graphically, through
+the following special types of nodes and edges:
+%
+\begin{description}
+\item[Product nodes,] which essentially stand for \emph{tuples} of data
+  values. Product nodes are distinguished by the special label
+  ``\textsf{prod:}''.
+
+\item[Argument edges,] which lead from a product node to the data nodes that
+  constitute the individual values of the tuple. Argument edges are labelled
+  ``\textsf{arg:{\itshape num}}'', where \textsf{\itshape num} is the argument
+  number, ranging from \textsf{0} to (but not including) the size of the tuple.
+
+\item[Operator edges,] which lead from a product node to a data node
+  representing the result of an operation performed on the elements of the
+  tuple. Operator edges are labelled ``\textsf{{\itshape type}:{\itshape
+  op}}'', where \textsf{\itshape type} is a data type (which are the same as
+  for the data nodes) and \textsf{\itshape op} is an operation performed on the
+  source node tuple; for instance, \textsf{add} (for a pair of \textsf{int}
+  values), \textsf{and} (for a pair of \textsf{bool} values), or
+  \textsf{concat} (for a pair of \textsf{string} values). \tref{data} gives an
+  overview of the available operations.
+\end{description}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline\hline
+\bf Type & \bf Op & \bf Meaning \\
+\hline
+\sf bool
+  & \sf and & Conjunction of two boolean values \\
+  & \sf or  & Disjunction of two boolean values \\
+  & \sf not & Negation of a boolean value \\
+  & \sf eq & Comparison of two boolean values \\
+\cline{2-3}
+  & \sf true & Boolean constant \\
+  & \sf false & Boolean constant \\
+\hline
+\textsf{int}/\textsf{real}
+  & \sf add & Addition of two integer or real values  \\
+  & \sf sub & Subtraction of the second argument from the first \\
+  & \sf mul & Multiplication of two integer or real values \\
+  & \sf div & Integer (for \textsf{int}) or real (for \textsf{real}) division of the first argument by the second \\
+  & \sf mod & Remainder after integer division (only for \textsf{int}) \\
+  & \sf min & Minimum of two integer or real values \\
+  & \sf max & Maximum of two integer or real values \\
+  & \sf lt & Test if the first argument is
+  smaller than the second \\
+  & \sf le & Test if the first argument is
+  smaller than or equal to the second \\
+  & \sf gt & Test if the first argument is
+  greater than the second \\
+  & \sf ge & Test if the first argument is
+  greater than or equal to the second \\
+  & \sf eq & Comparison of two integer or real values \\
+  & \sf neg & The negation of an integer or real value \\
+  & \sf toString & Conversion of an integer or real value to a string \\
+\hline
+\sf string
+  & \sf concat & Concatenation of two string values \\
+  & \sf lt & Test if the first argument is
+  lexicographically smaller than the second \\
+  & \sf le & Test if the first argument is
+  lexicographically smaller than or equal to the second \\
+  & \sf gt & Test if the first argument is
+  lexicographically greater than the second \\
+  & \sf ge &Test if the first argument is
+  lexicographically greater than or equal to the second \\
+  & \sf eq & Comparison of two string values \\
+\hline\hline
+\end{tabular}
+\end{center}
+\vspace*{-\medskipamount}
+\caption{Data types and operations}
+\vspace*{-\medskipamount}
+\tlabel{data}
+\end{table}
+
+In the Display view of rules, data nodes are depicted by ellipses and product
+nodes by diamonds. In the Display view of graphs, the attribute edges leading
+to data nodes as well as the data nodes themselves are not depcited as edges
+and nodes at all, but rather in the more familiar sttribute notation, as
+equations within the source nodes. (There is, however, an option in the
+Simulator to switch off the attribute notation and show data values as
+ellipsoid nodes; see \stref{inspecting}.) For instance,
+\fref{attribute-rule} shows the Edit and Display views of a rule that specifies
+the withdrawal from a bank account, provided the balance does not
+become negative.
+
+\viewsfig{attribute-rule}{Edit and Display view of a rule using attributes.}
+
+\fref{attribute-graph} shows the Edit and Display views of an attributed graph.
+
+\viewsfig{attribute-graph}{Edit and Display view of an attributed graph.}
+
+\subsection{Rule Parameters}
 \stlabel{parameters}
 
-\subsection{Control\by{TS}}
+Rule parameters provide a way to make information about the graph visible in
+the transition system.
+
+\subsection{Control}
 \stlabel{control}
 
-\subsection{Nested Rules\by{AR}}
+Control is about scheduling rule executions. It provides a much stronger
+mechanism than rule priorities (see \stref{rule-properties}).
+
+\subsection{Nested Rules}
 \stlabel{nested}
+
+Nested rules are used to make changes to arbitrary sets of sub-graphs at the
+same time, rather than just at the image of an existentially matched LHS.
 
 \subsection{System Properties}
 \stlabel{system-properties}
 
-\paragraph{Attribute support.}
+Apart from the rules, start graph and (optional) control, there are some global
+properties of a graph grammar. These are called the system properties. They can
+be set in the Simulator (through the \textsf{File}-menu) or by directly editing
+the properties file (see \stref{io-system-properties}). We discuss the
+properties here; an opverview is provided in \tref{system-properties}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline\hline
+\bf Property & \bf Default & \bf Meaning \\
+\hline
+\sf remark
+  & \it empty
+  & One-line documentary about the rule system as a whole \\
+\sf matchInjective 
+  & \sf false
+  & Enforces injectivity of matches \\
+\sf checkDangling
+  & \sf false
+  & Makes rules inapplicable in case eraser nodes have dangling edges \\
+\sf checkCreatorEdges
+  & \sf false
+  & Adds implicit edge embargoes for all simple edge creators \\
+\sf rhsIsNAC
+  & \sf false
+  & Adds an implicit NAC for the entire RHS to every rule \\
+\sf checkIsomorphism
+  & \sf true
+  & Ensures states are collapsed modulo isomorphism \\
+\sf transitionBrackets
+  & \sf false
+  & Adds angular brackets around transition labels
+  \\
+\sf transitionParameters
+  & \sf false
+  & Adds parameter lists to all transition labels \\
+\sf controlLabels 
+  & \it empty
+  & List of graph labels that occur rarely; used to speed up matching \\
+\sf commonLabels
+  & \it empty
+  & List of graph labels that occur frequently; used to speed up matching \\
+\hline\hline
+\end{tabular}
+\end{center}
+\caption{System properties overview}
+\vspace*{-\medskipamount}
+\tlabel{system-properties}
+\vspace*{-\medskipamount}
+\end{table}
 
 \paragraph{Match injectivity.}
 
+As discussed in \stref{equality}, matches are in general non-injective. By
+setting the \textsf{matchInjective} property to \textsf{true}, however,
+injectivity is enforced for all rules. In this way, \Groove{} can simulate rule
+systems originally designed for tools that do impose injectivity always.
+
 \paragraph{Dangling edge check.}
+
+In general, when \Groove{} deletes a node, all incoming and outgoing edges are
+also deleted, whether or not they were explicitly specified in the rule. This
+is in conformance with the so-called \emph{SPO} (\emph{S}ingle
+\emph{P}ush\emph{O}ut) approach. In the \emph{DPO} (\emph{D}ouble
+\emph{P}ush\emph{O}ut) approach, on the other hand, if a node to be deleted has
+an incident edge that is not explicitly deleted as well, then the rule is
+considered to be non-applicable. To mimic this behaviour in \Groove, the
+\textsf{checkDangling} property should be set to \textsf{true}.
 
 \paragraph{Creator edge check.}
 
+In \Groove, edges do not have their own identity: if an edge is added to a
+graph that alsready has an edge between the same nodes and with the same label,
+the graph actually does not change. This can be undesirable in some
+circumstances. By setting \textsf{checkCreatorEdges} to \textsf{true}, an
+implicit edge embargo is added for all creator edges; now, if an attempt is
+made to add an edge that is already there, the rule is inapplicable.
+
 \paragraph{Treating the RHSs as NACs.}
+
+There exist graph transformation applications where a graph is slowly built up
+but 
+nothing is ever deleted. For instance, this holds in the important area of
+\emph{model transformation}. In such circumstances, rules should always only
+be applied one single time at every match; however, since nothing is deleted,
+the re-application of a rule can only be prevented by adding a NAC. By setting
+\textsf{rhsIsNAC} to \textsf{true}, such NACs are implicitly added to all
+rules, improving readability and maintainability of the rules.
 
 \paragraph{Isomorphism check.}
 
+One of the strong points of \Groove{} is the fact that the graphs that it
+generates are compared and collapsed modulo isomorphism --- meaning that there
+will be at most graph in the resulting state space for every isomorphism
+class. Though this is very effective in many modelling domains, nevertheless
+the isomorphism check is expensive. In case a problem being modelled is known
+to have little or no symmetries, so that the isomorphism check will always
+fail, one can set \textsf{checkIsomorphism} to \textsf{false}, thereby gaining
+efficiency.
+
+\paragraph{Transition label formatting.}
+
+The LTS view of the Simulator contains edges for all rule applications that
+have been explored. There are two system properties that control the way these
+labels are displayed.
+\begin{description}
+\item[\textsf{transitionBrackets}] controls whether angular brackets appear
+  around all transition labels. This option is added for backward
+  compatibility: in previous versions, \Groove{} by default showed such
+  brackets, so if there are any applications that rely on thi sbehaviour, this
+  property should be set to \textsf{true}.
+
+\item[\textsf{transitionParameters}] controls whether transition labels
+  show the value of rule parameters, is any (see \stref{parameters}). When set
+  tu \textsf{true}, all labels will show a (possibly empty) list of
+  parameters.
+\end{description}
+
 \paragraph{Control labels and common labels.}
+
+The final pair of properties can be used to optimise the matching process,
+thereby improving efficiency.
+%
+\begin{description}
+\item[\textsf{controlLabels}] is a space-separated list of labels that do
+  \emph{not} occur frequently in the graph, and whose presence is a good
+  indicator for a match at that place. When set, the matching process will
+  start at these labels.
+\item[\textsf{commonLabels}] is exactly the opposite: it is a space-separated
+  list of labels that \emph{do} occur frequently in the graph. When set, the
+  matching process will consider these labels last.
+\end{description}
 

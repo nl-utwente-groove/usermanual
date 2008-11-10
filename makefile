@@ -31,19 +31,18 @@ GROOVE_NAMES = $(GXL_FILES:$(GRAPHS_GPS)/%.gxl=$(FIG_DIR)/%) \
 	$(GST_FILES:$(GRAPHS_GPS)/%.gst=$(FIG_DIR)/%) \
 	$(GPR_FILES:$(GRAPHS_GPS)/%.gpr=$(FIG_DIR)/%)
 
+PNG_FILES = $(wildcard $(FIG_DIR)/*.png)
+
 # List of local source code files
 javafiles = $(wildcard $(CODE_DIR)/*.java)
 
 # It should not be necessary to change the definitions below.
 inclfiles = \
 	$(javafiles:%.java=%.incl)
-psgraphics = \
-	$(TEXFIG_NAMES:%=%.tex) $(TEXFIG_NAMES:%=%.eps) \
-	$(EPSFIG_NAMES:%=%.eps)
 pdfgraphics = \
 	$(TEXFIG_NAMES:%=%.tex) $(TEXFIG_NAMES:%=%.pdf) \
 	$(GIF_NAMES:%=%.pdf) $(EPSFIG_NAMES:%=%.pdf) \
-	$(GROOVE_NAMES:%=%.png)
+	$(GROOVE_NAMES:%=%.png) $(PNG_FILES)
 
 %.incl : %.java
 	./javaextract -incl $*.java
@@ -127,11 +126,6 @@ $(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).pdf.bbl
 		pdflatex $(MASTER) ; \
 	done
 
-
-$(MASTER).dvi.bbl : $(bibfiles) $(texfiles)
-	latex $(MASTER)
-	bibtex $(MASTER)
-
 $(MASTER).pdf.bbl : $(bibfiles) $(texfiles)
 	pdflatex $(MASTER)
 	bibtex $(MASTER)
@@ -141,7 +135,5 @@ groove : $(GROOVE_NAMES:%=%.png)
 
 clean :
 	rm -f *.aux *.log *.blg *.dvi *.out *.ps *.pdf
-	rm -f $(psgraphics)
-	rm -f $(pdfgraphics)
 	rm -f $(javadir)/*.class $(javadir)/*.incl 
 	rm -rf auto
