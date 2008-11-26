@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="petri-net-firing" role="rule" edgeids="false" edgemode="directed">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n2246"/>
+        <node id="n2247"/>
+        <node id="n2248"/>
+        <node id="n2249"/>
+        <node id="n2250"/>
+        <node id="n2251"/>
+        <node id="n2252"/>
+        <node id="n2253"/>
+        <node id="n2254"/>
+        <edge from="n2246" to="n2246">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n2249" to="n2249">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n2250" to="n2250">
+            <attr name="label">
+                <string>exists:</string>
+            </attr>
+        </edge>
+        <edge from="n2251" to="n2251">
+            <attr name="label">
+                <string>new:</string>
+            </attr>
+        </edge>
+        <edge from="n2252" to="n2252">
+            <attr name="label">
+                <string>del:</string>
+            </attr>
+        </edge>
+        <edge from="n2253" to="n2253">
+            <attr name="label">
+                <string>exists:</string>
+            </attr>
+        </edge>
+        <edge from="n2251" to="n2247">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n2251" to="n2250">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2254" to="n2254">
+            <attr name="label">
+                <string>Place</string>
+            </attr>
+        </edge>
+        <edge from="n2247" to="n2246">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2252" to="n2254">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n2248" to="n2248">
+            <attr name="label">
+                <string>Transition</string>
+            </attr>
+        </edge>
+        <edge from="n2249" to="n2253">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n2254" to="n2249">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2248" to="n2247">
+            <attr name="label">
+                <string>out</string>
+            </attr>
+        </edge>
+        <edge from="n2252" to="n2253">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n2251" to="n2251">
+            <attr name="label">
+                <string>Token</string>
+            </attr>
+        </edge>
+        <edge from="n2250" to="n2246">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n2248" to="n2254">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n2247" to="n2247">
+            <attr name="label">
+                <string>Place</string>
+            </attr>
+        </edge>
+        <edge from="n2252" to="n2252">
+            <attr name="label">
+                <string>Token</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>

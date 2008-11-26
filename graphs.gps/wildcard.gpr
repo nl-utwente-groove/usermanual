@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="wildcard" role="rule" edgeids="false" edgemode="directed">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n1288"/>
+        <node id="n1289"/>
+        <node id="n1290"/>
+        <edge from="n1288" to="n1288">
+            <attr name="label">
+                <string>?name</string>
+            </attr>
+        </edge>
+        <edge from="n1290" to="n1290">
+            <attr name="label">
+                <string>new:?name</string>
+            </attr>
+        </edge>
+        <edge from="n1290" to="n1290">
+            <attr name="label">
+                <string>not:?name</string>
+            </attr>
+        </edge>
+        <edge from="n1288" to="n1288">
+            <attr name="label">
+                <string>Person</string>
+            </attr>
+        </edge>
+        <edge from="n1290" to="n1290">
+            <attr name="label">
+                <string>Duplicates</string>
+            </attr>
+        </edge>
+        <edge from="n1289" to="n1288">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge from="n1289" to="n1289">
+            <attr name="label">
+                <string>Person</string>
+            </attr>
+        </edge>
+        <edge from="n1289" to="n1289">
+            <attr name="label">
+                <string>?name[^Person]</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
