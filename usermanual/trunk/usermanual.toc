@@ -9,47 +9,51 @@
 \contentsline {paragraph}{Labels in graphs.}{4}{section*.2}
 \contentsline {subsection}{\numberline {2.2}Rules}{4}{subsection.2.2}
 \contentsline {paragraph}{Labels in rules.}{5}{section*.3}
+\contentsline {paragraph}{Rule names.}{6}{section*.4}
 \contentsline {subsection}{\numberline {2.3}Negations}{6}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Equalities, Mergers and Injectivities}{6}{subsection.2.4}
-\contentsline {paragraph}{Mergers.}{6}{section*.4}
-\contentsline {paragraph}{Injectivities.}{7}{section*.5}
-\contentsline {paragraph}{Counting.}{7}{section*.6}
+\contentsline {paragraph}{Mergers.}{7}{section*.5}
+\contentsline {paragraph}{Injectivities.}{7}{section*.6}
+\contentsline {paragraph}{Counting.}{7}{section*.7}
 \contentsline {subsection}{\numberline {2.5}Rule Comments}{7}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Rule properties}{8}{subsection.2.6}
-\contentsline {paragraph}{Priorities.}{8}{section*.7}
-\contentsline {paragraph}{Enabledness.}{8}{section*.8}
-\contentsline {paragraph}{Comment.}{8}{section*.9}
-\contentsline {section}{\numberline {3}Advanced Concepts}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Wildcards and Variables}{8}{subsection.3.1}
-\contentsline {paragraph}{Guarded wildcards.}{9}{section*.10}
-\contentsline {paragraph}{Named wildcards.}{9}{section*.11}
+\contentsline {paragraph}{Priorities.}{8}{section*.8}
+\contentsline {paragraph}{Enabledness.}{8}{section*.9}
+\contentsline {paragraph}{Comment.}{8}{section*.10}
+\contentsline {subsection}{\numberline {2.7}Rule systems and grammars}{9}{subsection.2.7}
+\contentsline {section}{\numberline {3}Advanced Concepts}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Wildcards and Variables}{9}{subsection.3.1}
+\contentsline {paragraph}{Guarded wildcards.}{9}{section*.11}
+\contentsline {paragraph}{Named wildcards.}{9}{section*.12}
 \contentsline {subsection}{\numberline {3.2}Regular Expressions}{9}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Data Attributes}{11}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Rule Parameters}{12}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Control}{12}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Nested Rules}{13}{subsection.3.6}
-\contentsline {subsection}{\numberline {3.7}System Properties}{15}{subsection.3.7}
-\contentsline {paragraph}{Match injectivity.}{15}{section*.12}
-\contentsline {paragraph}{Dangling edge check.}{15}{section*.13}
-\contentsline {paragraph}{Creator edge check.}{15}{section*.14}
-\contentsline {paragraph}{Treating the RHSs as NACs.}{15}{section*.15}
-\contentsline {paragraph}{Isomorphism check.}{15}{section*.16}
-\contentsline {paragraph}{Transition label formatting.}{16}{section*.17}
-\contentsline {paragraph}{Control labels and common labels.}{16}{section*.18}
-\contentsline {section}{\numberline {4}Tool Usage}{16}{section.4}
-\contentsline {subsection}{\numberline {4.1}Overview of the Simulator \tt (TS)}{16}{subsection.4.1}
-\contentsline {paragraph}{Panels.}{16}{section*.19}
-\contentsline {paragraph}{Menus.}{16}{section*.20}
-\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar}{16}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Exploring an LTS \tt (IB)}{16}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Command Line Generation \tt (IB)}{16}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Inspecting Results \tt (AR)}{17}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing \tt (AR)}{17}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Model Checking \tt (HK)}{17}{subsection.4.7}
-\contentsline {section}{\numberline {5}I/O}{17}{section.5}
-\contentsline {subsection}{\numberline {5.1}Graphs and rules}{17}{subsection.5.1}
-\contentsline {paragraph}{Edge labels.}{17}{section*.21}
-\contentsline {paragraph}{Graph attributes.}{17}{section*.22}
-\contentsline {paragraph}{Graph layout.}{17}{section*.23}
-\contentsline {subsection}{\numberline {5.2}Control programs}{17}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}System properties}{18}{subsection.5.3}
+\contentsline {subsection}{\numberline {3.5}Control}{13}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Nested Rules}{15}{subsection.3.6}
+\contentsline {paragraph}{Nesting levels}{15}{section*.13}
+\contentsline {paragraph}{Named nesting levels}{16}{section*.14}
+\contentsline {subsection}{\numberline {3.7}System Properties}{17}{subsection.3.7}
+\contentsline {paragraph}{Match injectivity.}{17}{section*.15}
+\contentsline {paragraph}{Dangling edge check.}{17}{section*.16}
+\contentsline {paragraph}{Creator edge check.}{18}{section*.17}
+\contentsline {paragraph}{Treating the RHSs as NACs.}{18}{section*.18}
+\contentsline {paragraph}{Isomorphism check.}{18}{section*.19}
+\contentsline {paragraph}{Transition label formatting.}{18}{section*.20}
+\contentsline {paragraph}{Control labels and common labels.}{19}{section*.21}
+\contentsline {section}{\numberline {4}Tool Usage}{19}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview of the Simulator \tt (TS)}{19}{subsection.4.1}
+\contentsline {paragraph}{Panels.}{19}{section*.22}
+\contentsline {paragraph}{Menus.}{19}{section*.23}
+\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar}{19}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Exploring an LTS \tt (IB)}{19}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Command Line Generation \tt (IB)}{19}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Inspecting Results \tt (AR)}{19}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing \tt (AR)}{19}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Model Checking \tt (HK)}{19}{subsection.4.7}
+\contentsline {section}{\numberline {5}I/O}{19}{section.5}
+\contentsline {subsection}{\numberline {5.1}Graphs and rules}{20}{subsection.5.1}
+\contentsline {paragraph}{Edge labels.}{20}{section*.24}
+\contentsline {paragraph}{Graph attributes.}{20}{section*.25}
+\contentsline {paragraph}{Graph layout.}{20}{section*.26}
+\contentsline {subsection}{\numberline {5.2}Control programs}{20}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}System properties}{20}{subsection.5.3}
