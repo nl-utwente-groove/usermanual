@@ -147,6 +147,26 @@ For instance, the label \textsf{'\textbackslash\textbackslash?\textbackslash''}
 (ending on two single quotes) in a rule matches the label
 \textsf{\textbackslash?'} in a graph.
 
+\paragraph{Rule names.}
+
+Rules have names. The names are essentially identifiers. The actual constraints
+on rule names are quite flexible: any string that can be used as a file name
+but does not contain spaces or periods is allowed as a rule name. However, it
+is \emph{recommended} to stick to rule names that are valid identifiers:
+%
+\begin{itemize}\noitemsep
+\item Start a rule name with a letter --- by convention a small letter;
+\item Restrict the remaining characters to letters, digits, underscores or
+  dollar characters.
+\end{itemize}
+%
+Rule names can impose a hierarchical structure, similar to the package
+structure of qualified Java class names. For instance, the name
+``$\textsf{a.b}$'' stands for rule ``\textsf{b}'' in package
+``\textsf{a}''. This mechanism is only there for the purpose of structuring
+larger sets of rules; the structure does not change the meaning of the rule
+system (see also \stref{grammars} below).
+
 \subsection{Negations}
 \stlabel{negation}
 
@@ -264,3 +284,19 @@ makes it easy to experiment with different versions of the same rule.
 
 The rule comment provides another way to document a rule, in addition to the
 remark nodes and edges already described in \stref{remark}.
+
+\subsection{Rule systems and grammars}
+\stlabel{grammars}
+
+A rule system is a set of rules, possibly with some addition information such
+as a control specification (see \stref{control}) and system properties (see
+\stref{system-properties}). A \emph{grammar} is a rule system together with a
+start graph. The default start graph, caled \textsf{start}, is assumed to be
+available together with the rules; other start graphs can be specified or
+loaded in, depending on the circumstances.
+
+The structure of rule names in fact impose a hierarchy on the rule system, but
+this hierarchy does not play a role in the evaluation of a graph grammar. In
+other words, the meaning of a graph grammar does not change if all the rules
+are arbitrarily renamed, including renamings that change the hierarchical
+structure.

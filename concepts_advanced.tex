@@ -300,8 +300,129 @@ the transition system.
 \subsection{Nested Rules}
 \stlabel{nested}
 
-Nested rules are used to make changes to arbitrary sets of sub-graphs at the
-same time, rather than just at the image of an existentially matched LHS.
+Nested rules are used to make changes to sets of sub-graphs at the same time,
+rather than just at the image of an existentially matched LHS. This is a quite
+powerful concept, which has its roots in predicate logic.
+
+\paragraph{Nesting levels}
+
+The specification of nested rules relies on the use of special, auxiliary nodes
+that stand for universal or existential quantification. These nodes are part of
+the rule and are connected using ``\textsf{in}''-labelled edges. The quantifier
+nodes and \textsf{in}-edges must form a \emph{forest}, i.e., a set of trees,
+within a rule; in other words, it is not allowed that a quantifier node is
+``\textsf{in}'' two distinct other quantifier nodes, or that there is a cycle
+of quantifier nodes. Moreover, existential and universal nodes must alternate,
+and the root nodes must be universal. In addition, there is always an
+\emph{implicit} top-level existential node, with implicit \textsf{in}-edges
+from all the explicit (universal) root nodes.
+
+In the Editor view, the quantifier nodes are specified once more using special
+prefixes:
+\begin{itemize}\noitemsep
+\item \textsf{forall:} specificies a universal level: in a match of the entire
+  rule, the sub-rule at such a level can be matched arbitrarily often
+  (including zero times).
+\item \textsf{forallx:} specificies a \emph{non-vacuous} universal level: in a
+  match of the entire rule, the sub-rule at such a level must be matched at
+  least once.
+\item \textsf{exists:} specificies an existential level: in every match of the
+  entire rule, the sub-rule at such a level is matched exactly once.
+\end{itemize}
+
+\viewsfig{nesting}{Edit and Display view of a nesting structure}
+
+\fref{nesting} gives an example of a nesting structure (leaving out the actual
+rule). The hierarchical structure of nesting levels corresponds to the
+quantifier structure of a predicate formula, where the branching stands either
+for conjunction (in case of universal levels), or for disjunction (in case of
+existentials). In other words, the structure in \fref{nesting} roughly reflects
+the predicate structure
+%
+\[ \exists (\forall \exists (\forall^{>0} \vee \exists) \wedge \forall^{>0}) \]
+%
+Every nesting level, represented by a quantifier node, \emph{contains} a
+sub-rule. The containment relation is encoded by ``\textsf{at}''-labelled edges
+from \emph{every} node in the sub-rule to the corresponding quantifier node.
+
+As a simple example, Rule~$(a)$ in \fref{pick-flower} will result in the
+removal of all \textsf{Flower}-labelled nodes of all \textsf{Plant}s of a given
+(implicitly existentiall quantified) \textsf{Field}.
+Rule~$(b)$ is a slightly more complicated variant, which picks \emph{exactly one} \textsf{Flower} of every
+\textsf{Plant} that \emph{has at least one} \textsf{Flower}.
+
+\begin{figure}
+\[\begin{array}{ccc}
+\graphbox{pick-all-flowers} &
+\graphbox{pick-flower} &
+\graphbox{pick-at-least-one-flower} \\[\smallskipamount]
+(a) & (b) & (c) 
+\end{array}\]
+\vspace*{-\bigskipamount}
+\caption{Three different flower-picking rules.}
+\flabel{pick-flower}
+\end{figure}
+
+Yet another variant is given in Rule~$(c)$. Where Rule~$(b)$ is \emph{always}
+applicable (as long as there is any \textsf{Field}-node) even if there are no
+flowers to be picked, Rule~$(c)$ specifies that there should be \emph{at least
+one} \textsf{Plant}-node that can be matched --- meaning that that
+\textsf{Plant}-node should have at least one \textsf{Flower}. This means that
+if a \textsf{Field} has \textsf{Plant}s but none of them have \textsf{Flower}s,
+then Rule~$(b)$ matches, though its application does not change the graph,
+whereas Rule~$(c)$ does not match.
+
+Another example is given in \fref{petri-net-firing}, which specifies the rule
+for firing a transition in a Place-Transition net. This rule has two
+independent universal nodes, one to take care of the removal of tokens from
+every input place of the transition to be fired, and one to take care of the
+addition of tokens to the output places.
+
+\graphfig{petri-net-firing}{%
+    Petri net firing rule: One token is removed from every in-place, and
+one is added to every out-place.%
+}
+
+\paragraph{Named nesting levels}
+
+Unfortunately, the specification of the sub-rule belonging to a given
+quantifier node through special \textsf{at}-edges fails if the sub-rule has
+isolated edges, since we do not support edges that start at edges. Such an
+isolated edge may occur if the end nodes belong to a higher nesting level.
+
+For instance, suppose we want to specify that a girl that all boys like becomes
+queen. Using only \textsf{at}-edges, this cannot be specified. For instance, an
+incorrect solution is given as \fref{crowning}.$a$: the applicability
+condition in that rule roughly corresponds to
+%
+\[ \exists x:\textsf{Girl}(x) \wedge (\forall
+y:\textsf{Boy}(y) \wedge \textsf{likes}(y,x) \Rightarrow \textit{true})
+\]
+%
+meaning that the universally quantified sub-graph is trivially fulfilled.
+Instead, the \textsf{likes}-edge should be at an existential level \emph{below}
+the universal, but there cannot be an \textsf{at}-edge starting at the
+\textsf{likes}-edge.
+
+The solution is to use \emph{named} nesting levels. The name of a nesting level
+is given as a kind of parameter in the \textsf{exists}- or
+\textsf{forall}-prefix: namely, the prefix becomes \textsf{exists={\itshape
+name}:} (respectively \textsf{forall={\itshape name}:}), where \textsf{\itshape
+name} is the (arbitrarily chosen) name of the nesting level. The edge to be
+associated with this label gets the same prefix. This is shown in
+\fref{crowning}.$b$ (Editor view) and~$c$ (Display view).
+
+\begin{figure}
+\[\begin{array}{ccc}
+\graphbox{crowning-wrong} &
+\graphbox{crowning-right-edit-view} &
+\graphbox{crowning-right} \\[\smallskipamount]
+(a) & (b) & (c)
+\end{array}\]
+\vspace*{-\bigskipamount}
+\caption{Incorrect and correct crowinging rules.}
+\flabel{crowning}
+\end{figure}
 
 \subsection{System Properties}
 \stlabel{system-properties}
