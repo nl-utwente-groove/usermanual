@@ -1,0 +1,17 @@
+# Layout information for D:\Eclipse\workspace\usermanual\graphs.gps\petri-net-firing.gpr
+# Each line contains layout information about a node or edge
+# Version info: v <version number>; 1 = pre-jgraph 5.9, 2 = jgraph 5.9
+#     v 1: label position = (x-permillage, y-permillage)
+#     v 2: label position = (vector permillage, perpendicular distance)
+# Node Format: n <node id> <bounds>
+# Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
+v 2
+n n2248 200 98 53 15 
+n n2246 305 30 29 15 
+n n2247 308 97 28 15 
+n n2249 117 30 29 15 
+n n2252 15 100 35 30 
+n n2253 26 30 34 15 
+n n2254 117 99 28 15 
+n n2251 393 96 35 30 
+n n2250 407 31 34 15 

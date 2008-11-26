@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
+    <graph id="pick-all-flowers" role="rule" edgeids="false" edgemode="directed">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n1778"/>
+        <node id="n1779"/>
+        <node id="n1780"/>
+        <node id="n1781"/>
+        <edge from="n1778" to="n1778">
+            <attr name="label">
+                <string>del:</string>
+            </attr>
+        </edge>
+        <edge from="n1781" to="n1781">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n1778" to="n1778">
+            <attr name="label">
+                <string>Flower</string>
+            </attr>
+        </edge>
+        <edge from="n1780" to="n1781">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n1780" to="n1780">
+            <attr name="label">
+                <string>Plant</string>
+            </attr>
+        </edge>
+        <edge from="n1778" to="n1781">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n1779" to="n1780">
+            <attr name="label">
+                <string>grows</string>
+            </attr>
+        </edge>
+        <edge from="n1780" to="n1778">
+            <attr name="label">
+                <string>has</string>
+            </attr>
+        </edge>
+        <edge from="n1779" to="n1779">
+            <attr name="label">
+                <string>Field</string>
+            </attr>
+        </edge>
+    </graph>
+</gxl>
