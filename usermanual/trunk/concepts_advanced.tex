@@ -149,8 +149,8 @@ expressions are built up from the following operators (for an overview see \tref
   expresses the absence of a match for the actual regular expression.
 \end{description}
 
-For instance, \fref{regular} shows a rule that specifies that a new son should
-always get the name from one of his forefathers.
+For instance, \fref{regular} shows a rule that specifies that a son should
+ receive the name of one of his forefathers.
 
 \graphfig{regular}{Rule with a regular expression.}
 
@@ -161,6 +161,8 @@ So far we have not discussed how to specify and manipulate data values, such as
 integers, booleans and strings. In \Groove, as in other graph transformation
 tools, data is included in the form of \emph{attributes}, which are essentially
 edges to special data nodes. The data nodes represent the actual data values.
+
+\paragraph{Data values.}
 
 Typically, graph nodes are abstractions of objects from the model space which
 somehow have an identity. That is, a graph can have multiple nodes that are
@@ -189,7 +191,8 @@ this is done in either of the following ways:
 Data nodes can never be created or deleted and are always present (at least
 virtually); hence, they can only occur as readers.
 
-\medskip\noindent
+\paragraph{Operations.}
+
 In addition to specifying data values, we also need to manipulate them; that
 is, carry out calculations. This, too, is specified graphically, through
 the following special types of nodes and edges:
@@ -287,11 +290,87 @@ become negative.
 
 \viewsfig{attribute-graph}{Edit and Display view of an attributed graph.}
 
+\paragraph{Algebras.}
+
+Formally speaking, the operations listed in \tref{data}, as well as the data
+values discussed above, are actually operators and constant symbols out of a
+data \emph{signature}. This signature is then interpreted by an \emph{algebra},
+which defines concrete values and functions for these symbols. There is a
+default or natural algebra for our signature, which is the one that we all know
+from mathematics; in a context where this is the only possible interpretation,
+the distinction between signature and algebra is actually irrelevant. However,
+\Groove{} offers the possibility of slotting in another algebra instead:
+through the rule system properties (see \stref{system-properties}) you can
+specify under which algebra the rules should be interpreted.
+
+Currently, three choices are supported:
+\begin{itemize}\noitemsep
+\item The default algebra, which is actually
+implemented using the standard Java types \textsf{int}, \textsf{double},
+\textsf{boolean} and \textsf{String};
+\item The \emph{point algebra}, in which each data type has exactly one
+  value. Every constant and operation returns this value.
+\item The \emph{big algebra}, in which integers have arbitrary precision and
+  reals have 34 digits of mantissa (which is twice the precision of Java
+  \textsf{double}s).
+\end{itemize}
+%
+In the default algebra, comparison of reals (using \textsf{eq}, \textsf{geq}
+etc.) has a \emph{tolerance} of $10^{-15}$. In other words, if the difference
+between two values is less than $10^{-15}$ times any of these values, then the
+values are considered to be equal. This is so as to avoid the phenomenon that
+rounding errors result in an artificial difference between values that would
+otherwise be equal. In the case of the big algebra, the tolerance is
+$10^{-30}$.
+
 \subsection{Rule Parameters}
 \stlabel{parameters}
 
-Rule parameters provide a way to make information about the graph visible in
-the transition system.
+Rule parameters provide a way to make information about a match visible in the
+transition system. A rule parameter is a node of LHS (on the implicit
+existential level, see \stref{nested}) that is marked with the special prefix
+``\textsf{par=\${\itshape num}}'', where \textsf{\itshape num} is a parameter
+number. Parameter numbers should form a consecutive sequence from 1 upwards; no
+parameter number may occur more than once in a given rule.
+
+When a rule is eveluated, this results in a transition labelled by the rule
+name (see \stref{trans}). However, if a rule has parameters, and if the
+\textsf{transitionParameters} property is set (see \stref{system-properties})
+then the transition labels are appended by lists of parameter values, being the
+node identities of the host graph nodes matching the parameter nodes.
+
+Note that a node identity is normally not visible in a graph (unless it is
+switched on in the Simulator, see \stref{options}). The node identities
+appearing as transition parameters are denoted ``\textsf{n{\itshape id}}'',
+where \textsf{itseries id} is the \emph{node number} of the concrete graph
+node. \emph{There is no guarantee that node identities are preserved among
+graphs!} This means that before and after a transition, the same node identity
+may refer to a completely different node. On the other hand, if a node identity
+appears on different
+parameterised transitions starting in the \emph{same} graph, then it is certain
+that this refers each time to the same node of that graph.
+
+The situation is different if the parameter node is an attribute node, for as
+discussed above, the identity of a data node is taken to be the data value
+itself. So, in that case, the data value is shown in the parameter list.
+
+\fref{parameter} shows an Edit and Display view of a rule woth two parameters,
+one a non-attribute eraser node and the other an attribute reader node. When
+this rule is applied to the graph also shown in the picture (where node
+identity viewing has been switched on), the transition label is
+\textsf{parameter(n37962,3)}.
+
+\begin{figure}
+\begin{center}
+\graphbox{parameter-edit-view} \qquad
+\graphbox{parameter} \qquad
+\graphbox{parameter-start}
+\end{center}
+\vspace*{-\medskipamount}
+\caption{Edit and Display view of a parameterised rule, and a graph to which
+the rule is applicable.}
+\flabel{parameter}
+\end{figure}
 
 \subsection{Control}
 \stlabel{control}
@@ -445,6 +524,9 @@ properties here; an opverview is provided in \tref{system-properties}.
 \sf matchInjective 
   & \sf false
   & Enforces injectivity of matches \\
+\sf algebraFamily 
+  & \sf default
+  & Determines which algebras are used for attributes \\
 \sf checkDangling
   & \sf false
   & Makes rules inapplicable in case eraser nodes have dangling edges \\
@@ -478,6 +560,22 @@ properties here; an opverview is provided in \tref{system-properties}.
 \tlabel{system-properties}
 \vspace*{-\medskipamount}
 \end{table}
+
+\paragraph{Algebra family.}
+
+This property specifies the algebra to be used when interpreting data
+attributes --- see \stref{attributes}. The currently supported values are:
+%
+\begin{description}\noitemsep
+\item[\textsf{default}] The default algebra, consisting of the Java types
+  \textsf{int}, \textsf{double}, \textsf{boolean} and \textsf{String}.
+\item[\textsf{point}] A single-point algebra, where each data type has only a
+  single value; all constants and operations evaluate to this one value.
+\item[\textsf{big}] An algebra where integers have arbitrary precision, and
+  real values have a mantissa of 34 digits (to be precise, they follow the
+  IEEE 754R Decimal128 format, as implemented by the Java type
+  \textsf{BigDecimal}).
+\end{description}
 
 \paragraph{Match injectivity.}
 

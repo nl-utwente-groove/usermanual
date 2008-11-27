@@ -222,12 +222,13 @@ edge is irrelevant. For instance, the rule in \fref{injectivity} specifies that
 a couple may only marry if they do not share parents.
 
 \viewsfig{injectivity}{%
-    Edit and Display views of a rule with an injectivity constraint.
+    Edit and Display views of a rule with two injectivity constraints.
 }
 
 \paragraph{Counting.}
 
-As with ordinary labels, the effect of negation is in principle the same as
+As with ordinary labels, the effect of negation (an explamation mark) in front
+of an equality is in principle the same as
 that of the embargo prefix --- but again, negations can be used \emph{within}
 embargoes. This has an important use in enabling \emph{counting} in rules. For
 instance, \fref{counting} specifies that a \textsf{Plate} may only be put in
@@ -285,18 +286,29 @@ makes it easy to experiment with different versions of the same rule.
 The rule comment provides another way to document a rule, in addition to the
 remark nodes and edges already described in \stref{remark}.
 
-\subsection{Rule systems and grammars}
-\stlabel{grammars}
+\subsection{Transition systems}
+\stlabel{trans}
+
+During the evaluation of a set of rules, \Groove{} ``under water'' builds up a
+so-called transition system, in which every graph plays the role of a state,
+and every rule application is interpreted as a transition. The transitions bear
+the names of the rules that have been applied as labels. The precise formatting
+of the transition labels can be controlled by two system properties,
+\textsf{transitionBrackets} and \textsf{transitionParameters}; see
+\stref{system-properties}.
+
+\paragraph{Rule systems and grammars}
 
 A rule system is a set of rules, possibly with some addition information such
 as a control specification (see \stref{control}) and system properties (see
 \stref{system-properties}). A \emph{grammar} is a rule system together with a
-start graph. The default start graph, caled \textsf{start}, is assumed to be
+start graph. The default start graph, called \textsf{start}, is assumed to be
 available together with the rules; other start graphs can be specified or
 loaded in, depending on the circumstances.
 
-The structure of rule names in fact impose a hierarchy on the rule system, but
-this hierarchy does not play a role in the evaluation of a graph grammar. In
-other words, the meaning of a graph grammar does not change if all the rules
+The structure of rule names (consisting of substrings separated by periods, see
+\stref{rules}) in fact imposes a hierarchy of name spaces on the rule system,
+but this hierarchy does not play a role in the evaluation of a graph grammar.
+In other words, the meaning of a graph grammar does not change if all the rules
 are arbitrarily renamed, including renamings that change the hierarchical
 structure.
