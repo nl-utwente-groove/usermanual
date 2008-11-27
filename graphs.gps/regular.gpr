@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="graph" role="rule" edgeids="false" edgemode="directed">
+    <graph id="regular" role="rule" edgeids="false" edgemode="directed">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n86"/>
-        <node id="n87"/>
-        <node id="n88"/>
-        <edge from="n88" to="n88">
+        <node id="n37563"/>
+        <node id="n37564"/>
+        <node id="n37565"/>
+        <edge from="n37565" to="n37565">
             <attr name="label">
                 <string>new:?name</string>
             </attr>
         </edge>
-        <edge from="n86" to="n86">
+        <edge from="n37563" to="n37565">
             <attr name="label">
-                <string>Person</string>
+                <string>son</string>
             </attr>
         </edge>
-        <edge from="n86" to="n87">
-            <attr name="label">
-                <string>{father*.?name[^Person]}</string>
-            </attr>
-        </edge>
-        <edge from="n88" to="n86">
+        <edge from="n37565" to="n37563">
             <attr name="label">
                 <string>father</string>
             </attr>
         </edge>
-        <edge from="n88" to="n88">
+        <edge from="n37563" to="n37564">
+            <attr name="label">
+                <string>{father*.?name[^Person]}</string>
+            </attr>
+        </edge>
+        <edge from="n37565" to="n37565">
             <attr name="label">
                 <string>Person</string>
             </attr>
         </edge>
-        <edge from="n87" to="n87">
+        <edge from="n37563" to="n37563">
+            <attr name="label">
+                <string>Person</string>
+            </attr>
+        </edge>
+        <edge from="n37564" to="n37564">
             <attr name="label">
                 <string>Person</string>
             </attr>
