@@ -1,7 +1,7 @@
 Control is about scheduling rule executions. It provides a much stronger
-mechanism than rule priorities (see \stref{rule-properties}).
-
-Control is specified in the form of a control program. The grammar of such programs is listed in Listing \ref{lst:control}. 
+mechanism than rule priorities (see \stref{rule-properties}).  Control is
+specified in the form of a control program. The grammar of such programs is
+given in Listing \ref{lst:control}.
 
 \lstset{
 	basicstyle=\ttfamily\scriptsize
@@ -14,7 +14,7 @@ program
 	;
 
 function
-	: FUNCTION IDENTIFIER '(' ')' block
+	: 'function' IDENTIFIER '(' ')' block
 	;
 
 statement 
@@ -24,7 +24,7 @@ statement
 	| 'until' '(' condition ')' 'do' block
 	| 'try' block ('else' block)?
 	| 'if' '(' condition ')' block ('else' block)?
-   | 'choice' block ('or' block)*
+	| 'choice' block ('or' block)*
 	| expression
 	;
 
@@ -70,13 +70,75 @@ IDENTIFIER
 \end{lstlisting}
 \end{figure}
 
-The smallest programming elements of a control program are the names of the rules in a grammar. A control program is interpreted during exploration of the grammer. In every state, the control program decides which rules are scheduled (i.e. allowed to be applied). 
+A control program is interpreted during exploration of the grammer. In every
+state, the control program decides which rules are scheduled (i.e. allowed to
+be applied). A control program consists of a main control expressions, and
+optionally a set of function definitions. We briefly list the main features of
+the language.
+%
+\begin{itemize}
+\item The smallest programming elements of a control program are the names of
+  the rules in a grammar. Where such a name appear, only the named rule is scheduled.
 
-Conditional statements allow the specification of an alternative in case certain rules do not have a matching. The conditions of \textbf{if-then-else}, \textbf{while-do}, \textbf{do-while}, and \textbf{until-do} are restricted to a single rulename, \emph{true} or a choice of rules. For this choice, the condition is true when one of the options has a match. The condition is false when none of the options has a match. 
+\item Special cases are the keywords \anyK{} and \otherK. Both
+  serve as a kind of wildcard over the available rules: \anyK{} executes
+  any rule in the rule system, whereas \otherK{} executes any rule that
+  does not explicitly appear in the control program. For instance, if the rule
+  system has rules \textsf{a}, \textsf{b} and \textsf{c}, then the control
+  program \textsf{a; \anyK; b; \otherK;} first only allows
+  \textsf{a} to be applied, then one of \textsf{a}, \textsf{b} or \textsf{c},
+  then \textsf{b}, and then \textsf{c}.
 
-The \textbf{try-else} statement allows more complex conditions, since the condition is incorporated in the body of the first block. In this case, the condition is true when any first possible rule (according to the block) has a match. The condition is false when the block does not lead to any rule application. 
-For instance, the program \texttt{try \{ a;b; \} else \{ c;d; \}} goes to the second block when rule \emph{a} does not have a match. 
+\item Control expressions can be built from rules and wildcards by 
+\begin{itemize}\noitemsep
+\item the infix operator ``\textsf{$|$}'', which specifies a choice among its
+  operands;
+\item the postfix operator ``\textsf{*}'', which specifies that its operand may
+  be scheduled zero or more times;
+\item the postfix operator ``\textsf{+}'', which specifies that its operand may
+  be scheduled one or more times;
+\item The prefix operator ``\textsf{\#}'', which specifies that its operand is
+  scheduled as long as possible. 
+\end{itemize}
+The difference between ``\textsf{a*}'' and ``\textsf{\#a}'' is that the first
+may optionally stop scheduling \textsf{a}, even if it is still applicable,
+whereas the latter will continue trying \textsf{a} until it is no longer applicable.
 
-The \textbf{alap} keyword stands for \emph{as long as possible}. In this case, the statement is exited when --- in a new iteration --- the block does not lead to any rule application. 
+\item Conditional statements allow the specification of an alternative in case
+  certain rules do not have a matching. The conditions of \ifK,
+  \whileK, \untilK{} and \doK-\whileK{} are restricted to a
+  single rule name, \trueK, or a choice of rules. The condition holds
+  when at least one of the options has a match.
 
-An example of control can be found in the \emph{control.gps} grammar, supplied with the samples package of groove.
+\item The \tryK-\elseK{} statement allows more complex conditions, since the
+  condition is incorporated in the body of the first block. In this case, the
+  condition is true when any first possible rule (according to the block) has a
+  match. The condition is false when the block does not lead to any rule
+  application.  For instance, the program \textsf{\tryK{} \{a;b;\}
+  \elseK{} \{c;d;\}} goes to the second block when rule \textsf{a}
+  does not have a match.
+
+\item The \alapK{} keyword stands for \emph{as long as possible}. In this case,
+  the statement is exited when --- in a new iteration --- the block does not
+  lead to any rule application. Thus, \alapK{} has the same effect as the
+  prefix operator \textsf{\#}, except that it works on the level of statements
+  rather than expresions.
+
+\item The \choiceK-\doK{} statement has the same effect as the
+  \textsf{$|$}-operator, except that it works on the level of statements rather
+  than expressions.
+
+\item Functions can be fedined by the keyword \functionK, followed by the
+  function name, a pair of parentheses, and a function definition block. The
+  parentheses are there for a possible future extension with
+  parameters. Functions are called as expected; their semantics is defined by
+  inlining. This means that recursive functions are not supported.
+\end{itemize}
+%
+It is important to realise that control expressions are interpreted completely
+\emph{deterministically}. This means that \textsf{\choiceK{} \{a;b;\} \orK{}
+\{a;c;\}} has exactly the same meaning as \textsf{a; \choiceK{} \{b;\} \orK{}
+\{c;\}}.
+
+An example of a control program can be found in the \textsf{control.gps}
+grammar in the \Groove{} samples.

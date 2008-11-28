@@ -50,10 +50,10 @@ edges, providing that a binding instance occurs in the LHS. This enables the
 \emph{copying} of edge labels.
 
 For instance, \fref{wildcard} shows a rule which specifies that if the same
-label occurs as a self-edge on two different \textsf{Person}s, then this label should
-be added as a self-edge on a collector node labelled \textsf{Duplicates},
-provided it is not already there. The
-label \textsf{Person} itself, however, is exempted from this treatment.
+label occurs as a self-edge on two different \textsf{Person}s, then this label
+should be added as a self-edge on a collector node labelled
+\textsf{Duplicates}, provided it is not already there. The label
+\textsf{Person} itself, however, is exempted from this treatment.
 
 \viewsfig{wildcard}{Edit and Display view of a rule with a named wildcard.}
 
@@ -153,6 +153,9 @@ For instance, \fref{regular} shows a rule that specifies that a son should
  receive the name of one of his forefathers.
 
 \graphfig{regular}{Rule with a regular expression.}
+
+The \Groove{} samples contain grammaers \textsf{wildcards}, \textsf{variables}
+and \textsf{regexpr} showing the use of the concepts discussed above.
 
 \subsection{Data Attributes}
 \stlabel{attributes}
@@ -323,6 +326,10 @@ rounding errors result in an artificial difference between values that would
 otherwise be equal. In the case of the big algebra, the tolerance is
 $10^{-30}$.
 
+An example of a grammar with attributes can be found in the
+\textsf{attributed-graphs} grammar in the \Groove{} samples.
+
+
 \subsection{Rule Parameters}
 \stlabel{parameters}
 
@@ -332,6 +339,8 @@ existential level, see \stref{nested}) that is marked with the special prefix
 ``\textsf{par=\${\itshape num}}'', where \textsf{\itshape num} is a parameter
 number. Parameter numbers should form a consecutive sequence from 1 upwards; no
 parameter number may occur more than once in a given rule.
+
+\paragraph{Node identities as arguments}
 
 When a rule is eveluated, this results in a transition labelled by the rule
 name (see \stref{trans}). However, if a rule has parameters, and if the
@@ -346,31 +355,71 @@ where \textsf{itseries id} is the \emph{node number} of the concrete graph
 node. \emph{There is no guarantee that node identities are preserved among
 graphs!} This means that before and after a transition, the same node identity
 may refer to a completely different node. On the other hand, if a node identity
-appears on different
-parameterised transitions starting in the \emph{same} graph, then it is certain
-that this refers each time to the same node of that graph.
+appears on different parameterised transitions starting in the \emph{same}
+graph, then it is certain that this refers each time to the same node of that
+graph.
 
-The situation is different if the parameter node is an attribute node, for as
-discussed above, the identity of a data node is taken to be the data value
-itself. So, in that case, the data value is shown in the parameter list.
+\paragraph{Data values as arguments}
 
-\fref{parameter} shows an Edit and Display view of a rule woth two parameters,
-one a non-attribute eraser node and the other an attribute reader node. When
-this rule is applied to the graph also shown in the picture (where node
-identity viewing has been switched on), the transition label is
-\textsf{parameter(n37962,3)}.
+The situation is slightly different if the parameter node is an attribute node,
+for as discussed above, the identity of a data node is taken to be the data
+value itself. So, in that case, the data value is shown in the parameter list.
+
+As an example, \fref{parameters} shows an Edit and Display view of a rule with
+two parameters, one a non-attribute eraser node and the other an attribute
+reader node. When this rule is applied to the graph also shown in the figure
+(where the node identity display has been switched on), there will be two
+transitions labelled \textsf{parameters(n38152,``a'')} and
+\textsf{parameters(n38153,``a'')}, respectively.
 
 \begin{figure}
 \begin{center}
-\graphbox{parameter-edit-view} \qquad
-\graphbox{parameter} \qquad
+\graphbox{parameters-edit-view} \qquad
+\graphbox{parameters} \qquad
 \graphbox{parameter-start}
 \end{center}
 \vspace*{-\medskipamount}
 \caption{Edit and Display view of a parameterised rule, and a graph to which
 the rule is applicable.}
-\flabel{parameter}
+\flabel{parameters}
 \end{figure}
+
+\paragraph{Anonymous parameters}
+
+Declaring a node to be a rule parameter has another effect, besides putting the
+node identity on the transition label. Namely, those rule matches that map a
+parameter node to a different host graph node will \emph{always} give rise to
+distinct rule applications, even if the rule effect is the same. 
+
+This is most noticeable in rules that do not modify the graph, i.e., in which
+the LHS and RHS coincide (no erasers and no creators). Such rules essentially
+encode \emph{conditions} on the graph, i.e., they measure the existence of a
+match. Normally such an unmodifying rule is considered to have at most one
+application in any host graph, even if the LHS matches at different subgraphs of
+the host graph. However, if the rule has parameters, then matches that map the
+parameter nodes to distinct host graph nodes will give rise to distinct
+applications, with distrinct transition labels.
+
+For the case that one needs distinct rule applications \emph{without} having
+the node identity on the transition label, \Groove{} offers the concept of an
+\emph{anonymous parameter}. This is essentially a parameter without number, in
+the editor specified by just the prefix ``\textsf{par:}''. An example is shown
+in \fref{anonymousParameters}: this rule, applied to the graph of
+\fref{parameters}, will give rise to two distinct transitions, both labelled
+\textsf{anonymousParameter(``a'')}, which are self-loops on the state since
+neither rule application changes the graph.
+
+Note that the display view does not show the anonymous parameter at all. We are
+still considering an appropriate visual representation.
+
+\viewsfig{anonymousParameter}{%
+    Edit and Display view of an unmodifying rule with an
+anonymous parameter.%
+}
+
+Another example of a grammar with rule parameters can be found in the
+\textsf{parameters} grammar in the \Groove{} samples.
+
 
 \subsection{Control}
 \stlabel{control}
@@ -426,9 +475,9 @@ from \emph{every} node in the sub-rule to the corresponding quantifier node.
 
 As a simple example, Rule~$(a)$ in \fref{pick-flower} will result in the
 removal of all \textsf{Flower}-labelled nodes of all \textsf{Plant}s of a given
-(implicitly existentiall quantified) \textsf{Field}.
-Rule~$(b)$ is a slightly more complicated variant, which picks \emph{exactly one} \textsf{Flower} of every
-\textsf{Plant} that \emph{has at least one} \textsf{Flower}.
+(implicitly existentiall quantified) \textsf{Field}.  Rule~$(b)$ is a slightly
+more complicated variant, which picks \emph{exactly one} \textsf{Flower} of
+every \textsf{Plant} that \emph{has at least one} \textsf{Flower}.
 
 \begin{figure}
 \[\begin{array}{ccc}
@@ -461,6 +510,9 @@ addition of tokens to the output places.
     Petri net firing rule: One token is removed from every in-place, and
 one is added to every out-place.%
 }
+
+Another example of a rule system with nested rules can be found in the
+\textsf{copy\_graph} grammar in the \Groove{} samples.
 
 \paragraph{Named nesting levels}
 

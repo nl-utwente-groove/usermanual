@@ -167,6 +167,16 @@ structure of qualified Java class names. For instance, the name
 larger sets of rules; the structure does not change the meaning of the rule
 system (see also \stref{grammars} below).
 
+The \Groove{} samples contain the following rule systems showing various
+aspects of the features discused above:
+%
+\begin{itemize}\noitemsep
+\item \textsf{circular-buffer}, a simple data structure with two rules,
+  containing creators, erasers and embargoes;
+\item \textsf{loose-nodes}, showing that node labels are just self-edges which
+  can be added to existing, non-labelled nodes.
+\end{itemize}
+
 \subsection{Negations}
 \stlabel{negation}
 
@@ -204,7 +214,8 @@ direction of the edge is irrelevant. When two nodes are merged, the resulting
 node receives the incident edges of both original nodes (including the
 self-edges). For instance, the rule in \fref{merger} specifies that the start
 and final state of an automaton should be merged, while all incoming and
-outgoing transitions are preserved.
+outgoing transitions are preserved. See also rule system \textsf{mergers} in
+the \Groove{} samples.
 
 \viewsfig{merger}{%
      Edit and Display views of a rule with a merger.
@@ -236,6 +247,7 @@ the \textsf{Oven} if it contains \emph{exactly} three \textsf{Roll}s --- no
 more and no less. The injectivity between the reader \textsf{Roll}s ensures
 that there are no less than two of them, whereas the embargo \textsf{Roll} with
 its injectivities ensures that there are no more than two.
+See also rule system \textsf{counting} in the \Groove{} samples.
 
 \viewsfig{counting}{Edit and Display views of a rule with a counting constraint}
 
@@ -274,6 +286,9 @@ For instance, one can introduce a high-priority rule that just tests for the
 presence of an ``\textsf{Error}''-labelled node, and does not modify the
 graph. Such a rule would automatically halt the transformation of a graph if
 some other rule introduces such an \textsf{Error}-node.
+
+Rule system \textsf{priorities} in the \Groove{} samples shows an example use
+of priorities.
 
 \paragraph{Enabledness.}
 
