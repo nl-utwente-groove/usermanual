@@ -58,6 +58,23 @@
 %\newcommand{\reOpt}{{\l{?}}
 %\newcommand{\rePlus}{{\l{+}}
 
+\newcommand{\keyword}[1]{\expandafter\newcommand\csname#1K\endcsname
+    {\textsf{\bfseries{#1}}}
+}
+\keyword{choice}
+\keyword{or}
+\keyword{try}
+\keyword{do}
+\keyword{if}
+\keyword{else}
+\keyword{while}
+\keyword{until}
+\keyword{alap}
+\keyword{true}
+\keyword{any}
+\keyword{other}
+\keyword{function}
+
 %\renewcommand{\texfigsuffix}{pstex_t}
 
 \newcommand{\grooveURL}{http://groove.cs.utwente.nl}

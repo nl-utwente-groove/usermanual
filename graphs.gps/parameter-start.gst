@@ -4,32 +4,43 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n37959"/>
-        <node id="n37960"/>
-        <node id="n37961"/>
-        <edge from="n37960" to="n37960">
+        <node id="n38147"/>
+        <node id="n38148"/>
+        <node id="n38149"/>
+        <node id="n38150"/>
+        <edge from="n38148" to="n38148">
             <attr name="label">
-                <string>A</string>
+                <string>string:"a"</string>
             </attr>
         </edge>
-        <edge from="n37961" to="n37961">
+        <edge from="n38147" to="n38150">
             <attr name="label">
-                <string>int:3</string>
+                <string>x</string>
             </attr>
         </edge>
-        <edge from="n37959" to="n37959">
-            <attr name="label">
-                <string>B</string>
-            </attr>
-        </edge>
-        <edge from="n37960" to="n37961">
+        <edge from="n38147" to="n38148">
             <attr name="label">
                 <string>y</string>
             </attr>
         </edge>
-        <edge from="n37960" to="n37959">
+        <edge from="n38147" to="n38147">
+            <attr name="label">
+                <string>A</string>
+            </attr>
+        </edge>
+        <edge from="n38150" to="n38150">
+            <attr name="label">
+                <string>C</string>
+            </attr>
+        </edge>
+        <edge from="n38147" to="n38149">
             <attr name="label">
                 <string>x</string>
+            </attr>
+        </edge>
+        <edge from="n38149" to="n38149">
+            <attr name="label">
+                <string>B</string>
             </attr>
         </edge>
     </graph>
