@@ -78,12 +78,16 @@
 %\renewcommand{\texfigsuffix}{pstex_t}
 
 \newcommand{\grooveURL}{http://groove.cs.utwente.nl}
-\newcommand{\Groove}{\textsc{Groove}}
-\newcommand{\JGraph}{\textsc{JGraph}}
+\newcommand{\Groove}{\textsc{groove}\xspace}
+\newcommand{\JGraph}{\textsc{jgraph}\xspace}
 
 \newcommand{\scale}{.7}
 \newcommand{\graphbox}[1]{%
     \framebox{\includegraphics[scale=\scale]{\figdir/#1}}%
+}
+\newcommand{\tscale}{1.1}
+\newcommand{\tikzbox}[1]{%
+    \framebox{\scalebox{\tscale}{\input{\figdir/#1.tikz}}}%
 }
 
 \newcommand{\graphfig}[2]{%
@@ -98,16 +102,30 @@
   \end{figure} 
 }
 
-\newcommand{\viewsfig}[2]{%
+% \newcommand{\viewsfig}[2]{%
+%   \begin{figure}[h]
+%     \begin{center}
+%       \graphbox{#1-edit-view}
+%       \qquad
+%       \graphbox{#1}
+%     \end{center}
+%     \vspace*{-\medskipamount}
+%     \caption{#2}
+%     \flabel{#1}
+%     \vspace*{-\medskipamount}
+%   \end{figure} 
+% }
+
+\newcommand{\viewsfig}[3][graph]{%
   \begin{figure}[h]
     \begin{center}
-      \graphbox{#1-edit-view}
+      \expandafter\csname#1box\endcsname{#2-edit-view}
       \qquad
-      \graphbox{#1}
+      \expandafter\csname#1box\endcsname{#2}
     \end{center}
     \vspace*{-\medskipamount}
-    \caption{#2}
-    \flabel{#1}
+    \caption{#3}
+    \flabel{#2}
     \vspace*{-\medskipamount}
   \end{figure} 
 }
