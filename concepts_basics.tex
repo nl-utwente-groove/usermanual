@@ -18,13 +18,15 @@ i.e., edges whose source and target nodes coincide) are often not displayed as
 arrows; instead, node labels are used to represent labels of self-edges. It is
 important to realise that these are formally \emph{exactly the same}. For
 instance, the left and right hand side of \fref{self-edges} depict exactly the
-same graph.
+same graph. (See, however, \stref{node types} below.)
 
 \begin{figure}[h]
 \begin{center}
-\graphbox{self-edges-left}
+%\graphbox{self-edges-left}
+\tikzbox{self-edges-left}
 \qquad
-\graphbox{self-edges-right}
+%\graphbox{self-edges-right}
+\tikzbox{self-edges-right}
 \end{center}
 \caption{Node labels represent self-edges, hence these two views depict the
 same graph.}
@@ -63,6 +65,24 @@ labels in graphs:
 \item Whitespace other than simple spaces, such as tabs and newlines, cannot be
   included in labels.
 \end{itemize}
+
+\subsection{Node type labels}
+\stlabel{node types}
+
+Although, as stated above, node labels are actually self-edges, \Groove has a
+special convention to indicate that certain edge labels may \emph{only} be used
+for self-edges: namely, by preceding the label with the special prefix
+``\textsf{type:}''. Such labels are intended to mimic node types, and in fact
+in almost all respects they do behave like node types. For instance, every node
+may have at most one ``\textsf{type:}''-prefixed self-edge; moreover, node type
+labels are always displayed as the topmost label in the node (in case there are
+more), and they are typeset in bold.
+
+\viewsfig[tikz]{node-types}{Edit and Display views of a graph with node types}
+
+For instance, \fref{node-types} shows two nodes with node type labels
+\textsf{Library} and \textsf{Book}, respectively. The \textsf{Book}-node has
+another self-edge \textsf{reserved}, also shown as a node label.
 
 \subsection{Rules}
 \stlabel{rules}
@@ -167,8 +187,9 @@ structure of qualified Java class names. For instance, the name
 larger sets of rules; the structure does not change the meaning of the rule
 system (see also \stref{grammars} below).
 
-The \Groove{} samples contain the following rule systems showing various
-aspects of the features discused above:
+\paragraph{Example usage.}
+
+The use of the above features is demonstrated by the following \Groove samples:
 %
 \begin{itemize}\noitemsep
 \item \textsf{circular-buffer}, a simple data structure with two rules,
@@ -214,8 +235,7 @@ direction of the edge is irrelevant. When two nodes are merged, the resulting
 node receives the incident edges of both original nodes (including the
 self-edges). For instance, the rule in \fref{merger} specifies that the start
 and final state of an automaton should be merged, while all incoming and
-outgoing transitions are preserved. See also rule system \textsf{mergers} in
-the \Groove{} samples.
+outgoing transitions are preserved.
 
 \viewsfig{merger}{%
      Edit and Display views of a rule with a merger.
@@ -247,9 +267,17 @@ the \textsf{Oven} if it contains \emph{exactly} three \textsf{Roll}s --- no
 more and no less. The injectivity between the reader \textsf{Roll}s ensures
 that there are no less than two of them, whereas the embargo \textsf{Roll} with
 its injectivities ensures that there are no more than two.
-See also rule system \textsf{counting} in the \Groove{} samples.
 
 \viewsfig{counting}{Edit and Display views of a rule with a counting constraint}
+
+\paragraph{Example usage.}
+
+The use of the above features is demonstrated by the following \Groove samples:
+%
+\begin{itemize}\noitemsep
+\item \textsf{mergers}, showing the use of mergers;
+\item \textsf{counting}, demonstrating the principle of counting.
+\end{itemize}
 
 \subsection{Rule Comments}
 \stlabel{remark}
@@ -289,6 +317,14 @@ some other rule introduces such an \textsf{Error}-node.
 
 Rule system \textsf{priorities} in the \Groove{} samples shows an example use
 of priorities.
+
+\paragraph{Confluent.}
+
+A rule may be marked as confluent if the user is certain that it does not
+make a difference in which order matches of that rule are evaluated. The effect
+is only visible in one particular exploration strategy (see \stref{exploration}),
+the \emph{linear confluent} exploration. In this strategy, at every state only
+the first match of a confluent rule is explored.
 
 \paragraph{Enabledness.}
 

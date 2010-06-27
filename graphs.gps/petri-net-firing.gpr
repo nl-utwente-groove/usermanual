@@ -4,118 +4,118 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n2246"/>
-        <node id="n2247"/>
-        <node id="n2248"/>
-        <node id="n2249"/>
-        <node id="n2250"/>
-        <node id="n2251"/>
-        <node id="n2252"/>
-        <node id="n2253"/>
-        <node id="n2254"/>
-        <edge from="n2246" to="n2246">
-            <attr name="label">
-                <string>forall:</string>
-            </attr>
-        </edge>
-        <edge from="n2249" to="n2249">
-            <attr name="label">
-                <string>forall:</string>
-            </attr>
-        </edge>
-        <edge from="n2250" to="n2250">
-            <attr name="label">
-                <string>exists:</string>
-            </attr>
-        </edge>
-        <edge from="n2251" to="n2251">
+        <node id="n38275"/>
+        <node id="n38280"/>
+        <node id="n38281"/>
+        <node id="n38277"/>
+        <node id="n38276"/>
+        <node id="n38274"/>
+        <node id="n38273"/>
+        <node id="n38279"/>
+        <node id="n38278"/>
+        <edge from="n38275" to="n38275">
             <attr name="label">
                 <string>new:</string>
             </attr>
         </edge>
-        <edge from="n2252" to="n2252">
+        <edge from="n38280" to="n38280">
             <attr name="label">
-                <string>del:</string>
+                <string>forall:</string>
             </attr>
         </edge>
-        <edge from="n2253" to="n2253">
+        <edge from="n38281" to="n38281">
+            <attr name="label">
+                <string>forall:</string>
+            </attr>
+        </edge>
+        <edge from="n38276" to="n38276">
             <attr name="label">
                 <string>exists:</string>
             </attr>
         </edge>
-        <edge from="n2251" to="n2247">
+        <edge from="n38273" to="n38273">
+            <attr name="label">
+                <string>exists:</string>
+            </attr>
+        </edge>
+        <edge from="n38279" to="n38279">
+            <attr name="label">
+                <string>del:</string>
+            </attr>
+        </edge>
+        <edge from="n38275" to="n38274">
             <attr name="label">
                 <string>on</string>
             </attr>
         </edge>
-        <edge from="n2251" to="n2250">
+        <edge from="n38279" to="n38279">
             <attr name="label">
-                <string>at</string>
+                <string>Token</string>
             </attr>
         </edge>
-        <edge from="n2254" to="n2254">
+        <edge from="n38275" to="n38275">
             <attr name="label">
-                <string>Place</string>
+                <string>Token</string>
             </attr>
         </edge>
-        <edge from="n2247" to="n2246">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n2252" to="n2254">
-            <attr name="label">
-                <string>on</string>
-            </attr>
-        </edge>
-        <edge from="n2248" to="n2248">
+        <edge from="n38278" to="n38278">
             <attr name="label">
                 <string>Transition</string>
             </attr>
         </edge>
-        <edge from="n2249" to="n2253">
-            <attr name="label">
-                <string>in</string>
-            </attr>
-        </edge>
-        <edge from="n2254" to="n2249">
+        <edge from="n38274" to="n38281">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n2248" to="n2247">
-            <attr name="label">
-                <string>out</string>
-            </attr>
-        </edge>
-        <edge from="n2252" to="n2253">
+        <edge from="n38279" to="n38273">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n2251" to="n2251">
-            <attr name="label">
-                <string>Token</string>
-            </attr>
-        </edge>
-        <edge from="n2250" to="n2246">
-            <attr name="label">
-                <string>in</string>
-            </attr>
-        </edge>
-        <edge from="n2248" to="n2254">
-            <attr name="label">
-                <string>in</string>
-            </attr>
-        </edge>
-        <edge from="n2247" to="n2247">
+        <edge from="n38277" to="n38277">
             <attr name="label">
                 <string>Place</string>
             </attr>
         </edge>
-        <edge from="n2252" to="n2252">
+        <edge from="n38275" to="n38276">
             <attr name="label">
-                <string>Token</string>
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n38273" to="n38280">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n38278" to="n38277">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n38277" to="n38280">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge from="n38279" to="n38277">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge from="n38274" to="n38274">
+            <attr name="label">
+                <string>Place</string>
+            </attr>
+        </edge>
+        <edge from="n38276" to="n38281">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge from="n38278" to="n38274">
+            <attr name="label">
+                <string>out</string>
             </attr>
         </edge>
     </graph>
