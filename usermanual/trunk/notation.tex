@@ -7,6 +7,17 @@
 \newcommand{\quoChar}{\textsf'}
 \newcommand{\quo}[1]{``\,\textsf{#1}\,''}
 
+% Edit view prefixes
+\newcommand{\prf}[1]{%
+  \expandafter\newcommand\csname#1P\endcsname{\textsf{#1:}}
+}
+\prf{type}
+\prf{flag}
+\prf{del}
+\prf{new}
+\prf{use}
+\prf{not}
+
 \renewcommand{\l}[1]{\ensuremath{\mathsf{#1}}}
 
 \newcommand{\xx}{\ensuremath{\mathsf x}}
@@ -86,8 +97,18 @@
     \framebox{\includegraphics[scale=\scale]{\figdir/#1}}%
 }
 \newcommand{\tscale}{1.1}
-\newcommand{\tikzbox}[1]{%
-    \framebox{\scalebox{\tscale}{\input{\figdir/#1.tikz}}}%
+\newcommand{\tikzbox}[2][]{%
+    \framebox{\scalebox{\tscale}{\input{\figdir/#2.tikz}}}%
+}
+\newcommand{\tikzboxview}[2]{%
+    \begin{tabular}{@{}l@{}} #1 \\ \tikzbox{#2}\end{tabular}
+}
+\newcommand{\views}[1]{
+  \begin{center}
+  \tikzboxview{Edit view}{#1-edit}
+  \qquad
+  \tikzboxview{Display view}{#1-display}
+  \end{center}
 }
 
 \newcommand{\graphfig}[2]{%
