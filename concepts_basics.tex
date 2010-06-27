@@ -1,95 +1,115 @@
 \section{Basic Concepts}
 \stlabel{basic}
 
-When working in \Groove{}, in particular when creating or modifying rule
-systems, it is important to reaslise that there are two different display modes
-for graphs and rules: the one that you usually see in the Simulator, and the
-one of the Editor. We call these the Display and Edit views, respectively.
-Historically, the Edit view only exists because we never took the time to
-create a better graph editor; instead, we ripped off a prototype editor
-provided for free with the \JGraph{} library.
+\Groove has two different modes for showing graphs and rules: the one you see
+in the Editor when creating graphs and rules, and the one that you see in the
+Simulator when applying rules. We call these the Edit and Display views,
+respectively.  Historically, the Edit view only exists because we never took
+the time to create a better graph editor; instead, we ripped off a prototype
+editor provided for free with the \JGraph library.
 
 \subsection{Graphs}
 \stlabel{Graphs}
 
-\Groove{} uses edge-labelled, directed graphs. Graph nodes are depicted as
-boxes, and edges as arrows between them. Self-edges (often also called loops,
-i.e., edges whose source and target nodes coincide) are often not displayed as
-arrows; instead, node labels are used to represent labels of self-edges. It is
-important to realise that these are formally \emph{exactly the same}. For
-instance, the left and right hand side of \fref{self-edges} depict exactly the
-same graph. (See, however, \stref{node types} below.)
+\Groove is based on directed node- and edge-labelled graphs. Graph nodes are
+depicted as boxes, and edges as arrows between them; the node labels are
+inscribed in the nodes, the edge labels along or on top of the arrows.
 
-\begin{figure}[h]
-\begin{center}
-%\graphbox{self-edges-left}
-\tikzbox{self-edges-left}
-\qquad
-%\graphbox{self-edges-right}
-\tikzbox{self-edges-right}
-\end{center}
-\caption{Node labels represent self-edges, hence these two views depict the
-same graph.}
-\flabel{self-edges}
-\end{figure}
+There are two kinds of node labels: types and flags. In the Edit view, these
+are distinguished from one another and from edge labels by prefixing them with
+``\typeP'' and ``\flagP'', respectively. If you omit the prefix, \Groove will
+interpret the label as an edge label, and it will create a self-edge with that
+label. (If you have no types or flags in your graph, self-edge labels remain
+inscribed in the nodes in the Display view.) In the Display view, types are set
+bold and flags are set italic. Here is an example:
 
-In the \Groove{} views, both nodes and edges can have multiple labels. Multiple
-node labels are given through a vertical list; multiple edge labels are given
-in the form of a comma-separated list. In both cases, these lists actually
-represent multiple edges; for instance, the left and right hand sides of
-\fref{multiple-edges} depict the same graph.
+\views{basic-graph}
+%
+% Self-edges (often also called loops), i.e., edges whose source and target nodes
+% coincide, are sometimes not displayed as arrows; instead, their labels may be
+% written on the node. For instance, the left and right hand side of
+% \fref{self-edges} depict exactly the same graph. However, if node types or
+% flags are used, loops are always properly displayed as edges.
+%
+% \begin{figure}[h]
+% \begin{center}
+% %\graphbox{self-edges-left}
+% \tikzbox{self-edges-left}
+% \qquad
+% %\graphbox{self-edges-right}
+% \tikzbox{self-edges-right}
+% \end{center}
+% \caption{Node labels represent self-edges, hence these two views depict the
+% same graph.}
+% \flabel{self-edges}
+% \end{figure}
+%
+% In the \Groove{} views, multiple edges may be combined into a single edge with
+% a comma-separated list of labels, or, in the case of self-edges, into a
+% vertical list of node labels. In both cases, these lists actually represent
+% multiple edges; for instance, the left and right hand sides of
+% \fref{multiple-edges} depict the same graph.
+%
+% \begin{figure}[h]
+% \begin{center}
+% \graphbox{multiple-edges-left}
+% \qquad
+% \graphbox{multiple-edges-right}
+% \end{center}
+% \caption{Multiple labels represent multiple edges, hence these two views depict
+% the same graph.}
+% \flabel{multiple-edges}
+% \end{figure}
 
-\begin{figure}[h]
-\begin{center}
-\graphbox{multiple-edges-left}
-\qquad
-\graphbox{multiple-edges-right}
-\end{center}
-\caption{Multiple labels represent multiple edges, hence these two views depict
-the same graph.}
-\flabel{multiple-edges}
-\end{figure}
+\paragraph{Type and flag labels.}
 
-\paragraph{Labels in graphs.}
-
-There are two restrictions on the character sequences that can be used as
-labels in graphs:
+As seen above, node labels can be either types or flags. There are two
+important differences:
 \begin{itemize}\noitemsep
-\item Colons (``\textsf{:}'') may not be used arbitrarily. This is because
-  colons are used to separate \emph{label prefixes} (see below) from the
-  remainder of the label. This restriction can be circumvented by
-  \emph{starting} the label with a colon: this initial colon is then not
-  counted to be part of the label proper, and the remainder is not parsed for
-  colons. (Thus, an initial colon serves as an ``escape'' character precisely
-  as an initial single quote serves as an escape in Excel.)
-\item Whitespace other than simple spaces, such as tabs and newlines, cannot be
-  included in labels.
+\item Type labels are partially ordered. This affects rule matching: a type
+  label in a rule matches all subtype labels (i.e., those that are smaller in
+  the partial ordering) of the host graph.
+\item If a type graph is used, type labels must be unique: every node must have
+  exactly one type label.
 \end{itemize}
 
-\subsection{Node type labels}
-\stlabel{node types}
+\paragraph{Graph label syntax.}
 
-Although, as stated above, node labels are actually self-edges, \Groove has a
-special convention to indicate that certain edge labels may \emph{only} be used
-for self-edges: namely, by preceding the label with the special prefix
-``\textsf{type:}''. Such labels are intended to mimic node types, and in fact
-in almost all respects they do behave like node types. For instance, every node
-may have at most one ``\textsf{type:}''-prefixed self-edge; moreover, node type
-labels are always displayed as the topmost label in the node (in case there are
-more), and they are typeset in bold.
+Node labels are restricted to identifiers; i.e., strings of characters starting
+with a letter or underscore, and containing only letters, digits, underscores
+or dollar signs. It is also recommended, but not enforced, to use only
+identifiers as edge labels. If you want to use other labels, start the label
+(in the Edit view) with a colon (``\textsf{:}''). The colon will not be part of
+the actual label: it is an escape character indicating that what follows should
+be taken literally. (Thus, an initial colon serves as an ``escape'' character
+precisely as an initial single quote serves as an escape in Excel.) Whitespace
+other than simple spaces, such as tabs and newlines, cannot be included in
+labels.
 
-\viewsfig[tikz]{node-types}{Edit and Display views of a graph with node types}
-
-For instance, \fref{node-types} shows two nodes with node type labels
-\textsf{Library} and \textsf{Book}, respectively. The \textsf{Book}-node has
-another self-edge \textsf{reserved}, also shown as a node label.
+% \subsection{Node type labels}
+% \stlabel{node types}
+%
+% Although, as stated above, node labels are actually self-edges, \Groove has a
+% special convention to indicate that certain edge labels may \emph{only} be used
+% for self-edges: namely, by preceding the label with the special prefix
+% ``\textsf{type:}''. Such labels are intended to mimic node types, and in fact
+% in almost all respects they do behave like node types. For instance, every node
+% may have at most one ``\textsf{type:}''-prefixed self-edge; moreover, node type
+% labels are always displayed as the topmost label in the node (in case there are
+% more), and they are typeset in bold.
+%
+% \viewsfig[tikz]{node-types}{Edit and Display views of a graph with node types}
+%
+% For instance, \fref{node-types} shows two nodes with node type labels
+% \textsf{Library} and \textsf{Book}, respectively. The \textsf{Book}-node has
+% another self-edge \textsf{reserved}, also shown as a node label.
 
 \subsection{Rules}
 \stlabel{rules}
 
 Formally, rules consist of left hand sides, right hand sides and negative
 application conditions (NACs), all of which are different graphs, connected by
-morphisms. In \Groove{} these graphs are combined into one single graph, and
+morphisms. In \Groove{} these graphs are combined into one single view, and
 colour coding is used to distinguish the original components. As a consequence,
 a \Groove{} view of a rule has the following kinds of elements:
 
@@ -97,22 +117,25 @@ a \Groove{} view of a rule has the following kinds of elements:
 \item[Readers.] These are nodes and edges that are in both the LHS and the RHS.
   In both the editor and the display view, they are depicted just like ordinary
   graph elements; hence, the outlines are thin and black and the font colour is
-  black.
+  black. In the Edit view, the fact that an edge is a reader may be indicated
+  explicitly by including an (optional) prefix ``\useP'' in front of the label.
 
 \item[Erasers.] These are nodes and edges that occur in the LHS but not the
   RHS, meaning that they must be matched in order for the rule to apply, but by
   applying the rule they will be deleted. In the Display view, such elements
-  are depicted by a thin, dashed blue outline and blue text. In the Edit view,
-  erasers are distinguished by a special prefix ``\textsf{del:}''. For eraser
-  nodes, this prefix should appear \emph{on its own} as a node label; for
-  eraser edges, the prefix is followed by the edge label.
+  are depicted by a thin, dashed blue outline and blue text; moreover, erased
+  node labels (on non-erased nodes) are prefixed with ``textsf{--}''. In the
+  Edit view, erasers are distinguished by a special prefix ``\delP''. For
+  eraser nodes, this prefix should appear \emph{on its own} as a node label;
+  for eraser edges, the prefix is followed by the edge label.
 
 \item[Creators.] These are nodes and edges that occur in the RHS but not the
   LHS, meaning that they will be created when the rule is applied. In the
   Display view, such elements are depicted by a slightly wider, solid green
-  outline (light grey in a black-and-white representation) and green text. In
-  the Edit view, creators are distinguished by a special prefix
-  ``\textsf{new:}''. For creator nodes, this prefix should appear \emph{on its
+  outline (light grey in a black-and-white representation) and green text;
+  moreover, created node labels (on non-created nodes) are prefixed with
+  ``textsf{+}''. In the Edit view, creators are distinguished by a special
+  prefix ``\newP''. For creator nodes, this prefix should appear \emph{on its
   own} as a node label; for creator edges, the prefix is followed by the edge
   label.
 
@@ -120,24 +143,26 @@ a \Groove{} view of a rule has the following kinds of elements:
   LHS. This means that they \emph{forbidden}: their presence in the host graph
   will prevent the rule from being applied. In the Display view, such elements
   are depicted by a wide, dashed red outline (darker grey in a black-and-white
-  representation) and red text. In the Edit view, creators are distinguished by
-  a special prefix ``\textsf{not:}''. For embargo nodes, this prefix should
-  appear \emph{on its own} as a node label; for embargo edges, the prefix is
-  followed by the edge label.
+  representation) and red text; moreover, forbidden node labels (on non-embargo
+  nodes) are prefixed with ``\textsf{!}''. In the Edit view, creators are
+  distinguished by a special prefix ``\notP''. For embargo nodes, this prefix
+  should appear \emph{on its own} as a node label; for embargo edges, the
+  prefix is followed by the edge label.
 \end{description}
 %
-Another thing to note is that if a node plays any of the roles of eraser,
-creator and embargo, its incident edges implicitly also have this role. Thus,
-in that case the corresponding prefix can be omitted in the Edit view.
+If a node plays any of the roles of eraser, creator or embargo, its incident
+edges implicitly also have this role. Thus, in that case the corresponding
+prefix can be omitted in the Edit view.
 
-For example, \fref{simple-rule} shows the Edit and Display views of a rule
-which contains all of these types of elements.
+\medskip\noindent The following rule example contains all of the above types of elements:
 
-\viewsfig{simple-rule}{%
-     Edit and Display views of a simple rule.
-}
+\views{simple-rule}
 
-\paragraph{Labels in rules.}
+Note that, among other things, this rule specifies the deletion and creation of
+a type label; this is something that is forbidden in the presence of a type
+graph.
+
+\paragraph{Rule label syntax.}
 
 Label parsing in rules is more complicated than in graphs, because there are
 many more special labels (see below for a discussion). The following points

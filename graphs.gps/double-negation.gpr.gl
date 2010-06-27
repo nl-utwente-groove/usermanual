@@ -1,4 +1,4 @@
-# Layout information for D:\Eclipse\workspace\usermanual\graphs.gps\double-negation.gpr
+# Layout information
 # Each line contains layout information about a node or edge
 # Version info: v <version number>; 1 = pre-jgraph 5.9, 2 = jgraph 5.9
 #     v 1: label position = (x-permillage, y-permillage)
@@ -6,7 +6,7 @@
 # Node Format: n <node id> <bounds>
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
 v 2
-n n642 91 77 19 15 
-n n641 208 78 25 30 
-e n642 n642 "new:start" 231 0 102 98 90 135 121 134 109 98 12
-e n642 n642 "!start" 737 0 109 77 121 42 90 41 102 77 12
+n n642 91 77 86 36 
+n n641 208 78 64 36 
+e n642 n642 "!flag:start" 80 3 122 77 122 50 64 50 64 99 91 99 11
+e n641 n642 "!in" 457 14 208 95 138 95 11
