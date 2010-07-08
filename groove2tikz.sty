@@ -1,4 +1,4 @@
-    % Package that defines the styles used in Tikz figures exported in GROOVE.
+% Package that defines the styles used in Tikz figures exported in GROOVE.
 
 \ProvidesPackage{groove2tikz}
 \RequirePackage{tikz}
@@ -23,6 +23,8 @@
 \newcommand{\bluefill}{blue!10}
 \newcommand{\grey}{black!8}
 \newcommand{\thin}{black!10}
+\newcommand{\orange}{orange}
+\newcommand{\yellow}{yellow!40}
 % LTS colours
 \tikzstyle{result}=[fill=orange]
 \tikzstyle{final}=[fill=red]
@@ -48,6 +50,11 @@
 \tikzstyle{nacnode}=[draw=\red,fill=\redfill,text=\red,line width=2pt,dotted,shape=rectangle]
 \tikzstyle{nacedge}=[draw,\red,line width=2pt,dotted,-stealth']
 \tikzstyle{naclab}=[text=\red,fill=white,inner sep=\labinsep]
+
+% Remarks
+\tikzstyle{remnode}=[draw=\orange,fill=\yellow,text=\orange,shape=rectangle]
+\tikzstyle{remedge}=[draw,\orange,-stealth']
+\tikzstyle{remlab}=[text=\orange,fill=white,inner sep=\labinsep]
 
 % Quantifiers
 \tikzstyle{quantnode}=[dotted,fill=white]

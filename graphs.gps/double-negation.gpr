@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
     <graph edgemode="directed" edgeids="false" role="rule" id="double-negation">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -16,24 +19,24 @@
                 <string>type:Bus</string>
             </attr>
         </edge>
-        <edge to="n642" from="n642">
-            <attr name="label">
-                <string>!flag:start</string>
-            </attr>
-        </edge>
         <edge to="n641" from="n641">
             <attr name="label">
                 <string>type:Pupil</string>
             </attr>
         </edge>
-        <edge to="n642" from="n641">
+        <edge to="n642" from="n642">
             <attr name="label">
-                <string>!in</string>
+                <string>new:flag:start</string>
             </attr>
         </edge>
         <edge to="n642" from="n642">
             <attr name="label">
-                <string>new:flag:start</string>
+                <string>!flag:start</string>
+            </attr>
+        </edge>
+        <edge to="n642" from="n641">
+            <attr name="label">
+                <string>!in</string>
             </attr>
         </edge>
     </graph>

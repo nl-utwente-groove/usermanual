@@ -42,7 +42,8 @@ inclfiles = \
 pdfgraphics = \
 	$(TEXFIG_NAMES:%=%.tex) $(TEXFIG_NAMES:%=%.pdf) \
 	$(GIF_NAMES:%=%.pdf) $(EPSFIG_NAMES:%=%.pdf) \
-	$(GROOVE_NAMES:%=%.png) $(PNG_FILES)
+	$(GROOVE_NAMES:%=%-edit.tikz) $(GROOVE_NAMES:%=%-display.tikz)
+#	$(GROOVE_NAMES:%=%.png) $(PNG_FILES) \
 
 %.incl : %.java
 	./javaextract -incl $*.java
@@ -87,6 +88,24 @@ pdfgraphics = \
 %.eps : %.gif
 	convert -crop 0x0 $*.gif $@
 
+$(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gst
+	groove-imager -f tikz $(GRAPHS_GPS)/$*.gst $@
+
+$(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gpr
+	groove-imager -f tikz $(GRAPHS_GPS)/$*.gpr $@
+
+$(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gxl
+	groove-imager -f tikz $(GRAPHS_GPS)/$*.gxl $@
+
+$(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gst
+	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gst $@
+
+$(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gpr
+	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gpr $@
+
+$(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gxl
+	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gxl $@
+
 $(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gst
 	groove-imager $(GRAPHS_GPS)/$*.gst $@
 
@@ -129,9 +148,6 @@ $(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).pdf.bbl
 $(MASTER).pdf.bbl : $(bibfiles) $(texfiles)
 	pdflatex $(MASTER)
 	bibtex $(MASTER)
-
-# converts all the groove files in the $(FIG_DIR) into png
-groove : $(GROOVE_NAMES:%=%.png)
 
 clean :
 	rm -f *.aux *.log *.blg *.dvi *.out *.ps *.pdf

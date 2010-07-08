@@ -1,0 +1,13 @@
+% To use this figure in your LaTeX document
+% import the package groove/resources/groove2tikz.sty
+\begin{tikzpicture}[scale=\tikzscale]
+\node[node] (n37564)  at (2.655, -0.450) {\ml{type:Person\\\{flag:?name\}}};
+\node[node] (n37563)  at (2.640, -1.205) {\ml{type:Person}};
+\node[node] (n37565)  at (2.795, -1.950) {\ml{new:\{flag:?name\}\\type:Person}};
+\path[edge] (n37563) .. controls (2.110, -1.370) and (2.050, -1.560) ..  (n37565) ;
+\node[lab] at (2.120, -1.492){son};
+\path[edge](n37565.north -| 2.640, -1.205) -- node[lab]{father} (n37563) ;
+\path[edge](n37563.north -| 2.655, -0.450) -- node[lab]{\{father*\}} (n37564) ;
+\userdefinedmacro
+\end{tikzpicture}
+\renewcommand{\userdefinedmacro}{\relax}

@@ -1,4 +1,4 @@
-# Layout information for D:\Eclipse\workspace\usermanual\graphs.gps\wildcard.gpr
+# Layout information
 # Each line contains layout information about a node or edge
 # Version info: v <version number>; 1 = pre-jgraph 5.9, 2 = jgraph 5.9
 #     v 1: label position = (x-permillage, y-permillage)
@@ -6,8 +6,6 @@
 # Node Format: n <node id> <bounds>
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
 v 2
-n n1288 176 154 37 30 
-n n1289 122 50 92 30 
-n n1290 268 105 55 15 
-e n1290 n1290 "new:?name" 168 0 280 126 280 162 321 162 321 126 12
-e n1290 n1290 "not:?name" 199 0 279 105 279 71 318 68 318 105 12
+n n1290 192 89 81 51 
+n n1289 39 50 114 36 
+n n1288 53 148 76 36 

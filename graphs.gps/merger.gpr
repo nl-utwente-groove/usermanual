@@ -1,38 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="graph" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="merger">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
+        <node id="n1123"/>
         <node id="n1125"/>
         <node id="n1124"/>
-        <node id="n1123"/>
-        <edge from="n1125" to="n1123">
+        <edge to="n1123" from="n1125">
             <attr name="label">
                 <string>new:=</string>
             </attr>
         </edge>
-        <edge from="n1125" to="n1125">
+        <edge to="n1123" from="n1123">
             <attr name="label">
-                <string>State</string>
+                <string>type:State</string>
             </attr>
         </edge>
-        <edge from="n1124" to="n1124">
+        <edge to="n1125" from="n1125">
             <attr name="label">
-                <string>Automaton</string>
+                <string>type:State</string>
             </attr>
         </edge>
-        <edge from="n1123" to="n1123">
-            <attr name="label">
-                <string>State</string>
-            </attr>
-        </edge>
-        <edge from="n1124" to="n1125">
+        <edge to="n1125" from="n1124">
             <attr name="label">
                 <string>start</string>
             </attr>
         </edge>
-        <edge from="n1124" to="n1123">
+        <edge to="n1124" from="n1124">
+            <attr name="label">
+                <string>type:Automaton</string>
+            </attr>
+        </edge>
+        <edge to="n1123" from="n1124">
             <attr name="label">
                 <string>final</string>
             </attr>

@@ -1,40 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="crowning-wrong" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="crowning-wrong">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
         <node id="n2394"/>
         <node id="n2395"/>
         <node id="n2396"/>
-        <edge from="n2396" to="n2396">
+        <edge to="n2396" from="n2396">
             <attr name="label">
                 <string>forall:</string>
             </attr>
         </edge>
-        <edge from="n2394" to="n2394">
+        <edge to="n2395" from="n2395">
             <attr name="label">
-                <string>Girl</string>
+                <string>Boy</string>
             </attr>
         </edge>
-        <edge from="n2394" to="n2394">
-            <attr name="label">
-                <string>new:Queen</string>
-            </attr>
-        </edge>
-        <edge from="n2395" to="n2394">
+        <edge to="n2394" from="n2395">
             <attr name="label">
                 <string>likes</string>
             </attr>
         </edge>
-        <edge from="n2395" to="n2396">
+        <edge to="n2394" from="n2394">
+            <attr name="label">
+                <string>Girl</string>
+            </attr>
+        </edge>
+        <edge to="n2396" from="n2395">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge from="n2395" to="n2395">
+        <edge to="n2394" from="n2394">
             <attr name="label">
-                <string>Boy</string>
+                <string>new:Queen</string>
             </attr>
         </edge>
     </graph>

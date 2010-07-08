@@ -7,31 +7,40 @@
 
 Wildcards are special edge labels that can be used in rules to stand for
 \emph{arbitrary} labels. The basic wildcard is just a question mark
-``\textsf{?}'': it is matched by any edge of which the source and target node
-also match. Wildcards can only be used in the LHS or NAC; in other words, a
-wildcard cannot be used on a creator edge --- unless it is a \emph{named}
-wildcard, see below.
+``\lab?'': it is matched by any edge of which the source and target node
+also match. Wildcards can be used as readers, embargoes and erasers;
+\emph{named} wildcards can also be used as creators, see below.
+
+\paragraph{Type or flag wildcards.}
+
+Ordinary wildcards, of the form ``\lab?'' introduced above, can only
+capture edges. Node types and flags can also be matched by wildcards, by using
+``\lab{\typeP?}'' or ``\lab{\flagP?}'' instead.
 
 \paragraph{Guarded wildcards.}
 
-Wildcards can be \emph{guarded} either by a list of allowed values or by a list
-of forbidden values:
+Wildcards can be \emph{guarded} either by a list of allowed labels or by a list
+of forbidden labels:
 \begin{itemize}\noitemsep
-\item \textsf{?[a,b,c]} stands for a wildcard that can only be matched by
-  labels \textsf{a}, \textsf{b} or \textsf{c} (this is therefore the same as
-  the regular expression ``\textsf{a$|$b$|$c}''; however, in contrast to
+\item \lab{?[a,b,c]} stands for a wildcard that can only be matched by
+  labels \lab{a}, \lab{b} or \lab{c} (this is therefore the same as
+  the regular expression ``\lab{a$|$b$|$c}''; however, in contrast to
   regular expressions, wildcards (when used on their own) may occur on eraser
   edges, and (when named) also on creator edges.
 
-\item \textsf{?[\^{}a,b,c]} stands for a wildcard that can be matched by any
-  label \emph{except} \textsf{a}, \textsf{b} or \textsf{c}.
+\item \lab{?[\^{}a,b,c]} stands for a wildcard that can be matched by any
+  label \emph{except} \lab{a}, \lab{b} or \lab{c}.
 \end{itemize}
+%
+The labels \blab{a}, \blab{b}, \blab{c} above stand for edge labels, node types
+or flags, depending on the kind of wildcard (\lab?, \typeP\lab? or
+\flagP\lab?).
 
 \paragraph{Named wildcards.}
 
 Finally, wildcards can have a \emph{name}, in which case they act as
 \emph{label variables}. The name directly follows the question mark, hence
-``\textsf{?x}'' is a wildcard with name \textsf{x}. When such a wildcard is
+``\lab{?x}'' is a wildcard with name \lab{x}. When such a wildcard is
 matched by a certain edge label, that label is considered to be the
 \emph{value} of the variable for the duration of the rule application. The same
 label variable can occur multiple times within a single rule; the effect is
@@ -41,25 +50,27 @@ Variable names can be freely chosen (except that they must adhere to the syntax
 rules of an identifier, i.e., start with a letter and consist only of letters,
 digits and underscores); they may in fact coincide with actual labels, though
 this must be considered bad practice. Variable names can also be combined with
-guards; for instance, ``\textsf{?x[\^{}a,b,c]}'' is matched by any label except
-\textsf{a}, \textsf{b} or \textsf{c}; the matching label is then bound to
-\textsf{x}.
+guards; for instance, ``\lab{?x[\^{}a,b,c]}'' is matched by any label except
+\lab{a}, \lab{b} or \lab{c}; the matching label is then bound to
+\lab{x}.
 
 In contrast to ordinary wildcards, named wildcards can be used on creator
 edges, providing that a binding instance occurs in the LHS. This enables the
-\emph{copying} of edge labels.
+\emph{copying} of types, flags or edge labels.
 
-For instance, \fref{wildcard} shows a rule which specifies that if the same
-label occurs as a self-edge on two different \textsf{Person}s, then this label
-should be added as a self-edge on a collector node labelled
-\textsf{Duplicates}, provided it is not already there. The label
-\textsf{Person} itself, however, is exempted from this treatment.
+For instance, the following rule specifies that if the same flag occurs on two
+different \tlab{Person}s, and this flag is not \flab{John}, then it should be
+added on a collector node labelled \tlab{Duplicates}, provided it is not
+already there. The type label \tlab{Person} is automatically exempted from this
+treatment.
 
-\viewsfig{wildcard}{Edit and Display view of a rule with a named wildcard.}
+\views{wildcard}
+%
+When using type graphs, the use of wildcards as creators is forbidden.
 
 \paragraph{Example usage.}
 
-The use of the above features is demonstrated by the following \Groove sample:
+The use of the above features is demonstrated by the following \Groove samples:
 %
 \begin{itemize}\noitemsep
 \item \textsf{wildcards}, showing the general use of wildcards;
@@ -72,13 +83,14 @@ The use of the above features is demonstrated by the following \Groove sample:
 Rule edges can specify regular expressions over graph labels. Such a regular
 expression is matched by any chain of edges in the host graph of which the
 labels form a word recognised by the regular expression. Regular expressions
-may only be used on reader and embargo edges, never on erasers or creators.
+may only be used on reader and embargo edges, never on erasers or creators
+(except in the special case of wildcards, discussed above).
 
 Regular expressions are distinguished by surrounding curly braces. Thus,
-``\textsf{\{a.b\}}'' specifies a regular expression (matched by two consecutive
-graph edges labelled ``\textsf{a}'' and ``\textsf{b}'') whereas
-``\textsf{a.b}'' specifies a single edge with exactly that label. Regular
-expressions are built up from the following operators (for an overview see \tref{regular}):
+``\lab{\{a.b\}}'' specifies a regular expression (matched by two consecutive
+graph edges labelled ``\lab{a}'' and ``\lab{b}'') whereas ``\lab{a.b}''
+specifies a single edge with exactly that label. Regular expressions are built
+up from the following operators (for an overview see \tref{regular}):
 %
 \begin{table}
 \begin{center}
@@ -86,16 +98,16 @@ expressions are built up from the following operators (for an overview see \tref
 \hline\hline
 \bf Expression & \bf Meaning \\
 \hline
-\textsf{\itshape label} & Simple label; matched literally \\
-\textsf{=} & Empty path/equality of nodes (see \stref{equality}) \\
-\textsf{?} & Wildcard, possibly named and/or guarded (see
+\lab{\itshape label} & Simple label; matched literally \\
+\lab{=} & Empty path/equality of nodes (see \stref{equality}) \\
+\lab? & Wildcard, possibly named and/or guarded (see
 \stref{wildcard}) \\
-\textsf{$R_1$.$R_2$} & Sequential composition of $R_1$ and $R_2$ \\
-\textsf{$R_1|R_2$} & Choice between $R_1$ and $R_2$ \\
-\textsf{$R$*} & Zero or more repetitions of $R$ \\
-\textsf{$R$+} & One or more repetitions of $R$ \\
-\textsf{-$R$} & Inversion of $R$ (matches $R$ when followed backwards) \\
-\textsf{!$R$} & Negation of $R$ (absence of a match for $R$) \\
+\lab{$R_1$.$R_2$} & Sequential composition of $R_1$ and $R_2$ \\
+\lab{$R_1|R_2$} & Choice between $R_1$ and $R_2$ \\
+\lab{$R$*} & Zero or more repetitions of $R$ \\
+\lab{$R$+} & One or more repetitions of $R$ \\
+\lab{-$R$} & Inversion of $R$ (matches $R$ when followed backwards) \\
+\lab{!$R$} & Negation of $R$ (absence of a match for $R$) \\
 \hline\hline
 \end{tabular}
 \end{center}
@@ -128,40 +140,38 @@ expressions are built up from the following operators (for an overview see \tref
 
 \item[Plus] The plus (``\textsf{+}'') is a postfix operator that specifies that
   the preceding regular expression occurs one or more times. Thus, a label
-  sequence matches \textsf{$R$+} if it can be split into one or more
+  sequence matches \lab{$R$+} if it can be split into one or more
   subsequences, each of which matches $R$.
 
 \item[Inversion] This is a prefix operator, denoted by the minus sign
-  (``\textsf{-}''), specifying that its operand should be interpreted in
+  (``\lab{-}''), specifying that its operand should be interpreted in
   reverse, \emph{including the direction of the edges}. Thus, a sequence of
   edges matches \textsf{-$R$} if it matches $R$ when followed backwards.
 
-\item[Equality] An equality sign (``\textsf{=}'') may be used as an atomic
+\item[Equality] An equality sign (``\lab{=}'') may be used as an atomic
   entity in a regular expression, in which case it stands for the empty word,
   or in other words, it is matched by an emtpy sequence of edges in the host
-  graph. For instance, the regular expression ``\textsf{a$|$=}'' specifies that
+  graph. For instance, the regular expression ``\lab{a$|$=}'' specifies that
   between two nodes there is an \textsf{a}-edge or the nodes coincide. Also,
-  \textsf{$R$*} has the same meaning as \textsf{$R$+$|$=} (for any regular
+  \textsf{$R$*} has the same meaning as \lab{$R$+$|$=} (for any regular
   expressions $R$).
 
 \item[Wildcard] This is exactly as discussed in \stref{wildcard} above.  Note
-  that a named wildcard within a regular expression may in some circumstances
-  fail to bind to any value: namely, when it is not necessarily matched, such
-  as in a choice or star expression. If a variable is not bound, it may not be
-  used on a creator edge.
+  that a named wildcard can only be used within a regular expression if the
+  name is \emph{bound} by another occurrence, not inside a regular expression.
 
 \item[Negation] This is the same as discussed in \stref{negation}. Negations
-  are specified by a single exclamation mark (``\textsf{!}'') preceding the
+  are specified by a single exclamation mark (``\lab{!}'') preceding the
   entire regular expression. Thus, they cannot be used \emph{inside} a
   regular expression. In fact, a negation is not properly part of the regular
   expression itself, since it is in itself not matched by anything; rather, it
   expresses the absence of a match for the actual regular expression.
 \end{description}
 
-For instance, \fref{regular} shows a rule that specifies that a son should
- receive the name of one of his forefathers.
+For instance, the following rule specifies that a son should receive the name
+of one of his forefathers.
 
-\graphfig{regular}{Rule with a regular expression.}
+\views{regular}
 
 \paragraph{Example usage.}
 
@@ -293,16 +303,15 @@ to data nodes as well as the data nodes themselves are not depcited as edges
 and nodes at all, but rather in the more familiar sttribute notation, as
 equations within the source nodes. (There is, however, an option in the
 Simulator to switch off the attribute notation and show data values as
-ellipsoid nodes; see \stref{inspecting}.) For instance,
-\fref{attribute-rule} shows the Edit and Display views of a rule that specifies
-the withdrawal from a bank account, provided the balance does not
+ellipsoid nodes; see \stref{inspecting}.) For instance, the following rule
+specifies the withdrawal from a bank account, provided the balance does not
 become negative.
 
-\viewsfig{attribute-rule}{Edit and Display view of a rule using attributes.}
+\views{attribute-rule}
 
 \fref{attribute-graph} shows the Edit and Display views of an attributed graph.
 
-\viewsfig{attribute-graph}{Edit and Display view of an attributed graph.}
+\views{attribute-graph}
 
 \paragraph{Algebras.}
 
@@ -415,19 +424,16 @@ applications, with distrinct transition labels.
 For the case that one needs distinct rule applications \emph{without} having
 the node identity on the transition label, \Groove{} offers the concept of an
 \emph{anonymous parameter}. This is essentially a parameter without number, in
-the editor specified by just the prefix ``\textsf{par:}''. An example is shown
-in \fref{anonymousParameters}: this rule, applied to the graph of
-\fref{parameters}, will give rise to two distinct transitions, both labelled
-\textsf{anonymousParameter(``a'')}, which are self-loops on the state since
-neither rule application changes the graph.
+the editor specified by just the prefix ``\textsf{par:}''. An example is the
+following:
 
-Note that the display view does not show the anonymous parameter at all. We are
-still considering an appropriate visual representation.
+\views{anonymousParameter}
 
-\viewsfig{anonymousParameter}{%
-    Edit and Display view of an unmodifying rule with an
-anonymous parameter.%
-}
+This rule, applied to the graph of \fref{parameters}, will give rise to two
+distinct transitions, both labelled \textsf{anonymousParameter(``a'')}, which
+are self-loops on the state since neither rule application changes the graph.
+
+Note that the display view does not show the anonymous parameter at all.
 
 \paragraph{Example usage.}
 
@@ -471,10 +477,12 @@ prefixes:
   entire rule, the sub-rule at such a level is matched exactly once.
 \end{itemize}
 
-\viewsfig{nesting}{Edit and Display view of a nesting structure}
+The following is an example of a nesting structure (leaving out the actual
+rule). 
 
-\fref{nesting} gives an example of a nesting structure (leaving out the actual
-rule). The hierarchical structure of nesting levels corresponds to the
+\views{nesting}
+%
+The hierarchical structure of nesting levels corresponds to the
 quantifier structure of a predicate formula, where the branching stands either
 for conjunction (in case of universal levels), or for disjunction (in case of
 existentials). In other words, the structure in \fref{nesting} roughly reflects

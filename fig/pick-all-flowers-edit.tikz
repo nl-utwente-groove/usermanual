@@ -1,0 +1,14 @@
+% To use this figure in your LaTeX document
+% import the package groove/resources/groove2tikz.sty
+\begin{tikzpicture}[scale=\tikzscale]
+\node[delnode] (n1778)  at (1.820, -0.780) {\ml{Flower\\del:}};
+\node[node] (n1779)  at (1.840, -2.105) {\ml{Field}};
+\node[node] (n1780)  at (1.825, -1.475) {\ml{Plant}};
+\node[node, quantnode] (n1781)  at (0.995, -1.455) {\ml{forall:}};
+\path[edge](n1779.north -| 1.825, -1.475) -- node[lab]{grows} (n1780) ;
+\path[quantedge] (n1778)  -- node[lab]{at} (n1781) ;
+\path[quantedge](n1780.west |- 0.995, -1.455) -- node[lab]{at} (n1781) ;
+\path[edge](n1780.north -| 1.820, -0.780) -- node[lab]{has} (n1778) ;
+\userdefinedmacro
+\end{tikzpicture}
+\renewcommand{\userdefinedmacro}{\relax}

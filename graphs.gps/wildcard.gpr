@@ -1,50 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="wildcard" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="wildcard">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n1288"/>
-        <node id="n1289"/>
         <node id="n1290"/>
-        <edge from="n1288" to="n1288">
+        <node id="n1289"/>
+        <node id="n1288"/>
+        <edge to="n1288" from="n1288">
             <attr name="label">
-                <string>?name</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1290" to="n1290">
+        <edge to="n1290" from="n1290">
             <attr name="label">
-                <string>new:?name</string>
+                <string>type:Duplicates</string>
             </attr>
         </edge>
-        <edge from="n1290" to="n1290">
+        <edge to="n1289" from="n1289">
             <attr name="label">
-                <string>not:?name</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1288" to="n1288">
-            <attr name="label">
-                <string>Person</string>
-            </attr>
-        </edge>
-        <edge from="n1290" to="n1290">
-            <attr name="label">
-                <string>Duplicates</string>
-            </attr>
-        </edge>
-        <edge from="n1289" to="n1288">
+        <edge to="n1288" from="n1289">
             <attr name="label">
                 <string>!=</string>
             </attr>
         </edge>
-        <edge from="n1289" to="n1289">
+        <edge to="n1290" from="n1290">
             <attr name="label">
-                <string>Person</string>
+                <string>new:{flag:?name}</string>
             </attr>
         </edge>
-        <edge from="n1289" to="n1289">
+        <edge to="n1290" from="n1290">
             <attr name="label">
-                <string>?name[^Person]</string>
+                <string>not:{flag:?name}</string>
+            </attr>
+        </edge>
+        <edge to="n1289" from="n1289">
+            <attr name="label">
+                <string>{flag:?name[^John]}</string>
+            </attr>
+        </edge>
+        <edge to="n1288" from="n1288">
+            <attr name="label">
+                <string>{flag:?name}</string>
             </attr>
         </edge>
     </graph>

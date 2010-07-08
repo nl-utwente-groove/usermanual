@@ -1,0 +1,19 @@
+% To use this figure in your LaTeX document
+% import the package groove/resources/groove2tikz.sty
+\begin{tikzpicture}[scale=\tikzscale]
+\node[node] (n1063)  at (0.575, -1.505) {\ml{\textbf{Bride}}};
+\node[node] (n1065)  at (2.120, -0.345) {\ml{\textbf{Person}}};
+\node[node] (n1068)  at (0.590, -0.365) {\ml{\textbf{Person}}};
+\node[node] (n1064)  at (2.650, -0.685) {\ml{\textbf{Person}}};
+\node[node] (n1067)  at (1.150, -0.735) {\ml{\textbf{Person}}};
+\node[node] (n1066)  at (2.140, -1.505) {\ml{\textbf{Groom}}};
+\path[edge](n1063.north -| 0.590, -0.365) -- node[lab]{father} (n1068) ;
+\path[edge] (n1066)  -- node[lab]{mother} (n1064) ;
+\path[nacedge, -](n1067.east |- 2.650, -0.685) -- node[naclab]{\textit{=}} (n1064) ;
+\path[edge] (n1063)  -- node[lab]{mother} (n1067) ;
+\path[edge](n1066.north -| 2.120, -0.345) -- node[lab]{father} (n1065) ;
+\path[newedge](n1066.west |- 0.575, -1.505) -- node[newlab]{married} (n1063) ;
+\path[edge, -](n1068.east |- 2.120, -0.345) -- node[lab]{\textit{!=}} (n1065) ;
+\userdefinedmacro
+\end{tikzpicture}
+\renewcommand{\userdefinedmacro}{\relax}

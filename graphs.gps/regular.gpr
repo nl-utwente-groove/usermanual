@@ -1,45 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="regular" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="regular">
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n37563"/>
         <node id="n37564"/>
+        <node id="n37563"/>
         <node id="n37565"/>
-        <edge from="n37565" to="n37565">
+        <edge to="n37564" from="n37564">
             <attr name="label">
-                <string>new:?name</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n37563" to="n37565">
+        <edge to="n37565" from="n37563">
             <attr name="label">
                 <string>son</string>
             </attr>
         </edge>
-        <edge from="n37565" to="n37563">
+        <edge to="n37563" from="n37563">
+            <attr name="label">
+                <string>type:Person</string>
+            </attr>
+        </edge>
+        <edge to="n37563" from="n37565">
             <attr name="label">
                 <string>father</string>
             </attr>
         </edge>
-        <edge from="n37563" to="n37564">
+        <edge to="n37565" from="n37565">
             <attr name="label">
-                <string>{father*.?name[^Person]}</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n37565" to="n37565">
+        <edge to="n37565" from="n37565">
             <attr name="label">
-                <string>Person</string>
+                <string>new:{flag:?name}</string>
             </attr>
         </edge>
-        <edge from="n37563" to="n37563">
+        <edge to="n37564" from="n37563">
             <attr name="label">
-                <string>Person</string>
+                <string>{father*}</string>
             </attr>
         </edge>
-        <edge from="n37564" to="n37564">
+        <edge to="n37564" from="n37564">
             <attr name="label">
-                <string>Person</string>
+                <string>{flag:?name}</string>
             </attr>
         </edge>
     </graph>

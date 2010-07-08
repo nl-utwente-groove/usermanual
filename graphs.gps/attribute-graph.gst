@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="attribute-graph" role="graph" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="graph" id="attribute-graph">
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -8,39 +8,39 @@
         <node id="n617"/>
         <node id="n618"/>
         <node id="n619"/>
-        <edge from="n616" to="n618">
+        <edge to="n617" from="n617">
             <attr name="label">
-                <string>balance</string>
+                <string>string:&quot;John&quot;</string>
             </attr>
         </edge>
-        <edge from="n619" to="n619">
-            <attr name="label">
-                <string>Person</string>
-            </attr>
-        </edge>
-        <edge from="n619" to="n617">
-            <attr name="label">
-                <string>name</string>
-            </attr>
-        </edge>
-        <edge from="n618" to="n618">
+        <edge to="n618" from="n618">
             <attr name="label">
                 <string>real:100.0</string>
             </attr>
         </edge>
-        <edge from="n617" to="n617">
-            <attr name="label">
-                <string>string:"John"</string>
-            </attr>
-        </edge>
-        <edge from="n616" to="n616">
-            <attr name="label">
-                <string>Account</string>
-            </attr>
-        </edge>
-        <edge from="n616" to="n619">
+        <edge to="n619" from="n616">
             <attr name="label">
                 <string>belongs</string>
+            </attr>
+        </edge>
+        <edge to="n619" from="n619">
+            <attr name="label">
+                <string>type:Person</string>
+            </attr>
+        </edge>
+        <edge to="n617" from="n619">
+            <attr name="label">
+                <string>name</string>
+            </attr>
+        </edge>
+        <edge to="n618" from="n616">
+            <attr name="label">
+                <string>balance</string>
+            </attr>
+        </edge>
+        <edge to="n616" from="n616">
+            <attr name="label">
+                <string>type:Account</string>
             </attr>
         </edge>
     </graph>

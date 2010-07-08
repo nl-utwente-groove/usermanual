@@ -7,9 +7,20 @@
 \newcommand{\quoChar}{\textsf'}
 \newcommand{\quo}[1]{``\,\textsf{#1}\,''}
 
+% Typesetting
+\newcommand{\lab}[1]{\textsf{#1}}
+% Binary labels
+\newcommand{\blab}[1]{\lab{#1}}
+% Type labels
+\newcommand{\tlab}[1]{\lab{\bfseries#1}}
+% Flag labels
+\newcommand{\flab}[1]{\lab{\itshape#1}}
+% Regexp labels
+\newcommand{\rlab}[1]{\lab{\itshape#1}}
+
 % Edit view prefixes
 \newcommand{\prf}[1]{%
-  \expandafter\newcommand\csname#1P\endcsname{\textsf{#1:}}
+  \expandafter\newcommand\csname#1P\endcsname{\lab{#1:}}
 }
 \prf{type}
 \prf{flag}
@@ -17,6 +28,7 @@
 \prf{new}
 \prf{use}
 \prf{not}
+\prf{rem}
 
 \renewcommand{\l}[1]{\ensuremath{\mathsf{#1}}}
 
@@ -36,16 +48,10 @@
 \newcommand{\Object}{\ensuremath{\mathsf{Object}}}
 \newcommand{\Buffer}{\ensuremath{\mathsf{Buffer}}}
 
-% Role prefixes
-\newcommand{\Del}{\mbox{\textsf{del:}}}
-\newcommand{\New}{\mbox{\textsf{new:}}}
-\newcommand{\Use}{\mbox{\textsf{use:}}}
-\newcommand{\Not}{\mbox{\textsf{not:}}}
-
 % Special rule labels
-\newcommand{\Open}{\mbox{\textsf{start}}}
-\newcommand{\Start}{\mbox{\textsf{open}}}
-\newcommand{\Final}{\mbox{\textsf{final}}}
+\newcommand{\Open}{\mbox{\lab{start}}}
+\newcommand{\Start}{\mbox{\lab{open}}}
+\newcommand{\Final}{\mbox{\lab{final}}}
 
 \newcommand{\Put}{\ensuremath{\mathsf{\langle put\rangle}}}
 \newcommand{\Get}{\ensuremath{\mathsf{\langle get\rangle}}}
