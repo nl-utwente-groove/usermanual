@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
     <graph edgemode="directed" edgeids="false" role="rule" id="simple-rule">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -25,14 +28,9 @@
                 <string>new:</string>
             </attr>
         </edge>
-        <edge to="n533" from="n536">
+        <edge to="n534" from="n534">
             <attr name="label">
-                <string>new:a</string>
-            </attr>
-        </edge>
-        <edge to="n535" from="n536">
-            <attr name="label">
-                <string>d</string>
+                <string>type:D</string>
             </attr>
         </edge>
         <edge to="n536" from="n536">
@@ -40,14 +38,54 @@
                 <string>type:B</string>
             </attr>
         </edge>
-        <edge to="n534" from="n534">
+        <edge to="n533" from="n533">
             <attr name="label">
-                <string>type:D</string>
+                <string>not:type:B</string>
+            </attr>
+        </edge>
+        <edge to="n533" from="n533">
+            <attr name="label">
+                <string>new:flag:s</string>
+            </attr>
+        </edge>
+        <edge to="n0" from="n533">
+            <attr name="label">
+                <string>c</string>
+            </attr>
+        </edge>
+        <edge to="n535" from="n536">
+            <attr name="label">
+                <string>d</string>
+            </attr>
+        </edge>
+        <edge to="n536" from="n533">
+            <attr name="label">
+                <string>del:b</string>
+            </attr>
+        </edge>
+        <edge to="n533" from="n536">
+            <attr name="label">
+                <string>new:a</string>
+            </attr>
+        </edge>
+        <edge to="n534" from="n536">
+            <attr name="label">
+                <string>d</string>
             </attr>
         </edge>
         <edge to="n532" from="n533">
             <attr name="label">
                 <string>c</string>
+            </attr>
+        </edge>
+        <edge to="n0" from="n0">
+            <attr name="label">
+                <string>del:type:B</string>
+            </attr>
+        </edge>
+        <edge to="n532" from="n0">
+            <attr name="label">
+                <string>not:d</string>
             </attr>
         </edge>
         <edge to="n532" from="n532">
@@ -63,41 +101,6 @@
         <edge to="n0" from="n0">
             <attr name="label">
                 <string>new:type:C</string>
-            </attr>
-        </edge>
-        <edge to="n533" from="n533">
-            <attr name="label">
-                <string>new:flag:s</string>
-            </attr>
-        </edge>
-        <edge to="n536" from="n533">
-            <attr name="label">
-                <string>del:b</string>
-            </attr>
-        </edge>
-        <edge to="n534" from="n536">
-            <attr name="label">
-                <string>d</string>
-            </attr>
-        </edge>
-        <edge to="n532" from="n0">
-            <attr name="label">
-                <string>not:d</string>
-            </attr>
-        </edge>
-        <edge to="n0" from="n533">
-            <attr name="label">
-                <string>c</string>
-            </attr>
-        </edge>
-        <edge to="n0" from="n0">
-            <attr name="label">
-                <string>del:type:B</string>
-            </attr>
-        </edge>
-        <edge to="n533" from="n533">
-            <attr name="label">
-                <string>not:type:B</string>
             </attr>
         </edge>
     </graph>

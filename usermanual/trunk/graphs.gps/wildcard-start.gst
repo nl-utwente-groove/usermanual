@@ -1,46 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="graph" role="graph" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="graph" id="wildcard-start">
         <attr name="$version">
             <string>curly</string>
         </attr>
         <node id="n1378"/>
-        <node id="n1379"/>
         <node id="n1380"/>
+        <node id="n1379"/>
         <node id="n1381"/>
-        <edge from="n1379" to="n1379">
+        <edge to="n1379" from="n1379">
             <attr name="label">
-                <string>Person</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1379" to="n1379">
+        <edge to="n1381" from="n1381">
             <attr name="label">
-                <string>Jantje</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1380" to="n1380">
+        <edge to="n1379" from="n1379">
             <attr name="label">
-                <string>Duplicates</string>
+                <string>flag:Jantje</string>
             </attr>
         </edge>
-        <edge from="n1378" to="n1378">
+        <edge to="n1381" from="n1381">
             <attr name="label">
-                <string>Person</string>
+                <string>flag:Jantje</string>
             </attr>
         </edge>
-        <edge from="n1381" to="n1381">
+        <edge to="n1378" from="n1378">
             <attr name="label">
-                <string>Jantje</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1378" to="n1378">
+        <edge to="n1380" from="n1380">
             <attr name="label">
-                <string>Pietje</string>
+                <string>type:Duplicates</string>
             </attr>
         </edge>
-        <edge from="n1381" to="n1381">
+        <edge to="n1378" from="n1378">
             <attr name="label">
-                <string>Person</string>
+                <string>flag:Pietje</string>
             </attr>
         </edge>
     </graph>

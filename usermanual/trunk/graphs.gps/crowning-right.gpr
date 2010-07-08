@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="crowning-right" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="crowning-right">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -8,44 +11,44 @@
         <node id="n2432"/>
         <node id="n2433"/>
         <node id="n2434"/>
-        <edge from="n2432" to="n2432">
+        <edge to="n2432" from="n2432">
             <attr name="label">
                 <string>exists=x:</string>
             </attr>
         </edge>
-        <edge from="n2434" to="n2434">
+        <edge to="n2434" from="n2434">
             <attr name="label">
                 <string>forall:</string>
             </attr>
         </edge>
-        <edge from="n2432" to="n2434">
-            <attr name="label">
-                <string>in</string>
-            </attr>
-        </edge>
-        <edge from="n2433" to="n2433">
+        <edge to="n2433" from="n2433">
             <attr name="label">
                 <string>Girl</string>
             </attr>
         </edge>
-        <edge from="n2431" to="n2433">
+        <edge to="n2434" from="n2431">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge to="n2433" from="n2431">
             <attr name="label">
                 <string>exists=x:likes</string>
             </attr>
         </edge>
-        <edge from="n2433" to="n2433">
-            <attr name="label">
-                <string>new:Queen</string>
-            </attr>
-        </edge>
-        <edge from="n2431" to="n2431">
+        <edge to="n2431" from="n2431">
             <attr name="label">
                 <string>Boy</string>
             </attr>
         </edge>
-        <edge from="n2431" to="n2434">
+        <edge to="n2433" from="n2433">
             <attr name="label">
-                <string>at</string>
+                <string>new:Queen</string>
+            </attr>
+        </edge>
+        <edge to="n2434" from="n2432">
+            <attr name="label">
+                <string>in</string>
             </attr>
         </edge>
     </graph>

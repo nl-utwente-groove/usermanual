@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="pick-at-least-one-flower" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="pick-at-least-one-flower">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -9,59 +12,59 @@
         <node id="n1836"/>
         <node id="n1837"/>
         <node id="n1838"/>
-        <edge from="n1835" to="n1835">
+        <edge to="n1835" from="n1835">
             <attr name="label">
                 <string>forallx:</string>
             </attr>
         </edge>
-        <edge from="n1836" to="n1836">
+        <edge to="n1836" from="n1836">
             <attr name="label">
                 <string>del:</string>
             </attr>
         </edge>
-        <edge from="n1837" to="n1837">
+        <edge to="n1837" from="n1837">
             <attr name="label">
                 <string>exists:</string>
             </attr>
         </edge>
-        <edge from="n1838" to="n1836">
+        <edge to="n1837" from="n1836">
             <attr name="label">
-                <string>has</string>
+                <string>at</string>
             </attr>
         </edge>
-        <edge from="n1836" to="n1836">
+        <edge to="n1835" from="n1838">
             <attr name="label">
-                <string>Flower</string>
+                <string>at</string>
             </attr>
         </edge>
-        <edge from="n1838" to="n1838">
+        <edge to="n1838" from="n1838">
             <attr name="label">
                 <string>Plant</string>
             </attr>
         </edge>
-        <edge from="n1834" to="n1838">
+        <edge to="n1836" from="n1838">
             <attr name="label">
-                <string>grows</string>
+                <string>has</string>
             </attr>
         </edge>
-        <edge from="n1837" to="n1835">
+        <edge to="n1834" from="n1834">
+            <attr name="label">
+                <string>Field</string>
+            </attr>
+        </edge>
+        <edge to="n1836" from="n1836">
+            <attr name="label">
+                <string>Flower</string>
+            </attr>
+        </edge>
+        <edge to="n1835" from="n1837">
             <attr name="label">
                 <string>in</string>
             </attr>
         </edge>
-        <edge from="n1838" to="n1835">
+        <edge to="n1838" from="n1834">
             <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n1836" to="n1837">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge from="n1834" to="n1834">
-            <attr name="label">
-                <string>Field</string>
+                <string>grows</string>
             </attr>
         </edge>
     </graph>

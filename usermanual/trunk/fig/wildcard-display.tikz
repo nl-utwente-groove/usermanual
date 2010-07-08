@@ -1,0 +1,10 @@
+% To use this figure in your LaTeX document
+% import the package groove/resources/groove2tikz.sty
+\begin{tikzpicture}[scale=\tikzscale]
+\node[node] (n1290)  at (2.285, -1.145) {\ml{\textbf{Duplicates}\\{\color{\green}$+$ \textit{?name}}\\{\color{\red}$!$ \textit{?name}}}};
+\node[node] (n1289)  at (0.845, -0.680) {\ml{\textbf{Person}\\\textit{?name[\^{}John]}}};
+\node[node] (n1288)  at (0.790, -1.660) {\ml{\textbf{Person}\\\textit{?name}}};
+\path[edge, -](n1289.south -| 0.790, -1.660) -- node[lab]{\textit{!=}} (n1288) ;
+\userdefinedmacro
+\end{tikzpicture}
+\renewcommand{\userdefinedmacro}{\relax}

@@ -1,4 +1,4 @@
-# Layout information for D:\Eclipse\workspace\usermanual\graphs.gps\parameters.gpr
+# Layout information
 # Each line contains layout information about a node or edge
 # Version info: v <version number>; 1 = pre-jgraph 5.9, 2 = jgraph 5.9
 #     v 1: label position = (x-permillage, y-permillage)
@@ -6,6 +6,6 @@
 # Node Format: n <node id> <bounds>
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
 v 2
-n n38108 167 119 44 30 
 n n38109 120 31 8 15 
+n n38108 167 119 44 30 
 n n38107 65 121 44 30 

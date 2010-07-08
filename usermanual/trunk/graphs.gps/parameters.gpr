@@ -1,45 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="parameters" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="parameters">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
         <node id="n38107"/>
         <node id="n38108"/>
         <node id="n38109"/>
-        <edge from="n38107" to="n38107">
+        <edge to="n38107" from="n38107">
             <attr name="label">
                 <string>par=$1:</string>
             </attr>
         </edge>
-        <edge from="n38107" to="n38107">
+        <edge to="n38107" from="n38107">
             <attr name="label">
                 <string>del:</string>
             </attr>
         </edge>
-        <edge from="n38108" to="n38108">
+        <edge to="n38108" from="n38108">
             <attr name="label">
                 <string>par=$2:</string>
             </attr>
         </edge>
-        <edge from="n38108" to="n38108">
+        <edge to="n38108" from="n38108">
             <attr name="label">
                 <string>attr:</string>
             </attr>
         </edge>
-        <edge from="n38109" to="n38107">
+        <edge to="n38107" from="n38109">
             <attr name="label">
                 <string>x</string>
             </attr>
         </edge>
-        <edge from="n38109" to="n38109">
-            <attr name="label">
-                <string>A</string>
-            </attr>
-        </edge>
-        <edge from="n38109" to="n38108">
+        <edge to="n38108" from="n38109">
             <attr name="label">
                 <string>y</string>
+            </attr>
+        </edge>
+        <edge to="n38109" from="n38109">
+            <attr name="label">
+                <string>A</string>
             </attr>
         </edge>
     </graph>

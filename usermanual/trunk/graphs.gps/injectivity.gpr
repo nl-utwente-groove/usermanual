@@ -1,78 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
-    <graph id="graph" role="rule" edgeids="false" edgemode="directed">
+    <graph edgemode="directed" edgeids="false" role="rule" id="injectivity">
+        <attr name="enabled">
+            <string>false</string>
+        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n1064"/>
         <node id="n1063"/>
-        <node id="n1067"/>
-        <node id="n1066"/>
         <node id="n1065"/>
         <node id="n1068"/>
-        <edge from="n1063" to="n1063">
+        <node id="n1064"/>
+        <node id="n1067"/>
+        <node id="n1066"/>
+        <edge to="n1064" from="n1064">
             <attr name="label">
-                <string>Bride</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1066" to="n1063">
+        <edge to="n1068" from="n1063">
+            <attr name="label">
+                <string>father</string>
+            </attr>
+        </edge>
+        <edge to="n1066" from="n1066">
+            <attr name="label">
+                <string>type:Groom</string>
+            </attr>
+        </edge>
+        <edge to="n1067" from="n1063">
+            <attr name="label">
+                <string>mother</string>
+            </attr>
+        </edge>
+        <edge to="n1064" from="n1066">
+            <attr name="label">
+                <string>mother</string>
+            </attr>
+        </edge>
+        <edge to="n1068" from="n1068">
+            <attr name="label">
+                <string>type:Person</string>
+            </attr>
+        </edge>
+        <edge to="n1063" from="n1066">
             <attr name="label">
                 <string>new:married</string>
             </attr>
         </edge>
-        <edge from="n1065" to="n1065">
+        <edge to="n1067" from="n1067">
             <attr name="label">
-                <string>Person</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1063" to="n1067">
+        <edge to="n1065" from="n1065">
             <attr name="label">
-                <string>mother</string>
+                <string>type:Person</string>
             </attr>
         </edge>
-        <edge from="n1067" to="n1064">
-            <attr name="label">
-                <string>not:=</string>
-            </attr>
-        </edge>
-        <edge from="n1066" to="n1066">
-            <attr name="label">
-                <string>Groom</string>
-            </attr>
-        </edge>
-        <edge from="n1066" to="n1064">
-            <attr name="label">
-                <string>mother</string>
-            </attr>
-        </edge>
-        <edge from="n1064" to="n1064">
-            <attr name="label">
-                <string>Person</string>
-            </attr>
-        </edge>
-        <edge from="n1063" to="n1068">
+        <edge to="n1065" from="n1066">
             <attr name="label">
                 <string>father</string>
             </attr>
         </edge>
-        <edge from="n1067" to="n1067">
+        <edge to="n1063" from="n1063">
             <attr name="label">
-                <string>Person</string>
+                <string>type:Bride</string>
             </attr>
         </edge>
-        <edge from="n1066" to="n1065">
-            <attr name="label">
-                <string>father</string>
-            </attr>
-        </edge>
-        <edge from="n1068" to="n1068">
-            <attr name="label">
-                <string>Person</string>
-            </attr>
-        </edge>
-        <edge from="n1068" to="n1065">
+        <edge to="n1065" from="n1068">
             <attr name="label">
                 <string>!=</string>
+            </attr>
+        </edge>
+        <edge to="n1064" from="n1067">
+            <attr name="label">
+                <string>not:=</string>
             </attr>
         </edge>
     </graph>
