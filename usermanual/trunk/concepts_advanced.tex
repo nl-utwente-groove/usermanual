@@ -359,7 +359,14 @@ transition system. A rule parameter is a node of LHS (on the implicit
 existential level, see \stref{nested}) that is marked with the special prefix
 ``\textsf{par=\${\itshape num}}'', where \textsf{\itshape num} is a parameter
 number. Parameter numbers should form a consecutive sequence from 1 upwards; no
-parameter number may occur more than once in a given rule.
+parameter number may occur more than once in a given rule. The following shows
+a rule and a potential start graph.
+
+\begin{equation}\eqlabel{parameters}
+\tikzboxview{Rule edit view}{parameters-edit} \qquad
+\tikzboxview{Rule display view}{parameters-display} \qquad
+\tikzboxview{Start graph}{parameter-start-display}
+\end{equation}
 
 \paragraph{Node identities as arguments}
 
@@ -370,9 +377,9 @@ then the transition labels are appended by lists of parameter values, being the
 node identities of the host graph nodes matching the parameter nodes.
 
 Note that a node identity is normally not visible in a graph (unless it is
-switched on in the Simulator, see \stref{options}). The node identities
-appearing as transition parameters are denoted ``\textsf{n{\itshape id}}'',
-where \textsf{itseries id} is the \emph{node number} of the concrete graph
+switched on in the Simulator, see \stref{simulator}). The node identities
+appearing as transition parameters are denoted ``\lab{n{\itshape id}}'',
+where \lab{\itshape id} is the \emph{node number} of the concrete graph
 node. \emph{There is no guarantee that node identities are preserved among
 graphs!} This means that before and after a transition, the same node identity
 may refer to a completely different node. On the other hand, if a node identity
@@ -386,24 +393,10 @@ The situation is slightly different if the parameter node is an attribute node,
 for as discussed above, the identity of a data node is taken to be the data
 value itself. So, in that case, the data value is shown in the parameter list.
 
-As an example, \fref{parameters} shows an Edit and Display view of a rule with
-two parameters, one a non-attribute eraser node and the other an attribute
-reader node. When this rule is applied to the graph also shown in the figure
-(where the node identity display has been switched on), there will be two
-transitions labelled \textsf{parameters(n38152,``a'')} and
-\textsf{parameters(n38153,``a'')}, respectively.
-
-\begin{figure}
-\begin{center}
-\graphbox{parameters-edit-view} \qquad
-\graphbox{parameters} \qquad
-\graphbox{parameter-start}
-\end{center}
-\vspace*{-\medskipamount}
-\caption{Edit and Display view of a parameterised rule, and a graph to which
-the rule is applicable.}
-\flabel{parameters}
-\end{figure}
+For instance, the applying the rule in \eqref{parameters} to the graph also
+shown there, there will be two transitions labelled
+\textsf{parameters(n38152,``a'')} and \textsf{parameters(n38153,``a'')},
+respectively.
 
 \paragraph{Anonymous parameters}
 
@@ -429,7 +422,7 @@ following:
 
 \views{anonymousParameter}
 
-This rule, applied to the graph of \fref{parameters}, will give rise to two
+This rule, applied to the graph of \eqref{parameters}, will give rise to two
 distinct transitions, both labelled \textsf{anonymousParameter(``a'')}, which
 are self-loops on the state since neither rule application changes the graph.
 
@@ -482,11 +475,11 @@ rule).
 
 \views{nesting}
 %
-The hierarchical structure of nesting levels corresponds to the
-quantifier structure of a predicate formula, where the branching stands either
-for conjunction (in case of universal levels), or for disjunction (in case of
-existentials). In other words, the structure in \fref{nesting} roughly reflects
-the predicate structure
+The hierarchical structure of nesting levels corresponds to the quantifier
+structure of a predicate formula, where the branching stands either for
+conjunction (in case of universal levels), or for disjunction (in case of
+existentials). In other words, the structure in \eqref{nesting} roughly
+reflects the predicate structure
 %
 \[ \exists (\forall \exists (\forall^{>0} \vee \exists) \wedge \forall^{>0}) \]
 %
@@ -494,23 +487,20 @@ Every nesting level, represented by a quantifier node, \emph{contains} a
 sub-rule. The containment relation is encoded by ``\textsf{at}''-labelled edges
 from \emph{every} node in the sub-rule to the corresponding quantifier node.
 
-As a simple example, Rule~$(a)$ in \fref{pick-flower} will result in the
+As a simple example, Rule~$(a)$ in \eqref{pick-flower} will result in the
 removal of all \textsf{Flower}-labelled nodes of all \textsf{Plant}s of a given
 (implicitly existentiall quantified) \textsf{Field}.  Rule~$(b)$ is a slightly
 more complicated variant, which picks \emph{exactly one} \textsf{Flower} of
 every \textsf{Plant} that \emph{has at least one} \textsf{Flower}.
 
-\begin{figure}
-\[\begin{array}{ccc}
-\graphbox{pick-all-flowers} &
-\graphbox{pick-flower} &
-\graphbox{pick-at-least-one-flower} \\[\smallskipamount]
+\begin{equation}\eqlabel{pick-flower}
+\begin{array}{ccc}
+\tikzbox{pick-all-flowers-display} &
+\tikzbox{pick-flower-display} &
+\tikzbox{pick-at-least-one-flower-display} \\[\smallskipamount]
 (a) & (b) & (c) 
-\end{array}\]
-\vspace*{-\bigskipamount}
-\caption{Three different flower-picking rules.}
-\flabel{pick-flower}
-\end{figure}
+\end{array}
+\end{equation}
 
 Yet another variant is given in Rule~$(c)$. Where Rule~$(b)$ is \emph{always}
 applicable (as long as there is any \textsf{Field}-node) even if there are no
@@ -521,16 +511,15 @@ if a \textsf{Field} has \textsf{Plant}s but none of them have \textsf{Flower}s,
 then Rule~$(b)$ matches, though its application does not change the graph,
 whereas Rule~$(c)$ does not match.
 
-Another example is given in \fref{petri-net-firing}, which specifies the rule
-for firing a transition in a Place-Transition net. This rule has two
-independent universal nodes, one to take care of the removal of tokens from
-every input place of the transition to be fired, and one to take care of the
-addition of tokens to the output places.
+Another example is given below. This specifies the rule for firing a transition
+in a Place-Transition net. This rule has two independent universal nodes, one
+to take care of the removal of tokens from every input place of the transition
+to be fired, and one to take care of the addition of tokens to the output
+places.
 
-\graphfig{petri-net-firing}{%
-    Petri net firing rule: One token is removed from every in-place, and
-one is added to every out-place.%
-}
+\begin{equation}
+\tikzboxview{Petri net firing rule}{petri-net-firing-display}
+\end{equation}
 
 Another example of a rule system with nested rules can be found in the
 \textsf{copy\_graph} grammar in the \Groove{} samples.
@@ -538,43 +527,50 @@ Another example of a rule system with nested rules can be found in the
 \paragraph{Named nesting levels}
 
 Unfortunately, the specification of the sub-rule belonging to a given
-quantifier node through special \textsf{at}-edges fails if the sub-rule has
+quantifier node through special \lab{at}-edges fails if the sub-rule has
 isolated edges, since we do not support edges that start at edges. Such an
 isolated edge may occur if the end nodes belong to a higher nesting level.
 
 For instance, suppose we want to specify that a girl that all boys like becomes
-queen. Using only \textsf{at}-edges, this cannot be specified. For instance, an
-incorrect solution is given as \fref{crowning}.$a$: the applicability
-condition in that rule roughly corresponds to
+queen. This rule should be enabled if the following condition holds:
+
+\[ \exists x:\tlab{Girl}(x) \wedge (\forall
+y:\tlab{Boy}(y) \Rightarrow \lab{likes}(y,x)) \enspace.
+\]
 %
-\[ \exists x:\textsf{Girl}(x) \wedge (\forall
-y:\textsf{Boy}(y) \wedge \textsf{likes}(y,x) \Rightarrow \textit{true})
+This cannot be specified using only \lab{at}-edges. An incorrect solution is
+given as (\ref{eq:crowning}.$a$).
+
+\begin{equation}\eqlabel{crowning}
+\begin{array}{ccc}
+\tikzboxview{Crowning (incorrect)}{crowning-wrong-display} &
+\tikzboxview{Crowning (correct, edit view)}{crowning-right-edit} &
+\tikzboxview{Crowning (correct)}{crowning-right-display} \\[\smallskipamount]
+(a) & (b) & (c)
+\end{array}
+\end{equation}
+%
+The applicability condition in that rule instead corresponds to
+
+\[ \exists x:\tlab{Girl}(x) \wedge (\forall
+y:\tlab{Boy}(y) \wedge \lab{likes}(y,x) \Rightarrow \textit{true})
 \]
 %
 meaning that the universally quantified sub-graph is trivially fulfilled.
-Instead, the \textsf{likes}-edge should be at an existential level \emph{below}
-the universal, but there cannot be an \textsf{at}-edge starting at the
-\textsf{likes}-edge.
+Instead, the \lab{likes}-edge should be at an existential level \emph{below}
+the universal, but there cannot be an \lab{at}-edge starting at the
+\lab{likes}-edge.
 
 The solution is to use \emph{named} nesting levels. The name of a nesting level
-is given as a kind of parameter in the \textsf{exists}- or
-\textsf{forall}-prefix: namely, the prefix becomes \textsf{exists={\itshape
-name}:} (respectively \textsf{forall={\itshape name}:}), where \textsf{\itshape
-name} is the (arbitrarily chosen) name of the nesting level. The edge to be
-associated with this label gets the same prefix. This is shown in
-\fref{crowning}.$b$ (Editor view) and~$c$ (Display view).
-
-\begin{figure}
-\[\begin{array}{ccc}
-\graphbox{crowning-wrong} &
-\graphbox{crowning-right-edit-view} &
-\graphbox{crowning-right} \\[\smallskipamount]
-(a) & (b) & (c)
-\end{array}\]
-\vspace*{-\bigskipamount}
-\caption{Incorrect and correct crowinging rules.}
-\flabel{crowning}
-\end{figure}
+is given as a kind of parameter in the \lab{exists}- or \lab{forall}-prefix:
+namely, the prefix becomes \lab{exists={\itshape name}:} (respectively
+\lab{forall={\itshape name}:}), where \textsf{\itshape name} is the
+(arbitrarily chosen) name of the nesting level. The edge to be associated with
+this label then also needs to specify the name; this is done by adding it to
+the prefix that specifies the edge role --- i.e., whether it is a reader
+(\useP), eraser (\delP), creator (\newP) or embargo (\notP). The correct
+version of the ``crowning'' rule is shown in (\ref{eq:crowning}.$b$) (edit
+view) and (\ref{eq:crowning}.$c$) (display view).
 
 \subsection{System Properties}
 \stlabel{system-properties}
@@ -587,19 +583,25 @@ properties here; an opverview is provided in \tref{system-properties}.
 
 \begin{table}
 \begin{center}
-\begin{tabular}{|c|c|l|}
+\begin{tabular}{@{}|l|c|l|@{}}
 \hline\hline
 \bf Property & \bf Default & \bf Meaning \\
 \hline
+\sf grammarVersion
+  & \it version
+  & Version under which this grammar was created (non-editable) \\
 \sf remark
   & \it empty
   & One-line documentary about the rule system as a whole \\
-\sf matchInjective 
-  & \sf false
-  & Enforces injectivity of matches \\
+\sf subtypes
+  & \it empty
+  & Textual specification of the subtype relation \\
 \sf algebraFamily 
   & \sf default
   & Determines which algebras are used for attributes \\
+\sf matchInjective 
+  & \sf false
+  & Enforces injectivity of matches \\
 \sf checkDangling
   & \sf false
   & Makes rules inapplicable in case eraser nodes have dangling edges \\
@@ -612,6 +614,15 @@ properties here; an opverview is provided in \tref{system-properties}.
 \sf checkIsomorphism
   & \sf true
   & Ensures states are collapsed modulo isomorphism \\
+\sf enableControl 
+  & \sf false
+  & Indicates that a control program is used to determine rule ordering \\
+\sf controlProgram 
+  & \sf control
+  & Name of the control program (if \lab{enableControl} is set) \\
+\sf typeGraph
+  & \it empty
+  & possible empty list of enabled type graph names \\
 \sf transitionBrackets
   & \sf false
   & Adds angular brackets around transition labels
@@ -621,15 +632,15 @@ properties here; an opverview is provided in \tref{system-properties}.
   & Adds parameter lists to all transition labels \\
 \sf controlLabels 
   & \it empty
-  & List of graph labels that occur rarely; used to speed up matching \\
+  & List of graph labels that occur rarely (to speed up matching) \\
 \sf commonLabels
   & \it empty
-  & List of graph labels that occur frequently; used to speed up matching \\
+  & List of graph labels that occur frequently (to speed up matching) \\
 \hline\hline
 \end{tabular}
 \end{center}
 \caption{System properties overview}
-\vspace*{-\medskipamount}
+\vspace*{-\bigskipamount}
 \tlabel{system-properties}
 \vspace*{-\medskipamount}
 \end{table}
