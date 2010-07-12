@@ -27,36 +27,6 @@
                 <string>del:</string>
             </attr>
         </edge>
-        <edge to="n1723" from="n1722">
-            <attr name="label">
-                <string>has</string>
-            </attr>
-        </edge>
-        <edge to="n1724" from="n1724">
-            <attr name="label">
-                <string>Field</string>
-            </attr>
-        </edge>
-        <edge to="n1723" from="n1723">
-            <attr name="label">
-                <string>Flower</string>
-            </attr>
-        </edge>
-        <edge to="n1721" from="n1720">
-            <attr name="label">
-                <string>in</string>
-            </attr>
-        </edge>
-        <edge to="n1722" from="n1722">
-            <attr name="label">
-                <string>Plant</string>
-            </attr>
-        </edge>
-        <edge to="n1720" from="n1723">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge to="n1722" from="n1724">
             <attr name="label">
                 <string>grows</string>
@@ -65,6 +35,36 @@
         <edge to="n1721" from="n1722">
             <attr name="label">
                 <string>at</string>
+            </attr>
+        </edge>
+        <edge to="n1720" from="n1723">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge to="n1723" from="n1722">
+            <attr name="label">
+                <string>has</string>
+            </attr>
+        </edge>
+        <edge to="n1721" from="n1720">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge to="n1724" from="n1724">
+            <attr name="label">
+                <string>type:Field</string>
+            </attr>
+        </edge>
+        <edge to="n1723" from="n1723">
+            <attr name="label">
+                <string>type:Flower</string>
+            </attr>
+        </edge>
+        <edge to="n1722" from="n1722">
+            <attr name="label">
+                <string>type:Plant</string>
             </attr>
         </edge>
     </graph>

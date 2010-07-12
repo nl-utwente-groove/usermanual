@@ -1,14 +1,13 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n616)  at (2.725, -0.755) {\ml{type:Account}};
-\node[node] (n617)  at (0.990, -1.595) {\ml{string:"John"}};
-\node[node] (n618)  at (2.475, -1.575) {\ml{real:100.0}};
+\node[node] (n616)  at (2.865, -0.765) {\ml{type:Account}};
 \node[node] (n619)  at (1.040, -0.755) {\ml{type:Person}};
-\path[edge](n616.west |- 1.040, -0.755) --  (n619) ;
-\node[lab] at (2.101, -0.830){belongs};
+\node[node] (n617)  at (0.990, -1.595) {\ml{string:"John"}};
+\node[node] (n618)  at (2.775, -1.565) {\ml{real:100.0}};
+\path[edge](n616.west |- 1.040, -0.755) -- node[lab]{belongs} (n619) ;
 \path[edge](n619.south -| 0.990, -1.595) -- node[lab]{name} (n617) ;
-\path[edge](n616.south -| 2.475, -1.575) -- node[lab]{balance} (n618) ;
+\path[edge](n616.south -| 2.775, -1.565) -- node[lab]{balance} (n618) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

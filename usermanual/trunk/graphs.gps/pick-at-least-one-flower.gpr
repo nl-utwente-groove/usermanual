@@ -37,9 +37,9 @@
                 <string>at</string>
             </attr>
         </edge>
-        <edge to="n1838" from="n1838">
+        <edge to="n1838" from="n1834">
             <attr name="label">
-                <string>Plant</string>
+                <string>grows</string>
             </attr>
         </edge>
         <edge to="n1836" from="n1838">
@@ -47,24 +47,24 @@
                 <string>has</string>
             </attr>
         </edge>
-        <edge to="n1834" from="n1834">
-            <attr name="label">
-                <string>Field</string>
-            </attr>
-        </edge>
-        <edge to="n1836" from="n1836">
-            <attr name="label">
-                <string>Flower</string>
-            </attr>
-        </edge>
         <edge to="n1835" from="n1837">
             <attr name="label">
                 <string>in</string>
             </attr>
         </edge>
-        <edge to="n1838" from="n1834">
+        <edge to="n1834" from="n1834">
             <attr name="label">
-                <string>grows</string>
+                <string>type:Field</string>
+            </attr>
+        </edge>
+        <edge to="n1836" from="n1836">
+            <attr name="label">
+                <string>type:Flower</string>
+            </attr>
+        </edge>
+        <edge to="n1838" from="n1838">
+            <attr name="label">
+                <string>type:Plant</string>
             </attr>
         </edge>
     </graph>

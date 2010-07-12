@@ -1,15 +1,13 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n2431)  at (3.060, -0.865) {\ml{Boy}};
+\node[node] (n2431)  at (3.075, -0.865) {\ml{\textbf{Boy}}};
 \node[node, quantnode] (n2432)  at (2.185, -1.650) {\ml{$\exists$}};
-\node[node] (n2433)  at (3.100, -1.615) {\ml{Girl}};
+\node[node] (n2433)  at (3.255, -1.690) {\ml{\textbf{Girl}\\{\color{\green}$+$ \textit{queen}}}};
 \node[node, quantnode] (n2434)  at (2.190, -0.855) {\ml{$\forall$}};
 \path[quantedge](n2431.west |- 2.190, -0.855) -- node[lab]{at} (n2434) ;
 \path[quantedge](n2432.north -| 2.190, -0.855) -- node[lab]{in} (n2434) ;
-\path[edge](n2431.south -| 3.100, -1.615) -- node[lab]{x:likes} (n2433) ;
-\path[newedge] (n2433) .. controls (3.410, -1.860) and (3.620, -1.790) .. (3.620, -1.790).. controls (3.670, -1.770) and (3.670, -1.440) .. (3.620, -1.430).. controls (3.620, -1.430) and (3.410, -1.350) ..  (n2433) ;
-\node[newlab] at (3.620, -1.610){Queen};
+\path[edge] (n2431)  -- node[lab]{x:likes}(n2433.north -| 3.075, -0.865);
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

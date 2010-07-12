@@ -21,14 +21,9 @@
                 <string>forall:</string>
             </attr>
         </edge>
-        <edge to="n2433" from="n2433">
+        <edge to="n2434" from="n2432">
             <attr name="label">
-                <string>Girl</string>
-            </attr>
-        </edge>
-        <edge to="n2434" from="n2431">
-            <attr name="label">
-                <string>at</string>
+                <string>in</string>
             </attr>
         </edge>
         <edge to="n2433" from="n2431">
@@ -36,19 +31,24 @@
                 <string>exists=x:likes</string>
             </attr>
         </edge>
+        <edge to="n2434" from="n2431">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
         <edge to="n2431" from="n2431">
             <attr name="label">
-                <string>Boy</string>
+                <string>type:Boy</string>
             </attr>
         </edge>
         <edge to="n2433" from="n2433">
             <attr name="label">
-                <string>new:Queen</string>
+                <string>type:Girl</string>
             </attr>
         </edge>
-        <edge to="n2434" from="n2432">
+        <edge to="n2433" from="n2433">
             <attr name="label">
-                <string>in</string>
+                <string>new:flag:queen</string>
             </attr>
         </edge>
     </graph>

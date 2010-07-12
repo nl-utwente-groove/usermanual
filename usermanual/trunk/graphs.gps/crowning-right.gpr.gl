@@ -6,8 +6,7 @@
 # Node Format: n <node id> <bounds>
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
 v 2
-n n2432 207 152 49 15 
 n n2431 291 76 20 15 
+n n2432 207 152 49 15 
 n n2434 209 75 29 15 
 n n2433 297 151 16 15 
-e n2433 n2433 "new:Queen" 500 0 310 161 362 179 362 143 310 161 12

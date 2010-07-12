@@ -15,9 +15,9 @@
                 <string>forall:</string>
             </attr>
         </edge>
-        <edge to="n2395" from="n2395">
+        <edge to="n2396" from="n2395">
             <attr name="label">
-                <string>Boy</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge to="n2394" from="n2395">
@@ -25,19 +25,19 @@
                 <string>likes</string>
             </attr>
         </edge>
-        <edge to="n2394" from="n2394">
+        <edge to="n2395" from="n2395">
             <attr name="label">
-                <string>Girl</string>
-            </attr>
-        </edge>
-        <edge to="n2396" from="n2395">
-            <attr name="label">
-                <string>at</string>
+                <string>type:Boy</string>
             </attr>
         </edge>
         <edge to="n2394" from="n2394">
             <attr name="label">
-                <string>new:Queen</string>
+                <string>type:Girl</string>
+            </attr>
+        </edge>
+        <edge to="n2394" from="n2394">
+            <attr name="label">
+                <string>new:flag:queen</string>
             </attr>
         </edge>
     </graph>

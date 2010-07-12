@@ -29,6 +29,7 @@
 \prf{use}
 \prf{not}
 \prf{rem}
+\prf{sub}
 
 \renewcommand{\l}[1]{\ensuremath{\mathsf{#1}}}
 
@@ -110,11 +111,13 @@
     \begin{tabular}{@{}l@{}} #1 \\ \tikzbox{#2}\end{tabular}
 }
 \newcommand{\views}[1]{
-  \begin{center}
+  \begin{equation}\eqlabel{#1}
+  \begin{tabular}{@{}c@{}}
   \tikzboxview{Edit view}{#1-edit}
-  \qquad
+  \quad
   \tikzboxview{Display view}{#1-display}
-  \end{center}
+  \end{tabular}
+  \end{equation}
 }
 
 \newcommand{\graphfig}[2]{%

@@ -30,19 +30,19 @@
                 <string>attr:</string>
             </attr>
         </edge>
-        <edge to="n38107" from="n38109">
-            <attr name="label">
-                <string>x</string>
-            </attr>
-        </edge>
         <edge to="n38108" from="n38109">
             <attr name="label">
                 <string>y</string>
             </attr>
         </edge>
+        <edge to="n38107" from="n38109">
+            <attr name="label">
+                <string>x</string>
+            </attr>
+        </edge>
         <edge to="n38109" from="n38109">
             <attr name="label">
-                <string>A</string>
+                <string>type:A</string>
             </attr>
         </edge>
     </graph>

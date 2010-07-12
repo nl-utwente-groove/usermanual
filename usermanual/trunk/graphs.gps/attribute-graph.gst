@@ -5,9 +5,9 @@
             <string>curly</string>
         </attr>
         <node id="n616"/>
+        <node id="n619"/>
         <node id="n617"/>
         <node id="n618"/>
-        <node id="n619"/>
         <edge to="n617" from="n617">
             <attr name="label">
                 <string>string:&quot;John&quot;</string>

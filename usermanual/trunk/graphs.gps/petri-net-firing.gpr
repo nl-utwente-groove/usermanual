@@ -46,9 +46,9 @@
                 <string>del:</string>
             </attr>
         </edge>
-        <edge to="n38281" from="n38276">
+        <edge to="n38281" from="n38274">
             <attr name="label">
-                <string>in</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge to="n38277" from="n38279">
@@ -56,44 +56,9 @@
                 <string>on</string>
             </attr>
         </edge>
-        <edge to="n38279" from="n38279">
-            <attr name="label">
-                <string>Token</string>
-            </attr>
-        </edge>
-        <edge to="n38276" from="n38275">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge to="n38274" from="n38274">
-            <attr name="label">
-                <string>Place</string>
-            </attr>
-        </edge>
-        <edge to="n38280" from="n38277">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
         <edge to="n38274" from="n38278">
             <attr name="label">
                 <string>out</string>
-            </attr>
-        </edge>
-        <edge to="n38274" from="n38275">
-            <attr name="label">
-                <string>on</string>
-            </attr>
-        </edge>
-        <edge to="n38281" from="n38274">
-            <attr name="label">
-                <string>at</string>
-            </attr>
-        </edge>
-        <edge to="n38280" from="n38273">
-            <attr name="label">
-                <string>in</string>
             </attr>
         </edge>
         <edge to="n38277" from="n38278">
@@ -101,24 +66,59 @@
                 <string>in</string>
             </attr>
         </edge>
+        <edge to="n38280" from="n38277">
+            <attr name="label">
+                <string>at</string>
+            </attr>
+        </edge>
         <edge to="n38273" from="n38279">
             <attr name="label">
                 <string>at</string>
             </attr>
         </edge>
-        <edge to="n38275" from="n38275">
+        <edge to="n38274" from="n38275">
             <attr name="label">
-                <string>Token</string>
+                <string>on</string>
             </attr>
         </edge>
-        <edge to="n38277" from="n38277">
+        <edge to="n38281" from="n38276">
             <attr name="label">
-                <string>Place</string>
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge to="n38280" from="n38273">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
+        <edge to="n38276" from="n38275">
+            <attr name="label">
+                <string>at</string>
             </attr>
         </edge>
         <edge to="n38278" from="n38278">
             <attr name="label">
-                <string>Transition</string>
+                <string>type:Transition</string>
+            </attr>
+        </edge>
+        <edge to="n38274" from="n38274">
+            <attr name="label">
+                <string>type:Place</string>
+            </attr>
+        </edge>
+        <edge to="n38277" from="n38277">
+            <attr name="label">
+                <string>type:Place</string>
+            </attr>
+        </edge>
+        <edge to="n38275" from="n38275">
+            <attr name="label">
+                <string>type:Token</string>
+            </attr>
+        </edge>
+        <edge to="n38279" from="n38279">
+            <attr name="label">
+                <string>type:Token</string>
             </attr>
         </edge>
     </graph>
