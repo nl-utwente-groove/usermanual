@@ -261,8 +261,8 @@ edges that do not make a difference to the transformation. This is done through
 the prefix ``\remP'' (for ``remark''), either on a node (as a stand-alone node
 label) or on an edge --- just as for the prefixes we have seen so far. In the
 Display view, remark nodes and edges are orange, with a yellow background. For
-instance, the following is the same rule as in \stref{counting} above,
-augmented with remarks.
+instance, the following is the counting rule of \eqref{counting}, augmented
+with remarks.
 
 \views{remark}
 
@@ -352,3 +352,87 @@ structure.
 
 \subsection{Typing}
 \stlabel{typing}
+
+Rules and graphs can be \emph{typed} or \emph{untyped}. The difference is that,
+in the first case, there is a \emph{type graph} that constrains the allowed
+labels --- node types, flags and edge labels alike. All examples shown so far
+have been untyped, meaning that any combination of labels is allowed, and rules
+can manipulate them in any possible way. For instance, nodes can have more than
+one node type, or none, and rules can change, add or remove node types at will.
+
+\paragraph{Subtyping.}
+
+Even in the absence of a type graph, one can define a subtype relation, as a
+partial ordering over node types. The idea is that nodes in a rule specifying a
+certain type are also matched by their subtypes. For instance, if
+$\tlab{D}<\tlab{C}<\tlab{A}$ and $\tlab{B}<\tlab{A}$ (where $<$ is the subtype
+relation) then the following rule has two matches in the corresponding graph:
+
+\begin{equation}\eqlabel{subtypes}
+\begin{array}{c}
+\tikzbox{subtypes-rule-display}
+\end{array}
+\qquad
+\begin{array}{c}
+\tikzbox{subtypes-graph-display}
+\end{array}
+\end{equation}
+% 
+The \tlab{A}-nodes of the rule can be matched by any of the nodes in the graph,
+hence the \lab{next}-edge has two potential images; whereas the \tlab{C}-node
+matches only the \tlab{D}-node in the graph.
+
+If one actually wants to ensure that a node is matched by an exact type and not
+a certain subtype, this can be achieved through ambargo edges. For instance,
+the following rule is a variation on the one above, where the right \tlab{A}
+may not be matched by a \tlab{C}-type node, and the right \tlab{A} not by
+either a \tlab{B}- or a \tlab{C}-type node. Obviously, this rule has only a
+single match in the graph above.
+
+\begin{equation}\eqlabel{subtypes-alt}
+\begin{array}{c}
+\tikzbox{subtypes-alt-rule-display}
+\end{array}
+\end{equation}
+%
+In an untyped grammar, the subtype relation can be specified in two ways:
+\begin{enumerate}
+\item By setting the \lab{subtypes} property in the grammar properties (see
+  \stref{system-properties}). For instance, the above relation corresponds to
+  the \lab{subtypes} value
+  \begin{center}
+  \lab{A $>$ B, C; C $>$ D}
+  \end{center}
+\item By dragging-and-dropping labels in the labels panel of the Simulator
+  tool. For instance, the above relation is shown in the labels panel as
+  \begin{center}
+  \includegraphics{fig/subtypes-screenshot}
+  \end{center}
+\end{enumerate}
+
+\paragraph{Type graphs.}
+
+A type graph is itself just an ordinary graph, with a special subtype
+edge. Subtype edges are specified (in the editor) as \subP-labelled edges; in
+the display view, they are shown as unlabelled edges with an open triangular
+arrow point. The subtype edges must define a partial order --- meaning that
+there may not be subtype cycles. For instance, the following is a type graph
+for the rules and graph in \eqref{subtypes}:
+
+\views{type}
+%
+If a grammar has a type graph, \Groove enforces adherence to it, by flagging as
+errors
+
+\begin{itemize}\noitemsep
+\item all nodes without types or with more than one type;
+\item all node types that do not appear in the type graph;
+\item all flags that are not defined in the type graph for the corresponding
+  node type, or a supertype thereof;
+\item all edges with labels that are not defined in the type graph between the
+  corresponding node types, or supertypes thereof;
+\item all mergers, and all node type erasers and creators
+\end{itemize}
+%
+For instance, the rules and graph in \eqref{subtypes} an d\eqref{subtypes-alt}
+are well-typed with resped to the type graph in \eqref{type}.

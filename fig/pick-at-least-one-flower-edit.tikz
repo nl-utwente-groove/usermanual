@@ -1,16 +1,16 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n1834)  at (1.840, -2.105) {\ml{Field}};
-\node[node, quantnode] (n1835)  at (0.965, -1.445) {\ml{forallx:}};
-\node[delnode] (n1836)  at (1.820, -0.780) {\ml{Flower\\del:}};
-\node[node, quantnode] (n1837)  at (1.010, -0.755) {\ml{exists:}};
-\node[node] (n1838)  at (1.825, -1.475) {\ml{Plant}};
-\path[quantedge](n1836.west |- 1.010, -0.755) -- node[lab]{at} (n1837) ;
-\path[quantedge](n1838.west |- 0.965, -1.445) -- node[lab]{at} (n1835) ;
-\path[edge](n1838.north -| 1.820, -0.780) -- node[lab]{has} (n1836) ;
-\path[quantedge](n1837.south -| 0.965, -1.445) -- node[lab]{in} (n1835) ;
-\path[edge](n1834.north -| 1.825, -1.475) -- node[lab]{grows} (n1838) ;
+\node[node] (n1834)  at (1.985, -2.105) {\ml{type:Field}};
+\node[node] (n1835)  at (0.965, -1.445) {\ml{forallx:}};
+\node[node] (n1836)  at (1.965, -0.780) {\ml{del:\\type:Flower}};
+\node[node] (n1837)  at (1.010, -0.755) {\ml{exists:}};
+\node[node] (n1838)  at (1.970, -1.475) {\ml{type:Plant}};
+\path[edge](n1836.west |- 1.010, -0.755) -- node[lab]{at} (n1837) ;
+\path[edge](n1838.west |- 0.965, -1.445) -- node[lab]{at} (n1835) ;
+\path[edge](n1834.north -| 1.970, -1.475) -- node[lab]{grows} (n1838) ;
+\path[edge](n1838.north -| 1.965, -0.780) -- node[lab]{has} (n1836) ;
+\path[edge](n1837.south -| 0.965, -1.445) -- node[lab]{in} (n1835) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

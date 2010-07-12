@@ -3,9 +3,9 @@
 \begin{tikzpicture}[scale=\tikzscale]
 \node[node] (n642)  at (1.145, -0.950) {\ml{\textbf{Bus}\\{\color{\green}$+$ \textit{start}}}};
 \node[nacnode] (n641)  at (2.520, -0.925) {\ml{\textbf{Pupil}}};
-\path[nacedge](n641.west |- 1.145, -0.950) -- node[naclab]{\textit{!in}} (n642) ;
 \path[edge](n642.north -| 1.210, -0.410) -- (1.210, -0.410) -- (0.630, -0.410) -- (0.630, -0.990) -- (n642.west |- 0.630, -0.990);
 \node[lab] at (1.240, -0.579){\textit{!flag:start}};
+\path[nacedge](n641.west |- 1.145, -0.950) -- node[naclab]{\textit{!in}} (n642) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

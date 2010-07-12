@@ -7,7 +7,7 @@
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
 v 2
 n n1724 167 200 24 15 
-n n1722 164 137 27 15 
-n n1723 159 60 36 15 
 n n1720 79 65 8 15 
+n n1722 164 137 27 15 
 n n1721 80 135 10 15 
+n n1723 159 60 36 15 

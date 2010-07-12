@@ -25,11 +25,13 @@ GIF_NAMES = $(GIF_FILES:%.gif=%)
 GXL_FILES = $(wildcard $(GRAPHS_GPS)/*.gxl)
 GST_FILES = $(wildcard $(GRAPHS_GPS)/*.gst)
 GPR_FILES = $(wildcard $(GRAPHS_GPS)/*.gpr)
+GTY_FILES = $(wildcard $(GRAPHS_GPS)/*.gty)
 
 # All groove files, without extension
 GROOVE_NAMES = $(GXL_FILES:$(GRAPHS_GPS)/%.gxl=$(FIG_DIR)/%) \
 	$(GST_FILES:$(GRAPHS_GPS)/%.gst=$(FIG_DIR)/%) \
-	$(GPR_FILES:$(GRAPHS_GPS)/%.gpr=$(FIG_DIR)/%)
+	$(GPR_FILES:$(GRAPHS_GPS)/%.gpr=$(FIG_DIR)/%) \
+	$(GTY_FILES:$(GRAPHS_GPS)/%.gty=$(FIG_DIR)/%)
 
 PNG_FILES = $(wildcard $(FIG_DIR)/*.png)
 
@@ -97,6 +99,9 @@ $(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gpr
 $(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gxl
 	groove-imager -f tikz $(GRAPHS_GPS)/$*.gxl $@
 
+$(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gty
+	groove-imager -f tikz $(GRAPHS_GPS)/$*.gty $@
+
 $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gst
 	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gst $@
 
@@ -105,6 +110,9 @@ $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gpr
 
 $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gxl
 	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gxl $@
+
+$(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gty
+	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gty $@
 
 $(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gst
 	groove-imager $(GRAPHS_GPS)/$*.gst $@

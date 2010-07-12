@@ -21,14 +21,9 @@
                 <string>forall:</string>
             </attr>
         </edge>
-        <edge to="n1780" from="n1779">
+        <edge to="n1781" from="n1780">
             <attr name="label">
-                <string>grows</string>
-            </attr>
-        </edge>
-        <edge to="n1778" from="n1778">
-            <attr name="label">
-                <string>Flower</string>
+                <string>at</string>
             </attr>
         </edge>
         <edge to="n1781" from="n1778">
@@ -36,24 +31,29 @@
                 <string>at</string>
             </attr>
         </edge>
-        <edge to="n1780" from="n1780">
+        <edge to="n1778" from="n1780">
             <attr name="label">
-                <string>Plant</string>
+                <string>has</string>
             </attr>
         </edge>
-        <edge to="n1781" from="n1780">
+        <edge to="n1780" from="n1779">
             <attr name="label">
-                <string>at</string>
+                <string>grows</string>
             </attr>
         </edge>
         <edge to="n1779" from="n1779">
             <attr name="label">
-                <string>Field</string>
+                <string>type:Field</string>
             </attr>
         </edge>
-        <edge to="n1778" from="n1780">
+        <edge to="n1778" from="n1778">
             <attr name="label">
-                <string>has</string>
+                <string>type:Flower</string>
+            </attr>
+        </edge>
+        <edge to="n1780" from="n1780">
+            <attr name="label">
+                <string>type:Plant</string>
             </attr>
         </edge>
     </graph>

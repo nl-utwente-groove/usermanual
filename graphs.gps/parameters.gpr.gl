@@ -6,6 +6,6 @@
 # Node Format: n <node id> <bounds>
 # Edge Format: e <source id> <target id> <edge label> <relative label position> [<points list> <line style>]
 v 2
-n n38109 120 31 8 15 
 n n38108 167 119 44 30 
 n n38107 65 121 44 30 
+n n38109 120 31 8 15 

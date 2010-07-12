@@ -28,51 +28,53 @@
 \contentsline {subsection}{\numberline {2.7}Transition systems}{9}{subsection.2.7}
 \contentsline {paragraph}{Rule systems and grammars}{9}{section*.16}
 \contentsline {subsection}{\numberline {2.8}Typing}{9}{subsection.2.8}
-\contentsline {section}{\numberline {3}Advanced Concepts}{9}{section.3}
-\contentsline {subsection}{\numberline {3.1}Wildcards and Variables}{9}{subsection.3.1}
-\contentsline {paragraph}{Type or flag wildcards.}{9}{section*.17}
-\contentsline {paragraph}{Guarded wildcards.}{9}{section*.18}
-\contentsline {paragraph}{Named wildcards.}{9}{section*.19}
-\contentsline {paragraph}{Example usage.}{10}{section*.20}
-\contentsline {subsection}{\numberline {3.2}Regular Expressions}{10}{subsection.3.2}
-\contentsline {paragraph}{Example usage.}{11}{section*.21}
-\contentsline {subsection}{\numberline {3.3}Data Attributes}{12}{subsection.3.3}
-\contentsline {paragraph}{Data values.}{12}{section*.22}
-\contentsline {paragraph}{Operations.}{12}{section*.23}
-\contentsline {paragraph}{Algebras.}{14}{section*.24}
-\contentsline {paragraph}{Example usage.}{14}{section*.25}
-\contentsline {subsection}{\numberline {3.4}Rule Parameters}{14}{subsection.3.4}
-\contentsline {paragraph}{Node identities as arguments}{14}{section*.26}
-\contentsline {paragraph}{Data values as arguments}{15}{section*.27}
-\contentsline {paragraph}{Anonymous parameters}{15}{section*.28}
-\contentsline {paragraph}{Example usage.}{16}{section*.29}
-\contentsline {subsection}{\numberline {3.5}Control}{16}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Nested Rules}{18}{subsection.3.6}
-\contentsline {paragraph}{Nesting levels}{18}{section*.30}
-\contentsline {paragraph}{Named nesting levels}{19}{section*.31}
-\contentsline {subsection}{\numberline {3.7}System Properties}{20}{subsection.3.7}
-\contentsline {paragraph}{Algebra family.}{20}{section*.32}
-\contentsline {paragraph}{Match injectivity.}{20}{section*.33}
-\contentsline {paragraph}{Dangling edge check.}{21}{section*.34}
-\contentsline {paragraph}{Creator edge check.}{21}{section*.35}
-\contentsline {paragraph}{Treating the RHSs as NACs.}{21}{section*.36}
-\contentsline {paragraph}{Isomorphism check.}{21}{section*.37}
-\contentsline {paragraph}{Transition label formatting.}{21}{section*.38}
-\contentsline {paragraph}{Control labels and common labels.}{21}{section*.39}
-\contentsline {section}{\numberline {4}Tool Usage}{22}{section.4}
-\contentsline {subsection}{\numberline {4.1}Overview of the Simulator}{22}{subsection.4.1}
-\contentsline {paragraph}{Panels.}{22}{section*.40}
-\contentsline {paragraph}{Menus.}{22}{section*.41}
-\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar}{22}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Exploring an LTS}{22}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Command Line Generation}{22}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Inspecting Results}{22}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing}{22}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Model Checking}{22}{subsection.4.7}
-\contentsline {section}{\numberline {5}I/O}{22}{section.5}
-\contentsline {subsection}{\numberline {5.1}Graphs and rules}{22}{subsection.5.1}
-\contentsline {paragraph}{Edge labels.}{22}{section*.42}
-\contentsline {paragraph}{Graph attributes.}{23}{section*.43}
-\contentsline {paragraph}{Graph layout.}{23}{section*.44}
-\contentsline {subsection}{\numberline {5.2}Control programs}{23}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}System properties}{23}{subsection.5.3}
+\contentsline {paragraph}{Subtyping.}{9}{section*.17}
+\contentsline {paragraph}{Type graphs.}{10}{section*.18}
+\contentsline {section}{\numberline {3}Advanced Concepts}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Wildcards and Variables}{11}{subsection.3.1}
+\contentsline {paragraph}{Type or flag wildcards.}{11}{section*.19}
+\contentsline {paragraph}{Guarded wildcards.}{11}{section*.20}
+\contentsline {paragraph}{Named wildcards.}{11}{section*.21}
+\contentsline {paragraph}{Example usage.}{12}{section*.22}
+\contentsline {subsection}{\numberline {3.2}Regular Expressions}{12}{subsection.3.2}
+\contentsline {paragraph}{Example usage.}{13}{section*.23}
+\contentsline {subsection}{\numberline {3.3}Data Attributes}{13}{subsection.3.3}
+\contentsline {paragraph}{Data values.}{14}{section*.24}
+\contentsline {paragraph}{Operations.}{14}{section*.25}
+\contentsline {paragraph}{Algebras.}{16}{section*.26}
+\contentsline {paragraph}{Example usage.}{16}{section*.27}
+\contentsline {subsection}{\numberline {3.4}Rule Parameters}{16}{subsection.3.4}
+\contentsline {paragraph}{Node identities as arguments}{16}{section*.28}
+\contentsline {paragraph}{Data values as arguments}{17}{section*.29}
+\contentsline {paragraph}{Anonymous parameters}{17}{section*.30}
+\contentsline {paragraph}{Example usage.}{18}{section*.31}
+\contentsline {subsection}{\numberline {3.5}Control}{18}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Nested Rules}{20}{subsection.3.6}
+\contentsline {paragraph}{Nesting levels}{20}{section*.32}
+\contentsline {paragraph}{Named nesting levels}{21}{section*.33}
+\contentsline {subsection}{\numberline {3.7}System Properties}{22}{subsection.3.7}
+\contentsline {paragraph}{Algebra family.}{22}{section*.34}
+\contentsline {paragraph}{Match injectivity.}{23}{section*.35}
+\contentsline {paragraph}{Dangling edge check.}{23}{section*.36}
+\contentsline {paragraph}{Creator edge check.}{23}{section*.37}
+\contentsline {paragraph}{Treating the RHSs as NACs.}{23}{section*.38}
+\contentsline {paragraph}{Isomorphism check.}{23}{section*.39}
+\contentsline {paragraph}{Transition label formatting.}{23}{section*.40}
+\contentsline {paragraph}{Control labels and common labels.}{24}{section*.41}
+\contentsline {section}{\numberline {4}Tool Usage}{24}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview of the Simulator}{24}{subsection.4.1}
+\contentsline {paragraph}{Panels.}{24}{section*.42}
+\contentsline {paragraph}{Menus.}{24}{section*.43}
+\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar}{24}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Exploring an LTS}{24}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Command Line Generation}{24}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Inspecting Results}{24}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing}{24}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Model Checking}{24}{subsection.4.7}
+\contentsline {section}{\numberline {5}I/O}{24}{section.5}
+\contentsline {subsection}{\numberline {5.1}Graphs and rules}{25}{subsection.5.1}
+\contentsline {paragraph}{Edge labels.}{25}{section*.44}
+\contentsline {paragraph}{Graph attributes.}{25}{section*.45}
+\contentsline {paragraph}{Graph layout.}{25}{section*.46}
+\contentsline {subsection}{\numberline {5.2}Control programs}{25}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}System properties}{25}{subsection.5.3}
