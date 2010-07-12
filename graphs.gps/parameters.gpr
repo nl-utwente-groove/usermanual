@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gxl xmlns="http://www.gupro.de/GXL/gxl-1.0.dtd">
     <graph edgemode="directed" edgeids="false" role="rule" id="parameters">
-        <attr name="enabled">
-            <string>false</string>
-        </attr>
         <attr name="$version">
             <string>curly</string>
         </attr>
@@ -35,14 +32,14 @@
                 <string>y</string>
             </attr>
         </edge>
-        <edge to="n38107" from="n38109">
-            <attr name="label">
-                <string>x</string>
-            </attr>
-        </edge>
         <edge to="n38109" from="n38109">
             <attr name="label">
                 <string>type:A</string>
+            </attr>
+        </edge>
+        <edge to="n38107" from="n38109">
+            <attr name="label">
+                <string>x</string>
             </attr>
         </edge>
     </graph>

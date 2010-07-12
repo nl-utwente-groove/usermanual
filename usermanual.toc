@@ -44,10 +44,10 @@
 \contentsline {paragraph}{Algebras.}{16}{section*.26}
 \contentsline {paragraph}{Example usage.}{16}{section*.27}
 \contentsline {subsection}{\numberline {3.4}Rule Parameters}{16}{subsection.3.4}
-\contentsline {paragraph}{Node identities as arguments}{16}{section*.28}
+\contentsline {paragraph}{Node identities as arguments}{17}{section*.28}
 \contentsline {paragraph}{Data values as arguments}{17}{section*.29}
 \contentsline {paragraph}{Anonymous parameters}{17}{section*.30}
-\contentsline {paragraph}{Example usage.}{18}{section*.31}
+\contentsline {paragraph}{Example usage.}{17}{section*.31}
 \contentsline {subsection}{\numberline {3.5}Control}{18}{subsection.3.5}
 \contentsline {subsection}{\numberline {3.6}Nested Rules}{20}{subsection.3.6}
 \contentsline {paragraph}{Nesting levels}{20}{section*.32}
@@ -60,21 +60,21 @@
 \contentsline {paragraph}{Treating the RHSs as NACs.}{23}{section*.38}
 \contentsline {paragraph}{Isomorphism check.}{23}{section*.39}
 \contentsline {paragraph}{Transition label formatting.}{23}{section*.40}
-\contentsline {paragraph}{Control labels and common labels.}{24}{section*.41}
+\contentsline {paragraph}{Control labels and common labels.}{23}{section*.41}
 \contentsline {section}{\numberline {4}Tool Usage}{24}{section.4}
 \contentsline {subsection}{\numberline {4.1}Overview of the Simulator}{24}{subsection.4.1}
 \contentsline {paragraph}{Panels.}{24}{section*.42}
 \contentsline {paragraph}{Menus.}{24}{section*.43}
-\contentsline {subsection}{\numberline {4.2}Creating and Modifying a Graph Grammar}{24}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Exploring an LTS}{24}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Command Line Generation}{24}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Inspecting Results}{24}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Exporting and Stand-alone Editing}{24}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Model Checking}{24}{subsection.4.7}
+\contentsline {paragraph}{View options}{24}{section*.44}
+\contentsline {subsection}{\numberline {4.2}Exploring an LTS}{24}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Command Line Generation}{24}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Inspecting Results}{24}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Exporting and Stand-alone Editing}{24}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Model Checking}{24}{subsection.4.6}
 \contentsline {section}{\numberline {5}I/O}{24}{section.5}
-\contentsline {subsection}{\numberline {5.1}Graphs and rules}{25}{subsection.5.1}
-\contentsline {paragraph}{Edge labels.}{25}{section*.44}
-\contentsline {paragraph}{Graph attributes.}{25}{section*.45}
-\contentsline {paragraph}{Graph layout.}{25}{section*.46}
+\contentsline {subsection}{\numberline {5.1}Graphs and rules}{24}{subsection.5.1}
+\contentsline {paragraph}{Edge labels.}{24}{section*.45}
+\contentsline {paragraph}{Graph attributes.}{24}{section*.46}
+\contentsline {paragraph}{Graph layout.}{25}{section*.47}
 \contentsline {subsection}{\numberline {5.2}Control programs}{25}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}System properties}{25}{subsection.5.3}

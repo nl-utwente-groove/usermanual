@@ -10,16 +10,16 @@
 \node[node] (n38273)  at (0.480, -0.405) {\ml{exists:}};
 \node[node] (n38279)  at (0.520, -1.180) {\ml{del:\\type:Token}};
 \node[node] (n38278)  at (2.460, -1.085) {\ml{type:Transition}};
-\path[edge](n38274.north -| 3.245, -0.405) -- node[lab]{at} (n38281) ;
-\path[edge](n38279.east |- 1.505, -1.095) -- node[lab]{on} (n38277) ;
-\path[edge](n38278.east |- 3.415, -1.075) -- node[lab]{out} (n38274) ;
-\path[edge](n38278.west |- 1.505, -1.095) -- node[lab]{in} (n38277) ;
-\path[edge](n38277.north -| 1.365, -0.405) -- node[lab]{at} (n38280) ;
-\path[edge](n38279.north -| 0.480, -0.405) -- node[lab]{at} (n38273) ;
 \path[edge](n38275.west |- 3.415, -1.075) -- node[lab]{on} (n38274) ;
-\path[edge](n38276.west |- 3.245, -0.405) -- node[lab]{in} (n38281) ;
+\path[edge](n38277.north -| 1.365, -0.405) -- node[lab]{at} (n38280) ;
+\path[edge](n38278.west |- 1.505, -1.095) -- node[lab]{in} (n38277) ;
+\path[edge](n38279.north -| 0.480, -0.405) -- node[lab]{at} (n38273) ;
+\path[edge](n38278.east |- 3.415, -1.075) -- node[lab]{out} (n38274) ;
 \path[edge](n38273.east |- 1.365, -0.405) -- node[lab]{in} (n38280) ;
+\path[edge](n38276.west |- 3.245, -0.405) -- node[lab]{in} (n38281) ;
+\path[edge](n38279.east |- 1.505, -1.095) -- node[lab]{on} (n38277) ;
 \path[edge](n38275.north -| 4.290, -0.415) -- node[lab]{at} (n38276) ;
+\path[edge](n38274.north -| 3.245, -0.405) -- node[lab]{at} (n38281) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
