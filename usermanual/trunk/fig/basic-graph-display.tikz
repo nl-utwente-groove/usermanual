@@ -7,8 +7,8 @@
 \path[edge](n0.south -| 2.910, -2.730) -| (2.910, -2.730) -| (3.590, -2.400) -- (n0.east |- 3.590, -2.400);
 \node[lab] at (3.137, -2.742){cites};
 \path[edge](n38352.south -| 2.935, -2.395) -- node[lab]{cites} (n0) ;
-\path[edge](n38351.east |- 3.015, -1.710) -- node[lab]{has} (n38352) ;
 \path[edge] (n38351)  -- node[lab]{has} (n0) ;
+\path[edge](n38351.east |- 3.015, -1.710) -- node[lab]{has} (n38352) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

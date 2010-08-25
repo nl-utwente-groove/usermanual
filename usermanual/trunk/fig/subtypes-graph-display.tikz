@@ -4,8 +4,8 @@
 \node[node] (n1)  at (1.490, -1.285) {\ml{\textbf{B}}};
 \node[node] (n2)  at (1.505, -1.855) {\ml{\textbf{D}}};
 \node[node] (n0)  at (1.485, -0.715) {\ml{\textbf{A}}};
-\path[edge](n1.south -| 1.505, -1.855) -- node[lab]{next} (n2) ;
 \path[edge](n0.south -| 1.490, -1.285) -- node[lab]{next} (n1) ;
+\path[edge](n1.south -| 1.505, -1.855) -- node[lab]{next} (n2) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

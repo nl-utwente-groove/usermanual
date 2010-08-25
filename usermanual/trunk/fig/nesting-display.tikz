@@ -6,9 +6,9 @@
 \node[node, quantnode] (n1575)  at (1.560, -0.845) {\ml{$\forall$}};
 \node[node, quantnode] (n1576)  at (1.110, -2.220) {\ml{$\forall^{>0}$}};
 \node[node, quantnode] (n1577)  at (2.830, -0.850) {\ml{$\forall^{>0}$}};
-\path[quantedge] (n1573)  -- node[lab]{in} (n1575) ;
-\path[quantedge] (n1574)  -- node[lab]{in} (n1575) ;
 \path[quantedge](n1576.north -| 1.090, -1.585) -- node[lab]{in} (n1573) ;
+\path[quantedge] (n1574)  -- node[lab]{in} (n1575) ;
+\path[quantedge] (n1573)  -- node[lab]{in} (n1575) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

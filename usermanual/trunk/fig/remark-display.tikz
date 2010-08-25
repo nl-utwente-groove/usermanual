@@ -7,17 +7,17 @@
 \node[node] (n1240)  at (2.645, -1.625) {\ml{\textbf{Roll}}};
 \node[node] (n1245)  at (1.045, -1.515) {\ml{\textbf{Oven}}};
 \node[remnode] (n1241)  at (2.105, -2.065) {\ml{There is no third roll (distinct from the other two)}};
-\path[nacedge, -] (n1243)  -- node[naclab]{\textit{!=}} (n1240) ;
-\path[nacedge](n1243.west |- 1.025, -0.765) -- node[naclab]{on} (n1242) ;
 \path[remedge] (n1244) .. controls (3.100, -0.600) and (3.110, -1.180) ..  (n1240) ;
 \node[remlab] at (3.144, -1.066){distinct};
-\path[newedge](n1242.south -| 1.045, -1.515) -- node[newlab]{in} (n1245) ;
-\path[nacedge, -] (n1243)  -- node[naclab]{\textit{!=}} (n1244) ;
-\path[edge] (n1244)  -- node[lab]{on} (n1242) ;
-\path[edge] (n1240)  -- node[lab]{on} (n1242) ;
 \path[remedge](n1241.north -| 2.165, -0.835) --  (n1243) ;
 \node[remlab] at (2.160, -1.710){absent};
 \path[edge, -](n1244.south -| 2.645, -1.625) -- node[lab]{\textit{!=}} (n1240) ;
+\path[edge] (n1244)  -- node[lab]{on} (n1242) ;
+\path[edge] (n1240)  -- node[lab]{on} (n1242) ;
+\path[nacedge](n1243.west |- 1.025, -0.765) -- node[naclab]{on} (n1242) ;
+\path[nacedge, -] (n1243)  -- node[naclab]{\textit{!=}} (n1244) ;
+\path[newedge](n1242.south -| 1.045, -1.515) -- node[newlab]{in} (n1245) ;
+\path[nacedge, -] (n1243)  -- node[naclab]{\textit{!=}} (n1240) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

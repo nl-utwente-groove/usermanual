@@ -4,8 +4,8 @@
 \node[node] (n2394)  at (2.235, -1.690) {\ml{\textbf{Girl}\\{\color{\green}$+$ \textit{queen}}}};
 \node[node] (n2395)  at (2.055, -0.865) {\ml{\textbf{Boy}}};
 \node[node, quantnode] (n2396)  at (1.200, -0.855) {\ml{$\forall$}};
-\path[quantedge](n2395.west |- 1.200, -0.855) -- node[lab]{at} (n2396) ;
 \path[edge] (n2395)  -- node[lab]{likes}(n2394.north -| 2.055, -0.865);
+\path[quantedge](n2395.west |- 1.200, -0.855) -- node[lab]{at} (n2396) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

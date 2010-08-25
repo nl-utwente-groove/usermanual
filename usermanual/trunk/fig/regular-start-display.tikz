@@ -5,11 +5,11 @@
 \node[node] (n0)  at (2.090, -0.880) {\ml{\textbf{Person}\\\textit{Gerrit}}};
 \node[node] (n1)  at (2.090, -1.520) {\ml{\textbf{Person}\\\textit{Wim}}};
 \node[node] (n2)  at (2.110, -2.220) {\ml{\textbf{Person}\\\textit{Arend}}};
-\path[edge](n1.north -| 2.090, -0.880) -- node[lab]{father} (n0) ;
+\path[edge](n3.north -| 2.110, -2.220) -- node[lab]{father} (n2) ;
 \path[edge](n2.north -| 2.090, -1.520) -- node[lab]{father} (n1) ;
+\path[edge](n1.north -| 2.090, -0.880) -- node[lab]{father} (n0) ;
 \path[edge] (n2) .. controls (1.630, -2.520) and (1.680, -2.690) ..  (n3) ;
 \node[lab] at (1.686, -2.587){son};
-\path[edge](n3.north -| 2.110, -2.220) -- node[lab]{father} (n2) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

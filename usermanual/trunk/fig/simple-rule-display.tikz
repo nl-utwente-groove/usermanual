@@ -7,16 +7,16 @@
 \node[newnode] (n535)  at (3.475, -1.315) {\ml{\textbf{D}}};
 \node[node] (n533)  at (1.235, -0.880) {\ml{{\color{\red}$!$ \textbf{B}}\\{\color{\green}$+$ \textit{s}}}};
 \node[node] (n0)  at (2.380, -1.710) {\ml{{\color{\blue}$-$ \textbf{B}}\\{\color{\green}$+$ \textbf{C}}}};
+\path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) -- (n0.north -| 2.340, -0.970);
+\node[lab] at (2.129, -0.970){c};
+\path[deledge](n533.east |- 2.610, -0.795) -- node[dellab]{b} (n536) ;
 \path[newedge](n536.south -| 2.600, -1.320) -- (2.600, -1.320) -- (n535.west |- 2.600, -1.320);
 \node[newlab] at (2.770, -1.320){d};
+\path[nacedge](n536.east |- 3.485, -0.815) -- node[naclab]{d} (n534) ;
+\path[nacedge](n0.west |- 1.260, -1.615) -- node[naclab]{d} (n532) ;
 \path[newedge](n536.north -| 2.600, -0.330) -- (2.600, -0.330) -- (1.270, -0.330) -- (n533.north -| 1.270, -0.330);
 \node[newlab] at (2.600, -0.470){a};
 \path[deledge](n533.south -| 1.260, -1.615) -- node[dellab]{c} (n532) ;
-\path[deledge](n533.east |- 2.610, -0.795) -- node[dellab]{b} (n536) ;
-\path[nacedge](n536.east |- 3.485, -0.815) -- node[naclab]{d} (n534) ;
-\path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) -- (n0.north -| 2.340, -0.970);
-\node[lab] at (2.129, -0.970){c};
-\path[nacedge](n0.west |- 1.260, -1.615) -- node[naclab]{d} (n532) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

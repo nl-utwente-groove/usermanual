@@ -4,8 +4,8 @@
 \node[node, attr] (n38195)  at (1.850, -1.335) {\ml{\$1}};
 \node[node] (n38196)  at (1.295, -0.415) {\ml{\textbf{A}}};
 \node[node] (n38197)  at (0.735, -1.295){};
-\path[edge] (n38196)  -- node[lab]{y} (n38195) ;
 \path[edge] (n38196)  -- node[lab]{x} (n38197) ;
+\path[edge] (n38196)  -- node[lab]{y} (n38195) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
