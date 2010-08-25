@@ -6,13 +6,13 @@
 \node[nacnode] (n824)  at (2.445, -1.305) {\ml{\textbf{Roll}}};
 \node[node] (n821)  at (1.345, -1.305) {\ml{\textbf{Plate}}};
 \node[node] (n820)  at (2.845, -2.155) {\ml{\textbf{Roll}}};
-\path[nacedge, -] (n824)  -- node[naclab]{\textit{!=}} (n823) ;
-\path[edge, -](n823.south -| 2.845, -2.155) -- node[lab]{\textit{!=}} (n820) ;
-\path[edge] (n823)  -- node[lab]{on} (n821) ;
-\path[nacedge](n824.west |- 1.345, -1.305) -- node[naclab]{on} (n821) ;
-\path[newedge](n821.south -| 1.365, -2.055) -- node[newlab]{in} (n822) ;
 \path[nacedge, -] (n824)  -- node[naclab]{\textit{!=}} (n820) ;
+\path[edge, -](n823.south -| 2.845, -2.155) -- node[lab]{\textit{!=}} (n820) ;
 \path[edge] (n820)  -- node[lab]{on} (n821) ;
+\path[nacedge, -] (n824)  -- node[naclab]{\textit{!=}} (n823) ;
+\path[edge] (n823)  -- node[lab]{on} (n821) ;
+\path[newedge](n821.south -| 1.365, -2.055) -- node[newlab]{in} (n822) ;
+\path[nacedge](n824.west |- 1.345, -1.305) -- node[naclab]{on} (n821) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

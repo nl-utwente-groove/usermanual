@@ -4,8 +4,8 @@
 \node[node] (n1123)  at (2.080, -0.855) {\ml{\textbf{State}}};
 \node[node] (n1125)  at (0.760, -0.865) {\ml{\textbf{State}}};
 \node[node] (n1124)  at (1.445, -0.235) {\ml{\textbf{Automaton}}};
-\path[edge] (n1124)  -- node[lab]{final} (n1123) ;
 \path[edge] (n1124)  -- node[lab]{start} (n1125) ;
+\path[edge] (n1124)  -- node[lab]{final} (n1123) ;
 \path[newedge, -](n1125.east |- 2.080, -0.855) -- node[newlab]{=} (n1123) ;
 \userdefinedmacro
 \end{tikzpicture}

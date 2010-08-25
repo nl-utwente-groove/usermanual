@@ -1,13 +1,13 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n37564)  at (2.510, -0.450) {\ml{\textbf{Person}\\\textit{?name}}};
+\node[node] (n37564)  at (2.510, -0.450) {\ml{\textbf{Person}\\\textit{<i>?name</i>}}};
 \node[node] (n37563)  at (2.520, -1.205) {\ml{\textbf{Person}}};
-\node[node] (n37565)  at (2.540, -1.950) {\ml{\textbf{Person}\\{\color{\green}$+$ \textit{?name}}}};
-\path[edge](n37563.north -| 2.510, -0.450) -- node[lab]{\textit{father*}} (n37564) ;
-\path[edge](n37565.north -| 2.520, -1.205) -- node[lab]{father} (n37563) ;
+\node[node] (n37565)  at (2.540, -1.950) {\ml{\textbf{Person}\\{\color{\green}$+$ \textit{>+ ?name</i>}}}};
 \path[edge] (n37563) .. controls (2.110, -1.370) and (2.050, -1.560) ..  (n37565) ;
 \node[lab] at (2.120, -1.492){son};
+\path[edge](n37563.north -| 2.510, -0.450) -- node[lab]{\textit{father*}} (n37564) ;
+\path[edge](n37565.north -| 2.520, -1.205) -- node[lab]{father} (n37563) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

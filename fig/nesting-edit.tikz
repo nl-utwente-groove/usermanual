@@ -1,14 +1,14 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node, quantnode] (n1573)  at (1.220, -1.585) {\ml{exists:}};
-\node[node, quantnode] (n1574)  at (2.120, -1.565) {\ml{exists:}};
-\node[node, quantnode] (n1575)  at (1.665, -0.845) {\ml{forall:}};
-\node[node, quantnode] (n1576)  at (1.175, -2.195) {\ml{forallx:}};
-\node[node, quantnode] (n1577)  at (2.895, -0.825) {\ml{forallx:}};
-\path[quantedge] (n1573)  -- node[lab]{in} (n1575) ;
-\path[quantedge](n1576.north -| 1.220, -1.585) -- node[lab]{in} (n1573) ;
-\path[quantedge] (n1574)  -- node[lab]{in} (n1575) ;
+\node[node] (n1573)  at (1.220, -1.585) {\ml{exists:}};
+\node[node] (n1574)  at (2.120, -1.565) {\ml{exists:}};
+\node[node] (n1575)  at (1.665, -0.845) {\ml{forall:}};
+\node[node] (n1576)  at (1.175, -2.195) {\ml{forallx:}};
+\node[node] (n1577)  at (2.895, -0.825) {\ml{forallx:}};
+\path[edge] (n1573)  -- node[lab]{in} (n1575) ;
+\path[edge](n1576.north -| 1.220, -1.585) -- node[lab]{in} (n1573) ;
+\path[edge] (n1574)  -- node[lab]{in} (n1575) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

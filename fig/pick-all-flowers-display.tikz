@@ -5,9 +5,9 @@
 \node[node] (n1779)  at (1.855, -2.105) {\ml{\textbf{Field}}};
 \node[node] (n1780)  at (1.850, -1.475) {\ml{\textbf{Plant}}};
 \node[node, quantnode] (n1781)  at (0.900, -1.455) {\ml{$\forall$}};
-\path[deledge](n1780.north -| 1.840, -0.705) -- node[dellab]{has} (n1778) ;
 \path[quantedge](n1780.west |- 0.900, -1.455) -- node[lab]{at} (n1781) ;
 \path[quantedge] (n1778)  -- node[lab]{at} (n1781) ;
+\path[deledge](n1780.north -| 1.840, -0.705) -- node[dellab]{has} (n1778) ;
 \path[edge](n1779.north -| 1.850, -1.475) -- node[lab]{grows} (n1780) ;
 \userdefinedmacro
 \end{tikzpicture}

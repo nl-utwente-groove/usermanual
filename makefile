@@ -91,37 +91,37 @@ pdfgraphics = \
 	convert -crop 0x0 $*.gif $@
 
 $(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gst
-	groove-imager -f tikz $(GRAPHS_GPS)/$*.gst $@
+	./groove-imager -f tikz $(GRAPHS_GPS)/$*.gst $@
 
 $(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gpr
-	groove-imager -f tikz $(GRAPHS_GPS)/$*.gpr $@
+	./groove-imager -f tikz $(GRAPHS_GPS)/$*.gpr $@
 
 $(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gxl
-	groove-imager -f tikz $(GRAPHS_GPS)/$*.gxl $@
+	./groove-imager -f tikz $(GRAPHS_GPS)/$*.gxl $@
 
 $(FIG_DIR)/%-display.tikz : $(GRAPHS_GPS)/%.gty
-	groove-imager -f tikz $(GRAPHS_GPS)/$*.gty $@
+	./groove-imager -f tikz $(GRAPHS_GPS)/$*.gty $@
 
 $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gst
-	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gst $@
+	./groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gst $@
 
 $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gpr
-	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gpr $@
+	./groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gpr $@
 
 $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gxl
-	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gxl $@
+	./groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gxl $@
 
 $(FIG_DIR)/%-edit.tikz : $(GRAPHS_GPS)/%.gty
-	groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gty $@
+	./groove-imager -e -f tikz $(GRAPHS_GPS)/$*.gty $@
 
 $(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gst
-	groove-imager $(GRAPHS_GPS)/$*.gst $@
+	./groove-imager $(GRAPHS_GPS)/$*.gst $@
 
 $(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gpr
-	groove-imager $(GRAPHS_GPS)/$*.gpr $@
+	./groove-imager $(GRAPHS_GPS)/$*.gpr $@
 
 $(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gxl
-	groove-imager $(GRAPHS_GPS)/$*.gxl $@
+	./groove-imager $(GRAPHS_GPS)/$*.gxl $@
 
 #
 #%.tex : %.fig
