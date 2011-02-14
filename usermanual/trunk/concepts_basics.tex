@@ -1,12 +1,14 @@
 \section{Basic Concepts}
 \stlabel{basic}
 
-\Groove has two different modes for showing graphs and rules: the one you see
-in the Editor when creating graphs and rules, and the one that you see in the
-Simulator when applying rules. We call these the Edit and Display views,
-respectively.  Historically, the Edit view only exists because we never took
-the time to create a better graph editor; instead, we ripped off a prototype
-editor provided for free with the \JGraph library.
+\Groove shows rules and graphs using various kinds of graphical embellishments,
+such as colours, bold and italic fonts, dashed and dotted outlines, and special
+symbols. During editing, however, the node and edge labels you enter do not
+have those embellishments. Instead, you have to use a fairly rich textual
+syntax to make the same distinctions. The prime element in this syntax is a
+\emph{prefix}, usually consisting of an identifier followed by a colon (`:').
+
+\input{prefixes}
 
 \subsection{Graphs}
 \stlabel{Graphs}
@@ -30,9 +32,10 @@ bold and flags are set italic. Here is an example:
 As seen above, node labels can be either types or flags. There are two
 important differences:
 \begin{itemize}\noitemsep
-\item Type labels are partially ordered. This affects rule matching: a type
-  label in a rule matches all subtype labels (i.e., those that are smaller in
-  the partial ordering) of the host graph.
+\item Type labels are partially ordered by subtyping (often called
+  inheritance). This affects rule matching: a type label in a rule matches all
+  subtype labels (i.e., those that are smaller in the partial ordering) of the
+  host graph.
 \item If a type graph is used, type labels must be unique: every node must have
   exactly one type label.
 \end{itemize}
@@ -182,7 +185,7 @@ following rule can only match if the \tlab{Bus} has not already started
 \emph{not} in the bus (\rlab{!in}-embargo edge) --- in other words, if all the
 pupils are in the bus.
 
-Note that in the edit view, all negations are displayed as binary edges
+Note that in the display view, all negations are displayed as binary edges
 (including the \rlab{!flag:start}-edge), and they are typeset in italic. This
 is because they are actually special cases of regular expression edges; see
 \stref{regular} below.

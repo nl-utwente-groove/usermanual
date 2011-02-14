@@ -1,11 +1,11 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n642)  at (1.340, -0.950) {\ml{new:flag:start\\type:Bus}};
-\node[node] (n641)  at (2.600, -0.960) {\ml{not:\\type:Pupil}};
+\node[node] (n642)  at (1.390, -1.000) {\ml{type:Bus\\new:flag:start}};
+\node[nacnode] (n641)  at (2.650, -1.010) {\ml{not:\\type:Pupil}};
+\path[nacedge](n641.west |- 1.390, -1.000) -- node[naclab]{\textit{!in}} (n642) ;
 \path[edge](n642.north -| 1.210, -0.410) -- (1.210, -0.410) -- (0.630, -0.410) -- (0.630, -0.990) -- (n642.west |- 0.630, -0.990);
-\node[lab] at (1.240, -0.579){!flag:start};
-\path[edge](n641.west |- 1.340, -0.950) -- node[lab]{!in} (n642) ;
+\node[lab] at (1.240, -0.579){\textit{!flag:start}};
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

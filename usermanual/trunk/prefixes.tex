@@ -1,0 +1,86 @@
+\begin{figure}
+\begin{center}
+\begin{tabular}{|l|c|p{105mm}|}
+\hline\hline
+Prefix & \sf Where? & Explanation \\
+\hline
+\remP & \sf NE,HRT & 
+Remark node or edge; used for documentation purposes \\
+\hline
+\useP & \sf NE,R &
+Declares a node or edge to be a reader (the default value) \\
+\delP & \sf NE,R &
+Declares a node or edge to be an eraser \\
+\newP & \sf NE,R &
+Declares a node or edge to be a creator \\
+\cnewP & \sf NE,R &
+Declares a node or edge to be a conditional creator \\
+\notP & \sf NE,R &
+Declares a node or edge to be an embargo \\
+\hline
+\attrP & \sf N,R &
+Declares a node to be an (untyped) attribute value \\
+\boolP & \sf NE,HRT &
+On nodes, a boolean value or type; on edges, a boolean operator \\
+\intP & \sf NE,HRT &
+On nodes, an integer value or type; on edges, an integer operator \\
+\realP & \sf NE,HRT &
+On nodes, a real value or type; on edges, a real operator \\
+\stringP & \sf NE,HRT &
+On nodes, a string value or type; on edges, a string operator \\
+\argP & \sf E,R &
+Argument edge, from a product node to an attribute value \\
+\prodP & \sf N,R &
+Product node, collecting arguments for an attribute operation \\
+\hline
+\parP & \sf N,R &
+Anonymous or numbered rule parameter node \\
+\parinP & \sf N,R &
+Numbered rule input parameter node \\
+\paroutP & \sf N,R &
+Numbered rule output parameter node \\
+\hline
+\absP & \sf NE,T &
+Abstract type node or edge \\
+\subP & \sf E,T &
+Inheritance edge between node types \\
+\hline
+\forallP & \sf N,R &
+Universal quantifier node \\
+\forallxP & \sf N,R &
+Non-vacuous universal quantifier node \\
+\existsP & \sf N,R &
+Existential quantifier node \\
+\nestedP & \sf E,R &
+Quantifier nesting edge, from rule node (\textsf{at})
+or from quantifier node (\textsf{in}) \\
+\hline
+\idP & \sf N,R &
+User-defined node identity \\
+\hline
+\colorP & \sf N,T &
+Defines the text and outline colour of a node type \\
+\hline
+\pathP & \sf E,R &
+Declares the remainder of the text to be a regular expression label \\
+\litP & \sf NE,R &
+Declares the remainder of the text to be a literal edge label \\
+\typeP & \sf NE,HRT &
+Declares the remainder of the text to be a node type \newline
+May occur on edges only as part of a regular expression \\
+\flagP & \sf NE,HRT &
+Declares the remainder of the text to be a flag (= node label) \newline
+May occur on edges only as part of a regular expression \\
+\hline\hline
+\end{tabular}
+\end{center}
+\caption{Overview of all edit prefixes. \newline 
+``Where?'' values: \textsf{N}ode,
+\textsf{E}dge, \textsf{G}raph, \textsf{R}ule, \textsf{T}ype graph}
+\end{figure}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "usermanual"
+%%% End: 

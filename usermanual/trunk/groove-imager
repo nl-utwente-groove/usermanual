@@ -2,7 +2,7 @@
 #
 # java -jar "${GROOVE_HOME}\\Imager.jar" $@
 
-export GROOVE_ECLIPSE="D:\\eclipse\workspace\groove"
+export GROOVE_ECLIPSE="F:\\eclipse\workspace\groove"
 export GROOVE_ECLIPSE_LIB="${GROOVE_ECLIPSE}\\lib"
 
 export CLASSPATH="\
