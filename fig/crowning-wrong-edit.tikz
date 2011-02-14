@@ -1,11 +1,11 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n2394)  at (2.430, -1.690) {\ml{new:flag:queen\\type:Girl}};
-\node[node] (n2395)  at (2.185, -0.865) {\ml{type:Boy}};
-\node[node] (n2396)  at (1.295, -0.855) {\ml{forall:}};
-\path[edge](n2395.west |- 1.295, -0.855) -- node[lab]{at} (n2396) ;
-\path[edge](n2395.south -| 2.430, -1.690) -- node[lab]{likes} (n2394) ;
+\node[node] (n2395)  at (2.235, -0.915) {\ml{type:Boy}};
+\node[quantnode] (n2396)  at (1.345, -0.905) {\ml{forall:}};
+\node[node] (n2394)  at (2.480, -1.740) {\ml{type:Girl\\new:flag:queen}};
+\path[edge](n2395.south -| 2.480, -1.740) -- node[lab]{likes} (n2394) ;
+\path[quantedge](n2395.west |- 1.345, -0.905) -- node[lab]{at} (n2396) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

@@ -1,16 +1,16 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n1720)  at (1.010, -0.755) {\ml{exists:}};
-\node[node] (n1721)  at (0.995, -1.455) {\ml{forall:}};
-\node[node] (n1722)  at (1.970, -1.475) {\ml{type:Plant}};
-\node[node] (n1723)  at (1.965, -0.780) {\ml{del:\\type:Flower}};
-\node[node] (n1724)  at (1.985, -2.105) {\ml{type:Field}};
-\path[edge](n1724.north -| 1.970, -1.475) -- node[lab]{grows} (n1722) ;
-\path[edge](n1722.west |- 0.995, -1.455) -- node[lab]{at} (n1721) ;
-\path[edge](n1723.west |- 1.010, -0.755) -- node[lab]{at} (n1720) ;
-\path[edge](n1722.north -| 1.965, -0.780) -- node[lab]{has} (n1723) ;
-\path[edge](n1720.south -| 0.995, -1.455) -- node[lab]{in} (n1721) ;
+\node[quantnode] (n1721)  at (1.045, -1.505) {\ml{forall:}};
+\node[quantnode] (n1720)  at (1.060, -0.805) {\ml{exists:}};
+\node[delnode] (n1723)  at (2.015, -0.830) {\ml{del:\\type:Flower}};
+\node[node] (n1724)  at (2.035, -2.155) {\ml{type:Field}};
+\node[node] (n1722)  at (2.020, -1.525) {\ml{type:Plant}};
+\path[quantedge](n1723.west |- 1.060, -0.805) -- node[lab]{at} (n1720) ;
+\path[edge](n1724.north -| 2.020, -1.525) -- node[lab]{grows} (n1722) ;
+\path[deledge](n1722.north -| 2.015, -0.830) -- node[dellab]{has} (n1723) ;
+\path[quantedge](n1720.south -| 1.045, -1.505) -- node[lab]{in} (n1721) ;
+\path[quantedge](n1722.west |- 1.045, -1.505) -- node[lab]{at} (n1721) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
