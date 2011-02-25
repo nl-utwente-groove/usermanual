@@ -4,8 +4,8 @@
 \node[node] (n37564)  at (2.705, -0.500) {\ml{type:Person\\\{flag:?name\}}};
 \node[node] (n37565)  at (2.845, -2.000) {\ml{type:Person\\new:\{flag:?name\}}};
 \node[node] (n37563)  at (2.690, -1.255) {\ml{type:Person}};
-\path[edge](n37565.north -| 2.690, -1.255) -- node[lab]{father} (n37563) ;
 \path[edge](n37563.north -| 2.705, -0.500) -- node[lab]{\textit{\{father*\}}} (n37564) ;
+\path[edge](n37565.north -| 2.690, -1.255) -- node[lab]{father} (n37563) ;
 \path[edge] (n37563) .. controls (2.110, -1.370) and (2.050, -1.560) ..  (n37565) ;
 \node[lab] at (2.120, -1.492){son};
 \userdefinedmacro

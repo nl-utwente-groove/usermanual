@@ -70,7 +70,7 @@ When using type graphs, the use of wildcards as creators is forbidden.
 
 \paragraph{Example usage.}
 
-The use of the above features is demonstrated by the following \Groove samples:
+The use of the above features is demonstrated by the following \GROOVE samples:
 %
 \begin{itemize}\noitemsep
 \item \textsf{wildcards}, showing the general use of wildcards;
@@ -175,14 +175,14 @@ of one of his forefathers.
 
 \paragraph{Example usage.}
 
-The use of the above features is demonstrated by the \Groove \textsf{wildcards}
+The use of the above features is demonstrated by the \GROOVE \textsf{wildcards}
 sample.
 
 \subsection{Data Attributes}
 \stlabel{attributes}
 
 So far we have not discussed how to specify and manipulate data values, such as
-integers, booleans and strings. In \Groove, as in other graph transformation
+integers, booleans and strings. In \GROOVE, as in other graph transformation
 tools, data is included in the form of \emph{attributes}, which are essentially
 edges to special data nodes. The data nodes represent the actual data values.
 
@@ -194,7 +194,7 @@ indistinguishable when only their connecting edges are taken into account. This
 is not directly suitable for data nodes, however: for instance, every natural
 number exists only \emph{once}, and it makes no sense to include multiple nodes
 all of which represent this single value. Thus, it is necessary to make a
-strict distinction between data nodes and ordinary graph nodes. In \Groove,
+strict distinction between data nodes and ordinary graph nodes. In \GROOVE,
 this is done in either of the following ways:
 
 \begin{itemize}
@@ -322,7 +322,7 @@ which defines concrete values and functions for these symbols. There is a
 default or natural algebra for our signature, which is the one that we all know
 from mathematics; in a context where this is the only possible interpretation,
 the distinction between signature and algebra is actually irrelevant. However,
-\Groove{} offers the possibility of slotting in another algebra instead:
+\GROOVE{} offers the possibility of slotting in another algebra instead:
 through the grammar properties (see \stref{system-properties}) you can
 specify under which algebra the rules should be interpreted.
 
@@ -348,7 +348,7 @@ $10^{-30}$.
 
 \paragraph{Example usage.}
 
-The use of attributes is demonstrated by the \Groove \textsf{attributed-graphs}
+The use of attributes is demonstrated by the \GROOVE \textsf{attributed-graphs}
 sample.
 
 \subsection{Rule Parameters}
@@ -415,7 +415,7 @@ parameter nodes to distinct host graph nodes will give rise to distinct
 applications, with distrinct transition labels.
 
 For the case that one needs distinct rule applications \emph{without} having
-the node identity on the transition label, \Groove{} offers the concept of an
+the node identity on the transition label, \GROOVE{} offers the concept of an
 \emph{anonymous parameter}. This is essentially a parameter without number, in
 the editor specified by just the prefix ``\textsf{par:}''. An example is the
 following:
@@ -430,7 +430,7 @@ Note that the display view does not show the anonymous parameter at all.
 
 \paragraph{Example usage.}
 
-The use of parameters is demonstrated by the \Groove \textsf{parameters}
+The use of parameters is demonstrated by the \GROOVE \textsf{parameters}
 sample.
 
 \subsection{Control}
@@ -522,7 +522,7 @@ places.
 \end{equation}
 
 Another example of a rule system with nested rules can be found in the
-\textsf{copy\_graph} grammar in the \Groove{} samples.
+\textsf{copy\_graph} grammar in the \GROOVE{} samples.
 
 \paragraph{Named nesting levels}
 
@@ -623,6 +623,12 @@ properties here; an opverview is provided in \tref{system-properties}.
 \sf typeGraph
   & \it empty
   & possible empty list of enabled type graph names \\
+\sf controlLabels 
+  & \it empty
+  & List of graph labels that occur rarely (to speed up matching) \\
+\sf commonLabels
+  & \it empty
+  & List of graph labels that occur frequently (to speed up matching) \\
 \sf transitionBrackets
   & \sf false
   & Adds angular brackets around transition labels
@@ -630,12 +636,12 @@ properties here; an opverview is provided in \tref{system-properties}.
 \sf transitionParameters
   & \sf false
   & Adds parameter lists to all transition labels \\
-\sf controlLabels 
+\sf loopsAsLabels
+  & \sf false
+  & Specifies that self-loop labels are to be displayed on the nodes \\
+\sf abstractionLabels
   & \it empty
-  & List of graph labels that occur rarely (to speed up matching) \\
-\sf commonLabels
-  & \it empty
-  & List of graph labels that occur frequently (to speed up matching) \\
+  & List of node labels considered in abstraction \\
 \hline\hline
 \end{tabular}
 \end{center}
@@ -665,23 +671,23 @@ attributes --- see \stref{attributes}. The currently supported values are:
 
 As discussed in \stref{equality}, matches are in general non-injective. By
 setting the \textsf{matchInjective} property to \textsf{true}, however,
-injectivity is enforced for all rules. In this way, \Groove{} can simulate rule
+injectivity is enforced for all rules. In this way, \GROOVE{} can simulate rule
 systems originally designed for tools that do impose injectivity always.
 
 \paragraph{Dangling edge check.}
 
-In general, when \Groove{} deletes a node, all incoming and outgoing edges are
+In general, when \GROOVE{} deletes a node, all incoming and outgoing edges are
 also deleted, whether or not they were explicitly specified in the rule. This
 is in conformance with the so-called \emph{SPO} (\emph{S}ingle
 \emph{P}ush\emph{O}ut) approach. In the \emph{DPO} (\emph{D}ouble
 \emph{P}ush\emph{O}ut) approach, on the other hand, if a node to be deleted has
 an incident edge that is not explicitly deleted as well, then the rule is
-considered to be non-applicable. To mimic this behaviour in \Groove, the
+considered to be non-applicable. To mimic this behaviour in \GROOVE, the
 \textsf{checkDangling} property should be set to \textsf{true}.
 
 \paragraph{Creator edge check.}
 
-In \Groove, edges do not have their own identity: if an edge is added to a
+In \GROOVE, edges do not have their own identity: if an edge is added to a
 graph that alsready has an edge between the same nodes and with the same label,
 the graph actually does not change. This can be undesirable in some
 circumstances. By setting \textsf{checkCreatorEdges} to \textsf{true}, an
@@ -701,7 +707,7 @@ rules, improving readability and maintainability of the rules.
 
 \paragraph{Isomorphism check.}
 
-One of the strong points of \Groove{} is the fact that the graphs that it
+One of the strong points of \GROOVE{} is the fact that the graphs that it
 generates are compared and collapsed modulo isomorphism --- meaning that there
 will be at most graph in the resulting state space for every isomorphism
 class. Though this is very effective in many modelling domains, nevertheless
@@ -709,24 +715,6 @@ the isomorphism check is expensive. In case a problem being modelled is known
 to have little or no symmetries, so that the isomorphism check will always
 fail, one can set \textsf{checkIsomorphism} to \textsf{false}, thereby gaining
 efficiency.
-
-\paragraph{Transition label formatting.}
-
-The LTS view of the Simulator contains edges for all rule applications that
-have been explored. There are two system properties that control the way these
-labels are displayed.
-\begin{description}
-\item[\textsf{transitionBrackets}] controls whether angular brackets appear
-  around all transition labels. This option is added for backward
-  compatibility: in previous versions, \Groove{} by default showed such
-  brackets, so if there are any applications that rely on thi sbehaviour, this
-  property should be set to \textsf{true}.
-
-\item[\textsf{transitionParameters}] controls whether transition labels
-  show the value of rule parameters, is any (see \stref{parameters}). When set
-  tu \textsf{true}, all labels will show a (possibly empty) list of
-  parameters.
-\end{description}
 
 \paragraph{Control labels and common labels.}
 
@@ -743,3 +731,38 @@ thereby improving efficiency.
   matching process will consider these labels last.
 \end{description}
 
+\paragraph{Transition label formatting.}
+
+The LTS view of the Simulator contains edges for all rule applications that
+have been explored. There are two system properties that control the way these
+labels are displayed.
+\begin{description}
+\item[\textsf{transitionBrackets}] controls whether angular brackets appear
+  around all transition labels. This option is added for backward
+  compatibility: in previous versions, \GROOVE{} by default showed such
+  brackets, so if there are any applications that rely on thi sbehaviour, this
+  property should be set to \textsf{true}.
+
+\item[\textsf{transitionParameters}] controls whether transition labels
+  show the value of rule parameters, is any (see \stref{parameters}). When set
+  tu \textsf{true}, all labels will show a (possibly empty) list of
+  parameters.
+\end{description}
+
+\paragraph{Displaying loops as node labels.}
+
+The appropriate way to specify a true node label, i.e., a label that can only
+occur on a node and not on a binary edge, is by declaring it to be a
+\emph{flag} (see above). However, in previous versions of \GROOVE this
+distinction was not made and ordinary labels were used as node labels; and
+still, for novice users it makes sense to ignore the distinction. The old
+behaviour can be set explicitly through the \textsf{loopsAsLabels} property:
+when set to \textsf{true}, all self-edge labels will be displayed as node
+labels. (Even so, such labels are distinguishable from flags by the fact that
+the latter are italic.)
+
+\paragraph{Abstraction.}
+
+The final system property, \textsf{abstractionLabels}, is used to specify the
+node labels that are used to parmeterise the abstraction. Since abstraction is
+still an experimantal feature, we do not go into this issue here.

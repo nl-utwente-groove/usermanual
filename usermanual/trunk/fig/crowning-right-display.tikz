@@ -1,12 +1,12 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[quantnode] (n2432)  at (2.235, -1.700) {\ml{$\exists_\mathsf{x}$}};
 \node[node] (n2433)  at (3.305, -1.740) {\ml{\textbf{Girl}\\{\color{\green}\textit{$+$ queen}}}};
 \node[quantnode] (n2434)  at (2.240, -0.905) {\ml{$\forall$}};
+\node[quantnode] (n2432)  at (2.235, -1.700) {\ml{$\exists_\mathsf{x}$}};
 \node[node] (n2431)  at (3.125, -0.915) {\ml{\textbf{Boy}}};
-\path[edge](n2431.south -| 3.305, -1.740) -- node[lab]{likes:x} (n2433) ;
 \path[quantedge](n2432.north -| 2.240, -0.905) -- node[lab]{in} (n2434) ;
+\path[edge](n2431.south -| 3.305, -1.740) -- node[lab]{likes:x} (n2433) ;
 \path[quantedge](n2431.west |- 2.240, -0.905) -- node[lab]{at} (n2434) ;
 \userdefinedmacro
 \end{tikzpicture}

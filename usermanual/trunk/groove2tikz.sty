@@ -3,6 +3,8 @@
 \ProvidesPackage{groove2tikz}
 \RequirePackage{tikz}
 
+\usepackage[T1]{fontenc}
+
 % Includes for Tikz
 \usetikzlibrary{arrows,automata,positioning,er}
 
@@ -12,7 +14,7 @@
 \newcommand{\nodeinsep}{2.5pt}
 \newcommand{\labinsep}{2pt}
 
-\tikzstyle every node=[font=\tikzfontsize\sffamily,inner sep=\nodeinsep,minimum size=9pt]
+\tikzstyle{every node}=[font=\tikzfontsize\sffamily,inner sep=\nodeinsep,minimum size=9pt,rounded corners=1pt]
 
 % Colours
 \newcommand{\red}{red}
@@ -57,7 +59,7 @@
 \tikzstyle{remlab}=[text=\orange,fill=white,inner sep=\labinsep]
 
 % Quantifiers
-\tikzstyle{quantnode}=[dotted,fill=white]
+\tikzstyle{quantnode}=[draw=black,dotted,fill=\grey,shape=rectangle]
 \tikzstyle{quantedge}=[draw,black,dotted,-stealth']
 
 % Special styles (can be combined with the above)
@@ -65,9 +67,15 @@
 \tikzstyle{prod}=[shape=diamond,inner sep=1pt]
 \tikzstyle{whitefill}=[fill=white]
 \tikzstyle{bold}=[very thick]
+\tikzstyle{ultrabold}=[line width=2pt]
 \tikzstyle{thinnode}=[draw=\thin,text=\thin,fill=white,shape=rectangle]
 \tikzstyle{thinedge}=[draw,\thin,text=\thin,-stealth']
 \tikzstyle{thinlab}=[text=\thin,fill=white,inner sep=\labinsep]
+
+% Abstract types
+\tikzstyle{absnode}=[draw=black,fill=\grey,shape=rectangle,densely dashed]
+\tikzstyle{absedge}=[draw,black,-stealth',densely dashed]
+\tikzstyle{abslab}=[font=\tikzfontsize\sffamily\slshape,fill=white,inner sep=\labinsep]
 % Inheritance edge
 \tikzstyle{subedge}=[draw,->,>=open triangle 60]
 
@@ -78,7 +86,6 @@
 \tikzstyle{csuccess}=[draw=black,fill=red,shape=rectangle]
 %  Edges
 \tikzstyle{cedge}=[draw,black,-stealth']
-\tikzstyle{cshape}=[draw,\grey,-stealth']
 \tikzstyle{clambda}=[draw,green,-stealth']
 \tikzstyle{cfailure}=[draw,red,-stealth']
 %  Labels
