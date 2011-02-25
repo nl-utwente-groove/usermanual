@@ -3,8 +3,8 @@
 \begin{tikzpicture}[scale=\tikzscale]
 \node[node] (n38147)  at (0.735, -0.505) {\ml{type:A}};
 \node[node] (n38149)  at (0.630, -1.495) {\ml{type:B}};
-\node[node, attr] (n38148)  at (1.800, -1.485) {\ml{string:"a"}};
 \node[node] (n38150)  at (1.100, -1.495) {\ml{type:C}};
+\node[node, attr] (n38148)  at (1.800, -1.485) {\ml{string:"a"}};
 \path[edge] (n38147)  -- node[lab]{y} (n38148) ;
 \path[edge](n38147.south -| 0.630, -1.495) -- node[lab]{x} (n38149) ;
 \path[edge] (n38147)  -- node[lab]{x} (n38150) ;

@@ -1,8 +1,8 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n1125)  at (0.935, -0.915) {\ml{type:State}};
 \node[node] (n1124)  at (1.595, -0.285) {\ml{type:Automaton}};
+\node[node] (n1125)  at (0.935, -0.915) {\ml{type:State}};
 \node[node] (n1123)  at (2.255, -0.905) {\ml{type:State}};
 \path[edge] (n1124)  -- node[lab]{final} (n1123) ;
 \path[newedge, -](n1125.east |- 2.255, -0.905) -- node[newlab]{\textit{new:=}} (n1123) ;

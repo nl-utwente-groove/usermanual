@@ -1,14 +1,14 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[quantnode] (n1573)  at (1.140, -1.635) {\ml{$\exists$}};
-\node[quantnode] (n1576)  at (1.160, -2.270) {\ml{$\forall^{>0}$}};
 \node[quantnode] (n1575)  at (1.620, -0.895) {\ml{$\forall$}};
+\node[quantnode] (n1573)  at (1.140, -1.635) {\ml{$\exists$}};
 \node[quantnode] (n1574)  at (2.040, -1.615) {\ml{$\exists$}};
 \node[quantnode] (n1577)  at (2.880, -0.900) {\ml{$\forall^{>0}$}};
-\path[quantedge] (n1574)  -- node[lab]{in} (n1575) ;
+\node[quantnode] (n1576)  at (1.160, -2.270) {\ml{$\forall^{>0}$}};
 \path[quantedge] (n1573)  -- node[lab]{in} (n1575) ;
 \path[quantedge](n1576.north -| 1.140, -1.635) -- node[lab]{in} (n1573) ;
+\path[quantedge] (n1574)  -- node[lab]{in} (n1575) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
