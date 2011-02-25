@@ -1,9 +1,9 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n0)  at (1.445, -1.115) {\ml{not:type:B\\not:type:C\\type:A}};
 \node[node] (n2)  at (1.350, -1.845) {\ml{type:C}};
 \node[node] (n1)  at (2.345, -1.050) {\ml{not:type:C\\type:A}};
+\node[node] (n0)  at (1.445, -1.115) {\ml{not:type:B\\not:type:C\\type:A}};
 \path[newedge](n0.south -| 1.350, -1.845) -- node[newlab]{new:has} (n2) ;
 \path[deledge](n0.east |- 2.345, -1.050) -- node[dellab]{del:next} (n1) ;
 \userdefinedmacro

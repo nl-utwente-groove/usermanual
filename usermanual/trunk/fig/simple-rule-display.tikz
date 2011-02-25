@@ -4,8 +4,8 @@
 \node[newnode] (n535)  at (3.505, -1.345) {\ml{\textbf{D}}};
 \node[node] (n533)  at (1.285, -0.930) {\ml{{\color{\red}\textbf{! B}}\\{\color{\green}\textit{$+$ s}}}};
 \node[delnode] (n532)  at (1.310, -1.665) {\ml{\textbf{C}}};
-\node[node] (n536)  at (2.660, -0.845) {\ml{\textbf{B}}};
 \node[node] (n0)  at (2.430, -1.760) {\ml{{\color{\blue}\textbf{$-$ B}}\\{\color{\green}\textbf{$+$ C}}}};
+\node[node] (n536)  at (2.660, -0.845) {\ml{\textbf{B}}};
 \node[nacnode] (n534)  at (3.495, -0.825) {\ml{\textbf{D}}};
 \path[nacedge](n536.east |- 3.495, -0.825) -- node[naclab]{d} (n534) ;
 \path[deledge](n533.south -| 1.310, -1.665) -- node[dellab]{c} (n532) ;
