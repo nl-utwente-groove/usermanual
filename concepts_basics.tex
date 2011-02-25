@@ -1,7 +1,7 @@
 \section{Basic Concepts}
 \stlabel{basic}
 
-\Groove shows rules and graphs using various kinds of graphical embellishments,
+\GROOVE shows rules and graphs using various kinds of graphical embellishments,
 such as colours, bold and italic fonts, dashed and dotted outlines, and special
 symbols. During editing, however, the node and edge labels you enter do not
 have those embellishments. Instead, you have to use a fairly rich textual
@@ -13,13 +13,13 @@ syntax to make the same distinctions. The prime element in this syntax is a
 \subsection{Graphs}
 \stlabel{Graphs}
 
-\Groove is based on directed node- and edge-labelled graphs. Graph nodes are
+\GROOVE is based on directed node- and edge-labelled graphs. Graph nodes are
 depicted as boxes, and edges as arrows between them; the node labels are
 inscribed in the nodes, the edge labels along or on top of the arrows.
 
 There are two kinds of node labels: types and flags. In the Edit view, these
 are distinguished from one another and from edge labels by prefixing them with
-``\typeP'' and ``\flagP'', respectively. If you omit the prefix, \Groove will
+``\typeP'' and ``\flagP'', respectively. If you omit the prefix, \GROOVE will
 interpret the label as an edge label, and it will create a self-edge with that
 label. (If you have no types or flags in your graph, self-edge labels remain
 inscribed in the nodes in the Display view.) In the Display view, types are set
@@ -58,9 +58,9 @@ labels.
 
 Formally, rules consist of left hand sides, right hand sides and negative
 application conditions (NACs), all of which are different graphs, connected by
-morphisms. In \Groove{} these graphs are combined into one single view, and
+morphisms. In \GROOVE{} these graphs are combined into one single view, and
 colour coding is used to distinguish the original components. As a consequence,
-a \Groove{} view of a rule has the following kinds of elements:
+a \GROOVE{} view of a rule has the following kinds of elements:
 
 \begin{description}
 \item[Readers.] These are nodes and edges that are in both the LHS and the RHS.
@@ -164,7 +164,7 @@ system (see also \stref{trans} below).
 
 \paragraph{Example usage.}
 
-The use of the above features is demonstrated by the following \Groove samples:
+The use of the above features is demonstrated by the following \GROOVE samples:
 %
 \begin{itemize}\noitemsep
 \item \textsf{circular-buffer}, a simple data structure with two rules,
@@ -198,7 +198,7 @@ meaningless when used on eraser or creator edges.
 \subsection{Equalities, Mergers and Injectivities}
 \stlabel{equality}
 
-\Groove{} has a special label ``\lab{=}'' (the equals sign). When used
+\GROOVE{} has a special label ``\lab{=}'' (the equals sign). When used
 between nodes in a rule, this expresses that the nodes are really the same,
 despite being depicted as different. Such equality labels may also be used on
 creator edges (which are then called \emph{mergers}) and embargo edges (which
@@ -207,7 +207,7 @@ negation.
 
 \paragraph{Mergers.}
 
-\Groove{} rules can \emph{merge} nodes. This is specified by a special edge
+\GROOVE{} rules can \emph{merge} nodes. This is specified by a special edge
 labelled ``\newP\lab{=}'' between the nodes that are to be merged. The
 direction of the edge is irrelevant --- in fact, in the display view the arrow
 head is omitted. When two nodes are merged, the resulting
@@ -249,7 +249,7 @@ ensures that there are no more than two.
 
 \paragraph{Example usage.}
 
-The use of the above features is demonstrated by the following \Groove samples:
+The use of the above features is demonstrated by the following \GROOVE samples:
 %
 \begin{itemize}\noitemsep
 \item \textsf{mergers}, showing the use of mergers;
@@ -259,7 +259,7 @@ The use of the above features is demonstrated by the following \Groove samples:
 \subsection{Rule Comments}
 \stlabel{remark}
 
-To document rules, \Groove{} offers the possibility to add special nodes and
+To document rules, \GROOVE{} offers the possibility to add special nodes and
 edges that do not make a difference to the transformation. This is done through
 the prefix ``\remP'' (for ``remark''), either on a node (as a stand-alone node
 label) or on an edge --- just as for the prefixes we have seen so far. In the
@@ -292,7 +292,7 @@ presence of an ``\textsf{Error}''-labelled node, and does not modify the
 graph. Such a rule would automatically halt the transformation of a graph if
 some other rule introduces such an \textsf{Error}-node.
 
-Rule system \textsf{priorities} in the \Groove{} samples shows an example use
+Rule system \textsf{priorities} in the \GROOVE{} samples shows an example use
 of priorities.
 
 \paragraph{Confluent.}
@@ -326,7 +326,7 @@ rules yet give rise to equally labelled transitions. Any nonempty value for the
 \subsection{Transition systems}
 \stlabel{trans}
 
-During the evaluation of a set of rules, \Groove{} ``under water'' builds up a
+During the evaluation of a set of rules, \GROOVE{} ``under water'' builds up a
 so-called transition system, in which every graph plays the role of a state,
 and every rule application is interpreted as a transition. By default, the
 transitions bear the names of the applied rules that have been applied as
@@ -424,7 +424,7 @@ for the rules and graph in \eqref{subtypes}:
 
 \views{type}
 %
-If a grammar has a type graph, \Groove enforces adherence to it, by flagging as
+If a grammar has a type graph, \GROOVE enforces adherence to it, by flagging as
 errors
 
 \begin{itemize}\noitemsep

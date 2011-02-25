@@ -1,18 +1,18 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n823)  at (2.855, -0.715) {\ml{\textbf{Roll}}};
-\node[node] (n822)  at (1.365, -2.055) {\ml{\textbf{Oven}}};
-\node[nacnode] (n824)  at (2.445, -1.305) {\ml{\textbf{Roll}}};
-\node[node] (n821)  at (1.345, -1.305) {\ml{\textbf{Plate}}};
-\node[node] (n820)  at (2.845, -2.155) {\ml{\textbf{Roll}}};
+\node[node] (n823)  at (2.905, -0.765) {\ml{\textbf{Roll}}};
+\node[node] (n821)  at (1.395, -1.355) {\ml{\textbf{Plate}}};
+\node[node] (n822)  at (1.415, -2.105) {\ml{\textbf{Oven}}};
+\node[nacnode] (n824)  at (2.455, -1.315) {\ml{\textbf{Roll}}};
+\node[node] (n820)  at (2.895, -2.205) {\ml{\textbf{Roll}}};
 \path[nacedge, -] (n824)  -- node[naclab]{\textit{!=}} (n820) ;
-\path[edge, -](n823.south -| 2.845, -2.155) -- node[lab]{\textit{!=}} (n820) ;
+\path[edge, -](n823.south -| 2.895, -2.205) -- node[lab]{\textit{!=}} (n820) ;
+\path[edge] (n823)  -- node[lab]{on} (n821) ;
+\path[newedge](n821.south -| 1.415, -2.105) -- node[newlab]{in} (n822) ;
 \path[edge] (n820)  -- node[lab]{on} (n821) ;
 \path[nacedge, -] (n824)  -- node[naclab]{\textit{!=}} (n823) ;
-\path[edge] (n823)  -- node[lab]{on} (n821) ;
-\path[newedge](n821.south -| 1.365, -2.055) -- node[newlab]{in} (n822) ;
-\path[nacedge](n824.west |- 1.345, -1.305) -- node[naclab]{on} (n821) ;
+\path[nacedge](n824.west |- 1.395, -1.355) -- node[naclab]{on} (n821) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

@@ -9,62 +9,58 @@ given in Listing \ref{lst:control}.
 
 \begin{figure}
 \begin{lstlisting}[label=lst:control,caption={Grammar of Control Programs}]
-program
-	: (function|statement)*
-	;
+program	: ( function | statement )* ;
 
 function
-	: 'function' IDENTIFIER '(' ')' block
+	: 'function' IDENT '(' ')' block
 	;
 
 statement 
-	: 'alap' block
-	| 'while' '(' condition ')' 'do' block
-	| 'do' block 'while' '(' condition ')'
-	| 'until' '(' condition ')' 'do' block
-	| 'try' block ('else' block)?
-	| 'if' '(' condition ')' block ('else' block)?
-	| 'choice' block ('or' block)*
-	| expression
+	: block
+        | 'alap' statement
+	| 'while' '(' condition ')' statement
+	| 'do' statement 'while' '(' condition ')'
+	| 'until' '(' condition ')' statement
+	| 'try' statement ('else' statement)?
+	| 'if' '(' condition ')' statement ( 'else' statement )?
+	| 'choice' statement ( 'or' statement )*
+	| expression ';'
+        | var_decl ';'
 	;
 
-block
-	: '{' statement*  '}'
-	;
+block	: '{' statement*  '}' ;
 
 condition
-	: conditionliteral ('|' condition)?
+	: condition ( '|' condition )*
+	| 'true' 
+	| call 
 	;
-
-conditionliteral
-	: 'true' | rule ;
 
 expression	
-	: expression2 ('|' expression)?
-	;
-
-expression2
-    : expression_atom ('+' | '*')?
-    | '#' expression_atom
-    ;
-
-expression_atom
-	: rule
+	: expression ( '|' expression )*
+	| expression ( '+' | '*' )?
+	| '#' expression
+	| call
 	| 'any'
 	| 'other'
 	| '(' expression ')'
-	| call
 	; 
 
-call
-	: IDENTIFIER '(' ')'
+call	: IDENT ( '.' IDENT )* ( '(' arg* ')' )? ;
+
+arg	: 'out'? IDENT | '_' | literal ;
+
+literal	: 'true' | 'false' | string_lit | int_lit | real_lit ;
+
+var_decl
+	: var_type IDENT ( ',' IDENT )*
 	;
 
-rule
-	: IDENTIFIER
+var_type
+	: 'node' | 'bool' | 'string' | 'int' | 'real'
 	;
 
-IDENTIFIER
+IDENT
 	: ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'-'|'_')*
 	;
 \end{lstlisting}
@@ -141,4 +137,4 @@ It is important to realise that control expressions are interpreted completely
 \{c;\}}.
 
 An example of a control program can be found in the \textsf{control.gps}
-grammar in the \Groove{} samples.
+grammar in the \GROOVE samples.

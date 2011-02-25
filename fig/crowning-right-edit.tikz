@@ -1,10 +1,10 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
+\node[node] (n2431)  at (3.255, -0.915) {\ml{type:Boy}};
 \node[node] (n2433)  at (3.500, -1.740) {\ml{type:Girl\\new:flag:queen}};
 \node[quantnode] (n2434)  at (2.335, -0.905) {\ml{forall:}};
 \node[quantnode] (n2432)  at (2.415, -1.675) {\ml{exists=x:}};
-\node[node] (n2431)  at (3.255, -0.915) {\ml{type:Boy}};
 \path[quantedge](n2431.west |- 2.335, -0.905) -- node[lab]{at} (n2434) ;
 \path[edge](n2431.south -| 3.500, -1.740) -- node[lab]{use=x:likes} (n2433) ;
 \path[quantedge](n2432.north -| 2.335, -0.905) -- node[lab]{in} (n2434) ;

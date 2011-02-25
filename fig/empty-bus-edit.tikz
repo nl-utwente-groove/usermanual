@@ -1,7 +1,7 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n0)  at (2.030, -1.985) {\ml{type:Bus}};
+\node[node] (n0)  at (2.080, -2.035) {\ml{type:Bus}};
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

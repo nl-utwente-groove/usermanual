@@ -8,11 +8,11 @@ program (if any) and system properties, in separate files.
 
 \subsection{Graphs and rules}
 
-The input/output format used by \Groove{} to store rules and graphs is GXL,
+The input/output format used by \GROOVE to store rules and graphs is GXL,
 which is an XML format for interchange of graphs. See
 \url{http://www.gupro.de/GXL/} for information about the format, including its
 DTD and XSD; see also \cite{GXL}. There are some conventions in the way we have
-used GXL to encode \Groove-specific information.
+used GXL to encode \GROOVE-specific information.
 
 \paragraph{Edge labels.}
 
@@ -26,20 +26,20 @@ rules receive the extension ``\textsf{.gpr}'' (for \emph{g}raph
 \paragraph{Graph attributes.}
 
 We are using the GXL graph attributes to store some additional information
-about the graphs, such as the version number of the I/O-format, the fact
-whether it is a rule or a graph, and the priority and enabledness (if it is a
-rule). For the latter two see \stref{rule-properties}.
+about the graphs, such as the name, the fact whether it is a rule, a graph or a
+type graph, and the priority and enabledness (if it is a rule). For the latter
+two see \stref{rule-properties}.
 
 \paragraph{Graph layout.}
 
-For every GXL file, layout information is stored in a file whose name is that
-of the GXL file, suffixed by the extension ``\textsf{.gl}''. For instance, the
-layout of the file \textsf{rule.gpr} is contained in \textsf{rule.gpr.gl}.
-
-Layout encoding is very ad hoc, and in fact based on the way the
+Layout encoding is ad hoc, and in fact based on the way the
 graph-rendering library, \JGraph, stores this information internally (see
-\cite{JGraph}). Every \textsf{gl}-file produced by \Groove{} contains some
-comments briefly explaining the encoding.
+\cite{JGraph}). The information is stored in GXL node and edge attributes.
+
+In previous versions of \GROOVE, layout information was stored in separate
+files with a name derived from that of the GXL file by adding the extension
+``\textsf{.gl}''. For instance, the layout of the file \textsf{rule.gpr} was
+contained in \textsf{rule.gpr.gl}.
 
 \subsection{Control programs}
 \stlabel{io-control}
@@ -47,7 +47,8 @@ comments briefly explaining the encoding.
 Control programs are stored in plain text in files with extension
 ``\textsf{.gcp}'' (for \emph{g}raph \emph{c}ontorl \emph{p}rogram) within the
 grammar directory. If there is a file \textsf{control.gcp}, this is taken to be
-the default control program; others can be loaded in the Simulator.
+the default control program; others can be loaded and set in the Simulator or
+through the system properties (see below).
 
 \subsection{System properties}
 \stlabel{io-system-properties}

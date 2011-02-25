@@ -2,21 +2,21 @@
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
 \node[nacnode] (n534)  at (3.635, -0.900) {\ml{not:\\type:D}};
-\node[delnode] (n532)  at (1.450, -1.740) {\ml{del:\\type:C}};
-\node[node] (n533)  at (1.495, -0.930) {\ml{not:type:B\\new:flag:s}};
 \node[node] (n0)  at (2.650, -1.760) {\ml{del:type:B\\new:type:C}};
+\node[delnode] (n532)  at (1.450, -1.740) {\ml{del:\\type:C}};
 \node[newnode] (n535)  at (3.645, -1.420) {\ml{new:\\type:D}};
 \node[node] (n536)  at (2.800, -0.845) {\ml{type:B}};
-\path[deledge](n533.east |- 2.800, -0.845) -- node[dellab]{del:b} (n536) ;
+\node[node] (n533)  at (1.495, -0.930) {\ml{not:type:B\\new:flag:s}};
+\path[newedge](n536.south -| 2.600, -1.320) -- (2.600, -1.320) -- (n535.west |- 2.600, -1.320);
+\node[newlab] at (2.770, -1.320){d};
 \path[newedge](n536.north -| 2.600, -0.330) -- (2.600, -0.330) -- (1.270, -0.330) -- (n533.north -| 1.270, -0.330);
 \node[newlab] at (2.600, -0.470){new:a};
+\path[deledge](n533.south -| 1.450, -1.740) -- node[dellab]{c} (n532) ;
+\path[nacedge](n0.west |- 1.450, -1.740) -- node[naclab]{not:d} (n532) ;
+\path[deledge](n533.east |- 2.800, -0.845) -- node[dellab]{del:b} (n536) ;
 \path[nacedge](n536.east |- 3.635, -0.900) -- node[naclab]{d} (n534) ;
 \path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) -- (n0.north -| 2.340, -0.970);
 \node[lab] at (2.129, -0.970){c};
-\path[nacedge](n0.west |- 1.450, -1.740) -- node[naclab]{not:d} (n532) ;
-\path[newedge](n536.south -| 2.600, -1.320) -- (2.600, -1.320) -- (n535.west |- 2.600, -1.320);
-\node[newlab] at (2.770, -1.320){d};
-\path[deledge](n533.south -| 1.450, -1.740) -- node[dellab]{c} (n532) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
