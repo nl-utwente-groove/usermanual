@@ -1,11 +1,11 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n38147)  at (0.745, -0.580) {\ml{\textbf{A}\\y = "a"}};
-\node[node] (n38149)  at (0.490, -1.495) {\ml{\textbf{B}}};
-\node[node] (n38150)  at (0.960, -1.495) {\ml{\textbf{C}}};
-\path[edge](n38147.south -| 0.490, -1.495) -- node[lab]{x} (n38149) ;
-\path[edge](n38147.south -| 0.960, -1.495) -- node[lab]{x} (n38150) ;
+\node[node] (n38149)  at (0.490, -1.500) {\ml{\textbf{B}}};
+\node[node] (n38147)  at (0.760, -0.590) {\ml{\textbf{A}\\y = "a"}};
+\node[node] (n38150)  at (0.965, -1.500) {\ml{\textbf{C}}};
+\path[edge](n38147.south -| 0.490, -1.500) -- node[lab]{x} (n38149) ;
+\path[edge](n38147.south -| 0.965, -1.500) -- node[lab]{x} (n38150) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

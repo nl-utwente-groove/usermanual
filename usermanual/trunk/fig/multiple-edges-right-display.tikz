@@ -1,12 +1,12 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n325)  at (2.295, -0.785){};
 \node[node] (n326)  at (1.015, -0.825){};
-\path[edge] (n326) .. controls (1.320, -1.020) and (1.870, -1.010) ..  (n325) ;
-\node[lab] at (1.595, -1.014){to};
+\node[node] (n325)  at (2.295, -0.785){};
 \path[edge] (n326) .. controls (0.690, -1.090) and (0.760, -1.200) .. (0.760, -1.200).. controls (0.800, -1.280) and (1.070, -1.280) .. (1.120, -1.210).. controls (1.120, -1.210) and (1.180, -1.100) ..  (n326) ;
 \node[lab] at (0.815, -1.059){Two};
+\path[edge] (n326) .. controls (1.320, -1.020) and (1.870, -1.010) ..  (n325) ;
+\node[lab] at (1.595, -1.014){to};
 \path[edge] (n326) .. controls (0.680, -0.390) and (0.740, -0.320) .. (0.740, -0.320).. controls (0.800, -0.230) and (1.070, -0.230) .. (1.140, -0.340).. controls (1.140, -0.340) and (1.190, -0.410) ..  (n326) ;
 \node[lab] at (0.803, -0.457){Labels};
 \path[edge](n326.east |- 2.295, -0.785) -- node[lab]{points} (n325) ;
