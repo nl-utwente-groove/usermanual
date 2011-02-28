@@ -1,17 +1,17 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n0)  at (2.755, -1.055) {\ml{\textbf{A}}};
-\node[node] (n1)  at (2.120, -1.645) {\ml{\textbf{B}}};
-\node[node] (n2)  at (3.480, -1.645) {\ml{\textbf{C}}};
-\node[node] (n3)  at (3.485, -2.185) {\ml{\textbf{D}}};
-\path[edge](n0.north -| 2.720, -0.660) -- (2.720, -0.660) -- (2.090, -0.660) -- (2.090, -1.010) -- (n0.west |- 2.090, -1.010);
-\node[lab] at (2.461, -0.660){next};
+\node[node] (n2)  at (3.485, -1.650) {\ml{\textbf{C}}};
+\node[node] (n0)  at (2.760, -1.060) {\ml{\textbf{A}}};
+\node[node] (n3)  at (3.490, -2.190) {\ml{\textbf{D}}};
+\node[node] (n1)  at (2.120, -1.650) {\ml{\textbf{B}}};
 \path[edge](n0.east |- 3.440, -1.000) -- (3.440, -1.000) -- (n2.north -| 3.440, -1.000);
 \node[lab] at (3.270, -1.000){has};
-\path[subedge](n3.north -| 3.480, -1.645) --  (n2) ;
 \path[subedge] (n1)  --  (n0) ;
+\path[edge](n0.north -| 2.720, -0.660) -- (2.720, -0.660) -- (2.090, -0.660) -- (2.090, -1.010) -- (n0.west |- 2.090, -1.010);
+\node[lab] at (2.461, -0.660){next};
 \path[subedge] (n2)  --  (n0) ;
+\path[subedge](n3.north -| 3.485, -1.650) --  (n2) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

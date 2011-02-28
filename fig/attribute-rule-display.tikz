@@ -1,20 +1,20 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node, prod] (n1380)  at (2.675, -1.675){};
-\node[node, attr] (n1384)  at (2.690, -0.885) {\ml{\textbf{real}}};
-\node[node] (n1382)  at (1.205, -0.875) {\ml{\textbf{Account}}};
-\node[node, attr] (n1387)  at (2.690, -2.325) {\ml{\textbf{real}}};
-\node[node] (n1381)  at (1.235, -2.305) {\ml{\textbf{ATM}}};
-\node[node, prod] (n1386)  at (3.730, -1.030) {\ml{\textit{$\pi$1 = 0}\\\textit{ge = true}}};
+\node[node] (n1381)  at (1.255, -2.310) {\ml{\textbf{ATM}}};
+\node[node, attr] (n1384)  at (2.720, -0.900) {\ml{\textbf{real}}};
 \node[node, attr] (n1383)  at (1.155, -1.665){};
+\node[node] (n1382)  at (1.225, -0.880) {\ml{\textbf{Account}}};
+\node[node, prod] (n1386)  at (3.760, -1.040) {\ml{\textit{$\pi$1 = 0}\\\textit{ge = true}}};
+\node[node, attr] (n1387)  at (2.720, -2.340) {\ml{\textbf{real}}};
+\node[node, prod] (n1380)  at (2.675, -1.675){};
+\path[newedge](n1382.east |- 2.720, -0.900) -- node[newlab]{balance} (n1384) ;
 \path[edge](n1380.west |- 1.155, -1.665) -- node[lab]{$\pi$0} (n1383) ;
+\path[edge](n1380.north -| 2.720, -0.900) -- node[lab]{sub} (n1384) ;
+\path[edge](n1386.west |- 2.720, -0.900) -- node[lab]{$\pi$0} (n1384) ;
+\path[edge](n1380.south -| 2.720, -2.340) -- node[lab]{$\pi$1} (n1387) ;
+\path[deledge](n1381.east |- 2.720, -2.340) -- node[dellab]{amount} (n1387) ;
 \path[deledge](n1382.south -| 1.155, -1.665) -- node[dellab]{balance} (n1383) ;
-\path[newedge](n1382.east |- 2.690, -0.885) -- node[newlab]{balance} (n1384) ;
-\path[edge](n1386.west |- 2.690, -0.885) -- node[lab]{$\pi$0} (n1384) ;
-\path[edge](n1380.north -| 2.690, -0.885) -- node[lab]{sub} (n1384) ;
-\path[deledge](n1381.east |- 2.690, -2.325) -- node[dellab]{amount} (n1387) ;
-\path[edge](n1380.south -| 2.690, -2.325) -- node[lab]{$\pi$1} (n1387) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

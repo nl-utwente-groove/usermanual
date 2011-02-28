@@ -1,24 +1,24 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
 \begin{tikzpicture}[scale=\tikzscale]
-\node[node, prod] (n1380)  at (2.795, -1.665) {\ml{prod:}};
-\node[node, attr] (n1388)  at (3.500, -0.225) {\ml{bool:true}};
-\node[node, attr] (n1384)  at (2.710, -0.885) {\ml{attr:}};
-\node[node, attr] (n1385)  at (3.410, -1.605) {\ml{real:0}};
-\node[node] (n1382)  at (1.325, -0.875) {\ml{type:Account}};
-\node[node, attr] (n1387)  at (2.710, -2.325) {\ml{attr:}};
-\node[node] (n1381)  at (1.370, -2.305) {\ml{type:ATM}};
-\node[node, prod] (n1386)  at (3.515, -0.905) {\ml{prod:}};
-\node[node, attr] (n1383)  at (1.230, -1.655) {\ml{attr:}};
-\path[edge](n1380.west |- 1.230, -1.655) -- node[lab]{arg:0} (n1383) ;
-\path[deledge](n1382.south -| 1.230, -1.655) -- node[dellab]{del:balance} (n1383) ;
-\path[edge](n1386.south -| 3.410, -1.605) -- node[lab]{arg:1} (n1385) ;
-\path[newedge](n1382.east |- 2.710, -0.885) -- node[newlab]{new:balance} (n1384) ;
-\path[edge](n1386.west |- 2.710, -0.885) -- node[lab]{arg:0} (n1384) ;
-\path[edge](n1380.north -| 2.710, -0.885) -- node[lab]{real:sub} (n1384) ;
-\path[deledge](n1381.east |- 2.710, -2.325) -- node[dellab]{del:amount} (n1387) ;
-\path[edge](n1386.north -| 3.500, -0.225) -- node[lab]{real:ge} (n1388) ;
-\path[edge](n1380.south -| 2.710, -2.325) -- node[lab]{arg:1} (n1387) ;
+\node[node] (n1381)  at (1.395, -2.310) {\ml{type:ATM}};
+\node[node, attr] (n1384)  at (2.720, -0.900) {\ml{attr:}};
+\node[node, attr] (n1383)  at (1.240, -1.670) {\ml{attr:}};
+\node[node] (n1382)  at (1.365, -0.880) {\ml{type:Account}};
+\node[node, prod] (n1386)  at (3.555, -0.910) {\ml{prod:}};
+\node[node, attr] (n1385)  at (3.445, -1.620) {\ml{real:0}};
+\node[node, attr] (n1388)  at (3.545, -0.240) {\ml{bool:true}};
+\node[node, attr] (n1387)  at (2.720, -2.340) {\ml{attr:}};
+\node[node, prod] (n1380)  at (2.835, -1.670) {\ml{prod:}};
+\path[newedge](n1382.east |- 2.720, -0.900) -- node[newlab]{new:balance} (n1384) ;
+\path[edge](n1380.west |- 1.240, -1.670) -- node[lab]{arg:0} (n1383) ;
+\path[edge](n1380.north -| 2.720, -0.900) -- node[lab]{real:sub} (n1384) ;
+\path[edge](n1386.west |- 2.720, -0.900) -- node[lab]{arg:0} (n1384) ;
+\path[edge](n1386.south -| 3.445, -1.620) -- node[lab]{arg:1} (n1385) ;
+\path[edge](n1380.south -| 2.720, -2.340) -- node[lab]{arg:1} (n1387) ;
+\path[deledge](n1381.east |- 2.720, -2.340) -- node[dellab]{del:amount} (n1387) ;
+\path[edge](n1386.north -| 3.545, -0.240) -- node[lab]{real:ge} (n1388) ;
+\path[deledge](n1382.south -| 1.240, -1.670) -- node[dellab]{del:balance} (n1383) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
