@@ -9,59 +9,70 @@ given in Listing \ref{lst:control}.
 
 \begin{figure}
 \begin{lstlisting}[label=lst:control,caption={Grammar of Control Programs}]
-program	: ( function | statement )* ;
+program	: (function | stat)*
+	;
 
 function
-	: 'function' IDENT '(' ')' block
+	: 'function' ID '(' ')' block
 	;
 
-statement 
-	: block
-        | 'alap' statement
-	| 'while' '(' condition ')' statement
-	| 'do' statement 'while' '(' condition ')'
-	| 'until' '(' condition ')' statement
-	| 'try' statement ('else' statement)?
-	| 'if' '(' condition ')' statement ( 'else' statement )?
-	| 'choice' statement ( 'or' statement )*
+stat	: var_decl ';'
+	| block
+        | 'alap' stat
+	| 'while' '(' cond ')' stat
+	| 'until' '(' cond ')' stat
+	| 'do' stat 'while' '(' cond ')'
+	| 'do' stat 'until' '(' cond ')'
+	| 'if' '(' cond ')' block ('else' block)?
+	| 'try' block ('else' block)?
+	| 'choice' block ('or' block)*
 	| expression ';'
-        | var_decl ';'
-	;
-
-block	: '{' statement*  '}' ;
-
-condition
-	: condition ( '|' condition )*
-	| 'true' 
-	| call 
-	;
-
-expression	
-	: expression ( '|' expression )*
-	| expression ( '+' | '*' )?
-	| '#' expression
-	| call
-	| 'any'
-	| 'other'
-	| '(' expression ')'
-	; 
-
-call	: IDENT ( '.' IDENT )* ( '(' arg* ')' )? ;
-
-arg	: 'out'? IDENT | '_' | literal ;
-
-literal	: 'true' | 'false' | string_lit | int_lit | real_lit ;
+        ;
 
 var_decl
-	: var_type IDENT ( ',' IDENT )*
+	: var_type ID (',' ID)*
 	;
 
 var_type
 	: 'node' | 'bool' | 'string' | 'int' | 'real'
 	;
 
-IDENT
-	: ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'-'|'_')*
+block	: '{' stat*  '}'
+	;
+
+cond	: cond_atom ('|' cond)?
+	;
+
+cond_atom
+	: 'true' | rule ;
+
+expr	: expr2 ('|' expr)*
+	;
+
+expr2	: expr_atom ('+' | '*')?
+	| '#' expr_atom
+	;
+
+expr_atom
+	: 'any'
+	| 'other'
+	| '(' expr ')'
+	| call
+	; 
+
+call	: ID arg_list?
+	;
+
+arg_list
+	: '(' (arg (',' arg)*)? ')'
+	;
+
+arg	: 'out'? ID
+	| '_'
+	| literal
+	;
+
+ID	: ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'-'|'_')*
 	;
 \end{lstlisting}
 \end{figure}

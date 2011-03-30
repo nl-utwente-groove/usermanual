@@ -303,7 +303,7 @@ to data nodes as well as the data nodes themselves are not depcited as edges
 and nodes at all, but rather in the more familiar sttribute notation, as
 equations within the source nodes. (There is, however, an option in the
 Simulator to switch off the attribute notation and show data values as
-ellipsoid nodes; see \stref{inspecting}.) For instance, the following rule
+ellipsoid nodes.) For instance, the following rule
 specifies the withdrawal from a bank account, provided the balance does not
 become negative.
 
@@ -376,10 +376,9 @@ name (see \stref{trans}). However, if a rule has parameters, and if the
 then the transition labels are appended by lists of parameter values, being the
 node identities of the host graph nodes matching the parameter nodes.
 
-Note that a node identity is normally not visible in a graph (unless it is
-switched on in the Simulator, see \stref{simulator}). The node identities
-appearing as transition parameters are denoted ``\lab{n{\itshape id}}'',
-where \lab{\itshape id} is the \emph{node number} of the concrete graph
+Note that a node identity is normally not visible in a graph. The node
+identities appearing as transition parameters are denoted ``\lab{n{\itshape
+id}}'', where \lab{\itshape id} is the \emph{node number} of the concrete graph
 node. \emph{There is no guarantee that node identities are preserved among
 graphs!} This means that before and after a transition, the same node identity
 may refer to a completely different node. On the other hand, if a node identity
@@ -481,7 +480,7 @@ conjunction (in case of universal levels), or for disjunction (in case of
 existentials). In other words, the structure in \eqref{nesting} roughly
 reflects the predicate structure
 %
-\[ \exists (\forall \exists (\forall^{>0} \vee \exists) \wedge \forall^{>0}) \]
+\[ \exists (\forall(\exists\forall^{>0} \vee \exists) \wedge \forall^{>0}) \]
 %
 Every nesting level, represented by a quantifier node, \emph{contains} a
 sub-rule. The containment relation is encoded by ``\textsf{at}''-labelled edges
