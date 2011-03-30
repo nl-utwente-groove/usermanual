@@ -1,0 +1,85 @@
+\section{Exploration and Model Checking}
+\stlabel{usage}
+
+\subsection{Exploration}
+\stlabel{exploration}
+
+\subsection{Syntax of Temporal Logic}
+\begin{figure}
+\begin{lstlisting}[label=lst:logic,caption={Grammar of Temporal Logic}]
+property
+	: 'true'
+	| 'false'
+	| atom
+	| logical_1 property
+	| property logical_2 property
+	| path_quantifier path_property
+	| '(' property ')'
+	;
+
+path_property
+	: property
+	| logical_1 path_property
+	| path_property logical_2 path_property
+	| temporal_1 path_property
+	| path_property temporal_2 path_property
+	| '(' path_property ')'
+	;
+
+logical_1
+	: '!'
+	;
+
+logical_2
+	: '|' | '&' | '->' | '<-' | '<->'
+	;
+
+temporal_1
+	: 'X' | 'F' | 'G'
+	;
+
+temporal_2
+	: 'U' | 'W' | 'M' | 'V'
+	;
+
+path_quantifier
+	: 'A' | 'E'
+	;
+
+atom	: ID | SINGLE_QUOTED_TEXT | DOUBLE_QUOTED_TEXT
+	;
+\end{lstlisting}
+\end{figure}
+
+\newcommand{\Aop}{\mathop{\mathsf{A}}}
+\newcommand{\Eop}{\mathop{\mathsf{E}}}
+\newcommand{\Xop}{\mathop{\mathsf{X}}}
+\newcommand{\Fop}{\mathop{\mathsf{F}}}
+\newcommand{\Gop}{\mathop{\mathsf{G}}}
+\newcommand{\Uop}{\mathbin{\mathsf{U}}}
+\newcommand{\Wop}{\mathbin{\mathsf{W}}}
+\newcommand{\Mop}{\mathbin{\mathsf{M}}}
+\newcommand{\Vop}{\mathbin{\mathsf{V}}}
+
+\begin{itemize}
+\item $\Aop \phi$: $\phi$ holds along all paths starting in the current state
+\item $\Eop \phi$: $\phi$ holds along some path starting in the current state
+\item $\Xop \phi$: $\phi$ holds along the path starting in the next state of
+  the current path
+\item $\Fop \phi$: $\phi$ holds along some suffix of the current path
+\item $\Gop \phi$: $\phi$ holds along all suffixes of the current path
+\item $\phi \Uop \psi$: $\phi$ holds along the current state until eventually
+  $\psi$ holds
+\item $\phi \Wop \psi$: $\phi$ holds along the current state until
+  $\psi$ holds (which may never happen, in which case $\phi$ holds along the
+  entire path)
+\item $\phi \Mop \psi$: $\phi$ holds along the current state until eventually
+  $\psi$ holds as well
+\item $\phi \Vop \psi$: $\phi$ holds along the current state until $\psi$ holds
+  as well (which may never happen, in which case $\phi$ holds along the entire
+  path)
+\end{itemize}
+
+\subsection{CTL Model Checking}
+
+\subsection{LTL Model Checking}
