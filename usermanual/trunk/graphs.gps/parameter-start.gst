@@ -4,13 +4,32 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n38147"/>
-        <node id="n38148"/>
-        <node id="n38149"/>
-        <node id="n38150"/>
-        <edge to="n38148" from="n38148">
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n38147">
+            <attr name="layout">
+                <string>45 35 8 15</string>
+            </attr>
+        </node>
+        <node id="n38148">
+            <attr name="layout">
+                <string>139 132 50 15</string>
+            </attr>
+        </node>
+        <node id="n38149">
+            <attr name="layout">
+                <string>35 134 7 15</string>
+            </attr>
+        </node>
+        <node id="n38150">
+            <attr name="layout">
+                <string>82 134 7 15</string>
+            </attr>
+        </node>
+        <edge to="n38147" from="n38147">
             <attr name="label">
-                <string>string:&quot;a&quot;</string>
+                <string>type:A</string>
             </attr>
         </edge>
         <edge to="n38149" from="n38147">
@@ -28,9 +47,9 @@
                 <string>x</string>
             </attr>
         </edge>
-        <edge to="n38147" from="n38147">
+        <edge to="n38148" from="n38148">
             <attr name="label">
-                <string>type:A</string>
+                <string>string:&quot;a&quot;</string>
             </attr>
         </edge>
         <edge to="n38149" from="n38149">

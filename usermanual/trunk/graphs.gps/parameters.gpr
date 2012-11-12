@@ -4,12 +4,27 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n38107"/>
-        <node id="n38108"/>
-        <node id="n38109"/>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n38107">
+            <attr name="layout">
+                <string>65 121 44 30</string>
+            </attr>
+        </node>
+        <node id="n38108">
+            <attr name="layout">
+                <string>167 119 44 30</string>
+            </attr>
+        </node>
+        <node id="n38109">
+            <attr name="layout">
+                <string>120 31 8 15</string>
+            </attr>
+        </node>
         <edge to="n38107" from="n38107">
             <attr name="label">
-                <string>par=$1:</string>
+                <string>par:0</string>
             </attr>
         </edge>
         <edge to="n38107" from="n38107">
@@ -19,7 +34,7 @@
         </edge>
         <edge to="n38108" from="n38108">
             <attr name="label">
-                <string>par=$2:</string>
+                <string>par:1</string>
             </attr>
         </edge>
         <edge to="n38108" from="n38108">
@@ -32,14 +47,14 @@
                 <string>y</string>
             </attr>
         </edge>
-        <edge to="n38109" from="n38109">
-            <attr name="label">
-                <string>type:A</string>
-            </attr>
-        </edge>
         <edge to="n38107" from="n38109">
             <attr name="label">
                 <string>x</string>
+            </attr>
+        </edge>
+        <edge to="n38109" from="n38109">
+            <attr name="label">
+                <string>type:A</string>
             </attr>
         </edge>
     </graph>

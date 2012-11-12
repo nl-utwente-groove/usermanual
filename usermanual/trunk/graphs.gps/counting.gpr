@@ -7,34 +7,37 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n823"/>
-        <node id="n822"/>
-        <node id="n824"/>
-        <node id="n821"/>
-        <node id="n820"/>
-        <edge to="n824" from="n824">
-            <attr name="label">
-                <string>not:</string>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n823">
+            <attr name="layout">
+                <string>269 61 57 21</string>
             </attr>
-        </edge>
-        <edge to="n820" from="n820">
-            <attr name="label">
-                <string>type:Roll</string>
+        </node>
+        <node id="n822">
+            <attr name="layout">
+                <string>116 195 68 21</string>
             </attr>
-        </edge>
-        <edge to="n821" from="n821">
-            <attr name="label">
-                <string>type:Plate</string>
+        </node>
+        <node id="n824">
+            <attr name="layout">
+                <string>224 116 57 36</string>
             </attr>
-        </edge>
-        <edge to="n824" from="n824">
-            <attr name="label">
-                <string>type:Roll</string>
+        </node>
+        <node id="n821">
+            <attr name="layout">
+                <string>114 120 66 21</string>
             </attr>
-        </edge>
-        <edge to="n822" from="n821">
+        </node>
+        <node id="n820">
+            <attr name="layout">
+                <string>268 205 57 21</string>
+            </attr>
+        </node>
+        <edge to="n821" from="n823">
             <attr name="label">
-                <string>new:in</string>
+                <string>on</string>
             </attr>
         </edge>
         <edge to="n823" from="n823">
@@ -42,9 +45,9 @@
                 <string>type:Roll</string>
             </attr>
         </edge>
-        <edge to="n821" from="n823">
+        <edge to="n820" from="n823">
             <attr name="label">
-                <string>on</string>
+                <string>!=</string>
             </attr>
         </edge>
         <edge to="n822" from="n822">
@@ -52,19 +55,14 @@
                 <string>type:Oven</string>
             </attr>
         </edge>
-        <edge to="n821" from="n820">
+        <edge to="n824" from="n824">
             <attr name="label">
-                <string>on</string>
+                <string>not:</string>
             </attr>
         </edge>
-        <edge to="n821" from="n824">
+        <edge to="n824" from="n824">
             <attr name="label">
-                <string>on</string>
-            </attr>
-        </edge>
-        <edge to="n820" from="n823">
-            <attr name="label">
-                <string>!=</string>
+                <string>type:Roll</string>
             </attr>
         </edge>
         <edge to="n823" from="n824">
@@ -75,6 +73,31 @@
         <edge to="n820" from="n824">
             <attr name="label">
                 <string>!=</string>
+            </attr>
+        </edge>
+        <edge to="n821" from="n824">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge to="n821" from="n821">
+            <attr name="label">
+                <string>type:Plate</string>
+            </attr>
+        </edge>
+        <edge to="n822" from="n821">
+            <attr name="label">
+                <string>new:in</string>
+            </attr>
+        </edge>
+        <edge to="n821" from="n820">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge to="n820" from="n820">
+            <attr name="label">
+                <string>type:Roll</string>
             </attr>
         </edge>
     </graph>

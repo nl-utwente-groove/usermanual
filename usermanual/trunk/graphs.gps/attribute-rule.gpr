@@ -7,15 +7,54 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n1383"/>
-        <node id="n1387"/>
-        <node id="n1388"/>
-        <node id="n1380"/>
-        <node id="n1381"/>
-        <node id="n1385"/>
-        <node id="n1384"/>
-        <node id="n1386"/>
-        <node id="n1382"/>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n1383">
+            <attr name="layout">
+                <string>98 149 34 21</string>
+            </attr>
+        </node>
+        <node id="n1387">
+            <attr name="layout">
+                <string>246 216 34 21</string>
+            </attr>
+        </node>
+        <node id="n1388">
+            <attr name="layout">
+                <string>309 6 60 21</string>
+            </attr>
+        </node>
+        <node id="n1380">
+            <attr name="layout">
+                <string>246 146 39 21</string>
+            </attr>
+        </node>
+        <node id="n1381">
+            <attr name="layout">
+                <string>100 215 64 21</string>
+            </attr>
+        </node>
+        <node id="n1385">
+            <attr name="layout">
+                <string>313 144 40 21</string>
+            </attr>
+        </node>
+        <node id="n1384">
+            <attr name="layout">
+                <string>246 72 34 21</string>
+            </attr>
+        </node>
+        <node id="n1386">
+            <attr name="layout">
+                <string>318 70 39 21</string>
+            </attr>
+        </node>
+        <node id="n1382">
+            <attr name="layout">
+                <string>85 72 85 21</string>
+            </attr>
+        </node>
         <edge to="n1383" from="n1383">
             <attr name="label">
                 <string>attr:</string>
@@ -36,6 +75,31 @@
                 <string>prod:</string>
             </attr>
         </edge>
+        <edge to="n1384" from="n1380">
+            <attr name="label">
+                <string>real:sub</string>
+            </attr>
+        </edge>
+        <edge to="n1383" from="n1380">
+            <attr name="label">
+                <string>arg:0</string>
+            </attr>
+        </edge>
+        <edge to="n1387" from="n1380">
+            <attr name="label">
+                <string>arg:1</string>
+            </attr>
+        </edge>
+        <edge to="n1381" from="n1381">
+            <attr name="label">
+                <string>type:ATM</string>
+            </attr>
+        </edge>
+        <edge to="n1387" from="n1381">
+            <attr name="label">
+                <string>del:amount</string>
+            </attr>
+        </edge>
         <edge to="n1385" from="n1385">
             <attr name="label">
                 <string>real:0</string>
@@ -51,49 +115,14 @@
                 <string>prod:</string>
             </attr>
         </edge>
-        <edge to="n1388" from="n1386">
-            <attr name="label">
-                <string>real:ge</string>
-            </attr>
-        </edge>
-        <edge to="n1383" from="n1382">
-            <attr name="label">
-                <string>del:balance</string>
-            </attr>
-        </edge>
-        <edge to="n1387" from="n1380">
-            <attr name="label">
-                <string>arg:1</string>
-            </attr>
-        </edge>
-        <edge to="n1387" from="n1381">
-            <attr name="label">
-                <string>del:amount</string>
-            </attr>
-        </edge>
-        <edge to="n1382" from="n1382">
-            <attr name="label">
-                <string>type:Account</string>
-            </attr>
-        </edge>
-        <edge to="n1384" from="n1380">
-            <attr name="label">
-                <string>real:sub</string>
-            </attr>
-        </edge>
         <edge to="n1385" from="n1386">
             <attr name="label">
                 <string>arg:1</string>
             </attr>
         </edge>
-        <edge to="n1384" from="n1382">
+        <edge to="n1388" from="n1386">
             <attr name="label">
-                <string>new:balance</string>
-            </attr>
-        </edge>
-        <edge to="n1381" from="n1381">
-            <attr name="label">
-                <string>type:ATM</string>
+                <string>real:ge</string>
             </attr>
         </edge>
         <edge to="n1384" from="n1386">
@@ -101,9 +130,19 @@
                 <string>arg:0</string>
             </attr>
         </edge>
-        <edge to="n1383" from="n1380">
+        <edge to="n1382" from="n1382">
             <attr name="label">
-                <string>arg:0</string>
+                <string>type:Account</string>
+            </attr>
+        </edge>
+        <edge to="n1383" from="n1382">
+            <attr name="label">
+                <string>del:balance</string>
+            </attr>
+        </edge>
+        <edge to="n1384" from="n1382">
+            <attr name="label">
+                <string>new:balance</string>
             </attr>
         </edge>
     </graph>

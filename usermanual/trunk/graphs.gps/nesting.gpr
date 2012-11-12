@@ -7,19 +7,52 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n1573"/>
-        <node id="n1574"/>
-        <node id="n1575"/>
-        <node id="n1576"/>
-        <node id="n1577"/>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n1573">
+            <attr name="layout">
+                <string>100 148 34 15</string>
+            </attr>
+        </node>
+        <node id="n1574">
+            <attr name="layout">
+                <string>190 146 34 15</string>
+            </attr>
+        </node>
+        <node id="n1575">
+            <attr name="layout">
+                <string>147 74 29 15</string>
+            </attr>
+        </node>
+        <node id="n1576">
+            <attr name="layout">
+                <string>95 209 35 15</string>
+            </attr>
+        </node>
+        <node id="n1577">
+            <attr name="layout">
+                <string>267 72 35 15</string>
+            </attr>
+        </node>
         <edge to="n1573" from="n1573">
             <attr name="label">
                 <string>exists:</string>
             </attr>
         </edge>
+        <edge to="n1575" from="n1573">
+            <attr name="label">
+                <string>in</string>
+            </attr>
+        </edge>
         <edge to="n1574" from="n1574">
             <attr name="label">
                 <string>exists:</string>
+            </attr>
+        </edge>
+        <edge to="n1575" from="n1574">
+            <attr name="label">
+                <string>in</string>
             </attr>
         </edge>
         <edge to="n1575" from="n1575">
@@ -32,24 +65,14 @@
                 <string>forallx:</string>
             </attr>
         </edge>
-        <edge to="n1577" from="n1577">
-            <attr name="label">
-                <string>forallx:</string>
-            </attr>
-        </edge>
-        <edge to="n1575" from="n1573">
-            <attr name="label">
-                <string>in</string>
-            </attr>
-        </edge>
         <edge to="n1573" from="n1576">
             <attr name="label">
                 <string>in</string>
             </attr>
         </edge>
-        <edge to="n1575" from="n1574">
+        <edge to="n1577" from="n1577">
             <attr name="label">
-                <string>in</string>
+                <string>forallx:</string>
             </attr>
         </edge>
     </graph>
