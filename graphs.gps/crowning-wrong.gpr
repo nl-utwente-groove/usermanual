@@ -7,27 +7,27 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n2394"/>
-        <node id="n2395"/>
-        <node id="n2396"/>
-        <edge to="n2396" from="n2396">
-            <attr name="label">
-                <string>forall:</string>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n2394">
+            <attr name="layout">
+                <string>195 151 16 15</string>
             </attr>
-        </edge>
-        <edge to="n2396" from="n2395">
-            <attr name="label">
-                <string>at</string>
+        </node>
+        <node id="n2395">
+            <attr name="layout">
+                <string>189 76 20 15</string>
             </attr>
-        </edge>
-        <edge to="n2394" from="n2395">
-            <attr name="label">
-                <string>likes</string>
+        </node>
+        <node id="n2396">
+            <attr name="layout">
+                <string>110 75 29 15</string>
             </attr>
-        </edge>
-        <edge to="n2395" from="n2395">
+        </node>
+        <edge to="n2394" from="n2394">
             <attr name="label">
-                <string>type:Boy</string>
+                <string>new:flag:queen</string>
             </attr>
         </edge>
         <edge to="n2394" from="n2394">
@@ -35,9 +35,24 @@
                 <string>type:Girl</string>
             </attr>
         </edge>
-        <edge to="n2394" from="n2394">
+        <edge to="n2396" from="n2395">
             <attr name="label">
-                <string>new:flag:queen</string>
+                <string>at</string>
+            </attr>
+        </edge>
+        <edge to="n2395" from="n2395">
+            <attr name="label">
+                <string>type:Boy</string>
+            </attr>
+        </edge>
+        <edge to="n2394" from="n2395">
+            <attr name="label">
+                <string>likes</string>
+            </attr>
+        </edge>
+        <edge to="n2396" from="n2396">
+            <attr name="label">
+                <string>forall:</string>
             </attr>
         </edge>
     </graph>

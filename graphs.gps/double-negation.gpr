@@ -7,23 +7,19 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n642"/>
-        <node id="n641"/>
-        <edge to="n641" from="n641">
-            <attr name="label">
-                <string>not:</string>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n642">
+            <attr name="layout">
+                <string>91 77 47 36</string>
             </attr>
-        </edge>
-        <edge to="n642" from="n642">
-            <attr name="label">
-                <string>type:Bus</string>
+        </node>
+        <node id="n641">
+            <attr name="layout">
+                <string>228 78 48 29</string>
             </attr>
-        </edge>
-        <edge to="n641" from="n641">
-            <attr name="label">
-                <string>type:Pupil</string>
-            </attr>
-        </edge>
+        </node>
         <edge to="n642" from="n642">
             <attr name="label">
                 <string>new:flag:start</string>
@@ -31,12 +27,30 @@
         </edge>
         <edge to="n642" from="n642">
             <attr name="label">
+                <string>type:Bus</string>
+            </attr>
+        </edge>
+        <edge to="n642" from="n642">
+            <attr name="label">
                 <string>!flag:start</string>
+            </attr>
+            <attr name="layout">
+                <string>106 3 121 77 121 41 63 41 63 99 91 99 11</string>
+            </attr>
+        </edge>
+        <edge to="n641" from="n641">
+            <attr name="label">
+                <string>not:</string>
             </attr>
         </edge>
         <edge to="n642" from="n641">
             <attr name="label">
                 <string>!in</string>
+            </attr>
+        </edge>
+        <edge to="n641" from="n641">
+            <attr name="label">
+                <string>type:Pupil</string>
             </attr>
         </edge>
     </graph>

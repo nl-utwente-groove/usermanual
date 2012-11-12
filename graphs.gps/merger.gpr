@@ -7,14 +7,24 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n1123"/>
-        <node id="n1125"/>
-        <node id="n1124"/>
-        <edge to="n1123" from="n1125">
-            <attr name="label">
-                <string>new:=</string>
+        <attr name="$version">
+            <string>curly</string>
+        </attr>
+        <node id="n1123">
+            <attr name="layout">
+                <string>186 75 69 21</string>
             </attr>
-        </edge>
+        </node>
+        <node id="n1125">
+            <attr name="layout">
+                <string>54 76 69 21</string>
+            </attr>
+        </node>
+        <node id="n1124">
+            <attr name="layout">
+                <string>104 13 101 21</string>
+            </attr>
+        </node>
         <edge to="n1123" from="n1123">
             <attr name="label">
                 <string>type:State</string>
@@ -25,14 +35,19 @@
                 <string>type:State</string>
             </attr>
         </edge>
-        <edge to="n1125" from="n1124">
+        <edge to="n1123" from="n1125">
             <attr name="label">
-                <string>start</string>
+                <string>new:=</string>
             </attr>
         </edge>
         <edge to="n1124" from="n1124">
             <attr name="label">
                 <string>type:Automaton</string>
+            </attr>
+        </edge>
+        <edge to="n1125" from="n1124">
+            <attr name="label">
+                <string>start</string>
             </attr>
         </edge>
         <edge to="n1123" from="n1124">

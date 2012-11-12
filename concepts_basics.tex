@@ -42,16 +42,16 @@ important differences:
 
 \paragraph{Graph label syntax.}
 
-Node labels are restricted to identifiers; i.e., strings of characters starting
-with a letter or underscore, and containing only letters, digits, underscores
-or dollar signs. It is also recommended, but not enforced, to use only
-identifiers as edge labels. If you want to use other labels, start the label
-(in the Edit view) with a colon (``\lab{:}''). The colon will not be part of
-the actual label: it is an escape character indicating that what follows should
-be taken literally. (Thus, an initial colon serves as an ``escape'' character
-precisely as an initial single quote serves as an escape in Excel.) Whitespace
-other than simple spaces, such as tabs and newlines, cannot be included in
-labels.
+Node labels and flags are restricted to identifiers; i.e., strings of
+characters starting with a letter or underscore, and containing only letters,
+digits, underscores or dollar signs. It is also recommended, but not enforced,
+to use only identifiers for edge labels. If you want to use other labels, start
+the label (in the Edit view) with a colon (``\lab{:}''). The colon will not be
+part of the actual label: it is an escape character indicating that what
+follows should be taken literally. (Thus, an initial colon serves as an
+``escape'' character precisely as an initial single quote serves as an escape
+in Excel.) Whitespace other than simple spaces, such as tabs and newlines,
+cannot be included in labels.
 
 \subsection{Rules}
 \stlabel{rules}
@@ -97,11 +97,22 @@ a \GROOVE{} view of a rule has the following kinds of elements:
   distinguished by a special prefix ``\notP''. For embargo nodes, this prefix
   should appear \emph{on its own} as a node label; for embargo edges, the
   prefix is followed by the edge label.
+
+\item[Conditional creators.] These are nodes and edges that occur both in the
+  RHS and in a NAC but not in the LHS. This means that these elements should
+  not be there before the rule is applied, but will be created by the rule
+  application. In other words, the effect combines that of creators and
+  embargoes. In the Display view, conditional creators are depicted by an
+  overlay of the creator and embargo attributes, namely by a spiked
+  green-and-red outline and green text. In the Edit view, conditional creators
+  are distinguished by a special prefix ``\cnewP''. For conditional creator
+  nodes, this prefix should appear \emph{on its own} as a node label; for
+  conditional creator edges, the prefix is followed by the edge label.
 \end{description}
 %
-If a node plays any of the roles of eraser, creator or embargo, its incident
-edges implicitly also have this role. Thus, in that case the corresponding
-prefix can be omitted in the Edit view.
+If a node plays any of the roles of eraser, (conditional) creator or embargo,
+its incident edges implicitly also have this role. Thus, in that case the
+corresponding prefix can be omitted from the edges in the Edit view.
 
 \medskip\noindent The following rule example contains all of the above types of
 elements:
@@ -119,7 +130,7 @@ many more special labels (see below for a discussion). The following points
 should be noted.
 %
 \begin{itemize}\noitemsep
-\item The rule for the use of colons is the same as for graphs: when an
+\item The system for the use of colons is the same as for graphs: when an
   (unquoted) colon is used as part of a label, there should be a single initial
   colon preceding the entire label; this initial colon is not considered to be
   part of the label itself.
@@ -166,7 +177,7 @@ system (see also \stref{trans} below).
 
 The use of the above features is demonstrated by the following \GROOVE samples:
 %
-\begin{itemize}\noitemsep
+\begin{itemize}[noitemsep]
 \item \textsf{circular-buffer}, a simple data structure with two rules,
   containing creators, erasers and embargoes;
 \item \textsf{loose-nodes}, showing that node labels are just self-edges which
@@ -251,7 +262,7 @@ ensures that there are no more than two.
 
 The use of the above features is demonstrated by the following \GROOVE samples:
 %
-\begin{itemize}\noitemsep
+\begin{itemize}[noitemsep]
 \item \textsf{mergers}, showing the use of mergers;
 \item \textsf{counting}, demonstrating the principle of counting.
 \end{itemize}
@@ -273,9 +284,9 @@ with remarks.
 \stlabel{rule-properties}
 
 Apart from the LHS, RHS and NAC, which are depicted graphically, a rule also
-has \emph{rule properties}. These can be accessed and modified either from the
-Simulator or from the Editor. The most important of these properties is the
-\emph{priority} of the rule. 
+has \emph{rule properties}. These can be accessed and modified from the
+Simulator. The most important of these properties is the \emph{priority} of the
+rule.
 
 \paragraph{Priorities.}
 
@@ -295,13 +306,14 @@ some other rule introduces such an \textsf{Error}-node.
 Rule system \textsf{priorities} in the \GROOVE{} samples shows an example use
 of priorities.
 
-\paragraph{Confluent.}
-
-A rule may be marked as confluent if the user is certain that it does not
-make a difference in which order matches of that rule are evaluated. The effect
-is only visible in one particular exploration strategy (see \stref{exploration}),
-the \emph{linear confluent} exploration. In this strategy, at every state only
-the first match of a confluent rule is explored.
+% \paragraph{Confluent.}
+%
+% A rule may be marked as confluent if the user is certain that it does not
+% make a difference in which order matches of that rule are evaluated. The
+% effect is only visible in one particular exploration strategy (see
+% \stref{exploration}), the \emph{linear confluent} exploration. In this
+% strategy, at every state only the first match of a confluent rule is
+% explored.
 
 \paragraph{Enabledness.}
 
@@ -315,13 +327,22 @@ The \textsf{remark} property provides a way to give a one-line description of
 what the rule does. This is a way to document the rule, in addition to the
 remark nodes and edges already described in \stref{remark}.
 
+\paragraph{Formatted output.}
+
+This property offers a method of writing text on the standard output whenever
+the rule is applied. The text that is written can be set in the \textsf{output
+format} property, using \textsf{String.format}-syntax to allow the inclusion of
+rule parameters.
+
 \paragraph{Transition labels.}
 
 As related below, the transition system generated from a graph production
 system uses rule names as the basis for transition labels. In some cases it is
 useful to use different labels; for instance, in order to ensure that different
 rules yet give rise to equally labelled transitions. Any nonempty value for the
-\textsf{transitionLabel} property will be used instead of the rule name.
+\textsf{transition label} property will be used instead of the rule
+name. Moreover, the inclusion of rule parameters in the transition label can be
+controlled by a \textsf{String.format}-like syntax.
 
 \subsection{Transition systems}
 \stlabel{trans}
@@ -329,13 +350,13 @@ rules yet give rise to equally labelled transitions. Any nonempty value for the
 During the evaluation of a set of rules, \GROOVE{} ``under water'' builds up a
 so-called transition system, in which every graph plays the role of a state,
 and every rule application is interpreted as a transition. By default, the
-transitions bear the names of the applied rules that have been applied as
-labels --- however, see the \textsf{transitionLabel} rule property discussed
+transitions bear the names of the rules that have been applied as
+labels --- however, see the \textsf{transition label} rule property discussed
 above.
 
 The precise formatting of the transition labels is further controlled by two
-system properties, \textsf{transitionBrackets} and
-\textsf{transitionParameters}; see \stref{system-properties}.
+system properties, \textsf{transition brackets} and
+\textsf{transition parameters}; see \stref{system-properties}.
 
 \paragraph{Rule systems and grammars}
 
@@ -397,21 +418,8 @@ single match in the graph above.
 \tikzbox{subtypes-alt-rule-display}
 \end{array}
 \end{equation}
-%
-In an untyped grammar, the subtype relation can be specified in two ways:
-\begin{enumerate}
-\item By setting the \lab{subtypes} property in the grammar properties (see
-  \stref{system-properties}). For instance, the above relation corresponds to
-  the \lab{subtypes} value
-  \begin{center}
-  \lab{A $>$ B, C; C $>$ D}
-  \end{center}
-\item By dragging-and-dropping labels in the labels panel of the Simulator
-  tool. For instance, the above relation is shown in the labels panel as
-  \begin{center}
-  \includegraphics{fig/subtypes-screenshot}
-  \end{center}
-\end{enumerate}
+
+Subtyping can only be used in conjunction with \emph{type graphs}.
 
 \paragraph{Type graphs.}
 
