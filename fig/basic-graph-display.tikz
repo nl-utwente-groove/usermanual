@@ -1,14 +1,18 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n0)  at (2.990, -2.450) {\ml{\textbf{Book}}};
-\node[node] (n38351)  at (1.675, -1.750) {\ml{\textbf{Library}}};
-\node[node] (n38352)  at (3.095, -1.770) {\ml{\textbf{Book}\\\textit{reserved}}};
-\path[edge](n38351.east |- 3.095, -1.770) -- node[lab]{has} (n38352) ;
-\path[edge](n38352.south -| 2.990, -2.450) -- node[lab]{cites} (n0) ;
-\path[edge](n0.south -| 2.910, -2.730) -| (2.910, -2.730) -| (3.590, -2.400) -- (n0.east |- 3.590, -2.400);
-\node[lab] at (3.137, -2.742){cites};
-\path[edge] (n38351)  -- node[lab]{has} (n0) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node] (n38352)  at (3.125, -1.710) {\ml{\textbf{Book}\\\textit{reserved}}};
+\node[node] (n38351)  at (1.700, -1.695) {\ml{\textbf{Library}}};
+\node[node] (n0)  at (3.055, -2.395) {\ml{\textbf{Book}}};
+\path[edge](n38351.east |- 3.125, -1.710) -- node[lab] {\ml{has}} (n38352) ;
+\path[edge] (n38351)  -- node[lab] {\ml{has}} (n0) ;
+\path[edge] (n0)  -| (2.910, -2.730) -| (3.590, -2.400) -- (n0.east |- 3.590, -2.400);
+\node[lab] at (3.142, -2.740) {\ml{cites}};
+\path[edge](n38352.south -| 3.055, -2.395) -- node[lab] {\ml{cites}} (n0) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

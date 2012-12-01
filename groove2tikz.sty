@@ -2,6 +2,8 @@
 
 \ProvidesPackage{groove2tikz}
 \RequirePackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
 
 % Includes for Tikz
 \usetikzlibrary{arrows,automata,positioning,er}
@@ -60,22 +62,38 @@
 \tikzstyle{quantnode}=[draw=black,dotted,fill=\grey,shape=rectangle]
 \tikzstyle{quantedge}=[draw,black,dotted,-stealth']
 
+% Parameter nodes
+\tikzstyle{parnode}=[draw=black,fill=black,text=white,shape=rectangle,font=\scriptsize\sffamily,inner sep=1pt,minimum size=4pt,anchor=east]
+
 % Special styles (can be combined with the above)
 \tikzstyle{attr}=[shape=ellipse,inner sep=1pt]
-\tikzstyle{prod}=[shape=diamond,inner sep=1pt]
+\tikzstyle{prod}=[shape=diamond,inner sep=1pt,shape aspect=2]
 \tikzstyle{whitefill}=[fill=white]
 \tikzstyle{bold}=[very thick]
 \tikzstyle{ultrabold}=[line width=2pt]
 \tikzstyle{thinnode}=[draw=\thin,text=\thin,fill=white,shape=rectangle]
 \tikzstyle{thinedge}=[draw,\thin,text=\thin,-stealth']
 \tikzstyle{thinlab}=[text=\thin,fill=white,inner sep=\labinsep]
+\tikzstyle{type}=[rounded corners=0pt]
+\tikzstyle{bidir}=[stealth'-stealth']
 
 % Abstract types
 \tikzstyle{absnode}=[draw=black,fill=\grey,shape=rectangle,densely dashed]
 \tikzstyle{absedge}=[draw,black,-stealth',densely dashed]
 \tikzstyle{abslab}=[font=\tikzfontsize\sffamily\slshape,fill=white,inner sep=\labinsep]
+
 % Inheritance edge
 \tikzstyle{subedge}=[draw,->,>=open triangle 60]
+
+% Composite edge
+\tikzstyle{partedge}=[draw,diamond->]
+
+% Multiplicity labels
+\tikzstyle{inmultlab}=[lab,auto=left,very near start]
+\tikzstyle{outmultlab}=[lab,auto=left,very near end]
+
+% Nodified edges
+\tikzstyle{nodified}=[draw=black,fill=white,shape=circle,inner sep=0pt,minimum size=4pt]
 
 % Control automaton
 %  Nodes

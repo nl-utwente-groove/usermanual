@@ -1,9 +1,0 @@
-% To use this figure in your LaTeX document
-% import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n38344)  at (1.700, -1.695) {\ml{type:Library}};
-\node[node] (n38343)  at (3.060, -1.710) {\ml{reserved\\type:Book}};
-\path[edge](n38344.east |- 3.060, -1.710) -- node[lab]{has} (n38343) ;
-\userdefinedmacro
-\end{tikzpicture}
-\renewcommand{\userdefinedmacro}{\relax}

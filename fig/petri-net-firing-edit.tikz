@@ -1,25 +1,29 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n38274)  at (3.495, -1.130) {\ml{type:Place}};
-\node[node] (n38277)  at (1.585, -1.150) {\ml{type:Place}};
-\node[newnode] (n38275)  at (4.380, -1.200) {\ml{new:\\type:Token}};
-\node[quantnode] (n38280)  at (1.455, -0.460) {\ml{forall:}};
-\node[node] (n38278)  at (2.575, -1.140) {\ml{type:Transition}};
-\node[quantnode] (n38276)  at (4.380, -0.470) {\ml{exists:}};
-\node[quantnode] (n38281)  at (3.335, -0.460) {\ml{forall:}};
-\node[delnode] (n38279)  at (0.600, -1.240) {\ml{del:\\type:Token}};
-\node[quantnode] (n38273)  at (0.570, -0.460) {\ml{exists:}};
-\path[quantedge](n38279.north -| 0.570, -0.460) -- node[lab]{at} (n38273) ;
-\path[newedge](n38275.west |- 3.495, -1.130) -- node[newlab]{on} (n38274) ;
-\path[deledge](n38279.east |- 1.585, -1.150) -- node[dellab]{on} (n38277) ;
-\path[quantedge](n38275.north -| 4.380, -0.470) -- node[lab]{at} (n38276) ;
-\path[edge](n38278.west |- 1.585, -1.150) -- node[lab]{in} (n38277) ;
-\path[quantedge](n38277.north -| 1.455, -0.460) -- node[lab]{at} (n38280) ;
-\path[quantedge](n38276.west |- 3.335, -0.460) -- node[lab]{in} (n38281) ;
-\path[edge](n38278.east |- 3.495, -1.130) -- node[lab]{out} (n38274) ;
-\path[quantedge](n38273.east |- 1.455, -0.460) -- node[lab]{in} (n38280) ;
-\path[quantedge](n38274.north -| 3.335, -0.460) -- node[lab]{at} (n38281) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[newnode] (n38275)  at (4.155, -1.140) {\ml{new:\\type:Token}};
+\node[quantnode] (n38280)  at (1.365, -0.405) {\ml{forall:}};
+\node[quantnode] (n38281)  at (3.245, -0.405) {\ml{forall:}};
+\node[node] (n38277)  at (1.360, -1.095) {\ml{type:Place}};
+\node[quantnode] (n38276)  at (4.290, -0.415) {\ml{exists:}};
+\node[node] (n38274)  at (3.270, -1.075) {\ml{type:Place}};
+\node[quantnode] (n38273)  at (0.480, -0.405) {\ml{exists:}};
+\node[delnode] (n38279)  at (0.375, -1.180) {\ml{del:\\type:Token}};
+\node[node] (n38278)  at (2.315, -1.085) {\ml{type:Transition}};
+\path[edge](n38278.east |- 3.270, -1.075) -- node[lab] {\ml{out}} (n38274) ;
+\path[quantedge](n38277.north -| 1.365, -0.405) -- node[lab] {\ml{at}} (n38280) ;
+\path[newedge](n38275.west |- 3.270, -1.075) -- node[newlab] {\ml{on}} (n38274) ;
+\path[quantedge](n38276.west |- 3.245, -0.405) -- node[lab] {\ml{in}} (n38281) ;
+\path[quantedge](n38273.east |- 1.365, -0.405) -- node[lab] {\ml{in}} (n38280) ;
+\path[quantedge](n38275.north -| 4.290, -0.415) -- node[lab] {\ml{at}} (n38276) ;
+\path[quantedge](n38274.north -| 3.245, -0.405) -- node[lab] {\ml{at}} (n38281) ;
+\path[quantedge](n38279.north -| 0.480, -0.405) -- node[lab] {\ml{at}} (n38273) ;
+\path[deledge](n38279.east |- 1.360, -1.095) -- node[dellab] {\ml{on}} (n38277) ;
+\path[edge](n38278.west |- 1.360, -1.095) -- node[lab] {\ml{in}} (n38277) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

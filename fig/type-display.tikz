@@ -1,17 +1,23 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n2)  at (3.485, -1.650) {\ml{\textbf{C}}};
-\node[node] (n0)  at (2.760, -1.060) {\ml{\textbf{A}}};
-\node[node] (n3)  at (3.490, -2.190) {\ml{\textbf{D}}};
-\node[node] (n1)  at (2.120, -1.650) {\ml{\textbf{B}}};
-\path[edge](n0.east |- 3.440, -1.000) -- (3.440, -1.000) -- (n2.north -| 3.440, -1.000);
-\node[lab] at (3.270, -1.000){has};
-\path[subedge] (n1)  --  (n0) ;
-\path[edge](n0.north -| 2.720, -0.660) -- (2.720, -0.660) -- (2.090, -0.660) -- (2.090, -1.010) -- (n0.west |- 2.090, -1.010);
-\node[lab] at (2.461, -0.660){next};
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node, type] (n1)  at (0.700, -1.315) {\ml{\textbf{B}}};
+\node[node, type] (n3)  at (2.065, -1.855) {\ml{\textbf{D}}};
+\node[node, type] (n2)  at (2.060, -1.315) {\ml{\textbf{C}}};
+\node[absnode, type] (n0)  at (1.335, -0.725) {\ml{\textbf{A}}};
+\path[subedge](n3.north -| 2.060, -1.315) --  (n2) ;
 \path[subedge] (n2)  --  (n0) ;
-\path[subedge](n3.north -| 3.485, -1.650) --  (n2) ;
+\path[partedge, bidir](n0.east |- 2.050, -0.750) -- (2.050, -0.750) -- (n2.north -| 2.050, -0.750);
+\node[lab] at (2.202, -0.835) {\ml{has}};
+\node[lab] at (1.975, -0.747){1};
+\node[lab] at (1.975, -0.747){1};
+\path[subedge] (n1)  --  (n0) ;
+\path[edge](n0.north -| 1.350, -0.360) -- (1.350, -0.360) -- (0.580, -0.380) -- (0.580, -0.730) -- (n0.west |- 0.580, -0.730);
+\node[lab] at (0.850, -0.353) {\ml{next}};
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

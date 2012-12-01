@@ -1,14 +1,18 @@
-export GROOVE_HOME="C:\\Program Files\\Groove\\groove-4_4_5\\bin"
+# export GROOVE_HOME="C:\\Program Files\\Groove\\groove-4_4_5\\bin"
 
-java -jar "${GROOVE_HOME}\\Imager.jar" $@
+# java -jar "${GROOVE_HOME}\\Imager.jar" $@
 
-#export GROOVE_ECLIPSE="D:\\eclipse\workspace\groove"
-#export GROOVE_ECLIPSE_LIB="${GROOVE_ECLIPSE}\\lib"
-#
-#export CLASSPATH="\
-#${GROOVE_ECLIPSE_LIB}\\jgraph-5_13_0.jar;\
-#${GROOVE_ECLIPSE_LIB}\\jaxb-gxl-1_0.jar;\
-#${GROOVE_ECLIPSE_LIB}\\looks-2.1.4.jar;\
-#${GROOVE_ECLIPSE}\\bin"
-#
-#java -cp $CLASSPATH groove.Imager $@
+GROOVE_ECLIPSE=/cygdrive/d/eclipse/groove
+GROOVE_ECLIPSE_LIB=${GROOVE_ECLIPSE}/lib
+
+CLASSPATH=${GROOVE_ECLIPSE}/bin
+for FILE in ${GROOVE_ECLIPSE_LIB}/*.jar; do \
+    CLASSPATH=${CLASSPATH}:${FILE}; \
+done
+for FILE in ${GROOVE_ECLIPSE_LIB}/*/*.jar; do \
+    CLASSPATH=${CLASSPATH}:${FILE}; \
+done
+
+IMAGER="java -cp `cygpath -p -w ${CLASSPATH}` groove.Imager"
+
+${IMAGER} -v 0 $@

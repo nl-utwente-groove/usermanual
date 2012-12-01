@@ -9,22 +9,22 @@
         </attr>
         <node id="n38352">
             <attr name="layout">
-                <string>273 153 80 36</string>
+                <string>289 156 47 30</string>
             </attr>
         </node>
         <node id="n38351">
             <attr name="layout">
-                <string>133 159 74 21</string>
+                <string>149 162 42 15</string>
             </attr>
         </node>
         <node id="n0">
             <attr name="layout">
-                <string>273 229 66 21</string>
+                <string>290 232 31 15</string>
             </attr>
         </node>
         <edge to="n38352" from="n38352">
             <attr name="label">
-                <string>flag:reserved</string>
+                <string>type:Book</string>
             </attr>
         </edge>
         <edge to="n0" from="n38352">
@@ -34,10 +34,10 @@
         </edge>
         <edge to="n38352" from="n38352">
             <attr name="label">
-                <string>type:Book</string>
+                <string>flag:reserved</string>
             </attr>
         </edge>
-        <edge to="n38352" from="n38351">
+        <edge to="n0" from="n38351">
             <attr name="label">
                 <string>has</string>
             </attr>
@@ -47,9 +47,14 @@
                 <string>type:Library</string>
             </attr>
         </edge>
-        <edge to="n0" from="n38351">
+        <edge to="n38352" from="n38351">
             <attr name="label">
                 <string>has</string>
+            </attr>
+        </edge>
+        <edge to="n0" from="n0">
+            <attr name="label">
+                <string>type:Book</string>
             </attr>
         </edge>
         <edge to="n0" from="n0">
@@ -58,11 +63,6 @@
             </attr>
             <attr name="layout">
                 <string>344 11 306 239 291 273 359 240 306 239 14</string>
-            </attr>
-        </edge>
-        <edge to="n0" from="n0">
-            <attr name="label">
-                <string>type:Book</string>
             </attr>
         </edge>
     </graph>

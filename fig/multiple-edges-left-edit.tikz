@@ -1,10 +1,13 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n272)  at (2.295, -0.785){};
-\node[node] (n271)  at (0.900, -0.780) {\ml{Labels\\Two}};
-\path[edge](n271.east |- 2.295, -0.785) -- node[lab]{points, to} (n272) ;
-\path[edge](n271.east |- 2.295, -0.785) -- node[lab]{points, to} (n272) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node] (n271)  at (0.765, -0.690) {\ml{Labels\\Two}};
+\node[node] (n272)  at (2.215, -0.705){};
+\path[edge](n271.east |- 2.215, -0.705) -- node[lab] {\ml{points\\to}} (n272) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

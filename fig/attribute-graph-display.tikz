@@ -1,9 +1,13 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n616)  at (3.050, -0.900) {\ml{\textbf{Account}\\balance = 100.0}};
-\node[node] (n619)  at (1.210, -0.890) {\ml{\textbf{Person}\\name = "John"}};
-\path[edge](n616.west |- 1.210, -0.890) -- node[lab]{belongs} (n619) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node] (n616)  at (2.865, -0.765) {\ml{\textbf{Account}\\balance = 100.0}};
+\node[node] (n619)  at (1.040, -0.755) {\ml{\textbf{Person}\\name = "John"}};
+\path[edge](n616.west |- 1.040, -0.755) -- node[lab] {\ml{belongs}} (n619) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

@@ -1,11 +1,17 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n38196)  at (1.500, -0.470) {\ml{type:A}};
-\node[node] (n38197)  at (0.870, -1.370) {\ml{par:}};
-\node[node, attr] (n38195)  at (1.980, -1.470) {\ml{attr:\\par:0}};
-\path[edge] (n38196)  -- node[lab]{x} (n38197) ;
-\path[edge] (n38196)  -- node[lab]{y} (n38195) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node] (n38197)  at (0.735, -1.295) {\ml{par:}};
+\node[parnode] (n38197p)  at (n38197.north west) {-1};
+\node[node] (n38196)  at (1.435, -0.415) {\ml{type:A}};
+\node[node, attr] (n38195)  at (1.940, -1.365) {\ml{par:0\\int:}};
+\node[parnode] (n38195p)  at (n38195.north west) {0};
+\path[edge] (n38196)  -- node[lab] {\ml{x}} (n38197) ;
+\path[edge] (n38196)  -- node[lab] {\ml{y}} (n38195) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
