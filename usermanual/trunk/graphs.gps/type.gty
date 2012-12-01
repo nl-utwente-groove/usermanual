@@ -9,35 +9,30 @@
         </attr>
         <node id="n1">
             <attr name="layout">
-                <string>198 149 46 21</string>
+                <string>66 124 8 15</string>
             </attr>
         </node>
         <node id="n3">
             <attr name="layout">
-                <string>334 203 47 21</string>
+                <string>202 178 9 15</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>334 149 46 21</string>
+                <string>202 124 8 15</string>
             </attr>
         </node>
         <node id="n0">
             <attr name="layout">
-                <string>261 90 47 21</string>
+                <string>129 65 9 15</string>
             </attr>
         </node>
-        <edge to="n0" from="n1">
-            <attr name="label">
-                <string>sub:</string>
-            </attr>
-        </edge>
         <edge to="n1" from="n1">
             <attr name="label">
                 <string>type:B</string>
             </attr>
         </edge>
-        <edge to="n2" from="n3">
+        <edge to="n0" from="n1">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -47,7 +42,7 @@
                 <string>type:D</string>
             </attr>
         </edge>
-        <edge to="n0" from="n2">
+        <edge to="n2" from="n3">
             <attr name="label">
                 <string>sub:</string>
             </attr>
@@ -57,25 +52,35 @@
                 <string>type:C</string>
             </attr>
         </edge>
-        <edge to="n2" from="n0">
+        <edge to="n0" from="n2">
             <attr name="label">
-                <string>has</string>
-            </attr>
-            <attr name="layout">
-                <string>223 0 284 100 344 100 344 149 11</string>
+                <string>sub:</string>
             </attr>
         </edge>
         <edge to="n0" from="n0">
             <attr name="label">
-                <string>next</string>
-            </attr>
-            <attr name="layout">
-                <string>287 0 272 90 272 66 209 66 209 101 261 101 11</string>
+                <string>abs:</string>
             </attr>
         </edge>
         <edge to="n0" from="n0">
             <attr name="label">
                 <string>type:A</string>
+            </attr>
+        </edge>
+        <edge to="n2" from="n0">
+            <attr name="label">
+                <string>part:out=1:has</string>
+            </attr>
+            <attr name="layout">
+                <string>627 -15 133 72 205 75 206 131 11</string>
+            </attr>
+        </edge>
+        <edge to="n0" from="n0">
+            <attr name="label">
+                <string>in=0..1:next</string>
+            </attr>
+            <attr name="layout">
+                <string>386 2 133 72 135 36 58 38 58 73 133 72 11</string>
             </attr>
         </edge>
     </graph>

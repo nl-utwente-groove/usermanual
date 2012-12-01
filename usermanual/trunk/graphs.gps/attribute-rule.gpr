@@ -12,57 +12,57 @@
         </attr>
         <node id="n1383">
             <attr name="layout">
-                <string>98 149 34 21</string>
+                <string>104 152 22 15</string>
             </attr>
         </node>
         <node id="n1387">
             <attr name="layout">
-                <string>246 216 34 21</string>
+                <string>251 219 24 15</string>
             </attr>
         </node>
         <node id="n1388">
             <attr name="layout">
-                <string>309 6 60 21</string>
+                <string>327 9 23 15</string>
             </attr>
         </node>
         <node id="n1380">
             <attr name="layout">
-                <string>246 146 39 21</string>
+                <string>256 147 19 19</string>
             </attr>
         </node>
         <node id="n1381">
             <attr name="layout">
-                <string>100 215 64 21</string>
+                <string>118 218 27 15</string>
             </attr>
         </node>
         <node id="n1385">
             <attr name="layout">
-                <string>313 144 40 21</string>
+                <string>329 147 7 15</string>
             </attr>
         </node>
         <node id="n1384">
             <attr name="layout">
-                <string>246 72 34 21</string>
+                <string>252 75 22 15</string>
             </attr>
         </node>
         <node id="n1386">
             <attr name="layout">
-                <string>318 70 39 21</string>
+                <string>361 71 19 19</string>
             </attr>
         </node>
         <node id="n1382">
             <attr name="layout">
-                <string>85 72 85 21</string>
+                <string>102 75 51 15</string>
             </attr>
         </node>
         <edge to="n1383" from="n1383">
             <attr name="label">
-                <string>attr:</string>
+                <string>real:</string>
             </attr>
         </edge>
         <edge to="n1387" from="n1387">
             <attr name="label">
-                <string>attr:</string>
+                <string>real:</string>
             </attr>
         </edge>
         <edge to="n1388" from="n1388">
@@ -107,7 +107,7 @@
         </edge>
         <edge to="n1384" from="n1384">
             <attr name="label">
-                <string>attr:</string>
+                <string>real:</string>
             </attr>
         </edge>
         <edge to="n1386" from="n1386">
@@ -115,14 +115,14 @@
                 <string>prod:</string>
             </attr>
         </edge>
-        <edge to="n1385" from="n1386">
-            <attr name="label">
-                <string>arg:1</string>
-            </attr>
-        </edge>
         <edge to="n1388" from="n1386">
             <attr name="label">
                 <string>real:ge</string>
+            </attr>
+        </edge>
+        <edge to="n1385" from="n1386">
+            <attr name="label">
+                <string>arg:1</string>
             </attr>
         </edge>
         <edge to="n1384" from="n1386">
@@ -135,14 +135,14 @@
                 <string>type:Account</string>
             </attr>
         </edge>
-        <edge to="n1383" from="n1382">
-            <attr name="label">
-                <string>del:balance</string>
-            </attr>
-        </edge>
         <edge to="n1384" from="n1382">
             <attr name="label">
                 <string>new:balance</string>
+            </attr>
+        </edge>
+        <edge to="n1383" from="n1382">
+            <attr name="label">
+                <string>del:balance</string>
             </attr>
         </edge>
     </graph>

@@ -1,13 +1,17 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node, attr] (n618)  at (2.935, -1.640) {\ml{real:100.0}};
-\node[node] (n616)  at (2.955, -0.820) {\ml{type:Account}};
-\node[node, attr] (n617)  at (1.175, -1.670) {\ml{string:"John"}};
-\node[node] (n619)  at (1.125, -0.810) {\ml{type:Person}};
-\path[edge](n616.south -| 2.935, -1.640) -- node[lab]{balance} (n618) ;
-\path[edge](n616.west |- 1.125, -0.810) -- node[lab]{belongs} (n619) ;
-\path[edge](n619.south -| 1.175, -1.670) -- node[lab]{name} (n617) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node] (n616)  at (2.865, -0.765) {\ml{type:Account}};
+\node[node] (n619)  at (1.040, -0.755) {\ml{type:Person}};
+\node[node, attr] (n617)  at (0.990, -1.595) {\ml{string:"John"}};
+\node[node, attr] (n618)  at (2.775, -1.565) {\ml{real:100.0}};
+\path[edge](n616.south -| 2.775, -1.565) -- node[lab] {\ml{balance}} (n618) ;
+\path[edge](n619.south -| 0.990, -1.595) -- node[lab] {\ml{name}} (n617) ;
+\path[edge](n616.west |- 1.040, -0.755) -- node[lab] {\ml{belongs}} (n619) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

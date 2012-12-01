@@ -1,11 +1,15 @@
 % To use this figure in your LaTeX document
 % import the package groove/resources/groove2tikz.sty
-\begin{tikzpicture}[scale=\tikzscale]
-\node[node] (n2395)  at (2.255, -0.920) {\ml{type:Boy}};
-\node[node] (n2394)  at (2.525, -1.750) {\ml{type:Girl\\new:flag:queen}};
-\node[quantnode] (n2396)  at (1.385, -0.910) {\ml{forall:}};
-\path[quantedge](n2395.west |- 1.385, -0.910) -- node[lab]{at} (n2396) ;
-\path[edge](n2395.south -| 2.525, -1.750) -- node[lab]{likes} (n2394) ;
+%
+% Special colors
+\begin{tikzpicture}[
+% Special color styles
+scale=\tikzscale]
+\node[node] (n2394)  at (2.030, -1.585) {\ml{type:Girl\\new:flag:queen}};
+\node[node] (n2395)  at (1.990, -0.835) {\ml{type:Boy}};
+\node[quantnode] (n2396)  at (1.245, -0.825) {\ml{forall:}};
+\path[edge](n2395.south -| 2.030, -1.585) -- node[lab] {\ml{likes}} (n2394) ;
+\path[quantedge](n2395.west |- 1.245, -0.825) -- node[lab] {\ml{at}} (n2396) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

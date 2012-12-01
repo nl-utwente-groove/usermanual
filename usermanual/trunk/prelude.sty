@@ -1,19 +1,20 @@
-\usepackage{a4}                 % we're in Europe
-\usepackage{fullpage}           % get some more space
-\usepackage{latexsym}           % extra LaTeX 2.09 symbols
-\usepackage{times}              % times font
-\usepackage{amssymb}            % extra AMS math symbols
-\usepackage{graphicx}           % enhanced graphics support
-\usepackage{color}              % needed for xfig
-\usepackage{listings}           % for type-setting listings
-\usepackage{eurosans}           % \euro gives the EUR symbol
-\usepackage{enumitem}           % more control over list spacing
+\usepackage{a4}                  % we're in Europe
+\usepackage{fullpage}            % get some more space
+\usepackage{latexsym}            % extra LaTeX 2.09 symbols
+\usepackage{pslatex}             % times font
+\usepackage[scaled=0.92]{helvet} % use properly scaled sf
+\usepackage{amssymb}             % extra AMS math symbols
+\usepackage{graphicx}            % enhanced graphics support
+\usepackage{color}               % needed for xfig
+\usepackage{listings}            % for type-setting listings
+\usepackage{eurosans}            % \euro gives the EUR symbol
+\usepackage{enumitem}            % more control over list spacing
 \usepackage{subfigure}
 \usepackage[pdftex,bookmarks=false]{hyperref}
-                                % include URLs & hypertext links
-\usepackage{xspace}             % get rid of the space ignorance
+                                 % include URLs & hypertext links
+\usepackage{xspace}              % get rid of the space ignorance
 \usepackage{multirow}
-\usepackage{groove2tikz}        % our sing-and-dance graph drawer
+\usepackage{groove2tikz}         % our sing-and-dance graph drawer
 
 %%%%%%%%%%%%%%%%%%%%%%%% Layout and numbering %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -723,69 +724,3 @@
         \begin{array}[c]{#1}#2\end{array}
     $}%
 }
-
-% ----- fonts ------------------------------------------------------------
-
-% See /usr/share/texmf/tex/latex/psnfss/ot1phv.fd (Linux RedHat 6.2).
-
-% sf: Helvetica (92%)
-
-\DeclareFontFamily{OT1}{phvx}{}
-
-\DeclareFontShape{OT1}{phvx}{m}{n}{ <-> s * [0.92] phvr7t }{}
-\DeclareFontShape{OT1}{phvx}{m}{sc}{ <-> s * [0.92] phvrc7t }{}
-\DeclareFontShape{OT1}{phvx}{m}{sl}{ <-> s * [0.92] phvro7t }{}
-\DeclareFontShape{OT1}{phvx}{mc}{n}{ <-> s * [0.92] phvr7tn }{}
-\DeclareFontShape{OT1}{phvx}{mc}{sc}{ <-> s * [0.92] phvrc7tn }{}
-\DeclareFontShape{OT1}{phvx}{mc}{sl}{ <-> s * [0.92] phvro7tn }{}
-\DeclareFontShape{OT1}{phvx}{b}{n}{ <-> s * [0.92] phvb7t }{}
-\DeclareFontShape{OT1}{phvx}{b}{sc}{ <-> s * [0.92] phvbc7t }{}
-\DeclareFontShape{OT1}{phvx}{b}{sl}{ <-> s * [0.92] phvbo7t }{}
-\DeclareFontShape{OT1}{phvx}{bc}{n}{ <-> s * [0.92] phvb7tn }{}
-\DeclareFontShape{OT1}{phvx}{bc}{sc}{ <-> s * [0.92] phvbc7tn }{}
-\DeclareFontShape{OT1}{phvx}{bc}{sl}{ <-> s * [0.92] phvbo7tn }{}
-
-\DeclareFontShape{OT1}{phvx}{m}{it}{ <-> ssub * phvx/m/sl}{}
-\DeclareFontShape{OT1}{phvx}{mc}{it}{ <-> ssub * phvx/mc/sl}{}
-\DeclareFontShape{OT1}{phvx}{bx}{n}{ <-> ssub * phvx/b/n}{}
-\DeclareFontShape{OT1}{phvx}{bx}{sc}{ <-> ssub * phvx/b/sc}{}
-\DeclareFontShape{OT1}{phvx}{bx}{sl}{ <-> ssub * phvx/b/sl}{}
-\DeclareFontShape{OT1}{phvx}{b}{it}{ <-> ssub * phvx/b/sl}{}
-\DeclareFontShape{OT1}{phvx}{bx}{it}{ <-> ssub * phvx/b/it}{}
-\DeclareFontShape{OT1}{phvx}{bc}{it}{ <-> ssub * phvx/bc/sl}{}
-
-\DeclareFontShape{OT1}{phvx}{m}{ui}{ <-> ssub * phvx/m/it}{}
-\DeclareFontShape{OT1}{phvx}{b}{ui}{ <-> ssub * phvx/b/it}{}
-
-\renewcommand{\sfdefault}{phvx}         % instead of standard Helvetica (phv)
-
-% tt: Courier (97%)
-
-\DeclareFontFamily{OT1}{pcrx}{}
-
-\DeclareFontShape{OT1}{pcrx}{m}{n}{ <-> s * [0.97] pcrr7t }{}
-\DeclareFontShape{OT1}{pcrx}{m}{sc}{ <-> s * [0.97] pcrrc7t }{}
-\DeclareFontShape{OT1}{pcrx}{m}{sl}{ <-> s * [0.97] pcrro7t }{}
-\DeclareFontShape{OT1}{pcrx}{mc}{n}{ <-> s * [0.97] pcrr7tn }{}
-\DeclareFontShape{OT1}{pcrx}{mc}{sc}{ <-> s * [0.97] pcrrc7tn }{}
-\DeclareFontShape{OT1}{pcrx}{mc}{sl}{ <-> s * [0.97] pcrro7tn }{}
-\DeclareFontShape{OT1}{pcrx}{b}{n}{ <-> s * [0.97] pcrb7t }{}
-\DeclareFontShape{OT1}{pcrx}{b}{sc}{ <-> s * [0.97] pcrbc7t }{}
-\DeclareFontShape{OT1}{pcrx}{b}{sl}{ <-> s * [0.97] pcrbo7t }{}
-\DeclareFontShape{OT1}{pcrx}{bc}{n}{ <-> s * [0.97] pcrb7tn }{}
-\DeclareFontShape{OT1}{pcrx}{bc}{sc}{ <-> s * [0.97] pcrbc7tn }{}
-\DeclareFontShape{OT1}{pcrx}{bc}{sl}{ <-> s * [0.97] pcrbo7tn }{}
-
-\DeclareFontShape{OT1}{pcrx}{m}{it}{ <-> ssub * pcrx/m/sl}{}
-\DeclareFontShape{OT1}{pcrx}{mc}{it}{ <-> ssub * pcrx/mc/sl}{}
-\DeclareFontShape{OT1}{pcrx}{bx}{n}{ <-> ssub * pcrx/b/n}{}
-\DeclareFontShape{OT1}{pcrx}{bx}{sc}{ <-> ssub * pcrx/b/sc}{}
-\DeclareFontShape{OT1}{pcrx}{bx}{sl}{ <-> ssub * pcrx/b/sl}{}
-\DeclareFontShape{OT1}{pcrx}{b}{it}{ <-> ssub * pcrx/b/sl}{}
-\DeclareFontShape{OT1}{pcrx}{bx}{it}{ <-> ssub * pcrx/b/it}{}
-\DeclareFontShape{OT1}{pcrx}{bc}{it}{ <-> ssub * pcrx/bc/sl}{}
-
-\DeclareFontShape{OT1}{pcrx}{m}{ui}{ <-> ssub * pcrx/m/it}{}
-\DeclareFontShape{OT1}{pcrx}{b}{ui}{ <-> ssub * pcrx/b/it}{}
-
-\renewcommand{\ttdefault}{pcrx}         % instead of standard Courier (pcr)

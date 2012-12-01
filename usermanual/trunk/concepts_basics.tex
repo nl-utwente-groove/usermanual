@@ -209,7 +209,7 @@ meaningless when used on eraser or creator edges.
 \subsection{Equalities, Mergers and Injectivities}
 \stlabel{equality}
 
-\GROOVE{} has a special label ``\lab{=}'' (the equals sign). When used
+\GROOVE{} has a special edge label ``\lab{=}'' (the equals sign). When used
 between nodes in a rule, this expresses that the nodes are really the same,
 despite being depicted as different. Such equality labels may also be used on
 creator edges (which are then called \emph{mergers}) and embargo edges (which
@@ -218,7 +218,7 @@ negation.
 
 \paragraph{Mergers.}
 
-\GROOVE{} rules can \emph{merge} nodes. This is specified by a special edge
+\GROOVE rules can \emph{merge} nodes. This is specified by a special edge
 labelled ``\newP\lab{=}'' between the nodes that are to be merged. The
 direction of the edge is irrelevant --- in fact, in the display view the arrow
 head is omitted. When two nodes are merged, the resulting
@@ -232,7 +232,7 @@ outgoing transitions are preserved.
 \paragraph{Injectivities.}
 
 In general, rules are not matched injectively --- meaning that distinct LHS
-nodes may be matche dby the same host graph node. (See, however,
+nodes may be matched by the same host graph node. (See, however,
 \stref{system-properties} where we discuss how to set a global injectivity
 constraint through the system properties.) Local injectivity can be enforced by
 a special edge labelled ``\lab{!=}'' or ``\notP\lab=''; the end nodes of
@@ -244,19 +244,19 @@ that a couple may only marry if they do not share parents.
 
 \paragraph{Counting.}
 
-As with ordinary labels, the effect of negation (an explamation mark) in front
-of an equality is in principle the same as
-that of the embargo prefix --- but again, negations can be used \emph{within}
-embargoes. This has an important use in enabling \emph{counting} in rules. For
-instance, the following rule specifies that a \tlab{Plate} may only be put in
-the \tlab{Oven} if it contains \emph{exactly} three \tlab{Roll}s --- no
-more and no less. 
+As with ordinary labels, the effect of the negated label ``\lab{!=}'' is in
+principle the same as that of the embargo label ``\notP\lab='' --- but again,
+negations can be used \emph{within} embargoes. This can for instance be used
+for \emph{counting}. For instance, the following rule specifies that a
+\tlab{Plate} may only be put in the \tlab{Oven} if it contains \emph{exactly}
+three \tlab{Roll}s --- no more and no less.
 
 \views{counting}
 %
 The injectivity between the reader \tlab{Roll}s ensures that there are no less
 than two of them, whereas the embargo \tlab{Roll} with its injectivities
-ensures that there are no more than two.
+ensures that there are no more than two. (However, see \stref{nested}, where we
+discuss a more sophisticated method for counting.)
 
 \paragraph{Example usage.}
 
@@ -267,16 +267,16 @@ The use of the above features is demonstrated by the following \GROOVE samples:
 \item \textsf{counting}, demonstrating the principle of counting.
 \end{itemize}
 
-\subsection{Rule Comments}
+\subsection{Comments}
 \stlabel{remark}
 
-To document rules, \GROOVE{} offers the possibility to add special nodes and
-edges that do not make a difference to the transformation. This is done through
-the prefix ``\remP'' (for ``remark''), either on a node (as a stand-alone node
-label) or on an edge --- just as for the prefixes we have seen so far. In the
-Display view, remark nodes and edges are orange, with a yellow background. For
-instance, the following is the counting rule of \eqref{counting}, augmented
-with remarks.
+To document rules and graphs, \GROOVE offers the possibility to add special
+nodes and edges that do not make a difference to the transformation. This is
+done through the prefix ``\remP'' (for ``remark''), either on a node (as a
+stand-alone node label) or on an edge --- just as for the prefixes we have seen
+so far. In the Display view, remark nodes and edges are orange, with a yellow
+background. For instance, the following is the counting rule of
+\eqref{counting}, augmented with remarks.
 
 \views{remark}
 
@@ -295,8 +295,8 @@ Rule priorities provide a (primitive) way to
 enabled, no lower-priority rules can be scheduled for application.
 
 The default rule priority is 0. Creating rules with different priorities will
-change the rules overview in the Simulator: another, top level is introduced in
-this view, ordering groups of rules according to their priorities.
+change the rules overview in the Simulator: this now shows groups of rules
+ordered by priority.
 
 For instance, one can introduce a high-priority rule that just tests for the
 presence of an ``\textsf{Error}''-labelled node, and does not modify the
@@ -360,34 +360,79 @@ system properties, \textsf{transition brackets} and
 
 \paragraph{Rule systems and grammars}
 
-A rule system is a set of rules, possibly with some addition information such
-as a control specification (see \stref{control}) and system properties (see
+A rule system is a set of rules, possibly with some additional information such
+as a control program (see \stref{control}) and system properties (see
 \stref{system-properties}). A \emph{grammar} is a rule system together with a
 start graph. The default start graph, called \textsf{start}, is assumed to be
 available together with the rules; other start graphs can be specified or
 loaded in, depending on the circumstances.
 
-The structure of rule names (consisting of substrings separated by periods, see
-\stref{rules}) in fact imposes a hierarchy of name spaces on the rule system,
-but this hierarchy does not play a role in the evaluation of a graph grammar.
-In other words, the meaning of a graph grammar does not change if all the rules
-are arbitrarily renamed, including renamings that change the hierarchical
-structure.
+The structure of rule and graph names (consisting of substrings separated by
+periods, see \stref{rules}) in fact imposes a hierarchy of name spaces on the
+rule system, but this hierarchy does not play a role in the evaluation of a
+graph grammar.  In other words, the meaning of a graph grammar does not change
+if all the rules are arbitrarily renamed, including renamings that change the
+hierarchical structure. (However, if a rule is renamed, the control program
+also needs to be adjusted.)
 
 \subsection{Typing}
 \stlabel{typing}
 
 Rules and graphs can be \emph{typed} or \emph{untyped}. The difference is that,
-in the first case, there is a \emph{type graph} that constrains the allowed
-labels --- node types, flags and edge labels alike. All examples shown so far
-have been untyped, meaning that any combination of labels is allowed, and rules
-can manipulate them in any possible way. For instance, nodes can have more than
-one node type, or none, and rules can change, add or remove node types at will.
+in the first case, there is a set of \emph{type graphs} that constrain the
+allowed graph structure --- node types, flags and edge labels alike. All
+examples shown so far have been untyped, meaning that any combination of labels
+is allowed, and rules can manipulate them in any possible way. For instance,
+nodes can have more than one node type, or none, and rules can change, add or
+remove node types at will. However, there are definite advantages to using type
+graphs.
+
+\paragraph{Type graphs.}
+
+A type graph is itself a graph, with some special features, the most important
+of which are subtype edges, abstract elements, multiplicities and composite
+edges. These are discussed individually below, as well as a couple of more
+specialised features (colouring and nodified edge patterns) that are enabled
+through type graphs.
+
+A grammar is typed if it has one or more enabled type graph. If there is more
+than one enabled type graph, the types are automatically merged into a
+composite type graph. Like rule and graphs, one may use structured (i.e.,
+qualified) type graph names; this structure does not influence the semantics of
+the type graph or of the grammar.
+
+Subtype edges are specified (in the editor) as \subP-labelled edges; in
+the display view, they are shown as unlabelled edges with an open triangular
+arrow point. The subtype edges must define a partial order --- meaning that
+there may not be subtype cycles. For instance, the following is a type graph
+for the rules and graph in \eqref{subtypes}:
+
+\views{type}
+%
+If a grammar has a type graph, \GROOVE enforces adherence to it, by flagging as
+errors
+
+\begin{itemize}\noitemsep
+\item all nodes without types or with more than one type, as well as all
+  node type erasers and creators;
+\item all node types that do not appear in the type graph;
+\item all flags that are not defined in the type graph for the corresponding
+  node type, or a supertype thereof;
+\item all edges with labels that are not defined in the type graph between the
+  corresponding node types, or supertypes thereof;
+\item all mergers between nodes of different types, unless one of the merged
+  types is a subtype of the other;
+\item all multiplicity violations and composition cycles;
+\item 
+\end{itemize}
+%
+For instance, the rules and graph in \eqref{subtypes} and \eqref{subtypes-alt}
+are well-typed with respect to the type graph in \eqref{type}.
 
 \paragraph{Subtyping.}
 
-Even in the absence of a type graph, one can define a subtype relation, as a
-partial ordering over node types. The idea is that nodes in a rule specifying a
+A subtype relation is a
+partial ordering over node types. The idea is that nodes in a rule of a
 certain type are also matched by their subtypes. For instance, if
 $\tlab{D}<\tlab{C}<\tlab{A}$ and $\tlab{B}<\tlab{A}$ (where $<$ is the subtype
 relation) then the following rule has two matches in the corresponding graph:
@@ -420,30 +465,3 @@ single match in the graph above.
 \end{equation}
 
 Subtyping can only be used in conjunction with \emph{type graphs}.
-
-\paragraph{Type graphs.}
-
-A type graph is itself just an ordinary graph, with a special subtype
-edge. Subtype edges are specified (in the editor) as \subP-labelled edges; in
-the display view, they are shown as unlabelled edges with an open triangular
-arrow point. The subtype edges must define a partial order --- meaning that
-there may not be subtype cycles. For instance, the following is a type graph
-for the rules and graph in \eqref{subtypes}:
-
-\views{type}
-%
-If a grammar has a type graph, \GROOVE enforces adherence to it, by flagging as
-errors
-
-\begin{itemize}\noitemsep
-\item all nodes without types or with more than one type;
-\item all node types that do not appear in the type graph;
-\item all flags that are not defined in the type graph for the corresponding
-  node type, or a supertype thereof;
-\item all edges with labels that are not defined in the type graph between the
-  corresponding node types, or supertypes thereof;
-\item all mergers, and all node type erasers and creators
-\end{itemize}
-%
-For instance, the rules and graph in \eqref{subtypes} an d\eqref{subtypes-alt}
-are well-typed with resped to the type graph in \eqref{type}.

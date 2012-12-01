@@ -7,29 +7,34 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <node id="n38107">
+        <node id="n38109">
             <attr name="layout">
-                <string>65 121 44 30</string>
+                <string>119 31 9 15</string>
             </attr>
         </node>
         <node id="n38108">
             <attr name="layout">
-                <string>167 119 44 30</string>
+                <string>177 126 24 15</string>
             </attr>
         </node>
-        <node id="n38109">
+        <node id="n38107">
             <attr name="layout">
-                <string>120 31 8 15</string>
+                <string>77 126 19 19</string>
             </attr>
         </node>
-        <edge to="n38107" from="n38107">
+        <edge to="n38109" from="n38109">
             <attr name="label">
-                <string>par:0</string>
+                <string>type:A</string>
             </attr>
         </edge>
-        <edge to="n38107" from="n38107">
+        <edge to="n38107" from="n38109">
             <attr name="label">
-                <string>del:</string>
+                <string>x</string>
+            </attr>
+        </edge>
+        <edge to="n38108" from="n38109">
+            <attr name="label">
+                <string>y</string>
             </attr>
         </edge>
         <edge to="n38108" from="n38108">
@@ -39,22 +44,17 @@
         </edge>
         <edge to="n38108" from="n38108">
             <attr name="label">
-                <string>attr:</string>
+                <string>int:</string>
             </attr>
         </edge>
-        <edge to="n38108" from="n38109">
+        <edge to="n38107" from="n38107">
             <attr name="label">
-                <string>y</string>
+                <string>par:0</string>
             </attr>
         </edge>
-        <edge to="n38107" from="n38109">
+        <edge to="n38107" from="n38107">
             <attr name="label">
-                <string>x</string>
-            </attr>
-        </edge>
-        <edge to="n38109" from="n38109">
-            <attr name="label">
-                <string>type:A</string>
+                <string>del:</string>
             </attr>
         </edge>
     </graph>
