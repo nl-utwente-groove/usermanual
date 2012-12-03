@@ -5,7 +5,7 @@
 \begin{tikzpicture}[
 % Special color styles
 scale=\tikzscale]
-\node[node] (n1290)  at (2.325, -1.145) {\ml{\textbf{Duplicates}\\{\color{\green}$+ $\textit{?name}}\\{\color{\red}! \textit{?name}}}};
+\node[node] (n1290)  at (2.325, -1.145) {\ml{\textbf{Duplicates}\\{\color{\green}+ \textit{?name}}\\{\color{\red}! \textit{?name}}}};
 \node[node] (n1289)  at (0.960, -0.680) {\ml{\textbf{Person}\\\textit{?name{[}\^{}John{]}}}};
 \node[node] (n1288)  at (0.910, -1.660) {\ml{\textbf{Person}\\\textit{?name}}};
 \path[edge, -](n1289.south -| 0.910, -1.660) -- node[lab] {\ml{!=}} (n1288) ;

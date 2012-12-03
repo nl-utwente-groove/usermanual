@@ -11,16 +11,16 @@ scale=\tikzscale]
 \node[newnode] (n535)  at (3.595, -1.370) {\ml{new:\\type:D}};
 \node[node] (n533)  at (1.445, -0.880) {\ml{not:type:B\\new:flag:s}};
 \node[node] (n0)  at (2.600, -1.710) {\ml{del:type:B\\new:type:C}};
-\path[deledge](n533.south -| 1.400, -1.690) -- node[dellab] {\ml{c}} (n532) ;
-\path[nacedge](n536.east |- 3.585, -0.850) -- node[naclab] {\ml{d}} (n534) ;
-\path[newedge](n536.north -| 2.600, -0.330) -- (2.600, -0.330) -- (1.270, -0.330) -- (n533.north -| 1.270, -0.330);
-\node[newlab] at (2.671, -0.551) {\ml{new:a}};
-\path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) -- (n0.north -| 2.340, -0.970);
-\node[lab] at (1.956, -0.931) {\ml{c}};
-\path[nacedge](n0.west |- 1.400, -1.690) -- node[naclab] {\ml{not:d}} (n532) ;
 \path[newedge](n536.south -| 2.600, -1.320) -- (2.600, -1.320) -- (n535.west |- 2.600, -1.320);
 \node[newlab] at (2.825, -1.331) {\ml{d}};
+\path[nacedge](n0.west |- 1.400, -1.690) -- node[naclab] {\ml{not:d}} (n532) ;
+\path[nacedge](n536.east |- 3.585, -0.850) -- node[naclab] {\ml{d}} (n534) ;
 \path[deledge](n533.east |- 2.750, -0.795) -- node[dellab] {\ml{del:b}} (n536) ;
+\path[newedge](n536.north -| 2.600, -0.330) -- (2.600, -0.330) -- (1.270, -0.330) -- (n533.north -| 1.270, -0.330);
+\node[newlab] at (2.671, -0.551) {\ml{new:a}};
+\path[deledge](n533.south -| 1.400, -1.690) -- node[dellab] {\ml{c}} (n532) ;
+\path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) -- (n0.north -| 2.340, -0.970);
+\node[lab] at (1.956, -0.931) {\ml{c}};
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

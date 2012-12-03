@@ -8,8 +8,8 @@ scale=\tikzscale]
 \node[node] (n1)  at (2.080, -1.000) {\ml{not:type:C\\type:A}};
 \node[node] (n2)  at (1.300, -1.795) {\ml{type:C}};
 \node[node] (n0)  at (1.395, -1.065) {\ml{not:type:B\\not:type:C\\type:A}};
-\path[newedge](n0.south -| 1.300, -1.795) -- node[newlab] {\ml{new:has}} (n2) ;
 \path[deledge](n0.east |- 2.080, -1.000) -- node[dellab] {\ml{del:next}} (n1) ;
+\path[newedge](n0.south -| 1.300, -1.795) -- node[newlab] {\ml{new:has}} (n2) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

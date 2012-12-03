@@ -14,15 +14,15 @@ scale=\tikzscale]
 \node[node, attr] (n1384)  at (2.630, -0.825) {\ml{real:}};
 \node[node, prod] (n1386)  at (3.705, -0.805) {\ml{prod:}};
 \node[node] (n1382)  at (1.275, -0.825) {\ml{type:Account}};
-\path[newedge](n1382.east |- 2.630, -0.825) -- node[newlab] {\ml{new:balance}} (n1384) ;
-\path[edge] (n1386)  -- node[lab] {\ml{arg:1}} (n1385) ;
-\path[edge] (n1386)  -- node[lab] {\ml{real:ge}} (n1388) ;
-\path[edge] (n1380)  -- node[lab] {\ml{arg:1}} (n1387) ;
-\path[edge] (n1386)  -- node[lab] {\ml{arg:0}} (n1384) ;
-\path[deledge](n1381.east |- 2.630, -2.265) -- node[dellab] {\ml{del:amount}} (n1387) ;
 \path[edge] (n1380)  -- node[lab] {\ml{real:sub}} (n1384) ;
+\path[edge] (n1386)  -- node[lab] {\ml{arg:0}} (n1384) ;
 \path[deledge](n1382.south -| 1.150, -1.595) -- node[dellab] {\ml{del:balance}} (n1383) ;
+\path[edge] (n1386)  -- node[lab] {\ml{arg:1}} (n1385) ;
+\path[edge] (n1380)  -- node[lab] {\ml{arg:1}} (n1387) ;
+\path[edge] (n1386)  -- node[lab] {\ml{real:ge}} (n1388) ;
 \path[edge] (n1380)  -- node[lab] {\ml{arg:0}} (n1383) ;
+\path[newedge](n1382.east |- 2.630, -0.825) -- node[newlab] {\ml{new:balance}} (n1384) ;
+\path[deledge](n1381.east |- 2.630, -2.265) -- node[dellab] {\ml{del:amount}} (n1387) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

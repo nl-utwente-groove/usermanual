@@ -8,8 +8,8 @@ scale=\tikzscale]
 \node[node] (n1)  at (1.630, -1.285) {\ml{type:B}};
 \node[node] (n2)  at (1.640, -1.855) {\ml{type:D}};
 \node[node] (n0)  at (1.625, -0.715) {\ml{type:A}};
-\path[edge](n0.south -| 1.630, -1.285) -- node[lab] {\ml{next}} (n1) ;
 \path[edge](n1.south -| 1.640, -1.855) -- node[lab] {\ml{next}} (n2) ;
+\path[edge](n0.south -| 1.630, -1.285) -- node[lab] {\ml{next}} (n1) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

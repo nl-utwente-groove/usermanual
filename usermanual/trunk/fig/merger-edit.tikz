@@ -8,9 +8,9 @@ scale=\tikzscale]
 \node[node] (n1123)  at (2.205, -0.855) {\ml{type:State}};
 \node[node] (n1125)  at (0.885, -0.865) {\ml{type:State}};
 \node[node] (n1124)  at (1.545, -0.235) {\ml{type:Automaton}};
-\path[edge] (n1124)  -- node[lab] {\ml{start}} (n1125) ;
-\path[newedge](n1125.east |- 2.205, -0.855) -- node[newlab] {\ml{new:=}} (n1123) ;
 \path[edge] (n1124)  -- node[lab] {\ml{final}} (n1123) ;
+\path[newedge](n1125.east |- 2.205, -0.855) -- node[newlab] {\ml{new:=}} (n1123) ;
+\path[edge] (n1124)  -- node[lab] {\ml{start}} (n1125) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

@@ -10,13 +10,13 @@ scale=\tikzscale]
 \node[nacnode] (n824)  at (2.525, -1.340) {\ml{not:\\type:Roll}};
 \node[node] (n821)  at (1.470, -1.305) {\ml{type:Plate}};
 \node[node] (n820)  at (2.965, -2.155) {\ml{type:Roll}};
-\path[edge] (n823)  -- node[lab] {\ml{on}} (n821) ;
+\path[newedge](n821.south -| 1.500, -2.055) -- node[newlab] {\ml{new:in}} (n822) ;
+\path[nacedge](n824.west |- 1.470, -1.305) -- node[naclab] {\ml{on}} (n821) ;
+\path[edge] (n820)  -- node[lab] {\ml{on}} (n821) ;
+\path[nacedge, -] (n824)  -- node[naclab] {\ml{!=}} (n823) ;
 \path[nacedge, -] (n824)  -- node[naclab] {\ml{!=}} (n820) ;
 \path[edge, -](n823.south -| 2.965, -2.155) -- node[lab] {\ml{!=}} (n820) ;
-\path[newedge](n821.south -| 1.500, -2.055) -- node[newlab] {\ml{new:in}} (n822) ;
-\path[nacedge, -] (n824)  -- node[naclab] {\ml{!=}} (n823) ;
-\path[edge] (n820)  -- node[lab] {\ml{on}} (n821) ;
-\path[nacedge](n824.west |- 1.470, -1.305) -- node[naclab] {\ml{on}} (n821) ;
+\path[edge] (n823)  -- node[lab] {\ml{on}} (n821) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

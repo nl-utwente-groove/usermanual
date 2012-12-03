@@ -14,16 +14,16 @@ scale=\tikzscale]
 \node[quantnode] (n38273)  at (0.480, -0.405) {\ml{$\exists$}};
 \node[delnode] (n38279)  at (0.375, -1.180) {\ml{\textbf{Token}}};
 \node[node] (n38278)  at (2.315, -1.085) {\ml{\textbf{Transition}}};
-\path[edge](n38278.west |- 1.360, -1.095) -- node[lab] {\ml{in}} (n38277) ;
 \path[deledge] (n38279)  -- node[dellab] {\ml{on}} (n38277) ;
-\path[quantedge](n38279.north -| 0.480, -0.405) -- node[lab] {\ml{@}} (n38273) ;
-\path[newedge](n38275.west |- 3.270, -1.075) -- node[newlab] {\ml{on}} (n38274) ;
-\path[quantedge](n38275.north -| 4.290, -0.415) -- node[lab] {\ml{@}} (n38276) ;
 \path[quantedge](n38274.north -| 3.245, -0.405) -- node[lab] {\ml{@}} (n38281) ;
-\path[edge](n38278.east |- 3.270, -1.075) -- node[lab] {\ml{out}} (n38274) ;
-\path[quantedge](n38276.west |- 3.245, -0.405) -- node[lab] {\ml{in}} (n38281) ;
-\path[quantedge](n38273.east |- 1.365, -0.405) -- node[lab] {\ml{in}} (n38280) ;
+\path[edge](n38278.west |- 1.360, -1.095) -- node[lab] {\ml{in}} (n38277) ;
+\path[newedge](n38275.west |- 3.270, -1.075) -- node[newlab] {\ml{on}} (n38274) ;
 \path[quantedge](n38277.north -| 1.365, -0.405) -- node[lab] {\ml{@}} (n38280) ;
+\path[quantedge](n38276.west |- 3.245, -0.405) -- node[lab] {\ml{in}} (n38281) ;
+\path[quantedge](n38279.north -| 0.480, -0.405) -- node[lab] {\ml{@}} (n38273) ;
+\path[edge](n38278.east |- 3.270, -1.075) -- node[lab] {\ml{out}} (n38274) ;
+\path[quantedge](n38273.east |- 1.365, -0.405) -- node[lab] {\ml{in}} (n38280) ;
+\path[quantedge](n38275.north -| 4.290, -0.415) -- node[lab] {\ml{@}} (n38276) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

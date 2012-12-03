@@ -10,15 +10,15 @@ scale=\tikzscale]
 \node[node, prod] (n1380)  at (2.655, -1.565){};
 \node[node] (n1381)  at (1.315, -2.255) {\ml{\textbf{ATM}}};
 \node[node, attr] (n1384)  at (2.630, -0.825) {\ml{\textbf{real}}};
-\node[node, prod] (n1386)  at (3.705, -0.805) {\ml{$\pi1 = 0$\\ge = true}};
+\node[node, prod] (n1386)  at (3.705, -0.805) {\ml{$\pi1$ = 0\\ge = true}};
 \node[node] (n1382)  at (1.275, -0.825) {\ml{\textbf{Account}}};
-\path[newedge](n1382.east |- 2.630, -0.825) -- node[newlab] {\ml{balance}} (n1384) ;
-\path[edge] (n1380)  -- node[lab] {\ml{$\pi1$}} (n1387) ;
-\path[edge] (n1386)  -- node[lab] {\ml{$\pi0$}} (n1384) ;
-\path[deledge](n1381.east |- 2.630, -2.265) -- node[dellab] {\ml{amount}} (n1387) ;
 \path[edge] (n1380)  -- node[lab] {\ml{sub}} (n1384) ;
+\path[edge] (n1386)  -- node[lab] {\ml{$\pi0$}} (n1384) ;
 \path[deledge](n1382.south -| 1.150, -1.595) -- node[dellab] {\ml{balance}} (n1383) ;
+\path[edge] (n1380)  -- node[lab] {\ml{$\pi1$}} (n1387) ;
 \path[edge] (n1380)  -- node[lab] {\ml{$\pi0$}} (n1383) ;
+\path[newedge](n1382.east |- 2.630, -0.825) -- node[newlab] {\ml{balance}} (n1384) ;
+\path[deledge](n1381.east |- 2.630, -2.265) -- node[dellab] {\ml{amount}} (n1387) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

@@ -9,9 +9,9 @@ scale=\tikzscale]
 \node[node] (n1779)  at (1.790, -2.075) {\ml{type:Field}};
 \node[node] (n1780)  at (1.775, -1.445) {\ml{type:Plant}};
 \node[quantnode] (n1781)  at (0.850, -1.425) {\ml{forall:}};
+\path[deledge](n1780.north -| 1.770, -0.675) -- node[dellab] {\ml{has}} (n1778) ;
 \path[quantedge](n1780.west |- 0.850, -1.425) -- node[lab] {\ml{at}} (n1781) ;
 \path[quantedge] (n1778)  -- node[lab] {\ml{at}} (n1781) ;
-\path[deledge](n1780.north -| 1.770, -0.675) -- node[dellab] {\ml{has}} (n1778) ;
 \path[edge](n1779.north -| 1.775, -1.445) -- node[lab] {\ml{grows}} (n1780) ;
 \userdefinedmacro
 \end{tikzpicture}

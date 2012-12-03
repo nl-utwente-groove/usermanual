@@ -7,7 +7,7 @@
 scale=\tikzscale]
 \node[node] (n37564)  at (2.510, -0.450) {\ml{\textbf{Person}\\\textit{?name}}};
 \node[node] (n37563)  at (2.640, -1.205) {\ml{\textbf{Person}}};
-\node[node] (n37565)  at (2.735, -1.950) {\ml{\textbf{Person}\\{\color{\green}$+ $\textit{?name}}}};
+\node[node] (n37565)  at (2.735, -1.950) {\ml{\textbf{Person}\\{\color{\green}+ \textit{?name}}}};
 \path[edge](n37565.north -| 2.640, -1.205) -- node[lab] {\ml{father}} (n37563) ;
 \path[edge] (n37563) .. controls (2.050, -1.400) and (2.100, -1.770) ..  (n37565) ;
 \node[lab] at (2.129, -1.558) {\ml{son}};

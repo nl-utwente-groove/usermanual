@@ -9,18 +9,18 @@ scale=\tikzscale]
 \node[delnode] (n532)  at (1.400, -1.690) {\ml{\textbf{C}}};
 \node[node] (n536)  at (2.750, -0.795) {\ml{\textbf{B}}};
 \node[newnode] (n535)  at (3.595, -1.370) {\ml{\textbf{D}}};
-\node[node] (n533)  at (1.445, -0.880) {\ml{{\color{\red}! \textbf{B}}\\{\color{\green}$+ $\textit{s}}}};
-\node[node] (n0)  at (2.600, -1.710) {\ml{{\color{\blue}$- $\textbf{B}}\\{\color{\green}$+ $\textbf{C}}}};
-\path[deledge](n533.south -| 1.400, -1.690) -- node[dellab] {\ml{c}} (n532) ;
-\path[nacedge](n536.east |- 3.585, -0.850) -- node[naclab] {\ml{d}} (n534) ;
-\path[newedge] (n536)  -- (2.600, -0.330) -- (1.270, -0.330) --  (n533) ;
-\node[newlab] at (2.671, -0.551) {\ml{a}};
-\path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) --  (n0) ;
-\node[lab] at (1.956, -0.931) {\ml{c}};
-\path[nacedge](n0.west |- 1.400, -1.690) -- node[naclab] {\ml{d}} (n532) ;
+\node[node] (n533)  at (1.445, -0.880) {\ml{{\color{\red}! \textbf{B}}\\{\color{\green}+ \textit{s}}}};
+\node[node] (n0)  at (2.600, -1.710) {\ml{{\color{\blue}$-$ \textbf{B}}\\{\color{\green}+ \textbf{C}}}};
 \path[newedge] (n536)  -- (2.600, -1.320) -- (n535.west |- 2.600, -1.320);
 \node[newlab] at (2.825, -1.331) {\ml{d}};
+\path[nacedge](n0.west |- 1.400, -1.690) -- node[naclab] {\ml{d}} (n532) ;
+\path[nacedge](n536.east |- 3.585, -0.850) -- node[naclab] {\ml{d}} (n534) ;
 \path[deledge](n533.east |- 2.750, -0.795) -- node[dellab] {\ml{b}} (n536) ;
+\path[newedge] (n536)  -- (2.600, -0.330) -- (1.270, -0.330) --  (n533) ;
+\node[newlab] at (2.671, -0.551) {\ml{a}};
+\path[deledge](n533.south -| 1.400, -1.690) -- node[dellab] {\ml{c}} (n532) ;
+\path[edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) --  (n0) ;
+\node[lab] at (1.956, -0.931) {\ml{c}};
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

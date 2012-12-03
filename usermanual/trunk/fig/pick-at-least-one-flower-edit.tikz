@@ -10,11 +10,11 @@ scale=\tikzscale]
 \node[delnode] (n1836)  at (1.770, -0.750) {\ml{del:\\type:Flower}};
 \node[quantnode] (n1837)  at (0.960, -0.725) {\ml{exists:}};
 \node[node] (n1838)  at (1.775, -1.445) {\ml{type:Plant}};
+\path[quantedge](n1838.west |- 0.915, -1.415) -- node[lab] {\ml{at}} (n1835) ;
+\path[edge](n1834.north -| 1.775, -1.445) -- node[lab] {\ml{grows}} (n1838) ;
+\path[deledge](n1838.north -| 1.770, -0.750) -- node[dellab] {\ml{has}} (n1836) ;
 \path[quantedge](n1837.south -| 0.915, -1.415) -- node[lab] {\ml{in}} (n1835) ;
 \path[quantedge](n1836.west |- 0.960, -0.725) -- node[lab] {\ml{at}} (n1837) ;
-\path[edge](n1834.north -| 1.775, -1.445) -- node[lab] {\ml{grows}} (n1838) ;
-\path[quantedge](n1838.west |- 0.915, -1.415) -- node[lab] {\ml{at}} (n1835) ;
-\path[deledge](n1838.north -| 1.770, -0.750) -- node[dellab] {\ml{has}} (n1836) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

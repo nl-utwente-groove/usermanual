@@ -8,10 +8,10 @@ scale=\tikzscale]
 \node[node] (n2431)  at (3.205, -0.865) {\ml{\textbf{Boy}}};
 \node[quantnode] (n2432)  at (2.365, -1.625) {\ml{\textit{x} : $\exists$}};
 \node[quantnode] (n2434)  at (2.285, -0.855) {\ml{$\forall$}};
-\node[node] (n2433)  at (3.450, -1.690) {\ml{\textbf{Girl}\\{\color{\green}$+ $\textit{queen}}}};
-\path[edge] (n2431)  -- node[lab] {\ml{likes@x}} (n2433) ;
-\path[quantedge](n2431.west |- 2.285, -0.855) -- node[lab] {\ml{@}} (n2434) ;
+\node[node] (n2433)  at (3.450, -1.690) {\ml{\textbf{Girl}\\{\color{\green}+ \textit{queen}}}};
 \path[quantedge](n2432.north -| 2.285, -0.855) -- node[lab] {\ml{in}} (n2434) ;
+\path[quantedge](n2431.west |- 2.285, -0.855) -- node[lab] {\ml{@}} (n2434) ;
+\path[edge] (n2431)  -- node[lab] {\ml{likes@x}} (n2433) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
