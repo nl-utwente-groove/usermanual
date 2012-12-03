@@ -5,7 +5,7 @@
 \begin{tikzpicture}[
 % Special color styles
 scale=\tikzscale]
-\node[node] (n2394)  at (2.030, -1.585) {\ml{\textbf{Girl}\\{\color{\green}$+ $\textit{queen}}}};
+\node[node] (n2394)  at (2.030, -1.585) {\ml{\textbf{Girl}\\{\color{\green}+ \textit{queen}}}};
 \node[node] (n2395)  at (1.990, -0.835) {\ml{\textbf{Boy}}};
 \node[quantnode] (n2396)  at (1.245, -0.825) {\ml{$\forall$}};
 \path[quantedge](n2395.west |- 1.245, -0.825) -- node[lab] {\ml{@}} (n2396) ;

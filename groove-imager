@@ -1,18 +1,16 @@
-# export GROOVE_HOME="C:\\Program Files\\Groove\\groove-4_4_5\\bin"
+# Find Groove source directory in Eclipse workspace
+GROOVE_WS=`cygpath ${ECLIPSE_WORKSPACE}`/groove
 
-# java -jar "${GROOVE_HOME}\\Imager.jar" $@
-
-GROOVE_ECLIPSE=/cygdrive/d/eclipse/groove
-GROOVE_ECLIPSE_LIB=${GROOVE_ECLIPSE}/lib
-
-CLASSPATH=${GROOVE_ECLIPSE}/bin
-for FILE in ${GROOVE_ECLIPSE_LIB}/*.jar; do \
-    CLASSPATH=${CLASSPATH}:${FILE}; \
-done
-for FILE in ${GROOVE_ECLIPSE_LIB}/*/*.jar; do \
+# Add bin directory to classpath
+CLASSPATH=${GROOVE_WS}/bin
+# Add all jars from the lib dir & its subdirs
+GROOVE_WS_LIB=${GROOVE_WS}/lib
+for FILE in ${GROOVE_WS_LIB}/*.jar ${GROOVE_WS_LIB}/*/*.jar; do \
     CLASSPATH=${CLASSPATH}:${FILE}; \
 done
 
+# Set the imager command with the right classpath
 IMAGER="java -cp `cygpath -p -w ${CLASSPATH}` groove.Imager"
 
+# Go
 ${IMAGER} -v 0 $@

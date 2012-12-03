@@ -8,11 +8,11 @@ scale=\tikzscale]
 \node[node] (n38352)  at (3.125, -1.710) {\ml{type:Book\\flag:reserved}};
 \node[node] (n38351)  at (1.700, -1.695) {\ml{type:Library}};
 \node[node] (n0)  at (3.055, -2.395) {\ml{type:Book}};
-\path[edge](n38351.east |- 3.125, -1.710) -- node[lab] {\ml{has}} (n38352) ;
-\path[edge] (n38351)  -- node[lab] {\ml{has}} (n0) ;
 \path[edge](n38352.south -| 3.055, -2.395) -- node[lab] {\ml{cites}} (n0) ;
+\path[edge] (n38351)  -- node[lab] {\ml{has}} (n0) ;
 \path[edge](n0.south -| 2.910, -2.730) -| (2.910, -2.730) -| (3.590, -2.400) -- (n0.east |- 3.590, -2.400);
 \node[lab] at (3.142, -2.740) {\ml{cites}};
+\path[edge](n38351.east |- 3.125, -1.710) -- node[lab] {\ml{has}} (n38352) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

@@ -9,12 +9,12 @@ scale=\tikzscale]
 \node[node, type] (n3)  at (2.065, -1.855) {\ml{\textbf{D}}};
 \node[node, type] (n2)  at (2.060, -1.315) {\ml{\textbf{C}}};
 \node[absnode, type] (n0)  at (1.335, -0.725) {\ml{\textbf{A}}};
-\path[subedge](n3.north -| 2.060, -1.315) --  (n2) ;
-\path[subedge] (n2)  --  (n0) ;
 \path[partedge, bidir](n0.east |- 2.050, -0.750) -- (2.050, -0.750) -- (n2.north -| 2.050, -0.750);
 \node[lab] at (2.202, -0.835) {\ml{has}};
 \node[lab] at (1.975, -0.747){1};
 \node[lab] at (1.975, -0.747){1};
+\path[subedge] (n2)  --  (n0) ;
+\path[subedge](n3.north -| 2.060, -1.315) --  (n2) ;
 \path[subedge] (n1)  --  (n0) ;
 \path[edge](n0.north -| 1.350, -0.360) -- (1.350, -0.360) -- (0.580, -0.380) -- (0.580, -0.730) -- (n0.west |- 0.580, -0.730);
 \node[lab] at (0.850, -0.353) {\ml{next}};

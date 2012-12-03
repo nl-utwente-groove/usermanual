@@ -10,8 +10,8 @@ scale=\tikzscale]
 \node[quantnode] (n1575)  at (1.615, -0.815) {\ml{$\forall$}};
 \node[quantnode] (n1576)  at (1.125, -2.165) {\ml{$\forall^{>0}$}};
 \node[quantnode] (n1577)  at (2.845, -0.795) {\ml{$\forall^{>0}$}};
-\path[quantedge] (n1574)  -- node[lab] {\ml{in}} (n1575) ;
 \path[quantedge] (n1573)  -- node[lab] {\ml{in}} (n1575) ;
+\path[quantedge] (n1574)  -- node[lab] {\ml{in}} (n1575) ;
 \path[quantedge](n1576.north -| 1.170, -1.555) -- node[lab] {\ml{in}} (n1573) ;
 \userdefinedmacro
 \end{tikzpicture}

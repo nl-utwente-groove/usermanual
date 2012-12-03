@@ -10,8 +10,8 @@ scale=\tikzscale]
 \node[parnode] (n38108p)  at (n38108.north west) {1};
 \node[delnode] (n38107)  at (0.865, -1.355){};
 \node[parnode] (n38107p)  at (n38107.north west) {0};
-\path[edge] (n38109)  -- node[lab] {\ml{y}} (n38108) ;
 \path[deledge] (n38109)  -- node[dellab] {\ml{x}} (n38107) ;
+\path[edge] (n38109)  -- node[lab] {\ml{y}} (n38108) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

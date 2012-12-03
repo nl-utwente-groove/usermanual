@@ -9,9 +9,9 @@ scale=\tikzscale]
 \node[node, attr] (n38148)  at (1.640, -1.395) {\ml{string:"a"}};
 \node[node] (n38149)  at (0.385, -1.415) {\ml{type:B}};
 \node[node] (n38150)  at (0.855, -1.415) {\ml{type:C}};
-\path[edge](n38147.south -| 0.385, -1.415) -- node[lab] {\ml{x}} (n38149) ;
-\path[edge] (n38147)  -- node[lab] {\ml{x}} (n38150) ;
 \path[edge] (n38147)  -- node[lab] {\ml{y}} (n38148) ;
+\path[edge] (n38147)  -- node[lab] {\ml{x}} (n38150) ;
+\path[edge](n38147.south -| 0.385, -1.415) -- node[lab] {\ml{x}} (n38149) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

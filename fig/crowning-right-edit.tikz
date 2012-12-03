@@ -9,9 +9,9 @@ scale=\tikzscale]
 \node[quantnode] (n2432)  at (2.365, -1.625) {\ml{exists=x:}};
 \node[quantnode] (n2434)  at (2.285, -0.855) {\ml{forall:}};
 \node[node] (n2433)  at (3.450, -1.690) {\ml{type:Girl\\new:flag:queen}};
+\path[quantedge](n2432.north -| 2.285, -0.855) -- node[lab] {\ml{in}} (n2434) ;
 \path[quantedge](n2431.west |- 2.285, -0.855) -- node[lab] {\ml{at}} (n2434) ;
 \path[edge] (n2431)  -- node[lab] {\ml{use=x:likes@x}}(n2433.north -| 3.205, -0.865);
-\path[quantedge](n2432.north -| 2.285, -0.855) -- node[lab] {\ml{in}} (n2434) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

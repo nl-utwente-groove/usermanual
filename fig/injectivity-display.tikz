@@ -11,13 +11,13 @@ scale=\tikzscale]
 \node[node] (n1064)  at (2.770, -0.685) {\ml{\textbf{Person}}};
 \node[node] (n1067)  at (1.270, -0.735) {\ml{\textbf{Person}}};
 \node[node] (n1066)  at (2.265, -1.505) {\ml{\textbf{Groom}}};
-\path[nacedge, -](n1067.east |- 2.770, -0.685) -- node[naclab] {\ml{=}} (n1064) ;
-\path[edge](n1063.north -| 0.710, -0.365) -- node[lab] {\ml{father}} (n1068) ;
-\path[edge](n1066.north -| 2.240, -0.345) -- node[lab] {\ml{father}} (n1065) ;
-\path[edge] (n1066)  -- node[lab] {\ml{mother}} (n1064) ;
-\path[edge] (n1063)  -- node[lab] {\ml{mother}} (n1067) ;
-\path[newedge](n1066.west |- 0.700, -1.505) -- node[newlab] {\ml{married}} (n1063) ;
 \path[edge, -](n1068.east |- 2.240, -0.345) -- node[lab] {\ml{!=}} (n1065) ;
+\path[edge](n1063.north -| 0.710, -0.365) -- node[lab] {\ml{father}} (n1068) ;
+\path[edge] (n1066)  -- node[lab] {\ml{mother}} (n1064) ;
+\path[newedge](n1066.west |- 0.700, -1.505) -- node[newlab] {\ml{married}} (n1063) ;
+\path[nacedge, -](n1067.east |- 2.770, -0.685) -- node[naclab] {\ml{=}} (n1064) ;
+\path[edge] (n1063)  -- node[lab] {\ml{mother}} (n1067) ;
+\path[edge](n1066.north -| 2.240, -0.345) -- node[lab] {\ml{father}} (n1065) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}

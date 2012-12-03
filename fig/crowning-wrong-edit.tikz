@@ -8,8 +8,8 @@ scale=\tikzscale]
 \node[node] (n2394)  at (2.030, -1.585) {\ml{type:Girl\\new:flag:queen}};
 \node[node] (n2395)  at (1.990, -0.835) {\ml{type:Boy}};
 \node[quantnode] (n2396)  at (1.245, -0.825) {\ml{forall:}};
-\path[edge](n2395.south -| 2.030, -1.585) -- node[lab] {\ml{likes}} (n2394) ;
 \path[quantedge](n2395.west |- 1.245, -0.825) -- node[lab] {\ml{at}} (n2396) ;
+\path[edge](n2395.south -| 2.030, -1.585) -- node[lab] {\ml{likes}} (n2394) ;
 \userdefinedmacro
 \end{tikzpicture}
 \renewcommand{\userdefinedmacro}{\relax}
