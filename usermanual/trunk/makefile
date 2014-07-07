@@ -148,13 +148,13 @@ $(FIG_DIR)/%.png : $(GRAPHS_GPS)/%.gxl
 REPEAT_TEXT = 'Rerun to get cross-references right'
 
 $(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).bbl
-	./pdflatex $(MASTER)
+	pdflatex $(MASTER)
 	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
-		./pdflatex $(MASTER) ; \
+		pdflatex $(MASTER) ; \
 	done
 
 $(MASTER).bbl : $(bibfiles) $(texfiles)
-	./pdflatex $(MASTER)
+	pdflatex $(MASTER)
 	bibtex $(MASTER)
 
 clean :
