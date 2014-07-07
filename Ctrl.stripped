@@ -1,0 +1,70 @@
+/** Main program. */
+program	    : package_decl import_decl* ( function | recipe | stat )* ;
+
+/** Package declaration. */
+package_decl: ( 'package' qual_name ';' )? ;
+
+/** Import statement. */
+import_decl : 'import' qual_name ';' ;
+
+/** Dot-separated sequence of identifiers. */
+qual_name   : ID ('.' ID)* ;
+
+/** Recipe declaration. */
+recipe	    : 'recipe' ID par_list ('priority' INT_LIT)? block ;
+
+/** Function declaration. */
+function    : 'function' ID par_list block ;
+
+/** Parameter list. */
+par_list    : '(' (par (',' par)*)? ')' ;
+  
+/** Parameter declaration. */
+par	    : 'out'? var_type ID ;
+  
+/** Statement block. */
+block	    : '{' stat* '}' ;
+
+/** Atomic statement. */
+stat	    : block
+	    | 'alap' stat
+	    | '<' stat* '>'
+	    | 'while' '(' cond ')' stat
+	    | 'until' '(' cond ')' stat
+	    | 'do' stat 'while' '(' cond ')'
+	    | 'do' stat 'until' '(' cond ')'
+	    | 'if' '(' cond ')' stat ('else' stat)?
+	    | 'try' stat ('else' stat)?
+	    | 'choice' stat ('or' stat)+
+	    | expr ';'
+	    | var_decl ';'
+	    ;
+
+/** Condition. */
+cond	    : cond_atom ('|' cond_atom)* ;
+
+cond_atom   : 'true' | call ;
+
+/** Expression. */
+expr	    : expr2 ('|' expr2)* ;
+
+expr2	    : expr_atom ( '+' | '*' )? | '#' expr_atom ;
+
+expr_atom   : 'any' | 'other' | '(' expr ')' | call ; 
+
+/** Rule or procedure call. */
+call	    : qual_name arg_list? ;
+
+/** Argument list. */
+arg_list    : '(' (arg (',' arg)*)? ')' ;
+
+/** Argument. */
+arg	    : 'out'? ID | '_' | literal ;
+
+literal	    : 'true' | 'false' | STRING_LIT | INT_LIT | REAL_LIT ;
+
+/** Variable declaration. */
+var_decl    : var_type ID (',' ID)* ;
+
+/** Variable type. */
+var_type    : 'node' | 'bool' | 'string' | 'int' | 'real' ;
