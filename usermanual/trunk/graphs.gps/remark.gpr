@@ -7,95 +7,54 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <attr name="$version">
-            <string>curly</string>
-        </attr>
-        <node id="n1243">
+        <node id="n1241">
             <attr name="layout">
-                <string>196 69 57 36</string>
-            </attr>
-        </node>
-        <node id="n1244">
-            <attr name="layout">
-                <string>247 8 57 21</string>
-            </attr>
-        </node>
-        <node id="n1242">
-            <attr name="layout">
-                <string>82 66 66 21</string>
-            </attr>
-        </node>
-        <node id="n1240">
-            <attr name="layout">
-                <string>248 152 57 21</string>
+                <string>73 206 275 15</string>
             </attr>
         </node>
         <node id="n1245">
             <attr name="layout">
-                <string>84 141 68 21</string>
+                <string>102 144 31 15</string>
             </attr>
         </node>
-        <node id="n1241">
+        <node id="n1240">
             <attr name="layout">
-                <string>68 196 285 36</string>
+                <string>275 148 23 15</string>
             </attr>
         </node>
-        <edge to="n1243" from="n1243">
-            <attr name="label">
-                <string>not:</string>
-            </attr>
-        </edge>
-        <edge to="n1243" from="n1243">
-            <attr name="label">
-                <string>type:Roll</string>
-            </attr>
-        </edge>
-        <edge to="n1244" from="n1243">
-            <attr name="label">
-                <string>!=</string>
-            </attr>
-        </edge>
-        <edge to="n1242" from="n1243">
-            <attr name="label">
-                <string>on</string>
-            </attr>
-        </edge>
-        <edge to="n1240" from="n1243">
-            <attr name="label">
-                <string>!=</string>
-            </attr>
-        </edge>
-        <edge to="n1240" from="n1244">
-            <attr name="label">
-                <string>!=</string>
-            </attr>
-        </edge>
-        <edge to="n1244" from="n1244">
-            <attr name="label">
-                <string>type:Roll</string>
-            </attr>
-        </edge>
-        <edge to="n1242" from="n1244">
-            <attr name="label">
-                <string>on</string>
-            </attr>
-        </edge>
-        <edge to="n1240" from="n1244">
-            <attr name="label">
-                <string>rem:distinct</string>
-            </attr>
+        <node id="n1242">
             <attr name="layout">
-                <string>616 -10 275 18 311 92 276 162 12</string>
+                <string>99 69 31 15</string>
+            </attr>
+        </node>
+        <node id="n1244">
+            <attr name="layout">
+                <string>274 9 23 15</string>
+            </attr>
+        </node>
+        <node id="n1243">
+            <attr name="layout">
+                <string>201 70 23 15</string>
+            </attr>
+        </node>
+        <edge to="n1241" from="n1241">
+            <attr name="label">
+                <string>rem:</string>
             </attr>
         </edge>
-        <edge to="n1242" from="n1242">
+        <edge to="n1241" from="n1241">
             <attr name="label">
-                <string>type:Plate</string>
+                <string>rem:There is no third roll (distinct from the other two)</string>
             </attr>
         </edge>
-        <edge to="n1245" from="n1242">
+        <edge to="n1243" from="n1241">
             <attr name="label">
-                <string>new:in</string>
+                <string>rem:absent</string>
+            </attr>
+        </edge>
+        <edge to="n1245" from="n1245">
+            <attr name="label">
+                <string>type:Oven</string>
             </attr>
         </edge>
         <edge to="n1240" from="n1240">
@@ -108,27 +67,59 @@
                 <string>on</string>
             </attr>
         </edge>
-        <edge to="n1245" from="n1245">
+        <edge to="n1242" from="n1242">
             <attr name="label">
-                <string>type:Oven</string>
+                <string>type:Plate</string>
             </attr>
         </edge>
-        <edge to="n1241" from="n1241">
+        <edge to="n1245" from="n1242">
             <attr name="label">
-                <string>rem:</string>
+                <string>new:in</string>
             </attr>
         </edge>
-        <edge to="n1241" from="n1241">
+        <edge to="n1244" from="n1244">
             <attr name="label">
-                <string>There is no third roll (distinct from the other two)</string>
+                <string>type:Roll</string>
             </attr>
         </edge>
-        <edge to="n1243" from="n1241">
+        <edge to="n1240" from="n1244">
             <attr name="label">
-                <string>absent</string>
+                <string>rem:distinct</string>
             </attr>
-            <attr name="layout">
-                <string>255 0 216 196 216 98 11</string>
+        </edge>
+        <edge to="n1240" from="n1244">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge to="n1242" from="n1244">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge to="n1243" from="n1243">
+            <attr name="label">
+                <string>not:</string>
+            </attr>
+        </edge>
+        <edge to="n1243" from="n1243">
+            <attr name="label">
+                <string>type:Roll</string>
+            </attr>
+        </edge>
+        <edge to="n1242" from="n1243">
+            <attr name="label">
+                <string>on</string>
+            </attr>
+        </edge>
+        <edge to="n1244" from="n1243">
+            <attr name="label">
+                <string>!=</string>
+            </attr>
+        </edge>
+        <edge to="n1240" from="n1243">
+            <attr name="label">
+                <string>!=</string>
             </attr>
         </edge>
     </graph>

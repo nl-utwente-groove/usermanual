@@ -4,39 +4,21 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <attr name="$version">
-            <string>curly</string>
-        </attr>
-        <node id="n1">
+        <node id="n0">
             <attr name="layout">
-                <string>195 82 26 36</string>
+                <string>131 84 17 45</string>
             </attr>
         </node>
         <node id="n2">
             <attr name="layout">
-                <string>107 169 46 21</string>
+                <string>136 176 8 15</string>
             </attr>
         </node>
-        <node id="n0">
+        <node id="n1">
             <attr name="layout">
-                <string>105 81 69 51</string>
+                <string>217 87 17 30</string>
             </attr>
         </node>
-        <edge to="n1" from="n1">
-            <attr name="label">
-                <string>type:A</string>
-            </attr>
-        </edge>
-        <edge to="n1" from="n1">
-            <attr name="label">
-                <string>not:type:C</string>
-            </attr>
-        </edge>
-        <edge to="n2" from="n2">
-            <attr name="label">
-                <string>type:C</string>
-            </attr>
-        </edge>
         <edge to="n0" from="n0">
             <attr name="label">
                 <string>not:type:B</string>
@@ -45,6 +27,11 @@
         <edge to="n0" from="n0">
             <attr name="label">
                 <string>not:type:C</string>
+            </attr>
+        </edge>
+        <edge to="n0" from="n0">
+            <attr name="label">
+                <string>type:A</string>
             </attr>
         </edge>
         <edge to="n2" from="n0">
@@ -57,7 +44,17 @@
                 <string>del:next</string>
             </attr>
         </edge>
-        <edge to="n0" from="n0">
+        <edge to="n2" from="n2">
+            <attr name="label">
+                <string>type:C</string>
+            </attr>
+        </edge>
+        <edge to="n1" from="n1">
+            <attr name="label">
+                <string>not:type:C</string>
+            </attr>
+        </edge>
+        <edge to="n1" from="n1">
             <attr name="label">
                 <string>type:A</string>
             </attr>

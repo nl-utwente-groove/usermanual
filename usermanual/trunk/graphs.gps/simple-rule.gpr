@@ -7,9 +7,6 @@
         <attr name="$version">
             <string>curly</string>
         </attr>
-        <attr name="$version">
-            <string>curly</string>
-        </attr>
         <node id="n534">
             <attr name="layout">
                 <string>335 67 47 36</string>
@@ -60,6 +57,14 @@
                 <string>type:C</string>
             </attr>
         </edge>
+        <edge to="n535" from="n536">
+            <attr name="label">
+                <string>d</string>
+            </attr>
+            <attr name="layout">
+                <string>500 0 276 90 276 137 348 137 11</string>
+            </attr>
+        </edge>
         <edge to="n536" from="n536">
             <attr name="label">
                 <string>type:B</string>
@@ -75,15 +80,7 @@
                 <string>new:a</string>
             </attr>
             <attr name="layout">
-                <string>107 0 260 69 260 33 127 33 127 70 11</string>
-            </attr>
-        </edge>
-        <edge to="n535" from="n536">
-            <attr name="label">
-                <string>d</string>
-            </attr>
-            <attr name="layout">
-                <string>500 0 275 79 260 132 336 132 11</string>
+                <string>107 0 273 69 273 33 143 33 143 70 11</string>
             </attr>
         </edge>
         <edge to="n535" from="n535">
@@ -96,9 +93,9 @@
                 <string>type:D</string>
             </attr>
         </edge>
-        <edge to="n533" from="n533">
+        <edge to="n532" from="n533">
             <attr name="label">
-                <string>not:type:B</string>
+                <string>c</string>
             </attr>
         </edge>
         <edge to="n536" from="n533">
@@ -106,17 +103,12 @@
                 <string>del:b</string>
             </attr>
         </edge>
-        <edge to="n532" from="n533">
-            <attr name="label">
-                <string>c</string>
-            </attr>
-        </edge>
         <edge to="n0" from="n533">
             <attr name="label">
                 <string>c</string>
             </attr>
             <attr name="layout">
-                <string>305 0 144 88 234 97 234 153 11</string>
+                <string>305 0 158 97 256 97 256 153 11</string>
             </attr>
         </edge>
         <edge to="n533" from="n533">
@@ -124,9 +116,14 @@
                 <string>new:flag:s</string>
             </attr>
         </edge>
-        <edge to="n0" from="n0">
+        <edge to="n533" from="n533">
             <attr name="label">
-                <string>new:type:C</string>
+                <string>not:type:B</string>
+            </attr>
+        </edge>
+        <edge to="n532" from="n0">
+            <attr name="label">
+                <string>not:d</string>
             </attr>
         </edge>
         <edge to="n0" from="n0">
@@ -134,9 +131,9 @@
                 <string>del:type:B</string>
             </attr>
         </edge>
-        <edge to="n532" from="n0">
+        <edge to="n0" from="n0">
             <attr name="label">
-                <string>not:d</string>
+                <string>new:type:C</string>
             </attr>
         </edge>
     </graph>

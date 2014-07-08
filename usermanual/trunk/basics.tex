@@ -1,3 +1,4 @@
+\clearpage
 \section{Basic Concepts}
 \seclabel{basic}
 
@@ -6,8 +7,9 @@ such as colours, bold and italic fonts, dashed and dotted outlines, and special
 symbols. During editing, however, the node and edge labels you enter do not
 have those embellishments. Instead, you have to use a fairly rich textual
 syntax to make the same distinctions. The prime element in this syntax is a
-\emph{prefix}, usually consisting of an identifier followed by a colon (`:').
+\emph{prefix}, usually consisting of an identifier followed by a colon (`:'). An overview of all prefixes is given in \tabref{prefixes}.
 
+\FloatBarrier
 \input{prefixes}
 
 \subsection{Graphs}
@@ -422,8 +424,7 @@ errors
   corresponding node types, or supertypes thereof;
 \item all mergers between nodes of different types, unless one of the merged
   types is a subtype of the other;
-\item all multiplicity violations and composition cycles;
-\item 
+\item all multiplicity violations and composition cycles \marginpar{TODO}
 \end{itemize}
 %
 For instance, the rules and graph in \eqcite{subtypes} and \eqcite{subtypes-alt}

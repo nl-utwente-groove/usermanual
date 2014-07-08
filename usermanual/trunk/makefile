@@ -37,6 +37,7 @@ PNG_FILES = $(wildcard $(FIG_DIR)/*.png)
 
 # List of local source code files
 javafiles = $(wildcard $(CODE_DIR)/*.java)
+grammarfiles = $(wildcard *.grammar)
 
 # It should not be necessary to change the definitions below.
 inclfiles = \
@@ -150,7 +151,7 @@ pdflatex = ./pdflatex
 
 REPEAT_TEXT = 'Rerun to get cross-references right'
 
-$(MASTER).pdf : $(texfiles) $(styfiles) $(pdfgraphics) $(MASTER).bbl
+$(MASTER).pdf : $(texfiles) $(styfiles) $(grammarfiles) $(pdfgraphics) $(MASTER).bbl
 	$(pdflatex) $(MASTER)
 	while grep -s $(REPEAT_TEXT) $(MASTER).log ; do \
 		$(pdflatex) $(MASTER) ; \

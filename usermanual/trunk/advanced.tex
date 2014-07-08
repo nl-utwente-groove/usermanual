@@ -1,8 +1,9 @@
+\clearpage
 \section{Advanced Concepts}
 \seclabel{advanced}
 
 
-\subsection{Wildcards and Variables}
+\subsection{Wildcards and Label Variables}
 \seclabel{wildcard}
 
 Wildcards are special edge labels that can be used in rules to stand for
@@ -181,6 +182,9 @@ sample.
 \subsection{Data Attributes}
 \seclabel{attributes}
 
+\emph{Attribute syntax has been much improved.}\marginpar{TODO}
+
+\medskip\noindent
 So far we have not discussed how to specify and manipulate data values, such as
 integers, booleans and strings. In \GROOVE, as in other graph transformation
 tools, data is included in the form of \emph{attributes}, which are essentially
@@ -432,10 +436,6 @@ Note that the display view does not show the anonymous parameter at all.
 The use of parameters is demonstrated by the \GROOVE \textsf{parameters}
 sample.
 
-\subsection{Control}
-\seclabel{control}
-\input{control_concept}
-
 \subsection{Nested Rules}
 \seclabel{nested}
 
@@ -573,16 +573,17 @@ view) and (\eqref{crowning}.$c$) (display view).
 
 \paragraph{Counting}
 
-\marginpar{To be added}
+
+\marginpar{TODO}
 
 \subsection{System Properties}
 \seclabel{system-properties}
 
 Apart from the rules, start graph and (optional) control, there are some global
 properties of a graph grammar. These are called the system properties. They can
-be set in the Simulator (through the \textsf{File}-menu) or by directly editing
+be set in the Simulator or by directly editing
 the properties file (see \seccite{io-system-properties}). We discuss the
-properties here; an opverview is provided in \tabcite{system-properties}.
+properties here; an overview is provided in \tabcite{system-properties}.
 
 \begin{table}
 \begin{center}
@@ -596,9 +597,6 @@ properties here; an opverview is provided in \tabcite{system-properties}.
 \sf remark
   & \it empty
   & One-line documentary about the rule system as a whole \\
-\sf subtypes
-  & \it empty
-  & Textual specification of the subtype relation \\
 \sf algebraFamily 
   & \sf default
   & Determines which algebras are used for attributes \\
@@ -636,9 +634,6 @@ properties here; an opverview is provided in \tabcite{system-properties}.
   & \sf false
   & Adds angular brackets around transition labels
   \\
-\sf transitionParameters
-  & \sf false
-  & Adds parameter lists to all transition labels \\
 \sf loopsAsLabels
   & \sf false
   & Specifies that self-loop labels are to be displayed on the nodes \\
@@ -668,6 +663,7 @@ attributes --- see \seccite{attributes}. The currently supported values are:
   real values have a mantissa of 34 digits (to be precise, they follow the
   IEEE 754R Decimal128 format, as implemented by the Java type
   \textsf{BigDecimal}).
+\item[\textsf{term}] Term representation.\marginpar{TODO}
 \end{description}
 
 \paragraph{Match injectivity.}
@@ -734,23 +730,15 @@ thereby improving efficiency.
   matching process will consider these labels last.
 \end{description}
 
-\paragraph{Transition label formatting.}
+\paragraph{Transition parameters.}
 
 The LTS view of the Simulator contains edges for all rule applications that
-have been explored. There are two system properties that control the way these
-labels are displayed.
-\begin{description}
-\item[\textsf{transitionBrackets}] controls whether angular brackets appear
-  around all transition labels. This option is added for backward
-  compatibility: in previous versions, \GROOVE{} by default showed such
-  brackets, so if there are any applications that rely on thi sbehaviour, this
-  property should be set to \textsf{true}.
+have been explored. The label display is affected by
+\textsf{transitionParameters}, which controls whether transition labels show
+the value of rule parameters, if any (see \seccite{parameters}). When set to
+\textsf{true}, all labels will show a (possibly empty) list of parameters.
 
-\item[\textsf{transitionParameters}] controls whether transition labels
-  show the value of rule parameters, is any (see \seccite{parameters}). When set
-  tu \textsf{true}, all labels will show a (possibly empty) list of
-  parameters.
-\end{description}
+Values: \textsf{false}, \textsf{some} (default), \textsf{true}.\marginpar{TODO}
 
 \paragraph{Displaying loops as node labels.}
 

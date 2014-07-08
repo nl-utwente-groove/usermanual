@@ -1,77 +1,77 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Toolkit Components}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Getting it running}{2}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Download}{2}{subsubsection.1.2.1}
-\contentsline {subsubsection}{\numberline {1.2.2}Installation}{3}{subsubsection.1.2.2}
-\contentsline {section}{\numberline {2}Basic Concepts}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Graphs}{3}{subsection.2.1}
-\contentsline {paragraph}{Type and flag labels.}{4}{section*.2}
-\contentsline {paragraph}{Graph label syntax.}{4}{section*.3}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Toolkit Components}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Download}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Installation}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}Basic Concepts}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Graphs}{5}{subsection.2.1}
+\contentsline {paragraph}{Type and flag labels.}{5}{section*.2}
+\contentsline {paragraph}{Graph label syntax.}{5}{section*.3}
 \contentsline {subsection}{\numberline {2.2}Rules}{5}{subsection.2.2}
-\contentsline {paragraph}{Rule label syntax.}{6}{section*.4}
-\contentsline {paragraph}{Rule names.}{6}{section*.5}
-\contentsline {paragraph}{Example usage.}{6}{section*.6}
-\contentsline {subsection}{\numberline {2.3}Negations}{6}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Equalities, Mergers and Injectivities}{7}{subsection.2.4}
-\contentsline {paragraph}{Mergers.}{7}{section*.7}
-\contentsline {paragraph}{Injectivities.}{7}{section*.8}
-\contentsline {paragraph}{Counting.}{7}{section*.9}
-\contentsline {paragraph}{Example usage.}{8}{section*.10}
-\contentsline {subsection}{\numberline {2.5}Comments}{8}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Rule properties}{8}{subsection.2.6}
-\contentsline {paragraph}{Priorities.}{8}{section*.11}
-\contentsline {paragraph}{Enabledness.}{8}{section*.12}
-\contentsline {paragraph}{Rule documentation.}{8}{section*.13}
-\contentsline {paragraph}{Formatted output.}{8}{section*.14}
-\contentsline {paragraph}{Transition labels.}{9}{section*.15}
-\contentsline {subsection}{\numberline {2.7}Transition systems}{9}{subsection.2.7}
-\contentsline {paragraph}{Rule systems and grammars}{9}{section*.16}
-\contentsline {subsection}{\numberline {2.8}Typing}{9}{subsection.2.8}
-\contentsline {paragraph}{Type graphs.}{9}{section*.17}
-\contentsline {paragraph}{Subtyping.}{10}{section*.18}
-\contentsline {section}{\numberline {3}Advanced Concepts}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Wildcards and Variables}{10}{subsection.3.1}
-\contentsline {paragraph}{Type or flag wildcards.}{10}{section*.19}
-\contentsline {paragraph}{Guarded wildcards.}{11}{section*.20}
-\contentsline {paragraph}{Named wildcards.}{11}{section*.21}
-\contentsline {paragraph}{Example usage.}{11}{section*.22}
-\contentsline {subsection}{\numberline {3.2}Regular Expressions}{11}{subsection.3.2}
-\contentsline {paragraph}{Example usage.}{12}{section*.23}
-\contentsline {subsection}{\numberline {3.3}Data Attributes}{13}{subsection.3.3}
-\contentsline {paragraph}{Data values.}{13}{section*.24}
-\contentsline {paragraph}{Operations.}{13}{section*.25}
-\contentsline {paragraph}{Algebras.}{15}{section*.26}
-\contentsline {paragraph}{Example usage.}{15}{section*.27}
-\contentsline {subsection}{\numberline {3.4}Rule Parameters}{15}{subsection.3.4}
-\contentsline {paragraph}{Node identities as arguments}{15}{section*.28}
-\contentsline {paragraph}{Data values as arguments}{16}{section*.29}
-\contentsline {paragraph}{Anonymous parameters}{16}{section*.30}
-\contentsline {paragraph}{Example usage.}{16}{section*.31}
-\contentsline {subsection}{\numberline {3.5}Control}{16}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Nested Rules}{17}{subsection.3.6}
-\contentsline {paragraph}{Nesting levels}{17}{section*.32}
-\contentsline {paragraph}{Named nesting levels}{18}{section*.33}
-\contentsline {paragraph}{Counting}{19}{section*.34}
-\contentsline {subsection}{\numberline {3.7}System Properties}{19}{subsection.3.7}
-\contentsline {paragraph}{Algebra family.}{19}{section*.35}
-\contentsline {paragraph}{Match injectivity.}{19}{section*.36}
-\contentsline {paragraph}{Dangling edge check.}{19}{section*.37}
-\contentsline {paragraph}{Creator edge check.}{20}{section*.38}
-\contentsline {paragraph}{Treating the RHSs as NACs.}{20}{section*.39}
-\contentsline {paragraph}{Isomorphism check.}{20}{section*.40}
-\contentsline {paragraph}{Control labels and common labels.}{20}{section*.41}
-\contentsline {paragraph}{Transition label formatting.}{20}{section*.42}
-\contentsline {paragraph}{Displaying loops as node labels.}{21}{section*.43}
-\contentsline {paragraph}{Abstraction.}{21}{section*.44}
-\contentsline {section}{\numberline {4}Exploration and Model Checking}{21}{section.4}
-\contentsline {subsection}{\numberline {4.1}Exploration}{21}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Syntax of Temporal Logic}{21}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}CTL Model Checking}{21}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}LTL Model Checking}{21}{subsection.4.4}
-\contentsline {section}{\numberline {5}I/O}{21}{section.5}
-\contentsline {subsection}{\numberline {5.1}Graphs and rules}{21}{subsection.5.1}
-\contentsline {paragraph}{Edge labels.}{21}{section*.45}
-\contentsline {paragraph}{Graph attributes.}{22}{section*.46}
-\contentsline {paragraph}{Graph layout.}{22}{section*.47}
-\contentsline {subsection}{\numberline {5.2}Control programs}{22}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}System properties}{22}{subsection.5.3}
+\contentsline {paragraph}{Rule label syntax.}{7}{section*.4}
+\contentsline {paragraph}{Rule names.}{8}{section*.5}
+\contentsline {paragraph}{Example usage.}{8}{section*.6}
+\contentsline {subsection}{\numberline {2.3}Negations}{8}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Equalities, Mergers and Injectivities}{8}{subsection.2.4}
+\contentsline {paragraph}{Mergers.}{8}{section*.7}
+\contentsline {paragraph}{Injectivities.}{9}{section*.8}
+\contentsline {paragraph}{Counting.}{9}{section*.9}
+\contentsline {paragraph}{Example usage.}{9}{section*.10}
+\contentsline {subsection}{\numberline {2.5}Comments}{9}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Rule properties}{10}{subsection.2.6}
+\contentsline {paragraph}{Priorities.}{10}{section*.11}
+\contentsline {paragraph}{Enabledness.}{10}{section*.12}
+\contentsline {paragraph}{Rule documentation.}{10}{section*.13}
+\contentsline {paragraph}{Formatted output.}{10}{section*.14}
+\contentsline {paragraph}{Transition labels.}{10}{section*.15}
+\contentsline {subsection}{\numberline {2.7}Transition systems}{11}{subsection.2.7}
+\contentsline {paragraph}{Rule systems and grammars}{11}{section*.16}
+\contentsline {subsection}{\numberline {2.8}Typing}{11}{subsection.2.8}
+\contentsline {paragraph}{Type graphs.}{11}{section*.17}
+\contentsline {paragraph}{Subtyping.}{12}{section*.18}
+\contentsline {section}{\numberline {3}Advanced Concepts}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Wildcards and Label Variables}{13}{subsection.3.1}
+\contentsline {paragraph}{Type or flag wildcards.}{13}{section*.19}
+\contentsline {paragraph}{Guarded wildcards.}{13}{section*.20}
+\contentsline {paragraph}{Named wildcards.}{13}{section*.21}
+\contentsline {paragraph}{Example usage.}{13}{section*.22}
+\contentsline {subsection}{\numberline {3.2}Regular Expressions}{14}{subsection.3.2}
+\contentsline {paragraph}{Example usage.}{15}{section*.23}
+\contentsline {subsection}{\numberline {3.3}Data Attributes}{15}{subsection.3.3}
+\contentsline {paragraph}{Data values.}{15}{section*.24}
+\contentsline {paragraph}{Operations.}{15}{section*.25}
+\contentsline {paragraph}{Algebras.}{17}{section*.26}
+\contentsline {paragraph}{Example usage.}{17}{section*.27}
+\contentsline {subsection}{\numberline {3.4}Rule Parameters}{17}{subsection.3.4}
+\contentsline {paragraph}{Node identities as arguments}{18}{section*.28}
+\contentsline {paragraph}{Data values as arguments}{18}{section*.29}
+\contentsline {paragraph}{Anonymous parameters}{18}{section*.30}
+\contentsline {paragraph}{Example usage.}{18}{section*.31}
+\contentsline {subsection}{\numberline {3.5}Nested Rules}{18}{subsection.3.5}
+\contentsline {paragraph}{Nesting levels}{18}{section*.32}
+\contentsline {paragraph}{Named nesting levels}{20}{section*.33}
+\contentsline {paragraph}{Counting}{20}{section*.34}
+\contentsline {subsection}{\numberline {3.6}System Properties}{20}{subsection.3.6}
+\contentsline {paragraph}{Algebra family.}{21}{section*.35}
+\contentsline {paragraph}{Match injectivity.}{21}{section*.36}
+\contentsline {paragraph}{Dangling edge check.}{21}{section*.37}
+\contentsline {paragraph}{Creator edge check.}{21}{section*.38}
+\contentsline {paragraph}{Treating the RHSs as NACs.}{21}{section*.39}
+\contentsline {paragraph}{Isomorphism check.}{22}{section*.40}
+\contentsline {paragraph}{Control labels and common labels.}{22}{section*.41}
+\contentsline {paragraph}{Transition parameters.}{22}{section*.42}
+\contentsline {paragraph}{Displaying loops as node labels.}{22}{section*.43}
+\contentsline {paragraph}{Abstraction.}{22}{section*.44}
+\contentsline {section}{\numberline {4}Control}{23}{section.4}
+\contentsline {subsection}{\numberline {4.1}Control statements and expressions}{23}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Procedures: Functions and recipes}{25}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Properties: Conditions, invariants and forbidden patterns}{25}{subsection.4.3}
+\contentsline {section}{\numberline {5}Verification}{26}{section.5}
+\contentsline {subsection}{\numberline {5.1}Exploration}{26}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Model Checking}{26}{subsection.5.2}
+\contentsline {section}{\numberline {6}I/O}{27}{section.6}
+\contentsline {subsection}{\numberline {6.1}Graphs and rules}{27}{subsection.6.1}
+\contentsline {paragraph}{Edge labels.}{27}{section*.45}
+\contentsline {paragraph}{Graph attributes.}{27}{section*.46}
+\contentsline {paragraph}{Graph layout.}{27}{section*.47}
+\contentsline {subsection}{\numberline {6.2}Control programs}{27}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}System properties}{27}{subsection.6.3}

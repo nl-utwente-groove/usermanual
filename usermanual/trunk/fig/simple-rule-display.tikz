@@ -9,14 +9,14 @@
 \node[basic_node] (n533) at (1.445, -0.880) {\ml{{\color{embargo_c}\textbf{! B}}\\{\color{creator_c}\textit{+ s}}}};
 \node[basic_node] (n0) at (2.600, -1.710) {\ml{{\color{eraser_c}\textbf{$-$ B}}\\{\color{creator_c}\textbf{+ C}}}};
 
-\path[embargo_edge](n536.east |- 3.585, -0.850) -- node[lab] {\ml{{\color{embargo_c}d}}} (n534) ;
+\path[creator_edge](n536.south -| 2.760, -1.370) -- (2.760, -1.370) -- (n535.west |- 2.760, -1.370)
+node[lab] at (2.832, -1.370) {\ml{{\color{creator_c}d}}};
 \path[embargo_edge](n0.west |- 1.400, -1.690) -- node[lab] {\ml{{\color{embargo_c}d}}} (n532) ;
-\path[creator_edge] (n536)  -- (2.600, -1.320) -- (n535.west |- 2.600, -1.320)
-node[lab] at (2.705, -1.320) {\ml{{\color{creator_c}d}}};
-\path[creator_edge] (n536)  -- (2.600, -0.330) -- (1.270, -0.330) --  (n533) 
-node[lab] at (2.600, -0.470) {\ml{{\color{creator_c}a}}};
+\path[basic_edge](n533.east |- 2.560, -0.970) -- (2.560, -0.970) -- (n0.north -| 2.560, -0.970)
+node[lab] at (2.050, -0.970) {\ml{c}};
+\path[creator_edge](n536.north -| 2.730, -0.330) -- (2.730, -0.330) -- (1.430, -0.330) -- (n533.north -| 1.430, -0.330)
+node[lab] at (2.730, -0.473) {\ml{{\color{creator_c}a}}};
 \path[eraser_edge](n533.east |- 2.750, -0.795) -- node[lab] {\ml{{\color{eraser_c}b}}} (n536) ;
-\path[basic_edge](n533.east |- 2.340, -0.970) -- (2.340, -0.970) --  (n0) 
-node[lab] at (1.884, -0.924) {\ml{c}};
+\path[embargo_edge](n536.east |- 3.585, -0.850) -- node[lab] {\ml{{\color{embargo_c}d}}} (n534) ;
 \path[eraser_edge](n533.south -| 1.400, -1.690) -- node[lab] {\ml{{\color{eraser_c}c}}} (n532) ;
 \end{tikzpicture}
