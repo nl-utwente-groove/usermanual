@@ -1,35 +1,52 @@
+\clearpage
+\section{Control}
+\seclabel{control}
+
 Control is about scheduling rule executions. It provides a much stronger
 mechanism than rule priorities (see \secref{rule-properties}).  Control is
-specified in the form of a control program. The grammar of such programs is
-given in \lstcite{control}.
+specified in the form of one or more control programs. The grammar of such
+programs is summarised in \lstcite{control}.
 
 \lstset{
 	basicstyle=\ttfamily\scriptsize
 }
 
 \begin{figure}
-\lstinputlisting%
+\lstinputlisting
   [label=\lstprf:control,%
    caption={Grammar of Control Programs},%
    language=antlr,
+   frame=single,
    keywords={program,function,package_decl,import_decl,qual_name,recipe,%
              par_list,par,block,stat,stat1,stat2,stats,
              cond,cond1,cond2,
              expr,expr1,expr2,
              call,arg_list,arg,literal,decl,type,
              ID,INT_LIT,STRING_LIT,REAL_LIT}]%
-  {Ctrl.stripped}
+  {Ctrl.grammar}
 \end{figure}
 
+\medskip\noindent We will use the following terminology:
+%
+\begin{description}
+\item[Action] for a rule or recipe. You may think of actions as named atomic steps; they are visible as transitions in the LTS built up during exploration.
+
+\item[Procedure] for a function or recipe. Procedures may be regarded named, parameterised statements (which are declared as their bodies); the difference between recipes and functions (explained in more detail in \seccite{procedures} below) is that the former are scheduled atomically and hence are actions. Procedures may invoke one another recursively.
+
+\item[Callable] for a rule or procedure; essentially, anything that may be invoked by a call expression (see below).
+\end{description}
+
+\subsection{Control statements and expressions}
+
 A control program is interpreted during exploration of the grammer. In every
-state, the control program decides which rules are scheduled (i.e. allowed to
-be applied). A control program consists of a main control expressions, and
+state, the control program decides which actions are scheduled (i.e., allowed
+to be applied). A control program consists of a main control expressions, and
 optionally a set of function definitions. We briefly list the main features of
 the language.
 %
 \begin{itemize}
 \item The smallest programming elements of a control program are the names of
-  the rules in a grammar. Where such a name appear, only the named rule is scheduled.
+  the rules in a grammar. Where such a name appears, only the named rule is scheduled.
 
 \item Special cases are the keywords \anyK{} and \otherK. Both
   serve as a kind of wildcard over the available rules: \anyK{} executes
@@ -40,14 +57,17 @@ the language.
   \textsf{a} to be applied, then one of \textsf{a}, \textsf{b} or \textsf{c},
   then \textsf{b}, and then \textsf{c}.
 
+  \anyK and \otherK are only allowed if none of the actions to which they
+  would apply have input-only parameters.
+
 \item Control expressions can be built from rules and wildcards by 
 \begin{itemize}\noitemsep
 \item the infix operator ``\textsf{$|$}'', which specifies a choice among its
   operands;
 \item the postfix operator ``\textsf{*}'', which specifies that its operand may
-  be scheduled zero or more times;
+  be scheduled zero or more times in succession;
 \item the postfix operator ``\textsf{+}'', which specifies that its operand may
-  be scheduled one or more times;
+  be scheduled one or more times in succession;
 \item The prefix operator ``\textsf{\#}'', which specifies that its operand is
   scheduled as long as possible. 
 \end{itemize}
@@ -93,3 +113,12 @@ It is important to realise that control expressions are interpreted completely
 
 An example of a control program can be found in the \textsf{control.gps}
 grammar in the \GROOVE samples.
+
+\subsection{Procedures: Functions and recipes}
+\seclabel{procedures}
+
+\subsection{Properties: Conditions, invariants and forbidden patterns}
+\seclabel{properties}
+
+
+

@@ -1,56 +1,25 @@
-\section{Exploration and Model Checking}
-\stlabel{usage}
+\clearpage
+\section{Verification}
+\seclabel{usage}
 
 \subsection{Exploration}
-\stlabel{exploration}
+\seclabel{exploration}
 
-\subsection{Syntax of Temporal Logic}
-\begin{figure}
-\begin{lstlisting}[label=lst:logic,caption={Grammar of Temporal Logic}]
-property
-	: 'true'
-	| 'false'
-	| atom
-	| logical_1 property
-	| property logical_2 property
-	| path_quantifier path_property
-	| '(' property ')'
-	;
+\subsection{Model Checking}
+\seclabel{checking}
 
-path_property
-	: property
-	| logical_1 path_property
-	| path_property logical_2 path_property
-	| temporal_1 path_property
-	| path_property temporal_2 path_property
-	| '(' path_property ')'
-	;
-
-logical_1
-	: '!'
-	;
-
-logical_2
-	: '|' | '&' | '->' | '<-' | '<->'
-	;
-
-temporal_1
-	: 'X' | 'F' | 'G'
-	;
-
-temporal_2
-	: 'U' | 'W' | 'M' | 'V'
-	;
-
-path_quantifier
-	: 'A' | 'E'
-	;
-
-atom	: ID | SINGLE_QUOTED_TEXT | DOUBLE_QUOTED_TEXT
-	;
-\end{lstlisting}
+\FloatBarrier
+\begin{figure}[tb]
+\lstinputlisting
+    [language=antlr,
+     frame=single,
+     caption={Grammar of Temporal Logic},
+     label=\lstprf:logic,
+     keywords={atom,state,state1,state2,path,path1,path2,
+               binary,ID,SINGLE_QUOTED,DOUBLE_QUOTED},
+    ]
+    {formula.grammar}
 \end{figure}
-
 \newcommand{\Aop}{\mathop{\mathsf{A}}}
 \newcommand{\Eop}{\mathop{\mathsf{E}}}
 \newcommand{\Xop}{\mathop{\mathsf{X}}}
@@ -79,7 +48,3 @@ atom	: ID | SINGLE_QUOTED_TEXT | DOUBLE_QUOTED_TEXT
   as well (which may never happen, in which case $\phi$ holds along the entire
   path)
 \end{itemize}
-
-\subsection{CTL Model Checking}
-
-\subsection{LTL Model Checking}

@@ -1,21 +1,33 @@
-\usepackage{a4}                  % we're in Europe
-\usepackage{fullpage}            % get some more space
+% We're in Europe
+\usepackage{a4}
+% Get some more space
+\usepackage[headings]{fullpage} 
 \usepackage{latexsym}            % extra LaTeX 2.09 symbols
 \usepackage{pslatex}             % times font
 \usepackage[scaled=0.92]{helvet} % use properly scaled sf
 \usepackage{amssymb}             % extra AMS math symbols
 \usepackage{graphicx}            % enhanced graphics support
 \usepackage{color}               % needed for xfig
-\usepackage{listings}            % for type-setting listings
+% for type-setting listings
+\usepackage{listings}            
 \usepackage{eurosans}            % \euro gives the EUR symbol
 \usepackage{enumitem}            % more control over list spacing
 \usepackage{subfigure}
+% include URLs & hypertext links
 \usepackage[pdftex,bookmarks=false]{hyperref}
-                                 % include URLs & hypertext links
-\usepackage{xspace}              % get rid of the space ignorance
+% get rid of the space ignorance
+\usepackage{xspace}              
 \usepackage{multirow}
-\usepackage{datatool}            % csv support
-\usepackage{groove2tikz}         % our sing-and-dance graph drawer
+% csv support
+\usepackage{datatool}            
+% our sing-and-dance graph drawer
+\usepackage{groove2tikz}
+% Float placement, in particular \FloatBarrier
+\usepackage{placeins}
+% More control over headers
+\usepackage{fancyhdr}      
+% Hyperlinks
+\usepackage{url}      
 
 %%%%%%%%%%%%%%%%%%%%%%%% Layout and numbering %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -29,6 +41,8 @@
 %\setlength{\textfloatsep}{\medskipamount}
 %\setlength{\intextsep}{\medskipamount}
 
+\pagestyle{fancy}
+
 \def\fps@figure{tp}
 \def\fps@table{tp}
 \long\def\@makecaption#1#2{
@@ -41,20 +55,6 @@
 
 \newcommand{\noitemsep}{\itemsep0pt}
 
-%\def\@makethmnumber#1#2{\bf #2 #1:}
-%\newlength{\alwaysparindent}\alwaysparindent\parindent
-%\renewcommand{\@begintheorem}[2]{%
-%\begin{list}{$\bullet$}{%\leftmargin\alwaysparindent
-%\parsep0cm\labelwidth\leftmargin}%
-%\advance\@itemdepth\@ne
-%\item[\hskip\labelsep{\bf #2\ #1.}]}
-%\renewcommand{\@opargbegintheorem}[3]{%
-%\begin{list}{$\bullet$}{%\leftmargin\alwaysparindent
-%\parsep0cm\labelwidth\leftmargin}%
-%\advance\@itemdepth\@ne
-%\item[\hskip\labelsep{\bf #2\ #1\ (#3).}]}
-%\renewcommand{\@endtheorem}{\end{list}}
-
 \newtheorem{definition}{Definition}
 \newtheorem{example}[definition]{Example}
 \newtheorem{theorem}[definition]{Theorem}
@@ -64,12 +64,21 @@
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{notation}[definition]{Notation}
 
-%\@addtoreset{figure}{section}
-%\def\thefigure{\arabic{section}.\arabic{figure}}
-%\def\thetable{\arabic{section}.\arabic{table}}
 \let\c@table\c@figure
 \@addtoreset{definition}{section}
 \def\thedefinition{\thesection.\arabic{definition}}
+
+%%%%%%%%%%%%%%%%%%%%%%% Listings settings %%%%%%%%%%%%%%%%%%%%%%
+
+\lstdefinelanguage
+  {antlr}
+  {keywordstyle=\underbar,
+   stringstyle=\bfseries,
+   string=[b]',
+   commentstyle=\itshape,
+   comment=[s]{/*}{*/},
+   moredelim=*[l][\itshape]{//},
+  }
 
 % An environment for re-stating and proving results in an appendix.
 % The proof will be labelled \prooflabel{#2}
@@ -87,34 +96,57 @@
 % Numbers a paragraph with an equation number
 \newcommand{\setmark}{\refstepcounter{equation}\noindent{\bf \theequation} }
 
-\newcommand{\thlabel}[1]{\label{th:#1}}
-\newcommand{\thref}[1]{Theorem~\ref{th:#1}}
-\newcommand{\colabel}[1]{\label{co:#1}}
-\newcommand{\coref}[1]{Corollary~\ref{co:#1}}
-\newcommand{\llabel}[1]{\label{l:#1}}
-\newcommand{\lref}[1]{Lemma~\ref{l:#1}}
-\newcommand{\eqlabel}[1]{\label{eq:#1}}
-\newcommand{\eqref}[1]{$(\ref{eq:#1})$}
-\newcommand{\exlabel}[1]{\label{ex:#1}}
-\newcommand{\exref}[1]{Example~\ref{ex:#1}}
-\newcommand{\cjlab}[1]{\label{cj:#1}}
-\newcommand{\cjref}[1]{Conjecture~\ref{cj:#1}}
-\newcommand{\flabel}[1]{\label{f:#1}}
-\newcommand{\fref}[1]{Figure~\ref{f:#1}}
-\newcommand{\dlabel}[1]{\label{d:#1}}
-\newcommand{\dref}[1]{Definition~\ref{d:#1}}
-\newcommand{\alabel}[1]{\label{a:#1}}
-\newcommand{\aref}[1]{Appendix~\ref{a:#1}}
-\newcommand{\chlabel}[1]{\label{c:#1}}
-\newcommand{\chref}[1]{Chapter~\ref{c:#1}}
-\newcommand{\stlabel}[1]{\label{s:#1}}
-\newcommand{\stref}[1]{Section~\ref{s:#1}}
-\newcommand{\tlabel}[1]{\label{t:#1}}
-\newcommand{\tref}[1]{Table~\ref{t:#1}}
-\newcommand{\plabel}[1]{\label{p:#1}}
-\newcommand{\pref}[1]{Proposition~\ref{p:#1}}
-\newcommand{\nlabel}[1]{\label{n:#1}}
-\newcommand{\nref}[1]{Notation~\ref{n:#1}}
+% Theorems
+\newcommand{\thprf}{th}
+\newcommand{\thlabel}[1]{\label{\thprf:#1}}
+\newcommand{\thref}[1]{\ref{\thprf:#1}}
+\newcommand{\thcite}[1]{Theorem~\thref{#1}}
+% Equations
+\newcommand{\eqprf}{eq}
+\newcommand{\eqlabel}[1]{\label{\eqprf:#1}}
+\newcommand{\eqref}[1]{\ref{\eqprf:#1}}
+\newcommand{\eqcite}[1]{$(\eqref{#1})$}
+% Examples
+\newcommand{\exprf}{ex}
+\newcommand{\exlabel}[1]{\label{\exprf:#1}}
+\newcommand{\exref}[1]{\ref{\exprf:#1}}
+\newcommand{\excite}[1]{Example~\exref{#1}}
+% Figures
+\newcommand{\figprf}{fig}
+\newcommand{\figlabel}[1]{\label{\figprf:#1}}
+\newcommand{\figref}[1]{\ref{\figprf:#1}}
+\newcommand{\figcite}[1]{Figure~\figref{#1}}
+% Definitions
+\newcommand{\defprf}{def}
+\newcommand{\deflabel}[1]{\label{\defprf:#1}}
+\newcommand{\defref}[1]{\ref{\defprf:#1}}
+\newcommand{\defcite}[1]{Definition~\defref{#1}}
+% Appendices
+\newcommand{\appprf}{app}
+\newcommand{\applabel}[1]{\label{\appprf:#1}}
+\newcommand{\appref}[1]{\ref{\appprf:#1}}
+\newcommand{\appcite}[1]{Appendix~\appref{#1}}
+% Chapters
+\newcommand{\chapprf}{chap}
+\newcommand{\chaplabel}[1]{\label{\chapprf:#1}}
+\newcommand{\chapref}[1]{\ref{\chapprf:#1}}
+\newcommand{\chapcite}[1]{Chapter~\chapref{#1}}
+% Sections
+\newcommand{\secprf}{sec}
+\newcommand{\seclabel}[1]{\label{\secprf:#1}}
+\newcommand{\secref}[1]{\ref{\secprf:#1}}
+\newcommand{\seccite}[1]{Section~\secref{#1}}
+% Tables
+\newcommand{\tabprf}{tab}
+\newcommand{\tablabel}[1]{\label{\tabprf:#1}}
+\newcommand{\tabref}[1]{\ref{\tabprf:#1}}
+\newcommand{\tabcite}[1]{Table~\tabref{#1}}
+% Listings
+\newcommand{\lstprf}{lst}
+\newcommand{\lstlabel}[1]{\label{\lstprf:#1}}
+\newcommand{\lstref}[1]{\ref{\lstprf:#1}}
+\newcommand{\lstcite}[1]{Listing~\lstref{#1}}
+% Pages
 \newcommand{\pgref}[1]{Page~\pageref{#1}}
 
 %%%%%%%%%%%%%%%%%% Mathematical macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -653,75 +685,3 @@
     \end{figure}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% Poset macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% poset with 0 elements
-\newcommand\emptypo{\epsilon}
-
-% Posets with 1 element
-\newcommand{\fo}[1]{\makef{c}{#1}}
-
-% posets with 2 elements
-\newcommand{\flfoo}[2]{\makef{ccc}{#1&\enspace&#2}}
-\newcommand{\foo}[2]{\makef{c}{#1\\[\smallskipamount]\\#2}}
-\newcommand{\ft}[2]{\makef{ccc}{#1&\ra&#2\\}}
-
-% posets with 3 elements
-\newcommand{\fooops}[3]{\makef{ccl}{&&#2\\&\nea\\#1&\ra&#3}}
-\newcommand{\fot}[3]{\makef{ccc}{#1\\[\smallskipamount]\\#2&\ra&#3}}
-\newcommand{\foopos}[3]{\makef{ccc}{#1\\&\sea\\#2&\ra&#3}}
-\newcommand{\flfoopos}[3]{\makef{ccccc}{#1&\ra&#3&\la&#2}}
-\newcommand{\fto}[3]{\makef{ccc}{#1&\ra&#2\\[\smallskipamount]\\#3}}
-\newcommand{\fth}[3]{\makef{ccccc}{#1&\ra&#2&\ra&#3}}
-
-% posets with 4 elements
-\newcommand{\ftopos}[4]{\makef{ccccc}{#1&\ra&#2\\&&&\sea\\&&#3&\ra&#4}}
-\newcommand{\ftt}[4]{\makef{ccc}{#1&\ra&#2\\[\smallskipamount]\\#3&\ra&#4}}
-\newcommand{\fooopso}[4]{\makef{ccc}{#1&\ra&#2\\&\sea\\#4&&#3}}
-\newcommand{\foopts}[4]{\makef{ccccc}{#1\\&\sea\\#2&\ra&#3&\ra&#4}}
-\newcommand{\foooops}[4]{\makef{ccc}{#1&&#3\\&\nea\\#2&\ra&#4}}
-\newcommand{\fotops}[4]{\makef{ccccc}{#1&\ra&#2&\ra&#3\\&\sea\\&&#4}}
-\newcommand{\footps}[4]{\makef{ccccc}{#1&\ra&#2\\&\sea\\&&#3&\ra&#4}}
-\newcommand{\fotpos}[4]{\makef{ccccc}{&&#1\\&&&\sea\\#2&\ra&#3&\ra&#4}}
-\newcommand{\foth}[4]{\makef{ccccc}{#1\\&\\#2&\ra&#3&\ra&#4}}
-\newcommand{\ftho}[4]{\makef{ccccc}{#1&\ra&#2&\ra&#3\\&\\#4}}
-\newcommand{\ff}[4]{\makef{ccccccc}{#1&\ra&#2&\ra&#3&\ra&#4}}
-\newcommand{\foopoops}[4]{\makef{ccc}{#1&\ra&#3\\&\nsea\\#2&\ra&#4}}
-\newcommand{\fN}[4]{\makef{ccc}{#1&\ra&#3\\&\nea\\#2&\ra&#4}}
-
-% posets with 5 elements
-\newcommand{\fthoo}[5]{\makef{ccccc}{#1&\ra&#2&\ra&#3\\&\\#4\\&\\#5}}
-\newcommand{\fotho}[5]{\makef{ccccc}{#1\\&\\#2&\ra&#3&\ra&#4\\&\\#5}}
-\newcommand{\ftot}[5]{\makef{ccc}{#1&\ra&#2\\&\\#3\\&\\#4&\ra&#5}}
-\newcommand{\fottps}[5]{\makef{ccccl}{&&#2&\ra&#3\\&\nea\\#1&\ra&#4&\ra&#5}}
-\newcommand{\fott}[5]{\makef{ccc}{#1\\&\\#2&\ra&#3\\&\\#4&\ra&#5}}
-\newcommand{\fv}[5]{\makef{ccccccccc}{#1&\ra&#2&\ra&#3&\ra&#4&\ra&#5}}
-
-% posets with 6 elements
-\newcommand\fothpts[6]{%
-    \makef{ccccccccc}{&&&&#1&\ra&#5&\ra&#6\\&&&&&\nea\\#2&\ra&#3&\ra&#4}%
-}
-\newcommand\fthopts[6]{%
-    \makef{ccccccccc}{#1&\ra&#2&\ra&#3\\&&&&&\sea\\&&&&#4&\ra&#5&\ra&#6}%
-}
-\newcommand\fotoopsops[6]{%
-    \makef{ccccccl}{#1&\ra&#2&\ra&#3&\ra&#4\\&\sea&&&&\sea\\&&#6&&&&#5}%
-}
-
-% outputs a compacted framed array
-\newcommand{\makef}[2]{%
-    \setlength{\fboxsep}{.5mm}%
-    \fbox{$
-        \setlength{\arraycolsep}{0mm}
-        \renewcommand{\arraystretch}{.2}
-        \begin{array}[c]{#1}#2\end{array}
-    $}%
-}
-% outputs a small compacted framed array
-\newcommand{\makefsmall}[2]{%
-    \setlength{\fboxsep}{.5mm}%
-    \fbox{\footnotesize$
-        \setlength{\arraycolsep}{0mm}
-        \renewcommand{\arraystretch}{.2}
-        \begin{array}[c]{#1}#2\end{array}
-    $}%
-}

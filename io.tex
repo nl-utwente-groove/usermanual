@@ -1,5 +1,6 @@
+\clearpage
 \section{I/O}
-\stlabel{IO}
+\seclabel{io}
 
 Graph grammars are stored in directories with extension ``\textsf{.gps}'' (for
 \emph{g}raph \emph{p}roduction \emph{s}ystem). Each such directory contains all
@@ -28,7 +29,7 @@ rules receive the extension ``\textsf{.gpr}'' (for \emph{g}raph
 We are using the GXL graph attributes to store some additional information
 about the graphs, such as the name, the fact whether it is a rule, a graph or a
 type graph, and the priority and enabledness (if it is a rule). For the latter
-two see \stref{rule-properties}.
+two see \secref{rule-properties}.
 
 \paragraph{Graph layout.}
 
@@ -42,7 +43,7 @@ files with a name derived from that of the GXL file by adding the extension
 contained in \textsf{rule.gpr.gl}.
 
 \subsection{Control programs}
-\stlabel{io-control}
+\seclabel{io-control}
 
 Control programs are stored in plain text in files with extension
 ``\textsf{.gcp}'' (for \emph{g}raph \emph{c}ontorl \emph{p}rogram) within the
@@ -51,9 +52,9 @@ the default control program; others can be loaded and set in the Simulator or
 through the system properties (see below).
 
 \subsection{System properties}
-\stlabel{io-system-properties}
+\seclabel{io-system-properties}
 
 System properties are stored in a file \textsf{system.properties} within the
 grammar directory. The file is a plain text file, with lines of the form
 ``\textsf{resource = value}'' for the different properties discussed in
-\stref{system-properties}.
+\secref{system-properties}.
