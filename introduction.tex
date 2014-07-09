@@ -12,15 +12,17 @@ with some examples, this should allow you to get started with \GROOVE.
 \subsection{Toolkit Components}
 \seclabel{toolkit}
 
-The \GROOVE tool set includes the following programs:
+The \GROOVE tool set includes the following tools:
 \begin{description}\noitemsep
 \item[Simulator:] a GUI-based tool that lets you construct, simulate and
   model check rule systems visually;
 \item[Generator:] a command line tool that lets you simulate and model check
   rule systems without the performance penalty of the GUI;
+\item[ModelChecker:] a command line tool for CTL model checking;
+\item[PrologChecker:] a command line tool for executing Prolog queries on an explored grammar;
 \item[Imager:] a command line or GUI tool that supports conversions from
   \GROOVE graphs and rules to other visual formats.
-\item[Viewer:] a stand-alone viewer for \GROOVE graphs and rules.
+\item[Viewer:] a stand-alone (GUI) viewer for \GROOVE graphs and rules.
 \end{description}
 
 \subsection{Download}
@@ -74,7 +76,7 @@ to this location as the \GROOVE directory.
 
 The \texttt{bin} subdirectory of the \GROOVE directory contains \texttt{jar}
 files for each of the toolkit programs (see \secref{toolkit}), so
-\texttt{Simulator.jar}, \texttt{Editor.jar} etc. You can use these in either of
+\texttt{Simulator.jar}, \texttt{Generator.jar} etc. You can use these in either of
 the following ways:
 \begin{itemize}
 \item In an explorer window opened on the \texttt{bin} directory, double-click
