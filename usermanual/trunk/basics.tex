@@ -234,13 +234,14 @@ outgoing transitions are preserved.
 \paragraph{Injectivities.}
 
 In general, rules are not matched injectively --- meaning that distinct LHS
-nodes may be matched by the same host graph node. (See, however,
-\seccite{system-properties} where we discuss how to set a global injectivity
-constraint through the system properties.) Local injectivity can be enforced by
-a special edge labelled ``\lab{!=}'' or ``\notP\lab=''; the end nodes of
-such an edge will always have distinct images. Just as for mergers, the
-direction of the edge is irrelevant. For instance, the following rule specifies
-that a couple may only marry if they do not share parents.
+nodes may be matched by the same host graph node. (See, however, Sections
+\secref{rule-properties} and~\secref{system-properties} where we discuss how
+to set rule-level and grammar-level injectivity through the rule and system
+properties.) Local injectivity can be enforced by a special edge labelled
+``\lab{!=}'' or ``\notP\lab=''; the end nodes of such an edge will always have
+distinct images. Just as for mergers, the direction of the edge is
+irrelevant. For instance, the following rule specifies that a couple may only
+marry if they do not share parents.
 
 \views{injectivity}
 
@@ -287,8 +288,43 @@ background. For instance, the following is the counting rule of
 
 Apart from the LHS, RHS and NAC, which are depicted graphically, a rule also
 has \emph{rule properties}. These can be accessed and modified from the
-Simulator. The most important of these properties is the \emph{priority} of the
-rule.
+Simulator. An overview is given in \tabcite{rule-properties}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{@{}|l|c|l|@{}}
+\hline\hline
+\bf Property & \bf Default & \bf Meaning \\
+\hline
+\sf priority
+  & \sf 0 (zero)
+  & Priority with which the rule is scheduled \\
+\sf enabled
+  & \it true
+  & If \textit{true}, the rule is available for use \\
+\sf injective 
+  & \sf false
+  & Enforces injectivity of the rule match \\
+\sf actionRule 
+  & \sf transformer
+  & Determines the rule to be a \emph{transformer}, \emph{condition}, \emph{invariant} or \emph{forbidden} \\
+\sf remark
+  & \it empty
+  & One-line documentation of the rule \\
+\sf printFormat
+  & \it empty
+  & String to be printed on the standard output upon rule application \\
+\sf transitionLabel
+  & \sf empty
+  & Label to be shown in the LTS instead of the rule name \\
+\hline\hline
+\end{tabular}
+\end{center}
+\caption{Rule properties overview}
+\vspace*{-\bigskipamount}
+\tablabel{rule-properties}
+\vspace*{-\medskipamount}
+\end{table}
 
 \paragraph{Priorities.}
 
@@ -308,14 +344,11 @@ some other rule introduces such an \textsf{Error}-node.
 Rule system \textsf{priorities} in the \GROOVE{} samples shows an example use
 of priorities.
 
-% \paragraph{Confluent.}
-%
-% A rule may be marked as confluent if the user is certain that it does not
-% make a difference in which order matches of that rule are evaluated. The
-% effect is only visible in one particular exploration strategy (see
-% \seccite{exploration}), the \emph{linear confluent} exploration. In this
-% strategy, at every state only the first match of a confluent rule is
-% explored.
+\paragraph{Injectiveness}
+\marginpar{TODO}
+
+\paragraph{Action role}
+\marginpar{TODO}
 
 \paragraph{Enabledness.}
 
