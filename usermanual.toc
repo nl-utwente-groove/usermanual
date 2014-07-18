@@ -69,8 +69,9 @@
 \contentsline {paragraph}{Nodes-as-edges}{24}{section*.48}
 \contentsline {section}{\numberline {4}Control}{25}{section.4}
 \contentsline {subsection}{\numberline {4.1}Control statements and expressions}{25}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Procedures: Functions and recipes}{27}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Properties: Conditions, invariants and forbidden patterns}{27}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.2}Packages and qualified names}{27}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Procedures: Functions and recipes}{27}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Properties: Conditions, invariants and forbidden patterns}{27}{subsection.4.4}
 \contentsline {section}{\numberline {5}Verification}{28}{section.5}
 \contentsline {subsection}{\numberline {5.1}Exploration}{28}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Model Checking}{28}{subsection.5.2}

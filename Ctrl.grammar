@@ -49,13 +49,14 @@ expr	: expr1 '|' expr2 // nondeterministic choice between exprs (see 'choice')
 	| expr '+'        // nondeterministically repeat expr at least once
 	| expr '*'        // nondeterministically repeat expr zero or more times
 	| '#' expr        // repeat expr as long as possible (see 'alap')
-	| 'any'		  // schedule any top-level non-constraint rule or recipe
-	| 'other'         // like 'any', but restricted to actions that are not called explicitly
 	| '(' expr ')'
 	| call
 
-/* Rule or procedure call, with optional argument list. */
-call	: qual_name arg_list?
+/* Rule, procedure or group call, with optional argument list. */
+call	: unit arg_list?
+
+unit	: (package '.')? name                         // optionally qualified rule or procedure
+	| (package '.')? ('*' '.')? ('any' | 'other') // optionally qualified group call
 
 /* Argument list. */
 arg_list : '(' (arg (',' arg)*)? ')'

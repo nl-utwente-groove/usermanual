@@ -8,6 +8,6 @@
 \node[data_node] (n38195) at (1.940, -1.365) {\ml{\textbf{int}}};
 \node[par_node] (n38195p)  at (n38195.north west) {0};
 
-\path[basic_edge] (n38196)  -- node[lab] {\ml{x}} (n38197) ;
 \path[basic_edge] (n38196)  -- node[lab] {\ml{y}} (n38195) ;
+\path[basic_edge] (n38196)  -- node[lab] {\ml{x}} (n38197) ;
 \end{tikzpicture}

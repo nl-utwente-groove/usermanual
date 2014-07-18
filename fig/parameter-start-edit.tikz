@@ -7,7 +7,7 @@
 \node[basic_node] (n38149) at (0.385, -1.415) {\ml{type:B}};
 \node[basic_node] (n38150) at (0.855, -1.415) {\ml{type:C}};
 
-\path[basic_edge] (n38147)  -- node[lab] {\ml{x}} (n38150) ;
 \path[basic_edge] (n38147)  -- node[lab] {\ml{y}} (n38148) ;
+\path[basic_edge] (n38147)  -- node[lab] {\ml{x}} (n38150) ;
 \path[basic_edge](n38147.south -| 0.385, -1.415) -- node[lab] {\ml{x}} (n38149) ;
 \end{tikzpicture}
