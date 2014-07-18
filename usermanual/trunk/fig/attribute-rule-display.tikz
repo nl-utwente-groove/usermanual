@@ -10,11 +10,11 @@
 \node[data_node] (n1387) at (2.630, -2.265) {\ml{\textbf{real}}};
 \node[data_node] (n1383) at (1.270, -1.595) {\ml{\textbf{real}}};
 
-\path[basic_edge] (n1380)  -- node[lab] {\ml{$\pi1$}} (n1387) ;
-\path[basic_edge] (n1380)  -- node[lab] {\ml{$\pi0$}} (n1383) ;
-\path[basic_edge] (n1386)  -- node[lab] {\ml{$\pi0$}} (n1384) ;
 \path[basic_edge] (n1380)  -- node[lab] {\ml{sub}} (n1384) ;
+\path[basic_edge] (n1386)  -- node[lab] {\ml{$\pi0$}} (n1384) ;
 \path[creator_edge](n1382.east |- 2.630, -0.825) -- node[lab] {\ml{{\color{creator_c}balance}}} (n1384) ;
+\path[basic_edge] (n1380)  -- node[lab] {\ml{$\pi1$}} (n1387) ;
 \path[eraser_edge](n1381.east |- 2.630, -2.265) -- node[lab] {\ml{{\color{eraser_c}amount}}} (n1387) ;
 \path[eraser_edge](n1382.south -| 1.270, -1.595) -- node[lab] {\ml{{\color{eraser_c}balance}}} (n1383) ;
+\path[basic_edge] (n1380)  -- node[lab] {\ml{$\pi0$}} (n1383) ;
 \end{tikzpicture}

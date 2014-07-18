@@ -12,13 +12,13 @@
 \node[data_node] (n1387) at (2.630, -2.265) {\ml{real:}};
 \node[data_node] (n1383) at (1.270, -1.595) {\ml{real:}};
 
-\path[basic_edge] (n1386)  -- node[lab] {\ml{arg:0}} (n1384) ;
-\path[basic_edge] (n1386)  -- node[lab] {\ml{real:ge}} (n1388) ;
-\path[eraser_edge](n1382.south -| 1.270, -1.595) -- node[lab] {\ml{del:balance}} (n1383) ;
-\path[eraser_edge](n1381.east |- 2.630, -2.265) -- node[lab] {\ml{del:amount}} (n1387) ;
-\path[creator_edge](n1382.east |- 2.630, -0.825) -- node[lab] {\ml{new:balance}} (n1384) ;
-\path[basic_edge] (n1386)  -- node[lab] {\ml{arg:1}} (n1385) ;
 \path[basic_edge] (n1380)  -- node[lab] {\ml{arg:0}} (n1383) ;
-\path[basic_edge] (n1380)  -- node[lab] {\ml{real:sub}} (n1384) ;
 \path[basic_edge] (n1380)  -- node[lab] {\ml{arg:1}} (n1387) ;
+\path[eraser_edge](n1382.south -| 1.270, -1.595) -- node[lab] {\ml{del:balance}} (n1383) ;
+\path[basic_edge] (n1386)  -- node[lab] {\ml{arg:0}} (n1384) ;
+\path[basic_edge] (n1380)  -- node[lab] {\ml{real:sub}} (n1384) ;
+\path[creator_edge](n1382.east |- 2.630, -0.825) -- node[lab] {\ml{new:balance}} (n1384) ;
+\path[eraser_edge](n1381.east |- 2.630, -2.265) -- node[lab] {\ml{del:amount}} (n1387) ;
+\path[basic_edge] (n1386)  -- node[lab] {\ml{arg:1}} (n1385) ;
+\path[basic_edge] (n1386)  -- node[lab] {\ml{real:ge}} (n1388) ;
 \end{tikzpicture}

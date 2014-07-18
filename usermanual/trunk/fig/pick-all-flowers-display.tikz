@@ -7,8 +7,8 @@
 \node[basic_node] (n1780) at (1.775, -1.445) {\ml{\textbf{Plant}}};
 \node[nesting_node] (n1781) at (0.850, -1.425) {\ml{$\forall$}};
 
-\path[nesting_edge](n1780.west |- 0.850, -1.425) -- node[lab] {\ml{@}} (n1781) ;
 \path[nesting_edge] (n1778)  -- node[lab] {\ml{@}} (n1781) ;
-\path[basic_edge](n1779.north -| 1.775, -1.445) -- node[lab] {\ml{grows}} (n1780) ;
 \path[eraser_edge](n1780.north -| 1.770, -0.675) -- node[lab] {\ml{{\color{eraser_c}has}}} (n1778) ;
+\path[nesting_edge](n1780.west |- 0.850, -1.425) -- node[lab] {\ml{@}} (n1781) ;
+\path[basic_edge](n1779.north -| 1.775, -1.445) -- node[lab] {\ml{grows}} (n1780) ;
 \end{tikzpicture}

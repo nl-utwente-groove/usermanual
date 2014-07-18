@@ -48,14 +48,14 @@ the language.
 \item The smallest programming elements of a control program are the names of
   the rules in a grammar. Where such a name appears, only the named rule is scheduled.
 
-\item Special cases are the keywords \anyK{} and \otherK. Both
-  serve as a kind of wildcard over the available rules: \anyK{} executes
-  any rule in the rule system, whereas \otherK{} executes any rule that
-  does not explicitly appear in the control program. For instance, if the rule
-  system has rules \textsf{a}, \textsf{b} and \textsf{c}, then the control
-  program \textsf{a; \anyK; b; \otherK;} first only allows
-  \textsf{a} to be applied, then one of \textsf{a}, \textsf{b} or \textsf{c},
-  then \textsf{b}, and then \textsf{c}.
+\item Special cases are the so-called \emph{group calls} \anyK{} and
+  \otherK. Both serve as a kind of wildcard over the available rules: \anyK{}
+  executes any rule in the rule system, whereas \otherK{} executes any rule
+  that does not explicitly appear in the control program. For instance, if the
+  rule system has rules \textsf{a}, \textsf{b} and \textsf{c}, then the
+  control program \textsf{a; \anyK; b; \otherK;} first only allows \textsf{a}
+  to be applied, then one of \textsf{a}, \textsf{b} or \textsf{c}, then
+  \textsf{b}, and then \textsf{c}.
 
   \anyK and \otherK are only allowed if none of the actions to which they
   would apply have input-only parameters.
@@ -99,20 +99,16 @@ whereas the latter will continue trying \textsf{a} until it is no longer applica
   \textsf{$|$}-operator, except that it works on the level of statements rather
   than expressions.
 
-\item Functions can be fedined by the keyword \functionK, followed by the
-  function name, a pair of parentheses, and a function definition block. The
-  parentheses are there for a possible future extension with
-  parameters. Functions are called as expected; their semantics is defined by
-  inlining. This means that recursive functions are not supported.
+\item Procedures can be defined by the keyword \functionK or \recipeK,
+  followed by the procedure name, an argument list, and a block defining the
+  procedure body. See \seccite{procedures} below for more information.
 \end{itemize}
-%
-It is important to realise that control expressions are interpreted completely
-\emph{deterministically}. This means that \textsf{\choiceK{} \{a;b;\} \orK{}
-\{a;c;\}} has exactly the same meaning as \textsf{a; \choiceK{} \{b;\} \orK{}
-\{c;\}}.
 
 An example of a control program can be found in the \textsf{control.gps}
 grammar in the \GROOVE samples.
+
+\subsection{Packages and qualified names}
+\seclabel{packages}
 
 \subsection{Procedures: Functions and recipes}
 \seclabel{procedures}

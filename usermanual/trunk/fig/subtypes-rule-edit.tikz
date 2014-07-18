@@ -6,6 +6,6 @@
 \node[basic_node] (n2) at (1.300, -1.795) {\ml{type:C}};
 \node[basic_node] (n0) at (1.265, -1.075) {\ml{type:A}};
 
-\path[creator_edge](n0.south -| 1.300, -1.795) -- node[lab] {\ml{new:has}} (n2) ;
 \path[eraser_edge](n0.east |- 2.065, -1.065) -- node[lab] {\ml{del:next}} (n1) ;
+\path[creator_edge](n0.south -| 1.300, -1.795) -- node[lab] {\ml{new:has}} (n2) ;
 \end{tikzpicture}
