@@ -18,8 +18,8 @@ The \GROOVE tool set includes the following tools:
   model check rule systems visually;
 \item[Generator:] a command line tool that lets you simulate and model check
   rule systems without the performance penalty of the GUI;
-\item[ModelChecker:] a command line tool for CTL model checking;
-\item[PrologChecker:] a command line tool for executing Prolog queries on an explored grammar;
+%\item[ModelChecker:] a command line tool for CTL model checking;
+%\item[PrologChecker:] a command line tool for executing Prolog queries on an explored grammar;
 \item[Imager:] a command line or GUI tool that supports conversions from
   \GROOVE graphs and rules to other visual formats.
 \item[Viewer:] a stand-alone (GUI) viewer for \GROOVE graphs and rules.
@@ -59,7 +59,7 @@ There are some different packages available on the sourceforge site:
 }{
 \item \textsc{\libname}, for \libdescr. \\
   See \url{\liburl}%
-  \ifthenelse{\equal{\libversion}{}}{}{ (Version included: \libversion)}%
+  \ifthenelse{\equal{\libversion}{}}{}{ (version included: \libversion)}%
   .
 }
 \end{itemize}
@@ -67,7 +67,9 @@ There are some different packages available on the sourceforge site:
 \subsection{Installation}
 
 Since the entire \GROOVE tool is written in Java, getting it running is
-extremely easy.
+extremely easy. You need Java~\javaVersion\ to run the latest \GROOVE version (\grooveVersion).
+
+
 
 \medskip\noindent
 To use the \GROOVE tool set, download the bin+lib package from the download

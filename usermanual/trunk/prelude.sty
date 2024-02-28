@@ -1,6 +1,8 @@
 % We're in Europe
 \usepackage{a4}
 % Get some more space
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[headings]{fullpage} 
 \usepackage{latexsym}            % extra LaTeX 2.09 symbols
 \usepackage{pslatex}             % times font
@@ -19,7 +21,7 @@
 \usepackage{xspace}              
 \usepackage{multirow}
 % csv support
-\usepackage{datatool}            
+\usepackage[utf8]{datatool}            
 % our sing-and-dance graph drawer
 \usepackage{groove2tikz}
 % Float placement, in particular \FloatBarrier
@@ -30,8 +32,18 @@
 \usepackage{url}      
 % Underlining
 \usepackage[normalem]{ulem}      
+% Diacritics
+\usepackage[german]{babel}
+% Reading file content into macros
+\usepackage{catchfile}
 
-%%%%%%%%%%%%%%%%%%%%%%%% Layout and numbering %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Set the path to the GROOVE installation directory
+
+\CatchFileDef{\groovedir}{groovedir}{\endlinechar=-1}
+\CatchFileDef{\javaVersion}{\groovedir/src/main/resources/JAVA_VERSION}{\endlinechar=-1}
+\CatchFileDef{\grooveVersion}{\groovedir/src/main/resources/GROOVE_VERSION}{}{\endlinechar=-1}
+
+  %%%%%%%%%%%%%%%%%%%%%%%% Layout and numbering %%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{topnumber}{2}
 \setcounter{bottomnumber}{1}
@@ -106,7 +118,7 @@
 % Equations
 \newcommand{\eqprf}{eq}
 \newcommand{\eqlabel}[1]{\label{\eqprf:#1}}
-\newcommand{\eqref}[1]{\ref{\eqprf:#1}}
+\renewcommand{\eqref}[1]{\ref{\eqprf:#1}}
 \newcommand{\eqcite}[1]{$(\eqref{#1})$}
 % Examples
 \newcommand{\exprf}{ex}
@@ -217,8 +229,6 @@
 \newcommand{\sub}[1]{\set{#1}}
 % Syntactic mapping of $a$ to $u$: $\mt{a}{u}$
 \newcommand{\mt}[2]{{#2}/{#1}}
-% Syntactic substitution of $a$ by $u$: $\sb{a}{u}$
-\renewcommand{\sb}[2]{\sub{\mt{#1}{#2}}}
 
 % Left arrow head
 \DeclareMathSymbol{\leftarrowhead}{\mathord}{AMSa}{"4C}
@@ -530,14 +540,14 @@
 \newcommand{\xleftnoend}[1][]{\mathrel-_{\vphantom{#1}}\mkern-11mu}
 \newcommand{\xLeftnoend}[1][]{\mathrel=_{\vphantom{#1}}\mkern-8mu}
 % left segment of extensible arrow,arrow head
-\newcommand{\xleftarrow}[1][]{\leftarrow_{\vphantom{#1}}\mkern-11mu}
+\renewcommand{\xleftarrow}[1][]{\leftarrow_{\vphantom{#1}}\mkern-11mu}
 % middle segment of extensible arrow
 \newcommand{\xmid}[2][]{\stackrel{#2}{\linefill_{\vphantom{#1}}}}
 \newcommand{\xMid}[2][]{\stackrel{#2}{\Linefill_{\vphantom{#1}}}}
 % right segment of extensible arrow, no ending
 \newcommand{\xrightnoend}[1][]{\mkern-11mu\mathrel-_{#1}}
 % right segment of extensible arrow, arrow head
-\newcommand{\xrightarrow}[1][]{\mkern-11mu\rightarrow_{#1}}
+\renewcommand{\xrightarrow}[1][]{\mkern-11mu\rightarrow_{#1}}
 \newcommand{\xRightarrow}[1][]{\mkern-8mu\Rightarrow_{#1}}
 % make arrow symbol
 \newcommand{\xmake}[1]{\mathrel{\lower1pt\hbox{$#1$}}}
